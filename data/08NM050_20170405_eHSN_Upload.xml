@@ -1,0 +1,416 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="WSC_EHSN.xsml"?>
+<EHSN version="v1.2.1.1">
+	<TitleHeader>
+		<enteredInHWS>True</enteredInHWS>
+	</TitleHeader>
+	<GenInfo>
+		<station number="08NM050">OKANAGAN RIVER AT PENTICTON</station>
+		<date timezone="PST">2017/04/05</date>
+	</GenInfo>
+	<StageMeas>
+		<HgCkbox>False</HgCkbox>
+		<Hg2Ckbox>False</Hg2Ckbox>
+		<Wlr1Ckbox>True</Wlr1Ckbox>
+		<Wlr2Ckbox>False</Wlr2Ckbox>
+		<HG1Header/>
+		<HG2Header/>
+		<WL1Header>**BM 9</WL1Header>
+		<WL2Header>ETG</WL2Header>
+		<StageMeasTable>
+			<StageMeasRow row="0">
+				<time>16:15</time>
+				<HG1>2.039</HG1>
+				<HG2/>
+				<WL1>2.048</WL1>
+				<WL2>2.032</WL2>
+				<SRC>0.009</SRC>
+				<SRCApp>No Reset (NR)</SRCApp>
+				<MghCkbox>True</MghCkbox>
+			</StageMeasRow>
+			<StageMeasRow row="1">
+				<time>17:05</time>
+				<HG1>2.037</HG1>
+				<HG2/>
+				<WL1>2.046</WL1>
+				<WL2>2.031</WL2>
+				<SRC>0.009</SRC>
+				<SRCApp>No Reset (NR)</SRCApp>
+				<MghCkbox>True</MghCkbox>
+			</StageMeasRow>
+		</StageMeasTable>
+		<hgCkbox>False</hgCkbox>
+		<hg2Ckbox>False</hg2Ckbox>
+		<wlr1Ckbox>True</wlr1Ckbox>
+		<wlr2Ckbox>False</wlr2Ckbox>
+		<MGHHG1/>
+		<MGHHG2/>
+		<MGHWL1>2.047</MGHWL1>
+		<MGHWL2/>
+		<SRCHG1/>
+		<SRCHG2/>
+		<GCHG1/>
+		<GCHG2/>
+		<GCWL1>0.000</GCWL1>
+		<GCWL2/>
+		<CMGHHG1/>
+		<CMGHHG2/>
+		<CMGHWL1>2.047</CMGHWL1>
+		<CMGHWL2/>
+		<MghMethod>Average</MghMethod>
+		<Factors/>
+	</StageMeas>
+	<DisMeas>
+		<startTime>16:50</startTime>
+		<endTime>17:00</endTime>
+		<airTemp>6.6</airTemp>
+		<waterTemp>5.7</waterTemp>
+		<width>29.4</width>
+		<area>33.7</area>
+		<meanVel>0.707</meanVel>
+		<mgh>2.047</mgh>
+		<mghCmbo>2.047  (WLR1)</mghCmbo>
+		<discharge>23.9</discharge>
+		<mmtTimeVal>16:55</mmtTimeVal>
+		<shift>0.000311</shift>
+		<diff>0.0538</diff>
+		<curve>18.000</curve>
+	</DisMeas>
+	<EnvCond>
+		<levels>DWL FROM BM 9</levels>
+		<cloudCover>Cloudy</cloudCover>
+		<precipitation>Light Rain</precipitation>
+		<windMagnitude/>
+		<windMagnitudeSpeed/>
+		<windDirection/>
+		<batteryVolt/>
+		<gasSys/>
+		<feed/>
+		<bpmRotChoice/>
+		<bpmRot/>
+		<intakeFlushed>False</intakeFlushed>
+		<intakeTime>00:00</intakeTime>
+		<orificeTime>00:00</orificeTime>
+		<orificePurged>False</orificePurged>
+		<downloadedProgram>False</downloadedProgram>
+		<downloadedData>False</downloadedData>
+		<dataPeriodStart>2017/04/05</dataPeriodStart>
+		<dataPeriodEnd>2017/04/05</dataPeriodEnd>
+	</EnvCond>
+	<MeasResults empty="True">
+		<SensorRefs/>
+		<HourMinutes/>
+		<Times/>
+		<ObservedVals/>
+		<SensorVals/>
+		<loggerTimeTable>
+			<loggerTimeCol1/>
+			<loggerTimeRemark1/>
+			<Hour7/>
+			<Minute7/>
+			<Hour9/>
+			<Minute9/>
+			<Time7/>
+			<Time9/>
+			<loggerTimeCol2/>
+			<loggerTimeRemark2/>
+			<Hour8/>
+			<Minute8/>
+			<Hour10/>
+			<Minute10/>
+			<Time8/>
+			<Time10/>
+		</loggerTimeTable>
+	</MeasResults>
+	<InstrumentDeployment>
+		<GeneralInfo>
+			<methodType>ADCP by Moving Boat</methodType>
+			<deployment>Tethered Bridge Downstream</deployment>
+			<position>BTM</position>
+			<instrument>ADCP</instrument>
+			<serialNum>4410</serialNum>
+			<gauge1/>
+			<length>0</length>
+			<gaugePos>0</gaugePos>
+			<selectedGauge>gauge</selectedGauge>
+			<frequency>multi</frequency>
+			<firmware>3.8</firmware>
+			<software>4.0</software>
+			<manufacturer>SonTek</manufacturer>
+			<model>M9</model>
+		</GeneralInfo>
+		<MidsectionInfo empty="True">
+			<panelsNum/>
+			<flowAngle/>
+			<coeff/>
+			<method/>
+			<metres/>
+			<weight/>
+			<kglbs>0</kglbs>
+			<weightRadBut1>False</weightRadBut1>
+			<weightRadBut2>True</weightRadBut2>
+		</MidsectionInfo>
+		<ADCPInfo empty="False">
+			<configChoice>Auto</configChoice>
+			<configVal/>
+			<ADCPSetToClock>True</ADCPSetToClock>
+			<diagnosticTest>True</diagnosticTest>
+			<depth>0.090</depth>
+			<magDecl>15.7</magDecl>
+			<compassCali>True</compassCali>
+			<passedRev>True</passedRev>
+		</ADCPInfo>
+		<Control>
+			<condition>Clear</condition>
+			<dischargeRemark/>
+			<stageRemark>Control clear. There is an Orifice line installed. Just need to add nitrogen system or water log. The orifice line is on top of walking trail. Would be a good idea to dig it in. Hard pack ground, may need mini excavator. No download.</stageRemark>
+			<stationHealthRemark/>
+			<pictured>False</pictured>
+		</Control>
+	</InstrumentDeployment>
+	<PartyInfo>
+		<party>JW</party>
+		<completed>JW</completed>
+		<checked/>
+		<reviewed>True</reviewed>
+	</PartyInfo>
+	<LevelNotes>
+		<LevelChecks>
+			<LevelChecksTable run="0">
+				<LevelChecksRow row="0">
+					<station>**BM 9</station>
+					<backsight>2.272</backsight>
+					<htInst>5.272</htInst>
+					<foresight/>
+					<elevation>3.0</elevation>
+					<establish>3.0</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="1">
+					<station>RP1</station>
+					<backsight>3.306</backsight>
+					<htInst>5.262</htInst>
+					<foresight>3.316</foresight>
+					<elevation>1.956</elevation>
+					<establish/>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="2">
+					<station>**BM 9</station>
+					<backsight/>
+					<htInst/>
+					<foresight>2.262</foresight>
+					<elevation>3.000</elevation>
+					<establish>3.0</establish>
+					<comments/>
+				</LevelChecksRow>
+				<closure>0.0</closure>
+			</LevelChecksTable>
+			<LevelChecksSummaryTable>
+				<SummaryTableRow row="0">
+					<time>16:15</time>
+					<reference>**BM 9</reference>
+					<waterLevel>1.956</waterLevel>
+					<dist>0.092</dist>
+					<surge/>
+					<wlElev>2.048</wlElev>
+					<datum>0.000</datum>
+					<cwl>2.048</cwl>
+					<loggerReading>2.039</loggerReading>
+					<loggerReading2/>
+				</SummaryTableRow>
+				<SummaryTableRow row="1">
+					<time>17:05</time>
+					<reference>**BM 9</reference>
+					<waterLevel>1.956</waterLevel>
+					<dist>0.090</dist>
+					<surge/>
+					<wlElev>2.046</wlElev>
+					<datum>0.000</datum>
+					<cwl>2.046</cwl>
+					<loggerReading>2.037</loggerReading>
+					<loggerReading2/>
+				</SummaryTableRow>
+			</LevelChecksSummaryTable>
+			<comments/>
+			<loggerName/>
+			<loggerName2/>
+		</LevelChecks>
+	</LevelNotes>
+	<FieldReview>
+		<pass>True</pass>
+		<dependencyType>ADCP by Moving Boat</dependencyType>
+		<midsectionType>ADCP</midsectionType>
+		<FieldReviewTable>
+			<FieldReviewTableRow row="0">
+				<label>Passed All Initial QA/QC?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="1">
+				<label>Software Input Same as Notes*?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="2">
+				<label>Difference in ADCP and Water T &lt; 2°C?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="3">
+				<label>Smooth Ship Track?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="4">
+				<label>Boat Speed &lt; Water Speed?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="5">
+				<label>Pitch, Roll &lt; 5°?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="6">
+				<label>No Ambiguity Velocity?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="7">
+				<label>Good Differential GPS Quality?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="8">
+				<label>Bed Contours as Expected for Site?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="9">
+				<label>Measured Q &gt; 50%?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="10">
+				<label>Missing Data &lt; 10%</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="11">
+				<label>Missing Data Distributed?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="12">
+				<label>Proper Edge Measurement Method?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="13">
+				<label>Each Edge &lt; 5% of Total Q?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="14">
+				<label>Velocity Profile Checked with extrap?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="15">
+				<label>Reciprocal Pairs?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="16">
+				<label>Moving Bed Corrected If Any?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="17">
+				<label>Directional Bias &lt; 5%?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="18">
+				<label>Total Exposure &gt; 720s?</label>
+				<checked>False</checked>
+				<reviewed>False</reviewed>
+				<text>4 good transects</text>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="19">
+				<label>Standard Deviation/Mean &lt; 5%?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+		</FieldReviewTable>
+		<siteNotes/>
+	</FieldReview>
+	<MovingBoatMeas empty="True">
+		<bedMaterial/>
+		<mbTest>False</mbTest>
+		<mbTestChoice/>
+		<detected/>
+		<trackRefChoice/>
+		<leftBankChoice/>
+		<leftBank/>
+		<rightBankChoice/>
+		<rightBank/>
+		<edgeDistMmntMethod/>
+		<compositeTrackCmbo/>
+		<depthRefCmbo/>
+		<velocityTopCombo/>
+		<velocityBottomCombo/>
+		<velocityExponentCtrl/>
+		<differenceCtrl/>
+		<ADCPMeasTable/>
+		<ADCPMeasResults>
+			<mmntStartTime>::</mmntStartTime>
+			<mmntEndTime>::</mmntEndTime>
+			<mmntMeanTime>::</mmntMeanTime>
+			<rawDischargeMean/>
+			<mbCorrectionApplied/>
+			<finalDischargeMean/>
+			<correctedMeanGaugeHeight>2.047</correctedMeanGaugeHeight>
+			<baseCurveGaugeHeight>2.047</baseCurveGaugeHeight>
+			<calcBaseCurveDischarge>23.887</calcBaseCurveDischarge>
+			<standardDevMeanDischarge/>
+			<calculateShiftforBaseCurve>0.000311</calculateShiftforBaseCurve>
+			<dischargeDifferenceBaseCurve>0.0538</dischargeDifferenceBaseCurve>
+			<comments/>
+		</ADCPMeasResults>
+	</MovingBoatMeas>
+	<MidsecMeas empty="True">
+		<meterNum/>
+		<meterEquation/>
+		<calibDate/>
+		<totalDischarge/>
+		<MidsecMeasTable/>
+	</MidsecMeas>
+	<AQ_Upload_Record>
+		<record>
+			<status>Successful</status>
+			<time>2017-04-07 09:01:29.826000</time>
+			<user>jesse.wilcott</user>
+		</record>
+	</AQ_Upload_Record>
+</EHSN>

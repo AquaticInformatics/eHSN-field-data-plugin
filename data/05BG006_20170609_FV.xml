@@ -1,0 +1,596 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="WSC_EHSN.xsml"?>
+<EHSN version="v1.2.3">
+	<TitleHeader>
+		<enteredInHWS>True</enteredInHWS>
+	</TitleHeader>
+	<GenInfo>
+		<station number="05BG006">WAIPAROUS CREEK NEAR THE MOUTH</station>
+		<date timezone="MST">2017/06/09</date>
+	</GenInfo>
+	<StageMeas>
+		<HgCkbox>True</HgCkbox>
+		<Hg2Ckbox>False</Hg2Ckbox>
+		<Wlr1Ckbox>False</Wlr1Ckbox>
+		<Wlr2Ckbox>False</Wlr2Ckbox>
+		<HG1Header>FTS</HG1Header>
+		<HG2Header/>
+		<WL1Header>**S.I.B.M. #1</WL1Header>
+		<WL2Header/>
+		<StageMeasTable>
+			<StageMeasRow row="0">
+				<time>14:35</time>
+				<HG1>1.110</HG1>
+				<HG2/>
+				<WL1>1.112</WL1>
+				<WL2/>
+				<SRC>0.002</SRC>
+				<SRCApp>Flushed (FL)</SRCApp>
+				<MghCkbox>False</MghCkbox>
+			</StageMeasRow>
+			<StageMeasRow row="1">
+				<time>15:05</time>
+				<HG1>1.104</HG1>
+				<HG2/>
+				<WL1/>
+				<WL2/>
+				<SRC/>
+				<SRCApp/>
+				<MghCkbox>True</MghCkbox>
+			</StageMeasRow>
+			<StageMeasRow row="2">
+				<time>15:10</time>
+				<HG1>1.099</HG1>
+				<HG2/>
+				<WL1/>
+				<WL2/>
+				<SRC/>
+				<SRCApp/>
+				<MghCkbox>True</MghCkbox>
+			</StageMeasRow>
+			<StageMeasRow row="3">
+				<time>15:15</time>
+				<HG1>1.101</HG1>
+				<HG2/>
+				<WL1/>
+				<WL2/>
+				<SRC/>
+				<SRCApp/>
+				<MghCkbox>True</MghCkbox>
+			</StageMeasRow>
+			<StageMeasRow row="4">
+				<time>15:20</time>
+				<HG1>1.100</HG1>
+				<HG2/>
+				<WL1/>
+				<WL2/>
+				<SRC/>
+				<SRCApp/>
+				<MghCkbox>True</MghCkbox>
+			</StageMeasRow>
+		</StageMeasTable>
+		<hgCkbox>True</hgCkbox>
+		<hg2Ckbox>False</hg2Ckbox>
+		<wlr1Ckbox>False</wlr1Ckbox>
+		<wlr2Ckbox>False</wlr2Ckbox>
+		<MGHHG1>1.101</MGHHG1>
+		<MGHHG2/>
+		<MGHWL1/>
+		<MGHWL2/>
+		<SRCHG1>0.002</SRCHG1>
+		<SRCHG2/>
+		<GCHG1>0.000</GCHG1>
+		<GCHG2/>
+		<GCWL1/>
+		<GCWL2/>
+		<CMGHHG1>1.103</CMGHHG1>
+		<CMGHHG2/>
+		<CMGHWL1/>
+		<CMGHWL2/>
+		<MghMethod>Average</MghMethod>
+		<Factors/>
+	</StageMeas>
+	<DisMeas>
+		<startTime>15:04</startTime>
+		<endTime>15:20</endTime>
+		<airTemp>24.0</airTemp>
+		<waterTemp>14.0</waterTemp>
+		<width>11.6</width>
+		<area>6.58</area>
+		<meanVel>1.39</meanVel>
+		<mgh>1.103</mgh>
+		<mghCmbo>1.103  (HG)</mghCmbo>
+		<discharge>8.97</discharge>
+		<mmtTimeVal>15:12</mmtTimeVal>
+		<shift>0.0594</shift>
+		<diff>23.4</diff>
+		<curve>14.000</curve>
+	</DisMeas>
+	<EnvCond>
+		<levels>DWL from **S.I.B.M. #1</levels>
+		<cloudCover>Clear</cloudCover>
+		<precipitation>No Precipitation</precipitation>
+		<windMagnitude>Calm Wind</windMagnitude>
+		<windMagnitudeSpeed/>
+		<windDirection/>
+		<batteryVolt>13.7</batteryVolt>
+		<gasSys/>
+		<feed/>
+		<bpmRotChoice/>
+		<bpmRot/>
+		<intakeFlushed>False</intakeFlushed>
+		<intakeTime>00:00</intakeTime>
+		<orificeTime>00:00</orificeTime>
+		<orificePurged>False</orificePurged>
+		<downloadedProgram>False</downloadedProgram>
+		<downloadedData>True</downloadedData>
+		<dataPeriodStart>2017/04/26</dataPeriodStart>
+		<dataPeriodEnd>2017/06/09</dataPeriodEnd>
+	</EnvCond>
+	<MeasResults empty="False">
+		<SensorRefs>
+			<SensorRef row="1">Head Stage (m)</SensorRef>
+		</SensorRefs>
+		<HourMinutes>
+			<Hour row="1">15</Hour>
+			<Minute row="1">28</Minute>
+		</HourMinutes>
+		<Times>
+			<Time row="1">15:28</Time>
+		</Times>
+		<ObservedVals>
+			<ObservedVal row="1"/>
+		</ObservedVals>
+		<SensorVals>
+			<SensorVal row="1">0.813</SensorVal>
+		</SensorVals>
+		<loggerTimeTable>
+			<loggerTimeCol1/>
+			<loggerTimeRemark1/>
+			<Hour7/>
+			<Minute7/>
+			<Hour9/>
+			<Minute9/>
+			<Time7/>
+			<Time9/>
+			<loggerTimeCol2/>
+			<loggerTimeRemark2/>
+			<Hour8/>
+			<Minute8/>
+			<Hour10/>
+			<Minute10/>
+			<Time8/>
+			<Time10/>
+		</loggerTimeTable>
+	</MeasResults>
+	<InstrumentDeployment>
+		<GeneralInfo>
+			<methodType>ADCP by Moving Boat</methodType>
+			<deployment>Tethered Cableway</deployment>
+			<position>Rangefinder </position>
+			<instrument>ADCP</instrument>
+			<serialNum>4883</serialNum>
+			<gauge1>5.00</gauge1>
+			<length>0</length>
+			<gaugePos>1</gaugePos>
+			<selectedGauge>gauge</selectedGauge>
+			<frequency>&quot;3000kHz/ 1000 kHz</frequency>
+			<firmware>3.92</firmware>
+			<software>RSL 4.0</software>
+			<manufacturer>SonTek</manufacturer>
+			<model>M9</model>
+		</GeneralInfo>
+		<MidsectionInfo empty="True">
+			<panelsNum/>
+			<flowAngle/>
+			<coeff/>
+			<method/>
+			<metres/>
+			<weight/>
+			<kglbs>0</kglbs>
+			<weightRadBut1>False</weightRadBut1>
+			<weightRadBut2>True</weightRadBut2>
+		</MidsectionInfo>
+		<ADCPInfo empty="False">
+			<configChoice>Auto</configChoice>
+			<configVal>2-10 cm</configVal>
+			<ADCPSetToClock>True</ADCPSetToClock>
+			<diagnosticTest>True</diagnosticTest>
+			<depth>0.060</depth>
+			<magDecl>14.5</magDecl>
+			<compassCali>True</compassCali>
+			<passedRev>True</passedRev>
+		</ADCPInfo>
+		<Control>
+			<condition>Clear</condition>
+			<dischargeRemark>Channel clear
+QREV uncertainty = 9%, fair mmt. Best possible under conditions
+Lots of standing waves mad mmt challenging, see field review
+Temp clothsline setup for mmt</dischargeRemark>
+			<stageRemark>Turbid water</stageRemark>
+			<stationHealthRemark/>
+			<pictured>True</pictured>
+		</Control>
+	</InstrumentDeployment>
+	<PartyInfo>
+		<party>Bishop </party>
+		<completed>Bishop </completed>
+		<checked/>
+		<reviewed>True</reviewed>
+	</PartyInfo>
+	<LevelNotes>
+		<LevelChecks>
+			<LevelChecksTable run="0">
+				<LevelChecksRow row="0">
+					<station>**S.I.B.M. #1</station>
+					<backsight>1.262</backsight>
+					<htInst>1259.995</htInst>
+					<foresight/>
+					<elevation>1258.733</elevation>
+					<establish>1258.733</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="1">
+					<station>TP1</station>
+					<backsight>2.900</backsight>
+					<htInst>1259.945</htInst>
+					<foresight>2.950</foresight>
+					<elevation>1257.045</elevation>
+					<establish/>
+					<comments>Rod in water @ orifice</comments>
+				</LevelChecksRow>
+				<LevelChecksRow row="2">
+					<station>**S.I.B.M. #1</station>
+					<backsight/>
+					<htInst/>
+					<foresight>1.210</foresight>
+					<elevation>1258.735</elevation>
+					<establish>1258.733</establish>
+					<comments/>
+				</LevelChecksRow>
+				<closure>0.002</closure>
+			</LevelChecksTable>
+			<LevelChecksSummaryTable>
+				<SummaryTableRow row="0">
+					<time>14:35</time>
+					<reference>**S.I.B.M. #1</reference>
+					<waterLevel>1257.045</waterLevel>
+					<dist>0.310</dist>
+					<surge/>
+					<wlElev>1257.355</wlElev>
+					<datum>1256.243</datum>
+					<cwl>1.112</cwl>
+					<loggerReading>1.110</loggerReading>
+					<loggerReading2/>
+				</SummaryTableRow>
+			</LevelChecksSummaryTable>
+			<comments/>
+			<loggerName>FTS</loggerName>
+			<loggerName2/>
+		</LevelChecks>
+	</LevelNotes>
+	<FieldReview>
+		<pass>True</pass>
+		<dependencyType>ADCP by Moving Boat</dependencyType>
+		<midsectionType>ADCP</midsectionType>
+		<FieldReviewTable>
+			<FieldReviewTableRow row="0">
+				<label>Passed All Initial QA/QC?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="1">
+				<label>Software Input Same as Notes*?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="2">
+				<label>Difference in ADCP and Water T &lt; 2°C?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="3">
+				<label>Smooth Ship Track?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text>as smooth as can be expected with very turbulent section</text>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="4">
+				<label>Boat Speed &lt; Water Speed?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="5">
+				<label>Pitch, Roll &lt; 5°?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text>high but within calibration limits</text>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="6">
+				<label>No Ambiguity Velocity?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="7">
+				<label>Good Differential GPS Quality?</label>
+				<checked>False</checked>
+				<reviewed>False</reviewed>
+				<text>quality 1, no base station</text>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="8">
+				<label>Bed Contours as Expected for Site?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text>Some profiles show shallow section mid channel, which is from boat being sucked under water in standing wave</text>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="9">
+				<label>Measured Q &gt; 50%?</label>
+				<checked>False</checked>
+				<reviewed>False</reviewed>
+				<text>40%, low depths, standing waves, best possible sections</text>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="10">
+				<label>Missing Data &lt; 10%</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text>2% invalid cells, 7% invalid ens</text>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="11">
+				<label>Missing Data Distributed?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="12">
+				<label>Proper Edge Measurement Method?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text>Rangefinder</text>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="13">
+				<label>Each Edge &lt; 5% of Total Q?</label>
+				<checked>False</checked>
+				<reviewed>False</reviewed>
+				<text>left 7%, right 3%</text>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="14">
+				<label>Velocity Profile Checked with extrap?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text>So sig. corr. reccomended</text>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="15">
+				<label>Reciprocal Pairs?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="16">
+				<label>Moving Bed Corrected If Any?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text>RSL indicated no moving bed, QREV indicated moving bed, BT not referenced</text>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="17">
+				<label>Directional Bias &lt; 5%?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="18">
+				<label>Total Exposure &gt; 720s?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text>962</text>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="19">
+				<label>Standard Deviation/Mean &lt; 5%?</label>
+				<checked>False</checked>
+				<reviewed>False</reviewed>
+				<text>10%</text>
+			</FieldReviewTableRow>
+		</FieldReviewTable>
+		<siteNotes>QREV uncertainty = 9%, fair mmt. Best possible under conditions
+Very difficult site, large standing waves and turbulent water with low depths. Clothsline set up at most ideal site within vicinity of bridge to allow stringing of tagline.
+1/3 SMBA tests done, RSL indicated no moving bed but QREV incidiates moving bed. 
+Unable to close loop due to bad BT, SMBA bad BT also very high (44%). BT not referenced VTG used
+Variable river surface due to waved caused potential bad depth profiles
+Changing magnetic interference during mmt (exceeds 2%)
+Lots of missing data from air entrapment from waves or loss of 2 good cells
+Some edges have high Q% or zero discharge from not enough good bins, waves made it difficult to get consistent good bins</siteNotes>
+	</FieldReview>
+	<MovingBoatMeas empty="False">
+		<bedMaterial>Cobble</bedMaterial>
+		<mbTest>True</mbTest>
+		<mbTestChoice>Stationary</mbTestChoice>
+		<detected>1.460</detected>
+		<trackRefChoice>VTG</trackRefChoice>
+		<leftBankChoice>Sloping (0.3535)</leftBankChoice>
+		<leftBank/>
+		<rightBankChoice>Sloping (0.3535)</rightBankChoice>
+		<rightBank/>
+		<edgeDistMmntMethod>Rangefinder</edgeDistMmntMethod>
+		<compositeTrackCmbo>Off</compositeTrackCmbo>
+		<depthRefCmbo>Bottom Track</depthRefCmbo>
+		<velocityTopCombo>Power</velocityTopCombo>
+		<velocityBottomCombo>Power</velocityBottomCombo>
+		<velocityExponentCtrl>0.1667</velocityExponentCtrl>
+		<differenceCtrl>0.21</differenceCtrl>
+		<ADCPMeasTable>
+			<ADCPMeasRow row="0">
+				<checkbox>True</checkbox>
+				<transectID color="White">1</transectID>
+				<startBank>R</startBank>
+				<startTime>14:54:10</startTime>
+				<startDistance color="White">1.50</startDistance>
+				<endDistance color="White">2.00</endDistance>
+				<rawDischarge color="White">8.895</rawDischarge>
+				<remarks color="White"/>
+			</ADCPMeasRow>
+			<ADCPMeasRow row="1">
+				<checkbox>True</checkbox>
+				<transectID color="White">2</transectID>
+				<startBank>L</startBank>
+				<startTime>14:59:41</startTime>
+				<startDistance color="White">2.00</startDistance>
+				<endDistance color="White">1.50</endDistance>
+				<rawDischarge color="White">8.419</rawDischarge>
+				<remarks color="White"/>
+			</ADCPMeasRow>
+			<ADCPMeasRow row="2">
+				<checkbox>True</checkbox>
+				<transectID color="White">3</transectID>
+				<startBank>R</startBank>
+				<startTime>15:02:04</startTime>
+				<startDistance color="White">1.50</startDistance>
+				<endDistance color="White">2.00</endDistance>
+				<rawDischarge color="White">9.026</rawDischarge>
+				<remarks color="White"/>
+			</ADCPMeasRow>
+			<ADCPMeasRow row="3">
+				<checkbox>True</checkbox>
+				<transectID color="White">4</transectID>
+				<startBank>L</startBank>
+				<startTime>15:04:11</startTime>
+				<startDistance color="White">2.00</startDistance>
+				<endDistance color="White">1.50</endDistance>
+				<rawDischarge color="White">9.087</rawDischarge>
+				<remarks color="White"/>
+			</ADCPMeasRow>
+			<ADCPMeasRow row="4">
+				<checkbox>True</checkbox>
+				<transectID color="White">5</transectID>
+				<startBank>R</startBank>
+				<startTime>15:04:49</startTime>
+				<startDistance color="White">1.50</startDistance>
+				<endDistance color="White">2.00</endDistance>
+				<rawDischarge color="White">9.760</rawDischarge>
+				<remarks color="White"/>
+			</ADCPMeasRow>
+			<ADCPMeasRow row="5">
+				<checkbox>True</checkbox>
+				<transectID color="White">6</transectID>
+				<startBank>L</startBank>
+				<startTime>15:09:00</startTime>
+				<startDistance color="White">2.00</startDistance>
+				<endDistance color="White">1.50</endDistance>
+				<rawDischarge color="White">8.230</rawDischarge>
+				<remarks color="White"/>
+			</ADCPMeasRow>
+			<ADCPMeasRow row="6">
+				<checkbox>True</checkbox>
+				<transectID color="White">7</transectID>
+				<startBank>R</startBank>
+				<startTime>15:10:22</startTime>
+				<startDistance color="White">1.50</startDistance>
+				<endDistance color="White">2.00</endDistance>
+				<rawDischarge color="White">8.885</rawDischarge>
+				<remarks color="White"/>
+			</ADCPMeasRow>
+			<ADCPMeasRow row="7">
+				<checkbox>True</checkbox>
+				<transectID color="White">8</transectID>
+				<startBank>L</startBank>
+				<startTime>15:11:42</startTime>
+				<startDistance color="White">2.00</startDistance>
+				<endDistance color="White">1.50</endDistance>
+				<rawDischarge color="White">9.199</rawDischarge>
+				<remarks color="White"/>
+			</ADCPMeasRow>
+			<ADCPMeasRow row="8">
+				<checkbox>True</checkbox>
+				<transectID color="White">9</transectID>
+				<startBank>None</startBank>
+				<startTime>15:13:44</startTime>
+				<startDistance color="White">1.50</startDistance>
+				<endDistance color="White">2.00</endDistance>
+				<rawDischarge color="White">9.221</rawDischarge>
+				<remarks color="White"/>
+			</ADCPMeasRow>
+			<ADCPMeasRow row="9">
+				<checkbox>False</checkbox>
+				<transectID color="White">10</transectID>
+				<startBank>L</startBank>
+				<startTime>15:15:03</startTime>
+				<startDistance color="White">2.00</startDistance>
+				<endDistance color="White">1.50</endDistance>
+				<rawDischarge color="White">7.943</rawDischarge>
+				<remarks color="White">DR - bad area from boat being sucked in standing wave</remarks>
+			</ADCPMeasRow>
+			<ADCPMeasRow row="10">
+				<checkbox>False</checkbox>
+				<transectID color="White">11</transectID>
+				<startBank>R</startBank>
+				<startTime>15:16:58</startTime>
+				<startDistance color="White">1.50</startDistance>
+				<endDistance color="White">2.00</endDistance>
+				<rawDischarge color="White">7.030</rawDischarge>
+				<remarks color="White">DR - bad edge estimate, differing width</remarks>
+			</ADCPMeasRow>
+			<ADCPMeasRow row="11">
+				<checkbox>True</checkbox>
+				<transectID color="White">12</transectID>
+				<startBank>L</startBank>
+				<startTime>15:20:15</startTime>
+				<startDistance color="White">2.00</startDistance>
+				<endDistance color="White">1.50</endDistance>
+				<rawDischarge color="White">8.962</rawDischarge>
+				<remarks color="White"/>
+			</ADCPMeasRow>
+		</ADCPMeasTable>
+		<ADCPMeasResults>
+			<mmntStartTime>14:54:10</mmntStartTime>
+			<mmntEndTime>::</mmntEndTime>
+			<mmntMeanTime>::</mmntMeanTime>
+			<rawDischargeMean>8.968</rawDischargeMean>
+			<mbCorrectionApplied>0.000</mbCorrectionApplied>
+			<finalDischargeMean>8.968</finalDischargeMean>
+			<correctedMeanGaugeHeight>1.103</correctedMeanGaugeHeight>
+			<baseCurveGaugeHeight>1.162</baseCurveGaugeHeight>
+			<calcBaseCurveDischarge>7.269</calcBaseCurveDischarge>
+			<standardDevMeanDischarge/>
+			<calculateShiftforBaseCurve>0.0594</calculateShiftforBaseCurve>
+			<dischargeDifferenceBaseCurve>23.4</dischargeDifferenceBaseCurve>
+			<comments/>
+		</ADCPMeasResults>
+	</MovingBoatMeas>
+	<MidsecMeas empty="False">
+		<MidsectionInfo empty="True">
+			<startTimeCtrl>:</startTimeCtrl>
+			<endTimeCtrl>:</endTimeCtrl>
+			<measureSectionCtrl/>
+			<deployMethodCtrl/>
+			<meter1MeterNoCtrl/>
+			<meter1SlopeCtrl1/>
+			<meter1InterceptCtrl1/>
+			<meter1SlopeCtrl2/>
+			<meter1InterceptCtrl2/>
+			<meter1CalibDateCtrl/>
+			<meter2MeterNoCtrl/>
+			<meter2SlopeCtrl1/>
+			<meter2InterceptCtrl1/>
+			<meter2SlopeCtrl2/>
+			<meter2InterceptCtrl2/>
+			<meter2CalibDateCtrl/>
+			<numOfPanelCtrl/>
+			<widthCtrl/>
+			<areaCtrl/>
+			<avgDepthCtrl/>
+			<avgVelCtrl/>
+			<totalDisCtrl/>
+			<uncertaintyCtrl/>
+		</MidsectionInfo>
+	</MidsecMeas>
+	<AQ_Upload_Record>
+		<record>
+			<status>Successful</status>
+			<time>2017-06-12 10:23:13.453000</time>
+			<user>zachary.bishop</user>
+		</record>
+	</AQ_Upload_Record>
+</EHSN>
