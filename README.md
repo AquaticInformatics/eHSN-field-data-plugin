@@ -6,6 +6,7 @@ An AQTS field data plugin supporting eHSN (electronic Hydrometric Station Notes)
 
 - Requires Visual Studio 2017 (Community Edition is fine)
 - .NET 4.7 runtime
+- Powershell 5+ [download it here](https://www.microsoft.com/en-us/download/details.aspx?id=54616) or install [via Chocolatey](https://chocolatey.org/packages/PowerShell): `choco install PowerShell`
 
 ## Building the plugin
 

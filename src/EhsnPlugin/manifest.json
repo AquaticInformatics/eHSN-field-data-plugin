@@ -1,0 +1,5 @@
+﻿{
+  "PluginFolderName": "eHSNPlugin",
+  "Description": "Imports eHSN XML files into AQTS field visits",
+  "AssemblyQualifiedTypeName": "EhsnPlugin.Plugin, EhsnPlugin"
+}
