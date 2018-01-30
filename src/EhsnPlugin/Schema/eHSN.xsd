@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="EHSN">
+    <xs:complexType>
+      <xs:sequence>
+          <xs:element name="TitleHeader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="enteredInHWS" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="GenInfo">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="station">
+                  <xs:complexType>
+                    <xs:simpleContent>
+                      <xs:extension base="xs:string">
+                        <xs:attribute name="number" type="xs:string" use="required" />
+                      </xs:extension>
+                    </xs:simpleContent>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="date">
+                  <xs:complexType>
+                    <xs:simpleContent>
+                      <xs:extension base="xs:string">
+                        <xs:attribute name="timezone" type="xs:string" use="required" />
+                      </xs:extension>
+                    </xs:simpleContent>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="StageMeas">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" name="HgCkbox" type="xs:string" />
+                <xs:element minOccurs="0" name="Hg2Ckbox" type="xs:string" />
+                <xs:element minOccurs="0" name="Wlr1Ckbox" type="xs:string" />
+                <xs:element minOccurs="0" name="Wlr2Ckbox" type="xs:string" />
+                <xs:element name="HG1Header" type="xs:string" />
+                <xs:element name="HG2Header" type="xs:string" />
+                <xs:element name="WL1Header" type="xs:string" />
+                <xs:element name="WL2Header" type="xs:string" />
+                <xs:element name="StageMeasTable">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element maxOccurs="unbounded" name="StageMeasRow">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element name="time" type="xs:string" />
+                            <xs:element name="HG1" type="xs:decimal" />
+                            <xs:element name="HG2" type="xs:decimal" />
+                            <xs:element name="WL1" type="xs:decimal" />
+                            <xs:element name="WL2" type="xs:decimal" />
+                            <xs:element name="SRC" type="xs:decimal" />
+                            <xs:element name="SRCApp" type="xs:string" />
+                            <xs:element name="MghCkbox" type="xs:string" />
+                          </xs:sequence>
+                          <xs:attribute name="row" type="xs:unsignedByte" use="required" />
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element minOccurs="0" name="hgCkbox" type="xs:string" />
+                <xs:element minOccurs="0" name="hg2Ckbox" type="xs:string" />
+                <xs:element minOccurs="0" name="wlr1Ckbox" type="xs:string" />
+                <xs:element minOccurs="0" name="wlr2Ckbox" type="xs:string" />
+                <xs:element name="MGHHG1" type="xs:decimal" />
+                <xs:element name="MGHHG2" type="xs:decimal"/>
+                <xs:element name="MGHWL1" type="xs:decimal" />
+                <xs:element name="MGHWL2" type="xs:decimal"/>
+                <xs:element name="SRCHG1" type="xs:decimal" />
+                <xs:element name="SRCHG2" type="xs:decimal"/>
+                <xs:element name="GCHG1" type="xs:decimal" />
+                <xs:element name="GCHG2" type="xs:decimal"/>
+                <xs:element name="GCWL1" type="xs:decimal" />
+                <xs:element name="GCWL2" type="xs:decimal"/>
+                <xs:element name="CMGHHG1" type="xs:decimal" />
+                <xs:element name="CMGHHG2" type="xs:decimal"/>
+                <xs:element name="CMGHWL1" type="xs:decimal" />
+                <xs:element name="CMGHWL2" type="xs:decimal"/>
+                <xs:element name="MghMethod" type="xs:string" />
+                <xs:element name="Factors" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DisMeas" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="startTime" type="xs:string" />
+                <xs:element name="endTime" type="xs:string" />
+                <xs:element name="airTemp" type="xs:decimal" />
+                <xs:element name="waterTemp" type="xs:decimal" />
+                <xs:element name="width" type="xs:decimal" />
+                <xs:element name="area" type="xs:decimal" />
+                <xs:element name="meanVel" type="xs:decimal" />
+                <xs:element name="mgh" type="xs:decimal" />
+                <xs:element minOccurs="0" name="mghCmbo" type="xs:string" />
+                <xs:element name="discharge" type="xs:decimal" />
+                <xs:element name="mmtTimeVal" type="xs:decimal" />
+                <xs:element name="shift" type="xs:decimal" />
+                <xs:element name="diff" type="xs:decimal" />
+                <xs:element name="curve" type="xs:decimal" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="EnvCond">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="levels" type="xs:string" />
+                <xs:element name="cloudCover" type="xs:string" />
+                <xs:element name="precipitation" type="xs:string" />
+                <xs:element name="windMagnitude" type="xs:string" />
+                <xs:element name="windMagnitudeSpeed" type="xs:string" />
+                <xs:element name="windDirection" type="xs:string" />
+                <xs:element name="batteryVolt" type="xs:decimal" nillable="true" />
+                <xs:element name="gasSys" type="xs:string" />
+                <xs:element name="feed" type="xs:decimal" nillable="true"/>
+                <xs:element name="bpmRotChoice" type="xs:string" />
+                <xs:element name="bpmRot" type="xs:string" />
+                <xs:element name="intakeFlushed" type="xs:string" />
+                <xs:element name="intakeTime" type="xs:string" />
+                <xs:element name="orificeTime" type="xs:string" />
+                <xs:element name="orificePurged" type="xs:string" />
+                <xs:element name="downloadedProgram" type="xs:string" />
+                <xs:element name="downloadedData" type="xs:string" />
+                <xs:element name="dataPeriodStart" type="xs:string" />
+                <xs:element name="dataPeriodEnd" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="MeasResults">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" name="time" type="xs:string" />
+                <xs:element name="SensorRefs">
+                  <xs:complexType>
+                    <xs:sequence minOccurs="0">
+                      <xs:element maxOccurs="unbounded" name="SensorRef">
+                        <xs:complexType>
+                          <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                              <xs:attribute name="row" type="xs:unsignedByte" use="required" />
+                            </xs:extension>
+                          </xs:simpleContent>
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element minOccurs="0" name="HourMinutes">
+                  <xs:complexType>
+                    <xs:sequence minOccurs="0">
+                      <xs:choice maxOccurs="unbounded">
+                        <xs:element name="Hour">
+                          <xs:complexType>
+                            <xs:simpleContent>
+                              <xs:extension base="xs:unsignedByte">
+                                <xs:attribute name="row" type="xs:unsignedByte" use="required" />
+                              </xs:extension>
+                            </xs:simpleContent>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Minute">
+                          <xs:complexType>
+                            <xs:simpleContent>
+                              <xs:extension base="xs:unsignedByte">
+                                <xs:attribute name="row" type="xs:unsignedByte" use="required" />
+                              </xs:extension>
+                            </xs:simpleContent>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:choice>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element minOccurs="0" name="Times">
+                  <xs:complexType>
+                    <xs:sequence minOccurs="0">
+                      <xs:element maxOccurs="unbounded" name="Time">
+                        <xs:complexType>
+                          <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                              <xs:attribute name="row" type="xs:unsignedByte" use="required" />
+                            </xs:extension>
+                          </xs:simpleContent>
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="ObservedVals">
+                  <xs:complexType>
+                    <xs:sequence minOccurs="0">
+                      <xs:element maxOccurs="unbounded" name="ObservedVal" nillable="true">
+                        <xs:complexType>
+                          <xs:simpleContent>
+                            <xs:extension base="xs:decimal">
+                              <xs:attribute name="row" type="xs:unsignedByte" use="required" />
+                            </xs:extension>
+                          </xs:simpleContent>
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="SensorVals">
+                  <xs:complexType>
+                    <xs:sequence minOccurs="0">
+                      <xs:element maxOccurs="unbounded" name="SensorVal">
+                        <xs:complexType>
+                          <xs:simpleContent>
+                            <xs:extension base="xs:decimal">
+                              <xs:attribute name="row" type="xs:unsignedByte" use="required" />
+                            </xs:extension>
+                          </xs:simpleContent>
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element minOccurs="0" name="loggerTimeTable">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="loggerTimeCol1" type="xs:string" />
+                      <xs:element name="loggerTimeRemark1" type="xs:string" />
+                      <xs:element name="Hour7" type="xs:string" />
+                      <xs:element name="Minute7" type="xs:string" />
+                      <xs:element name="Hour9" type="xs:string" />
+                      <xs:element name="Minute9" type="xs:string" />
+                      <xs:element name="Time7" type="xs:string" />
+                      <xs:element name="Time9" type="xs:string" />
+                      <xs:element name="loggerTimeCol2" />
+                      <xs:element name="loggerTimeRemark2" />
+                      <xs:element name="Hour8" />
+                      <xs:element name="Minute8" />
+                      <xs:element name="Hour10" />
+                      <xs:element name="Minute10" />
+                      <xs:element name="Time8" />
+                      <xs:element name="Time10" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+              <xs:attribute name="empty" type="xs:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="InstrumentDeployment">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="GeneralInfo">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="methodType" type="xs:string" />
+                      <xs:element name="deployment" type="xs:string" />
+                      <xs:element name="position" type="xs:string" />
+                      <xs:element name="instrument" type="xs:string" />
+                      <xs:element name="serialNum" type="xs:string" />
+                      <xs:element name="gauge1" type="xs:string" />
+                      <xs:element name="length" type="xs:unsignedByte" />
+                      <xs:element name="gaugePos" type="xs:unsignedByte" />
+                      <xs:element name="selectedGauge" type="xs:string" />
+                      <xs:element name="frequency" type="xs:string" />
+                      <xs:element name="firmware" type="xs:string" />
+                      <xs:element name="software" type="xs:string" />
+                      <xs:element name="manufacturer" type="xs:string" />
+                      <xs:element name="model" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="MidsectionInfo">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="panelsNum" type="xs:string" />
+                      <xs:element name="flowAngle" type="xs:string" />
+                      <xs:element name="coeff" type="xs:string" />
+                      <xs:element name="method" type="xs:string" />
+                      <xs:element name="metres" type="xs:string" />
+                      <xs:element name="weight" type="xs:string" />
+                      <xs:element name="kglbs" type="xs:unsignedByte" />
+                      <xs:element name="weightRadBut1" type="xs:string" />
+                      <xs:element name="weightRadBut2" type="xs:string" />
+                    </xs:sequence>
+                    <xs:attribute name="empty" type="xs:string" use="required" />
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="ADCPInfo">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="configChoice" type="xs:string" />
+                      <xs:element name="configVal" type="xs:string" />
+                      <xs:element name="ADCPSetToClock" type="xs:string" />
+                      <xs:element name="diagnosticTest" type="xs:string" />
+                      <xs:element name="depth" type="xs:string" />
+                      <xs:element name="magDecl" type="xs:string" />
+                      <xs:element name="compassCali" type="xs:string" />
+                      <xs:element name="passedRev" type="xs:string" />
+                    </xs:sequence>
+                    <xs:attribute name="empty" type="xs:string" use="required" />
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Control">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="condition" type="xs:string" />
+                      <xs:element name="dischargeRemark" type="xs:string" />
+                      <xs:element name="stageRemark" type="xs:string" />
+                      <xs:element name="stationHealthRemark" type="xs:string" />
+                      <xs:element minOccurs="0" name="pictured" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="PartyInfo">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="party" type="xs:string" />
+                <xs:element name="completed" type="xs:string" />
+                <xs:element name="checked" />
+                <xs:element name="reviewed" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="LevelNotes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="LevelChecks">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element maxOccurs="unbounded" name="LevelChecksTable">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="LevelChecksRow">
+                              <xs:complexType>
+                                <xs:sequence>
+                                  <xs:element name="station" type="xs:string" />
+                                  <xs:element name="backsight" type="xs:string" />
+                                  <xs:element name="htInst" type="xs:string" />
+                                  <xs:element name="foresight" type="xs:string" />
+                                  <xs:element name="elevation" type="xs:decimal" />
+                                  <xs:element name="establish" type="xs:string" />
+                                  <xs:element name="comments" type="xs:string" />
+                                </xs:sequence>
+                                <xs:attribute name="row" type="xs:unsignedByte" use="required" />
+                              </xs:complexType>
+                            </xs:element>
+                            <xs:element name="closure" type="xs:string" />
+                          </xs:sequence>
+                          <xs:attribute name="run" type="xs:unsignedByte" use="required" />
+                        </xs:complexType>
+                      </xs:element>
+                      <xs:element name="LevelChecksSummaryTable">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="SummaryTableRow">
+                              <xs:complexType>
+                                <xs:sequence>
+                                  <xs:element name="time" type="xs:string" />
+                                  <xs:element name="reference" type="xs:string" />
+                                  <xs:element name="waterLevel" type="xs:decimal" />
+                                  <xs:element name="dist" type="xs:decimal" />
+                                  <xs:element name="surge" type="xs:string" />
+                                  <xs:element name="wlElev" type="xs:decimal" />
+                                  <xs:element name="datum" type="xs:decimal" />
+                                  <xs:element name="cwl" type="xs:decimal" />
+                                  <xs:element name="loggerReading" type="xs:string" />
+                                  <xs:element name="loggerReading2" />
+                                </xs:sequence>
+                                <xs:attribute name="row" type="xs:unsignedByte" use="required" />
+                              </xs:complexType>
+                            </xs:element>
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element>
+                      <xs:element name="comments" type="xs:string" />
+                      <xs:element name="loggerName" type="xs:string" />
+                      <xs:element name="loggerName2" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="FieldReview">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="pass" type="xs:string" />
+                <xs:element name="dependencyType" type="xs:string" />
+                <xs:element name="midsectionType" type="xs:string" />
+                <xs:element name="FieldReviewTable">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element maxOccurs="unbounded" name="FieldReviewTableRow">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element name="label" type="xs:string" />
+                            <xs:element name="checked" type="xs:string" />
+                            <xs:element name="reviewed" type="xs:string" />
+                            <xs:element name="text" type="xs:string" />
+                          </xs:sequence>
+                          <xs:attribute name="row" type="xs:unsignedByte" use="required" />
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="siteNotes" type="xs:string" />
+                <xs:element minOccurs="0" name="pictured" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="MovingBoatMeas">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="bedMaterial" type="xs:string" />
+                <xs:element name="mbTest" type="xs:string" />
+                <xs:element name="mbTestChoice" type="xs:string" />
+                <xs:element name="detected" type="xs:string" />
+                <xs:element name="trackRefChoice" type="xs:string" />
+                <xs:element name="leftBankChoice" type="xs:string" />
+                <xs:element minOccurs="0" name="leftBank" />
+                <xs:element name="rightBankChoice" type="xs:string" />
+                <xs:element minOccurs="0" name="rightBank" />
+                <xs:element name="edgeDistMmntMethod" type="xs:string" />
+                <xs:element name="compositeTrackCmbo" type="xs:string" />
+                <xs:element name="depthRefCmbo" type="xs:string" />
+                <xs:element name="velocityTopCombo" type="xs:string" />
+                <xs:element name="velocityBottomCombo" type="xs:string" />
+                <xs:element name="velocityExponentCtrl" type="xs:string" />
+                <xs:element name="differenceCtrl" type="xs:string" />
+                <xs:element name="ADCPMeasTable">
+                  <xs:complexType>
+                    <xs:sequence minOccurs="0">
+                      <xs:element maxOccurs="unbounded" name="ADCPMeasRow">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element name="checkbox" type="xs:string" />
+                            <xs:element name="transectID">
+                              <xs:complexType>
+                                <xs:simpleContent>
+                                  <xs:extension base="xs:unsignedByte">
+                                    <xs:attribute name="color" type="xs:string" use="required" />
+                                  </xs:extension>
+                                </xs:simpleContent>
+                              </xs:complexType>
+                            </xs:element>
+                            <xs:element name="startBank" type="xs:string" />
+                            <xs:element name="startTime" type="xs:time" />
+                            <xs:element name="startDistance">
+                              <xs:complexType>
+                                <xs:simpleContent>
+                                  <xs:extension base="xs:string">
+                                    <xs:attribute name="color" type="xs:string" use="required" />
+                                  </xs:extension>
+                                </xs:simpleContent>
+                              </xs:complexType>
+                            </xs:element>
+                            <xs:element name="endDistance">
+                              <xs:complexType>
+                                <xs:simpleContent>
+                                  <xs:extension base="xs:string">
+                                    <xs:attribute name="color" type="xs:string" use="required" />
+                                  </xs:extension>
+                                </xs:simpleContent>
+                              </xs:complexType>
+                            </xs:element>
+                            <xs:element name="rawDischarge">
+                              <xs:complexType>
+                                <xs:simpleContent>
+                                  <xs:extension base="xs:string">
+                                    <xs:attribute name="color" type="xs:string" use="required" />
+                                  </xs:extension>
+                                </xs:simpleContent>
+                              </xs:complexType>
+                            </xs:element>
+                            <xs:element name="remarks">
+                              <xs:complexType>
+                                <xs:simpleContent>
+                                  <xs:extension base="xs:string">
+                                    <xs:attribute name="color" type="xs:string" use="required" />
+                                  </xs:extension>
+                                </xs:simpleContent>
+                              </xs:complexType>
+                            </xs:element>
+                          </xs:sequence>
+                          <xs:attribute name="row" type="xs:unsignedByte" use="required" />
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="ADCPMeasResults">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="mmntStartTime" type="xs:string" />
+                      <xs:element name="mmntEndTime" type="xs:string" />
+                      <xs:element name="mmntMeanTime" type="xs:string" />
+                      <xs:element name="rawDischargeMean" type="xs:string" />
+                      <xs:element name="mbCorrectionApplied" type="xs:string" />
+                      <xs:element name="finalDischargeMean" type="xs:string" />
+                      <xs:element name="correctedMeanGaugeHeight" type="xs:string" />
+                      <xs:element name="baseCurveGaugeHeight" type="xs:string" />
+                      <xs:element name="calcBaseCurveDischarge" type="xs:string" />
+                      <xs:element name="standardDevMeanDischarge" type="xs:string" />
+                      <xs:element name="calculateShiftforBaseCurve" type="xs:string" />
+                      <xs:element name="dischargeDifferenceBaseCurve" type="xs:string" />
+                      <xs:element name="comments" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+              <xs:attribute name="empty" type="xs:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="MidsecMeas">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" name="meterNum" />
+                <xs:element minOccurs="0" name="meterEquation" />
+                <xs:element minOccurs="0" name="calibDate" />
+                <xs:element minOccurs="0" name="totalDischarge" />
+                <xs:element minOccurs="0" name="MidsecMeasTable" />
+                <xs:element minOccurs="0" name="MidsectionInfo">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="startTimeCtrl" type="xs:string" />
+                      <xs:element name="endTimeCtrl" type="xs:string" />
+                      <xs:element name="measureSectionCtrl" />
+                      <xs:element name="deployMethodCtrl" />
+                      <xs:element name="meter1MeterNoCtrl" />
+                      <xs:element name="meter1SlopeCtrl1" />
+                      <xs:element name="meter1InterceptCtrl1" />
+                      <xs:element name="meter1SlopeCtrl2" />
+                      <xs:element name="meter1InterceptCtrl2" />
+                      <xs:element name="meter1CalibDateCtrl" />
+                      <xs:element name="meter2MeterNoCtrl" />
+                      <xs:element name="meter2SlopeCtrl1" />
+                      <xs:element name="meter2InterceptCtrl1" />
+                      <xs:element name="meter2SlopeCtrl2" />
+                      <xs:element name="meter2InterceptCtrl2" />
+                      <xs:element name="meter2CalibDateCtrl" />
+                      <xs:element name="numOfPanelCtrl" />
+                      <xs:element name="widthCtrl" />
+                      <xs:element name="areaCtrl" />
+                      <xs:element name="avgDepthCtrl" />
+                      <xs:element name="avgVelCtrl" />
+                      <xs:element name="totalDisCtrl" />
+                      <xs:element name="uncertaintyCtrl" />
+                    </xs:sequence>
+                    <xs:attribute name="empty" type="xs:string" use="required" />
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+              <xs:attribute name="empty" type="xs:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="AQ_Upload_Record">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="record">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="status" type="xs:string" />
+                      <xs:element name="time" type="xs:string" />
+                      <xs:element name="user" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
