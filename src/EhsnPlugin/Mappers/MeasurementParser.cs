@@ -10,13 +10,15 @@ namespace EhsnPlugin.Mappers
     public class MeasurementParser
     {
         private readonly EHSN _eHsn;
+        private readonly TimeSpan _locationUtcOffset;
         private DateTime _visitDate;
 
-        public MeasurementParser(EHSN eHsn, DateTime visitDate)
+        public MeasurementParser(EHSN eHsn, DateTime visitDate, TimeSpan locationUtcOffset)
         {
             _eHsn = eHsn ?? throw new ArgumentNullException(nameof(eHsn));
 
             _visitDate = visitDate;
+            _locationUtcOffset = locationUtcOffset;
         }
 
         public EhsnMeasurement Parse()
@@ -25,8 +27,9 @@ namespace EhsnPlugin.Mappers
 
             return new EhsnMeasurement
             {
+                LocationUtcOffset = _locationUtcOffset,
                 StageMeasurements = ParseStageMeasurements(),
-                DischargeMeasurements = ParseDischargeMeasurements(measurementMeanTime),
+                DischargeMeasurements = ParseDischargeMeasurements(),
                 EnvironmentConditionMeasurements = ParseEnvironmentConditionMeasurements(measurementMeanTime),
                 SensorStageMeasurements = ParseMeasResults()
             };
@@ -62,7 +65,7 @@ namespace EhsnPlugin.Mappers
 
                 var measurement = new MeasurementRecord
                 {
-                    Time = time,
+                    StartTime = time,
                     Value = (double)(row.WL1 ?? row.HG1),
                     ParameterId = Parameters.StageHg,
                     UnitId = Units.DistanceUnitId,
@@ -98,30 +101,36 @@ namespace EhsnPlugin.Mappers
             return new DateTime(_visitDate.Year, _visitDate.Month, _visitDate.Day, hour, minute, second);
         }
 
-        private List<MeasurementRecord> ParseDischargeMeasurements(DateTime meanTime)
+        private List<MeasurementRecord> ParseDischargeMeasurements()
         {
             var measurements = new List<MeasurementRecord>();
 
-            if (_eHsn.DisMeas == null || meanTime == DateTime.MinValue)
+            if (_eHsn.DisMeas == null)
                 return measurements;
 
+            var start = ParseTimeOrMinValue(_eHsn.DisMeas.startTime);
+            var end = ParseTimeOrMinValue(_eHsn.DisMeas.endTime);
+
             //Air temperature:
-            measurements.Add(new MeasurementRecord(meanTime, Parameters.AirTemp, Units.TemperatureUnitId, (double)_eHsn.DisMeas.airTemp));
+            measurements.Add(new MeasurementRecord(start, end, Parameters.AirTemp, Units.TemperatureUnitId, (double)_eHsn.DisMeas.airTemp));
 
             //Water temperature:
-            measurements.Add(new MeasurementRecord(meanTime, Parameters.WaterTemp, Units.TemperatureUnitId, (double)_eHsn.DisMeas.waterTemp));
+            measurements.Add(new MeasurementRecord(start, end, Parameters.WaterTemp, Units.TemperatureUnitId, (double)_eHsn.DisMeas.waterTemp));
 
             //Section width:
-            measurements.Add(new MeasurementRecord(meanTime, Parameters.RiverSectionWidth, Units.DistanceUnitId, (double)_eHsn.DisMeas.width));
+            measurements.Add(new MeasurementRecord(start, end, Parameters.RiverSectionWidth, Units.DistanceUnitId, (double)_eHsn.DisMeas.width));
 
             //Section area:
-            measurements.Add(new MeasurementRecord(meanTime, Parameters.RiverSectionArea, Units.AreaUnitId, (double)_eHsn.DisMeas.area));
+            measurements.Add(new MeasurementRecord(start, end, Parameters.RiverSectionArea, Units.AreaUnitId, (double)_eHsn.DisMeas.area));
+
+            //Velocity:
+            measurements.Add(new MeasurementRecord(start, end, Parameters.WaterVelocityWv, Units.VelocityUnitId, (double)_eHsn.DisMeas.meanVel));
 
             //Mean gauge height:
-            measurements.Add(new MeasurementRecord(meanTime, Parameters.StageHg, Units.DistanceUnitId, (double)_eHsn.DisMeas.mgh));
+            measurements.Add(new MeasurementRecord(start, end, Parameters.StageHg, Units.DistanceUnitId, (double)_eHsn.DisMeas.mgh));
 
             //Discharge:
-            measurements.Add(new MeasurementRecord(meanTime, Parameters.DischargeQr, Units.DischargeUnitId, (double)_eHsn.DisMeas.discharge));
+            measurements.Add(new MeasurementRecord(start, end, Parameters.DischargeQr, Units.DischargeUnitId, (double)_eHsn.DisMeas.discharge));
 
             return measurements;
         }
@@ -133,7 +142,7 @@ namespace EhsnPlugin.Mappers
             if (_eHsn.EnvCond?.batteryVolt == null)
                 return measurements;
 
-            measurements.Add(new MeasurementRecord(measurementTime, Parameters.Voltage, Units.VoltageUnitId,
+            measurements.Add(new MeasurementRecord(measurementTime, measurementTime, Parameters.Voltage, Units.VoltageUnitId,
                 (double)_eHsn.EnvCond.batteryVolt.Value));
 
             return measurements;
@@ -169,7 +178,7 @@ namespace EhsnPlugin.Mappers
                             break;
                         var value = measResults.SensorVals[index].Value;
 
-                        measurements.Add(new MeasurementRecord(time, Parameters.HeadStage, Units.DistanceUnitId, (double)value));
+                        measurements.Add(new MeasurementRecord(time, time, Parameters.HeadStage, Units.DistanceUnitId, (double)value));
                         break;
                 }
             }

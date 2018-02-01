@@ -56,18 +56,25 @@ namespace EhsnPlugin
 
             var locationInfo = _appender.GetLocationByIdentifier(locationIdentifier);
 
-            var mapper = new FieldVisitMapper(eHsn);
+            var mapper = new FieldVisitMapper(eHsn, locationInfo);
 
             var fieldVisitInfo = AppendMappedFieldVisitInfo(mapper, locationInfo);
+
+            AppendMappedMeasurements(mapper, fieldVisitInfo);
         }
 
         private FieldVisitInfo AppendMappedFieldVisitInfo(FieldVisitMapper mapper, LocationInfo locationInfo)
         {
-            var fieldVisitDetails = mapper.MapFieldVisitDetails(locationInfo);
+            var fieldVisitDetails = mapper.MapFieldVisitDetails();
 
             _logger.Info($"Successfully parsed one visit '{fieldVisitDetails.FieldVisitPeriod}' for location '{locationInfo.LocationIdentifier}'");
 
             return _appender.AddFieldVisit(locationInfo, fieldVisitDetails);
+        }
+
+        private void AppendMappedMeasurements(FieldVisitMapper mapper, FieldVisitInfo fieldVisitInfo)
+        {
+            _appender.AddDischargeActivity(fieldVisitInfo, mapper.MapDischargeActivity());
         }
     }
 }

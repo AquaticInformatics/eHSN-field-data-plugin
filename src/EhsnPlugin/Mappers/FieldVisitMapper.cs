@@ -5,27 +5,30 @@ using System.Linq;
 using EhsnPlugin.DataModel;
 using FieldDataPluginFramework.Context;
 using FieldDataPluginFramework.DataModel;
+using FieldDataPluginFramework.DataModel.DischargeActivities;
 
 namespace EhsnPlugin.Mappers
 {
     public class FieldVisitMapper
     {
         private readonly EHSN _eHsn;
+        private readonly LocationInfo _locationInfo;
         private readonly EhsnMeasurement _ehsnMeasurement;
         private readonly DateTime _visitDate;
-
-        public FieldVisitMapper(EHSN eHsn)
+        
+        public FieldVisitMapper(EHSN eHsn, LocationInfo locationInfo)
         {
             _eHsn = eHsn ?? throw new ArgumentNullException(nameof(eHsn));
+            _locationInfo = locationInfo;
 
             _visitDate = GetVisitDate(eHsn.GenInfo);
 
-            _ehsnMeasurement = new MeasurementParser(eHsn, _visitDate).Parse();
+            _ehsnMeasurement = new MeasurementParser(eHsn, _visitDate, _locationInfo.UtcOffset).Parse();
         }
 
-        public FieldVisitDetails MapFieldVisitDetails(LocationInfo locationInfo)
+        public FieldVisitDetails MapFieldVisitDetails( )
         {
-            var visitPeriod = GetVisitTimePeriod(locationInfo);
+            var visitPeriod = GetVisitTimePeriod(_locationInfo);
 
             return new FieldVisitDetails(visitPeriod)
             {
@@ -51,10 +54,10 @@ namespace EhsnPlugin.Mappers
 
             //Use the earliest time and latest time found in measurements if any as start/end times:
             var allMeasurementTimes =
-                new List<DateTime>(_ehsnMeasurement.EnvironmentConditionMeasurements.Select(m => m.Time));
-            allMeasurementTimes.AddRange(_ehsnMeasurement.DischargeMeasurements.Select(m => m.Time));
-            allMeasurementTimes.AddRange(_ehsnMeasurement.SensorStageMeasurements.Select(m => m.Time));
-            allMeasurementTimes.AddRange(_ehsnMeasurement.StageMeasurements.Select(m => m.Time));
+                new List<DateTime>(_ehsnMeasurement.EnvironmentConditionMeasurements.Select(m => m.StartTime));
+            allMeasurementTimes.AddRange(_ehsnMeasurement.DischargeMeasurements.Select(m => m.StartTime));
+            allMeasurementTimes.AddRange(_ehsnMeasurement.SensorStageMeasurements.Select(m => m.StartTime));
+            allMeasurementTimes.AddRange(_ehsnMeasurement.StageMeasurements.Select(m => m.StartTime));
 
             if(allMeasurementTimes.Any())
             {
@@ -65,6 +68,11 @@ namespace EhsnPlugin.Mappers
 
             return new DateTimeInterval(new DateTimeOffset(start, locationInfo.UtcOffset),
                 new DateTimeOffset(end, locationInfo.UtcOffset));
+        }
+
+        public DischargeActivity MapDischargeActivity()
+        {
+            return new DischargeActivityMapper(_ehsnMeasurement, _eHsn).Map();
         }
     }
 }

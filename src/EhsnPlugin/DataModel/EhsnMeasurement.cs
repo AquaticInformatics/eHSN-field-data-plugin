@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace EhsnPlugin.DataModel
 {
@@ -8,6 +9,7 @@ namespace EhsnPlugin.DataModel
         public List<MeasurementRecord> DischargeMeasurements { get; set; }
         public List<MeasurementRecord> EnvironmentConditionMeasurements { get; set; }
         public List<MeasurementRecord> SensorStageMeasurements { get; set; }
+        public TimeSpan LocationUtcOffset { get; set; }
 
         public EhsnMeasurement()
         {
