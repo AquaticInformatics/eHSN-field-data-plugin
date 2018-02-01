@@ -63,12 +63,9 @@ namespace EhsnPlugin.Mappers
                 if (time == DateTime.MinValue)
                     continue;
 
-                var measurement = new MeasurementRecord
+                var measurement = new MeasurementRecord(time, time, Parameters.StageHg, 
+                    Units.DistanceUnitId, (double)(row.WL1 ?? row.HG1))
                 {
-                    StartTime = time,
-                    Value = (double)(row.WL1 ?? row.HG1),
-                    ParameterId = Parameters.StageHg,
-                    UnitId = Units.DistanceUnitId,
                     Remark = GetStageRowRemark(row)
                 };
 
@@ -160,7 +157,7 @@ namespace EhsnPlugin.Mappers
 
             //From the sample files, 4 sonsor refs are found:
             // "IQ Plus Discharge","IQ Plus Velocity","IQ Plus Temperature","Head Stage (m)"
-            // Only "Head Stage" is know to map to HD. 
+            // Only "Head Stage" is known to map to parameter HD. 
             // Using it as an example here to map sensor values to readings.
 
             var measResults = _eHsn.MeasResults;

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="DataModel\EhsnMeasurement.cs" />
     <Compile Include="DataModel\MeasurementRecord.cs" />
+    <Compile Include="Mappers\ReadingMapper.cs" />
     <Compile Include="Mappers\DischargeActivityMapper.cs" />
     <Compile Include="Mappers\MeasurementParser.cs" />
     <Compile Include="Mappers\FieldVisitMapper.cs" />

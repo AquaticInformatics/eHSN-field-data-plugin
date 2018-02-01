@@ -32,7 +32,7 @@ namespace EhsnPlugin
 
                 return serializaer.Deserialize(memoryStream) as EHSN;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
@@ -75,6 +75,13 @@ namespace EhsnPlugin
         private void AppendMappedMeasurements(FieldVisitMapper mapper, FieldVisitInfo fieldVisitInfo)
         {
             _appender.AddDischargeActivity(fieldVisitInfo, mapper.MapDischargeActivity());
+
+            var readings = mapper.MapReadings();
+
+            foreach (var reading in readings)
+            {
+                _appender.AddReading(fieldVisitInfo, reading);
+            }
         }
     }
 }

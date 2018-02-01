@@ -6,6 +6,7 @@ using EhsnPlugin.DataModel;
 using FieldDataPluginFramework.Context;
 using FieldDataPluginFramework.DataModel;
 using FieldDataPluginFramework.DataModel.DischargeActivities;
+using FieldDataPluginFramework.DataModel.Readings;
 
 namespace EhsnPlugin.Mappers
 {
@@ -73,6 +74,11 @@ namespace EhsnPlugin.Mappers
         public DischargeActivity MapDischargeActivity()
         {
             return new DischargeActivityMapper(_ehsnMeasurement, _eHsn).Map();
+        }
+
+        public IEnumerable<Reading> MapReadings()
+        {
+            return new ReadingMapper(_ehsnMeasurement).Map();
         }
     }
 }
