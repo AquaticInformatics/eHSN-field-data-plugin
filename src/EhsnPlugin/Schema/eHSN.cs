@@ -689,13 +689,13 @@ public partial class EHSNStageMeasStageMeasRow {
     
     private decimal hG1Field;
     
-    private decimal hG2Field;
+    private System.Nullable<decimal> hG2Field;
     
-    private decimal wL1Field;
+    private System.Nullable<decimal> wL1Field;
     
-    private decimal wL2Field;
+    private System.Nullable<decimal> wL2Field;
     
-    private decimal sRCField;
+    private System.Nullable<decimal> sRCField;
     
     private string sRCAppField;
     
@@ -724,7 +724,8 @@ public partial class EHSNStageMeasStageMeasRow {
     }
     
     /// <remarks/>
-    public decimal HG2 {
+    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+    public System.Nullable<decimal> HG2 {
         get {
             return this.hG2Field;
         }
@@ -734,7 +735,8 @@ public partial class EHSNStageMeasStageMeasRow {
     }
     
     /// <remarks/>
-    public decimal WL1 {
+    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+    public System.Nullable<decimal> WL1 {
         get {
             return this.wL1Field;
         }
@@ -744,7 +746,8 @@ public partial class EHSNStageMeasStageMeasRow {
     }
     
     /// <remarks/>
-    public decimal WL2 {
+    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+    public System.Nullable<decimal> WL2 {
         get {
             return this.wL2Field;
         }
@@ -754,7 +757,8 @@ public partial class EHSNStageMeasStageMeasRow {
     }
     
     /// <remarks/>
-    public decimal SRC {
+    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+    public System.Nullable<decimal> SRC {
         get {
             return this.sRCField;
         }
@@ -823,7 +827,7 @@ public partial class EHSNDisMeas {
     
     private decimal dischargeField;
     
-    private decimal mmtTimeValField;
+    private string mmtTimeValField;
     
     private decimal shiftField;
     
@@ -932,7 +936,7 @@ public partial class EHSNDisMeas {
     }
     
     /// <remarks/>
-    public decimal mmtTimeVal {
+    public string mmtTimeVal {
         get {
             return this.mmtTimeValField;
         }

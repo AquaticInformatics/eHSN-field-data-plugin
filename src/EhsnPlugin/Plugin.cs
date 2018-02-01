@@ -2,7 +2,6 @@
 using System.IO;
 using FieldDataPluginFramework;
 using FieldDataPluginFramework.Context;
-using FieldDataPluginFramework.DataModel;
 using FieldDataPluginFramework.Results;
 
 namespace EhsnPlugin
@@ -11,20 +10,31 @@ namespace EhsnPlugin
     {
         public ParseFileResult ParseFile(Stream fileStream, IFieldDataResultsAppender fieldDataResultsAppender, ILog logger)
         {
-            var eHsn = new Parser()
-                .LoadFromStream(fileStream);
+            try
+            {
+                var parser = new Parser(fieldDataResultsAppender, logger);
+                var eHsn = parser.LoadFromStream(fileStream);
 
-            if (eHsn == null)
-                return ParseFileResult.CannotParse();
+                if (eHsn == null)
+                    return ParseFileResult.CannotParse();
 
-            var targetLocation = fieldDataResultsAppender.GetLocationByIdentifier("MyDummyLocation");
+                try
+                {
+                    parser.Parse(eHsn);
 
-            var now = DateTimeOffset.UtcNow;
-
-            var visit = fieldDataResultsAppender.AddFieldVisit(targetLocation,
-                new FieldVisitDetails(new DateTimeInterval(now.AddHours(-1), now)));
-
-            return ParseFileResult.SuccessfullyParsedAndDataValid();
+                    return ParseFileResult.SuccessfullyParsedAndDataValid();
+                }
+                catch(Exception exception)
+                {
+                    logger.Error($"File can be parsed but an error occurred: {exception.Message}\n{exception.StackTrace}");
+                    return ParseFileResult.SuccessfullyParsedButDataInvalid(exception);
+                }
+            }
+            catch(Exception exception)
+            {
+                logger.Error($"Something went wrong: {exception.Message}\n{exception.StackTrace}");
+                return ParseFileResult.CannotParse(exception);
+            }
         }
 
         public ParseFileResult ParseFile(Stream fileStream, LocationInfo targetLocation, IFieldDataResultsAppender fieldDataResultsAppender, ILog logger)
