@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using EhsnPlugin.DataModel;
+using EhsnPlugin.Helpers;
 using FieldDataPluginFramework.DataModel;
 using FieldDataPluginFramework.DataModel.Readings;
 
@@ -29,7 +30,7 @@ namespace EhsnPlugin.Mappers
 
         private Reading MapReading(MeasurementRecord record)
         {
-            var meanTime = new DateTime((record.StartTime.Ticks + record.EndTime.Ticks) / 2);
+            var meanTime = TimeHelper.GetMeanTimeTruncatedToMinute(record.StartTime, record.EndTime);
 
             return new Reading(record.ParameterId, new Measurement(record.Value,record.UnitId))
             {

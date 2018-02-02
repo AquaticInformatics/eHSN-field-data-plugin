@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using EhsnPlugin.DataModel;
+using EhsnPlugin.Helpers;
 using EhsnPlugin.SystemCode;
 
 namespace EhsnPlugin.Mappers
@@ -47,7 +48,7 @@ namespace EhsnPlugin.Mappers
             if (start == DateTime.MinValue || end == DateTime.MinValue)
                 return DateTime.MinValue;
 
-            return new DateTime((start.Ticks + end.Ticks) / 2);
+            return TimeHelper.GetMeanTimeTruncatedToMinute(start, end);
         }
 
         private List<MeasurementRecord> ParseStageMeasurements()
