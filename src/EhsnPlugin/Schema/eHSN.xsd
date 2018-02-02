@@ -53,10 +53,10 @@
                           <xs:sequence>
                             <xs:element name="time" type="xs:string" />
                             <xs:element name="HG1" type="xs:decimal" />
-                            <xs:element name="HG2" type="xs:decimal" />
-                            <xs:element name="WL1" type="xs:decimal" />
-                            <xs:element name="WL2" type="xs:decimal" />
-                            <xs:element name="SRC" type="xs:decimal" />
+                            <xs:element name="HG2" type="xs:decimal" nillable="true"/>
+                            <xs:element name="WL1" type="xs:decimal" nillable="true"/>
+                            <xs:element name="WL2" type="xs:decimal" nillable="true"/>
+                            <xs:element name="SRC" type="xs:decimal" nillable="true"/>
                             <xs:element name="SRCApp" type="xs:string" />
                             <xs:element name="MghCkbox" type="xs:string" />
                           </xs:sequence>
@@ -102,7 +102,7 @@
                 <xs:element name="mgh" type="xs:decimal" />
                 <xs:element minOccurs="0" name="mghCmbo" type="xs:string" />
                 <xs:element name="discharge" type="xs:decimal" />
-                <xs:element name="mmtTimeVal" type="xs:decimal" />
+                <xs:element name="mmtTimeVal" type="xs:string" />
                 <xs:element name="shift" type="xs:decimal" />
                 <xs:element name="diff" type="xs:decimal" />
                 <xs:element name="curve" type="xs:decimal" />
