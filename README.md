@@ -6,20 +6,19 @@ An AQTS field data plugin supporting eHSN (electronic Hydrometric Station Notes)
 
 - Requires Visual Studio 2017 (Community Edition is fine)
 - .NET 4.7 runtime
-- Powershell 5+ [download it here](https://www.microsoft.com/en-us/download/details.aspx?id=54616) or install [via Chocolatey](https://chocolatey.org/packages/PowerShell): `choco install PowerShell`
 
 ## Building the plugin
 
 - Load the `src\eHSN.sln` file in Visual Studio and build the `Release` configuration.
-- The `deploy\Release\eHSN.plugin` file can then be installed on your AQTS app server.
+- The `src\EhsnPlugin\deploy\Release\EhsnPlugin.plugin` file can then be installed on your AQTS app server.
 
 ## Testing the plugin within Visual Studio
 
-Use the included `src\AqtsBinaries\Tester\PluginTester.exe` to test your plugin logic on the sample files.
+Use the included `PluginTester.exe` tool from the `Aquarius.FieldDataFrame` package to test your plugin logic on the sample files.
 
 1. Open the EhsnPlugin project's **Properties** page
 2. Select the **Debug** tab
-3. Select **Start external program:** as the start action and browse to `src\AqtsBinaries\Tester\PluginTester.exe`
+3. Select **Start external program:** as the start action and browse to `"src\packages\Aquarius.FieldDataFramework.1.0.1\tools\PluginTester.exe`
 4. Enter the **Command line arguments:** to launch your plugin
 
 ```
@@ -32,8 +31,8 @@ The `/Plugin=` argument can be the filename of your plugin assembly, without any
 6. Select your plugin project in Solution Explorer and select **"Debug | Start new instance"**
 7. Now you're debugging your plugin!
 
-See the [PluginTester](https://github.com/AquaticInformatics/Examples/tree/master/TimeSeries/PublicApis/FieldDataPlugins/PluginTester) documentation for more details.
+See the [PluginTester](https://github.com/AquaticInformatics/aquarius-field-data-framework/tree/master/src/PluginTester) documentation for more details.
 
 ## Installation of the plugin
 
-Use the [FieldDataPluginTool](https://github.com/AquaticInformatics/Examples/tree/master/TimeSeries/PublicApis/FieldDataPlugins/FieldDataPluginTool) to install the plugin on your AQTS app server.
+Use the [FieldDataPluginTool](https://github.com/AquaticInformatics/aquarius-field-data-framework/tree/master/src/FieldDataPluginTool) to install the plugin on your AQTS app server.
