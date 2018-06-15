@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using EhsnPlugin.DataModel;
+using FieldDataPluginFramework;
 using FieldDataPluginFramework.Context;
 using FieldDataPluginFramework.DataModel;
 using FieldDataPluginFramework.DataModel.DischargeActivities;
+using FieldDataPluginFramework.DataModel.LevelSurveys;
 using FieldDataPluginFramework.DataModel.Readings;
 
 namespace EhsnPlugin.Mappers
@@ -16,11 +18,13 @@ namespace EhsnPlugin.Mappers
         private readonly LocationInfo _locationInfo;
         private readonly EhsnMeasurement _ehsnMeasurement;
         private readonly DateTime _visitDate;
-        
-        public FieldVisitMapper(EHSN eHsn, LocationInfo locationInfo)
+        private readonly ILog _logger;
+
+        public FieldVisitMapper(EHSN eHsn, LocationInfo locationInfo, ILog logger)
         {
             _eHsn = eHsn ?? throw new ArgumentNullException(nameof(eHsn));
-            _locationInfo = locationInfo;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _locationInfo = locationInfo ?? throw new ArgumentNullException(nameof(locationInfo));
 
             _visitDate = GetVisitDate(eHsn.GenInfo);
 
@@ -79,6 +83,11 @@ namespace EhsnPlugin.Mappers
         public IEnumerable<Reading> MapReadings()
         {
             return new ReadingMapper(_ehsnMeasurement).Map();
+        }
+
+        public LevelSurvey MapLevelSurveyOrNull()
+        {
+            return new LevelSurveyMapper(_locationInfo, _visitDate, _logger).MapOrNull(_eHsn);
         }
     }
 }
