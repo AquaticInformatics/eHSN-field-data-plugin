@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using EhsnPlugin.DataModel;
 using EhsnPlugin.Helpers;
 using EhsnPlugin.SystemCode;
@@ -51,6 +50,11 @@ namespace EhsnPlugin.Mappers
             return TimeHelper.GetMeanTimeTruncatedToMinute(start, end);
         }
 
+        private DateTime ParseTimeOrMinValue(string timeString)
+        {
+            return TimeHelper.ParseTimeOrMinValue(timeString, _visitDate);
+        }
+
         private List<MeasurementRecord> ParseStageMeasurements()
         {
             var measurements = new List<MeasurementRecord>();
@@ -81,22 +85,6 @@ namespace EhsnPlugin.Mappers
             return row.SRC.HasValue
                 ? $"@{row.time} {row.SRCApp}. Correction:{row.SRC.Value}"
                 : string.Empty;
-        }
-
-        private DateTime ParseTimeOrMinValue(string timeString)
-        {
-            if (string.IsNullOrWhiteSpace(timeString) ||
-                !Regex.IsMatch(timeString, @"^\d{2}:\d{2}(:\d{2}){0,1}$"))
-            {
-                return DateTime.MinValue;
-            }
-
-            var parts = timeString.Split(':');
-            var hour = Int32.Parse(parts[0]);
-            var minute = Int32.Parse(parts[1]);
-            var second = parts.Length == 3 ? Int32.Parse(parts[2]) : 0;
-
-            return new DateTime(_visitDate.Year, _visitDate.Month, _visitDate.Day, hour, minute, second);
         }
 
         private List<MeasurementRecord> ParseDischargeMeasurements()

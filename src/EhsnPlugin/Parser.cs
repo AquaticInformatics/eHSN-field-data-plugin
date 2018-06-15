@@ -56,7 +56,7 @@ namespace EhsnPlugin
 
             var locationInfo = _appender.GetLocationByIdentifier(locationIdentifier);
 
-            var mapper = new FieldVisitMapper(eHsn, locationInfo);
+            var mapper = new FieldVisitMapper(eHsn, locationInfo, _logger);
 
             var fieldVisitInfo = AppendMappedFieldVisitInfo(mapper, locationInfo);
 
@@ -81,6 +81,12 @@ namespace EhsnPlugin
             foreach (var reading in readings)
             {
                 _appender.AddReading(fieldVisitInfo, reading);
+            }
+
+            var levelSurvey = mapper.MapLevelSurveyOrNull();
+            if(levelSurvey != null)
+            {
+                _appender.AddLevelSurvey(fieldVisitInfo, levelSurvey);
             }
         }
     }
