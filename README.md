@@ -1,5 +1,7 @@
 # eHSN-field-data-plugin
 
+[![Build status](https://ci.appveyor.com/api/projects/status/83a08te1vqco3env/branch/master?svg=true)](https://ci.appveyor.com/project/SystemsAdministrator/ehsn-field-data-plugin/branch/master)
+
 An AQTS field data plugin supporting eHSN (electronic Hydrometric Station Notes) files from Water Survey Canada.
 
 ## Requirements
@@ -7,6 +9,11 @@ An AQTS field data plugin supporting eHSN (electronic Hydrometric Station Notes)
 - Requires Visual Studio 2017 (Community Edition is fine)
 - .NET 4.7 runtime
 
+## Want to install this plugin?
+
+- Download the latest release of the plugin [here](../../releases/latest)
+- Install it using the [FieldVisitPluginTool](https://github.com/AquaticInformatics/aquarius-field-data-framework/tree/master/src/FieldDataPluginTool)
+- 
 ## Building the plugin
 
 - Load the `src\eHSN.sln` file in Visual Studio and build the `Release` configuration.
@@ -18,7 +25,7 @@ Use the included `PluginTester.exe` tool from the `Aquarius.FieldDataFrame` pack
 
 1. Open the EhsnPlugin project's **Properties** page
 2. Select the **Debug** tab
-3. Select **Start external program:** as the start action and browse to `"src\packages\Aquarius.FieldDataFramework.1.0.1\tools\PluginTester.exe`
+3. Select **Start external program:** as the start action and browse to `"src\packages\Aquarius.FieldDataFramework.18.4.1\tools\PluginTester.exe`
 4. Enter the **Command line arguments:** to launch your plugin
 
 ```
