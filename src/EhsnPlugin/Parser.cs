@@ -4,6 +4,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using EhsnPlugin.Mappers;
+using EhsnPlugin.Validators;
 using FieldDataPluginFramework;
 using FieldDataPluginFramework.Context;
 using FieldDataPluginFramework.Results;
@@ -14,6 +15,8 @@ namespace EhsnPlugin
     {
         private readonly IFieldDataResultsAppender _appender;
         private readonly ILog _logger;
+
+        private VersionValidator VersionValidator { get; } = new VersionValidator();
  
         public Parser(IFieldDataResultsAppender appender, ILog logger)
         {
@@ -27,10 +30,10 @@ namespace EhsnPlugin
             {
                 var cleanedUpXml = GetXmlWithEmptyElementsRemoved(stream);
 
-                var serializaer = new XmlSerializer(typeof(EHSN));
+                var serializer = new XmlSerializer(typeof(EHSN));
                 var memoryStream = new MemoryStream((new UTF8Encoding()).GetBytes(cleanedUpXml));              
 
-                return serializaer.Deserialize(memoryStream) as EHSN;
+                return serializer.Deserialize(memoryStream) as EHSN;
             }
             catch (Exception)
             {
@@ -52,6 +55,8 @@ namespace EhsnPlugin
 
         public void Parse(EHSN eHsn)
         {
+            VersionValidator.ThrowIfUnsupportedVersion(eHsn.version);
+
             var locationIdentifier = eHsn.GenInfo.station.number;
 
             var locationInfo = _appender.GetLocationByIdentifier(locationIdentifier);
