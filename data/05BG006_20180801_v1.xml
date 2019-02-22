@@ -1,29 +1,29 @@
 <?xml version="1.0" ?>
 <?xml-stylesheet type="text/xsl" href="WSC_EHSN.xsml"?>
-<EHSN version="v1.2.3">
+<EHSN version="v1.3">
 	<TitleHeader>
-		<enteredInHWS>True</enteredInHWS>
+		<enteredInHWS>False</enteredInHWS>
 	</TitleHeader>
 	<GenInfo>
 		<station number="05BG006">WAIPAROUS CREEK NEAR THE MOUTH</station>
-		<date timezone="MST">2017/06/09</date>
+		<date timezone="MST">2018/07/31</date>
 	</GenInfo>
 	<StageMeas>
 		<HgCkbox>True</HgCkbox>
-		<Hg2Ckbox>False</Hg2Ckbox>
-		<Wlr1Ckbox>False</Wlr1Ckbox>
-		<Wlr2Ckbox>False</Wlr2Ckbox>
+		<Hg2Ckbox>True</Hg2Ckbox>
+		<Wlr1Ckbox>True</Wlr1Ckbox>
+		<Wlr2Ckbox>True</Wlr2Ckbox>
 		<HG1Header>FTS</HG1Header>
 		<HG2Header/>
-		<WL1Header>**S.I.B.M. #1</WL1Header>
-		<WL2Header/>
+		<WL1Header>S.I.B.M. #1</WL1Header>
+		<WL2Header>T.B.M. 98-2</WL2Header>
 		<StageMeasTable>
 			<StageMeasRow row="0">
 				<time>14:35</time>
 				<HG1>1.110</HG1>
-				<HG2/>
+				<HG2>1.300</HG2>
 				<WL1>1.112</WL1>
-				<WL2/>
+				<WL2>1.000</WL2>
 				<SRC>0.002</SRC>
 				<SRCApp>Flushed (FL)</SRCApp>
 				<MghCkbox>False</MghCkbox>
@@ -31,10 +31,10 @@
 			<StageMeasRow row="1">
 				<time>15:05</time>
 				<HG1>1.104</HG1>
-				<HG2/>
+				<HG2>1.400</HG2>
 				<WL1/>
-				<WL2/>
-				<SRC/>
+				<WL2>1.100</WL2>
+				<SRC>-0.004</SRC>
 				<SRCApp/>
 				<MghCkbox>True</MghCkbox>
 			</StageMeasRow>
@@ -42,26 +42,26 @@
 				<time>15:10</time>
 				<HG1>1.099</HG1>
 				<HG2/>
-				<WL1/>
-				<WL2/>
-				<SRC/>
+				<WL1>1.111</WL1>
+				<WL2>1.001</WL2>
+				<SRC>0.012</SRC>
 				<SRCApp/>
 				<MghCkbox>True</MghCkbox>
 			</StageMeasRow>
 			<StageMeasRow row="3">
 				<time>15:15</time>
 				<HG1>1.101</HG1>
-				<HG2/>
-				<WL1/>
+				<HG2>1.450</HG2>
+				<WL1>1.005</WL1>
 				<WL2/>
-				<SRC/>
+				<SRC>-0.096</SRC>
 				<SRCApp/>
 				<MghCkbox>True</MghCkbox>
 			</StageMeasRow>
 			<StageMeasRow row="4">
 				<time>15:20</time>
 				<HG1>1.100</HG1>
-				<HG2/>
+				<HG2>1.200</HG2>
 				<WL1/>
 				<WL2/>
 				<SRC/>
@@ -70,25 +70,26 @@
 			</StageMeasRow>
 		</StageMeasTable>
 		<hgCkbox>True</hgCkbox>
-		<hg2Ckbox>False</hg2Ckbox>
-		<wlr1Ckbox>False</wlr1Ckbox>
-		<wlr2Ckbox>False</wlr2Ckbox>
+		<hg2Ckbox>True</hg2Ckbox>
+		<wlr1Ckbox>True</wlr1Ckbox>
+		<wlr2Ckbox>True</wlr2Ckbox>
 		<MGHHG1>1.101</MGHHG1>
-		<MGHHG2/>
-		<MGHWL1/>
-		<MGHWL2/>
+		<MGHHG2>1.350</MGHHG2>
+		<MGHWL1>1.058</MGHWL1>
+		<MGHWL2>1.050</MGHWL2>
 		<SRCHG1>0.002</SRCHG1>
-		<SRCHG2/>
-		<GCHG1>0.000</GCHG1>
-		<GCHG2/>
-		<GCWL1/>
-		<GCWL2/>
-		<CMGHHG1>1.103</CMGHHG1>
-		<CMGHHG2/>
-		<CMGHWL1/>
-		<CMGHWL2/>
+		<SRCHG2>0.001</SRCHG2>
+		<GCHG1>0.005</GCHG1>
+		<GCHG2>0.045</GCHG2>
+		<GCWL1>0.022</GCWL1>
+		<GCWL2>0.333</GCWL2>
+		<CMGHHG1>1.108</CMGHHG1>
+		<CMGHHG2>1.396</CMGHHG2>
+		<CMGHWL1>1.080</CMGHWL1>
+		<CMGHWL2>1.383</CMGHWL2>
 		<MghMethod>Average</MghMethod>
 		<Factors/>
+		<stageRemark/>
 	</StageMeas>
 	<DisMeas>
 		<startTime>15:04</startTime>
@@ -98,16 +99,20 @@
 		<width>11.6</width>
 		<area>6.58</area>
 		<meanVel>1.39</meanVel>
-		<mgh>1.103</mgh>
-		<mghCmbo>1.103  (HG)</mghCmbo>
+		<mgh>1.108</mgh>
+		<mghCmbo>1.108  (HG)</mghCmbo>
 		<discharge>8.97</discharge>
+		<dischCombo/>
 		<mmtTimeVal>15:12</mmtTimeVal>
-		<shift>0.0594</shift>
-		<diff>23.4</diff>
+		<shift/>
+		<diff/>
 		<curve>14.000</curve>
+		<condition>No Flow</condition>
+		<dischargeRemark/>
+		<controlConditionRemark>dsdfas</controlConditionRemark>
 	</DisMeas>
 	<EnvCond>
-		<levels>DWL from **S.I.B.M. #1</levels>
+		<levels>DWL from S.I.B.M. #1</levels>
 		<cloudCover>Clear</cloudCover>
 		<precipitation>No Precipitation</precipitation>
 		<windMagnitude>Calm Wind</windMagnitude>
@@ -118,6 +123,15 @@
 		<feed/>
 		<bpmRotChoice/>
 		<bpmRot/>
+		<gasSysDepCtrl/>
+		<gasArrTime>:</gasArrTime>
+		<gasDepTime>:</gasDepTime>
+		<feedDepCtrl/>
+		<feedArrTime>:</feedArrTime>
+		<feedDepTime>:</feedDepTime>
+		<bpmrotDepCtrl/>
+		<bpmrotArrTime>:</bpmrotArrTime>
+		<bpmrotDepTime>:</bpmrotDepTime>
 		<intakeFlushed>False</intakeFlushed>
 		<intakeTime>00:00</intakeTime>
 		<orificeTime>00:00</orificeTime>
@@ -126,6 +140,7 @@
 		<downloadedData>True</downloadedData>
 		<dataPeriodStart>2017/04/26</dataPeriodStart>
 		<dataPeriodEnd>2017/06/09</dataPeriodEnd>
+		<stationHealthRemark/>
 	</EnvCond>
 	<MeasResults empty="False">
 		<SensorRefs>
@@ -174,11 +189,12 @@
 			<length>0</length>
 			<gaugePos>1</gaugePos>
 			<selectedGauge>gauge</selectedGauge>
-			<frequency>&quot;3000kHz/ 1000 kHz</frequency>
+			<frequency/>
 			<firmware>3.92</firmware>
 			<software>RSL 4.0</software>
 			<manufacturer>SonTek</manufacturer>
 			<model>M9</model>
+			<pictured>True</pictured>
 		</GeneralInfo>
 		<MidsectionInfo empty="True">
 			<panelsNum/>
@@ -201,16 +217,7 @@
 			<compassCali>True</compassCali>
 			<passedRev>True</passedRev>
 		</ADCPInfo>
-		<Control>
-			<condition>Clear</condition>
-			<dischargeRemark>Channel clear
-QREV uncertainty = 9%, fair mmt. Best possible under conditions
-Lots of standing waves mad mmt challenging, see field review
-Temp clothsline setup for mmt</dischargeRemark>
-			<stageRemark>Turbid water</stageRemark>
-			<stationHealthRemark/>
-			<pictured>True</pictured>
-		</Control>
+		<Control/>
 	</InstrumentDeployment>
 	<PartyInfo>
 		<party>Bishop </party>
@@ -222,7 +229,7 @@ Temp clothsline setup for mmt</dischargeRemark>
 		<LevelChecks>
 			<LevelChecksTable run="0">
 				<LevelChecksRow row="0">
-					<station>**S.I.B.M. #1</station>
+					<station>S.I.B.M. #1</station>
 					<backsight>1.262</backsight>
 					<htInst>1259.995</htInst>
 					<foresight/>
@@ -240,7 +247,7 @@ Temp clothsline setup for mmt</dischargeRemark>
 					<comments>Rod in water @ orifice</comments>
 				</LevelChecksRow>
 				<LevelChecksRow row="2">
-					<station>**S.I.B.M. #1</station>
+					<station>S.I.B.M. #1</station>
 					<backsight/>
 					<htInst/>
 					<foresight>1.210</foresight>
@@ -249,11 +256,12 @@ Temp clothsline setup for mmt</dischargeRemark>
 					<comments/>
 				</LevelChecksRow>
 				<closure>0.002</closure>
+				<upload>False</upload>
 			</LevelChecksTable>
 			<LevelChecksSummaryTable>
 				<SummaryTableRow row="0">
 					<time>14:35</time>
-					<reference>**S.I.B.M. #1</reference>
+					<reference>S.I.B.M. #1</reference>
 					<waterLevel>1257.045</waterLevel>
 					<dist>0.310</dist>
 					<surge/>
@@ -421,176 +429,212 @@ Some edges have high Q% or zero discharge from not enough good bins, waves made 
 		<velocityBottomCombo>Power</velocityBottomCombo>
 		<velocityExponentCtrl>0.1667</velocityExponentCtrl>
 		<differenceCtrl>0.21</differenceCtrl>
+		<extrapUncerCtrl/>
 		<ADCPMeasTable>
 			<ADCPMeasRow row="0">
 				<checkbox>True</checkbox>
-				<transectID color="White">1</transectID>
+				<transectID imported="0">1</transectID>
 				<startBank>R</startBank>
 				<startTime>14:54:10</startTime>
-				<startDistance color="White">1.50</startDistance>
-				<endDistance color="White">2.00</endDistance>
-				<rawDischarge color="White">8.895</rawDischarge>
-				<remarks color="White"/>
+				<startDistance imported="0">1.50</startDistance>
+				<endDistance imported="0">2.00</endDistance>
+				<rawDischarge imported="0">8.895</rawDischarge>
+				<remarks imported="0"/>
 			</ADCPMeasRow>
 			<ADCPMeasRow row="1">
 				<checkbox>True</checkbox>
-				<transectID color="White">2</transectID>
+				<transectID imported="0">2</transectID>
 				<startBank>L</startBank>
 				<startTime>14:59:41</startTime>
-				<startDistance color="White">2.00</startDistance>
-				<endDistance color="White">1.50</endDistance>
-				<rawDischarge color="White">8.419</rawDischarge>
-				<remarks color="White"/>
+				<startDistance imported="0">2.00</startDistance>
+				<endDistance imported="0">1.50</endDistance>
+				<rawDischarge imported="0">8.419</rawDischarge>
+				<remarks imported="0"/>
 			</ADCPMeasRow>
 			<ADCPMeasRow row="2">
 				<checkbox>True</checkbox>
-				<transectID color="White">3</transectID>
+				<transectID imported="0">3</transectID>
 				<startBank>R</startBank>
 				<startTime>15:02:04</startTime>
-				<startDistance color="White">1.50</startDistance>
-				<endDistance color="White">2.00</endDistance>
-				<rawDischarge color="White">9.026</rawDischarge>
-				<remarks color="White"/>
+				<startDistance imported="0">1.50</startDistance>
+				<endDistance imported="0">2.00</endDistance>
+				<rawDischarge imported="0">9.026</rawDischarge>
+				<remarks imported="0"/>
 			</ADCPMeasRow>
 			<ADCPMeasRow row="3">
 				<checkbox>True</checkbox>
-				<transectID color="White">4</transectID>
+				<transectID imported="0">4</transectID>
 				<startBank>L</startBank>
 				<startTime>15:04:11</startTime>
-				<startDistance color="White">2.00</startDistance>
-				<endDistance color="White">1.50</endDistance>
-				<rawDischarge color="White">9.087</rawDischarge>
-				<remarks color="White"/>
+				<startDistance imported="0">2.00</startDistance>
+				<endDistance imported="0">1.50</endDistance>
+				<rawDischarge imported="0">9.087</rawDischarge>
+				<remarks imported="0"/>
 			</ADCPMeasRow>
 			<ADCPMeasRow row="4">
 				<checkbox>True</checkbox>
-				<transectID color="White">5</transectID>
+				<transectID imported="0">5</transectID>
 				<startBank>R</startBank>
 				<startTime>15:04:49</startTime>
-				<startDistance color="White">1.50</startDistance>
-				<endDistance color="White">2.00</endDistance>
-				<rawDischarge color="White">9.760</rawDischarge>
-				<remarks color="White"/>
+				<startDistance imported="0">1.50</startDistance>
+				<endDistance imported="0">2.00</endDistance>
+				<rawDischarge imported="0">9.760</rawDischarge>
+				<remarks imported="0"/>
 			</ADCPMeasRow>
 			<ADCPMeasRow row="5">
 				<checkbox>True</checkbox>
-				<transectID color="White">6</transectID>
+				<transectID imported="0">6</transectID>
 				<startBank>L</startBank>
 				<startTime>15:09:00</startTime>
-				<startDistance color="White">2.00</startDistance>
-				<endDistance color="White">1.50</endDistance>
-				<rawDischarge color="White">8.230</rawDischarge>
-				<remarks color="White"/>
+				<startDistance imported="0">2.00</startDistance>
+				<endDistance imported="0">1.50</endDistance>
+				<rawDischarge imported="0">8.230</rawDischarge>
+				<remarks imported="0"/>
 			</ADCPMeasRow>
 			<ADCPMeasRow row="6">
 				<checkbox>True</checkbox>
-				<transectID color="White">7</transectID>
+				<transectID imported="0">7</transectID>
 				<startBank>R</startBank>
 				<startTime>15:10:22</startTime>
-				<startDistance color="White">1.50</startDistance>
-				<endDistance color="White">2.00</endDistance>
-				<rawDischarge color="White">8.885</rawDischarge>
-				<remarks color="White"/>
+				<startDistance imported="0">1.50</startDistance>
+				<endDistance imported="0">2.00</endDistance>
+				<rawDischarge imported="0">8.885</rawDischarge>
+				<remarks imported="0"/>
 			</ADCPMeasRow>
 			<ADCPMeasRow row="7">
 				<checkbox>True</checkbox>
-				<transectID color="White">8</transectID>
+				<transectID imported="0">8</transectID>
 				<startBank>L</startBank>
 				<startTime>15:11:42</startTime>
-				<startDistance color="White">2.00</startDistance>
-				<endDistance color="White">1.50</endDistance>
-				<rawDischarge color="White">9.199</rawDischarge>
-				<remarks color="White"/>
+				<startDistance imported="0">2.00</startDistance>
+				<endDistance imported="0">1.50</endDistance>
+				<rawDischarge imported="0">9.199</rawDischarge>
+				<remarks imported="0"/>
 			</ADCPMeasRow>
 			<ADCPMeasRow row="8">
 				<checkbox>True</checkbox>
-				<transectID color="White">9</transectID>
-				<startBank>None</startBank>
+				<transectID imported="0">9</transectID>
+				<startBank/>
 				<startTime>15:13:44</startTime>
-				<startDistance color="White">1.50</startDistance>
-				<endDistance color="White">2.00</endDistance>
-				<rawDischarge color="White">9.221</rawDischarge>
-				<remarks color="White"/>
+				<startDistance imported="0">1.50</startDistance>
+				<endDistance imported="0">2.00</endDistance>
+				<rawDischarge imported="0">9.221</rawDischarge>
+				<remarks imported="0"/>
 			</ADCPMeasRow>
 			<ADCPMeasRow row="9">
 				<checkbox>False</checkbox>
-				<transectID color="White">10</transectID>
+				<transectID imported="0">10</transectID>
 				<startBank>L</startBank>
 				<startTime>15:15:03</startTime>
-				<startDistance color="White">2.00</startDistance>
-				<endDistance color="White">1.50</endDistance>
-				<rawDischarge color="White">7.943</rawDischarge>
-				<remarks color="White">DR - bad area from boat being sucked in standing wave</remarks>
+				<startDistance imported="0">2.00</startDistance>
+				<endDistance imported="0">1.50</endDistance>
+				<rawDischarge imported="0">7.943</rawDischarge>
+				<remarks imported="0">DR - bad area from boat being sucked in standing wave</remarks>
 			</ADCPMeasRow>
 			<ADCPMeasRow row="10">
 				<checkbox>False</checkbox>
-				<transectID color="White">11</transectID>
+				<transectID imported="0">11</transectID>
 				<startBank>R</startBank>
 				<startTime>15:16:58</startTime>
-				<startDistance color="White">1.50</startDistance>
-				<endDistance color="White">2.00</endDistance>
-				<rawDischarge color="White">7.030</rawDischarge>
-				<remarks color="White">DR - bad edge estimate, differing width</remarks>
+				<startDistance imported="0">1.50</startDistance>
+				<endDistance imported="0">2.00</endDistance>
+				<rawDischarge imported="0">7.030</rawDischarge>
+				<remarks imported="0">DR - bad edge estimate, differing width</remarks>
 			</ADCPMeasRow>
 			<ADCPMeasRow row="11">
 				<checkbox>True</checkbox>
-				<transectID color="White">12</transectID>
+				<transectID imported="0">12</transectID>
 				<startBank>L</startBank>
 				<startTime>15:20:15</startTime>
-				<startDistance color="White">2.00</startDistance>
-				<endDistance color="White">1.50</endDistance>
-				<rawDischarge color="White">8.962</rawDischarge>
-				<remarks color="White"/>
+				<startDistance imported="0">2.00</startDistance>
+				<endDistance imported="0">1.50</endDistance>
+				<rawDischarge imported="0">8.962</rawDischarge>
+				<remarks imported="0"/>
 			</ADCPMeasRow>
 		</ADCPMeasTable>
 		<ADCPMeasResults>
 			<mmntStartTime>14:54:10</mmntStartTime>
 			<mmntEndTime>::</mmntEndTime>
 			<mmntMeanTime>::</mmntMeanTime>
-			<rawDischargeMean>8.968</rawDischargeMean>
 			<mbCorrectionApplied>0.000</mbCorrectionApplied>
 			<finalDischargeMean>8.968</finalDischargeMean>
-			<correctedMeanGaugeHeight>1.103</correctedMeanGaugeHeight>
+			<correctedMeanGaugeHeight>1.108</correctedMeanGaugeHeight>
 			<baseCurveGaugeHeight>1.162</baseCurveGaugeHeight>
 			<calcBaseCurveDischarge>7.269</calcBaseCurveDischarge>
 			<standardDevMeanDischarge/>
-			<calculateShiftforBaseCurve>0.0594</calculateShiftforBaseCurve>
-			<dischargeDifferenceBaseCurve>23.4</dischargeDifferenceBaseCurve>
+			<calculateShiftforBaseCurve/>
+			<dischargeDifferenceBaseCurve/>
 			<comments/>
 		</ADCPMeasResults>
 	</MovingBoatMeas>
 	<MidsecMeas empty="False">
-		<MidsectionInfo empty="True">
-			<startTimeCtrl>:</startTimeCtrl>
-			<endTimeCtrl>:</endTimeCtrl>
-			<measureSectionCtrl/>
-			<deployMethodCtrl/>
-			<meter1MeterNoCtrl/>
-			<meter1SlopeCtrl1/>
-			<meter1InterceptCtrl1/>
-			<meter1SlopeCtrl2/>
-			<meter1InterceptCtrl2/>
-			<meter1CalibDateCtrl/>
-			<meter2MeterNoCtrl/>
-			<meter2SlopeCtrl1/>
-			<meter2InterceptCtrl1/>
-			<meter2SlopeCtrl2/>
-			<meter2InterceptCtrl2/>
-			<meter2CalibDateCtrl/>
-			<numOfPanelCtrl/>
-			<widthCtrl/>
-			<areaCtrl/>
-			<avgDepthCtrl/>
-			<avgVelCtrl/>
-			<totalDisCtrl/>
-			<uncertaintyCtrl/>
-		</MidsectionInfo>
+		<DischargeMeasurement>
+			<MmtInitAndSummary>
+				<MmtInit>
+					<DeploymentMethod/>
+					<StartingBank/>
+					<TagMarkPolarity/>
+					<InitialPoint/>
+					<UnmeasuredFlow/>
+					<TimeWeightedMeanWaterLevel/>
+					<measureSectionCtrl>Open</measureSectionCtrl>
+				</MmtInit>
+				<MetersUsed>
+					<Meter>
+						<Number/>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<MeterCalibDate/>
+					</Meter>
+					<Meter>
+						<Number/>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<MeterCalibDate/>
+					</Meter>
+				</MetersUsed>
+				<MmtSummary>
+					<StartDate>11:46</StartDate>
+					<EndDate>12:07</EndDate>
+					<TotalQ/>
+					<TotalArea/>
+					<TotalWidth/>
+					<AverageVelocity/>
+					<AverageDepth/>
+					<NumberOfPanels>16</NumberOfPanels>
+					<Uncertainty/>
+				</MmtSummary>
+			</MmtInitAndSummary>
+			<Channels/>
+		</DischargeMeasurement>
+		<nextPid>100</nextPid>
 	</MidsecMeas>
 	<AQ_Upload_Record>
 		<record>
 			<status>Successful</status>
 			<time>2017-06-12 10:23:13.453000</time>
 			<user>zachary.bishop</user>
+		</record>
+		<record>
+			<status>Successful</status>
+			<time>2018-08-01 13:18:16.305000</time>
+			<user>muluken.yeheyis</user>
 		</record>
 	</AQ_Upload_Record>
 </EHSN>
