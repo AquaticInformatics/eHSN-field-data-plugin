@@ -32,7 +32,7 @@ Attachments/07QC008_20181215.ft
 # Data imported into AQTS
 
 | eHSN tab | eHSN section | eHSN property | AQTS tab | AQTS section | AQTS property |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Front Page | | Party | Visit Summary | | Party |
 | Front Page | Discharge Measurements | Control Condition | Control Condition | | Control Condition |
 | | | Control Condition Remarks | Control Condition | | Comments |
