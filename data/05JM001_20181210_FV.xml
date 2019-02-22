@@ -1,0 +1,428 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="WSC_EHSN.xsml"?>
+<EHSN version="v1.3">
+	<TitleHeader>
+		<enteredInHWS>False</enteredInHWS>
+	</TitleHeader>
+	<GenInfo>
+		<station number="05JM001">QU'APPELLE RIVER NEAR WELBY</station>
+		<date timezone="CST">2018/12/10</date>
+	</GenInfo>
+	<StageMeas>
+		<HgCkbox>False</HgCkbox>
+		<Hg2Ckbox>False</Hg2Ckbox>
+		<Wlr1Ckbox>True</Wlr1Ckbox>
+		<Wlr2Ckbox>False</Wlr2Ckbox>
+		<HG1Header>CS</HG1Header>
+		<HG2Header/>
+		<WL1Header>**S82-454</WL1Header>
+		<WL2Header/>
+		<StageMeasTable>
+			<StageMeasRow row="0">
+				<time>13:42</time>
+				<HG1>1.548</HG1>
+				<HG2/>
+				<WL1>1.541</WL1>
+				<WL2/>
+				<SRC>-0.007</SRC>
+				<SRCApp>No Reset (NR)</SRCApp>
+				<MghCkbox>True</MghCkbox>
+			</StageMeasRow>
+			<StageMeasRow row="1">
+				<time>13:20</time>
+				<HG1>1.548</HG1>
+				<HG2/>
+				<WL1/>
+				<WL2/>
+				<SRC/>
+				<SRCApp>No Reset (NR)</SRCApp>
+				<MghCkbox>False</MghCkbox>
+			</StageMeasRow>
+			<StageMeasRow row="2">
+				<time>14:00</time>
+				<HG1>1.549</HG1>
+				<HG2/>
+				<WL1/>
+				<WL2/>
+				<SRC/>
+				<SRCApp>No Reset (NR)</SRCApp>
+				<MghCkbox>False</MghCkbox>
+			</StageMeasRow>
+		</StageMeasTable>
+		<hgCkbox>False</hgCkbox>
+		<hg2Ckbox>False</hg2Ckbox>
+		<wlr1Ckbox>True</wlr1Ckbox>
+		<wlr2Ckbox>False</wlr2Ckbox>
+		<MGHHG1/>
+		<MGHHG2/>
+		<MGHWL1>1.541</MGHWL1>
+		<MGHWL2/>
+		<SRCHG1/>
+		<SRCHG2/>
+		<GCHG1/>
+		<GCHG2/>
+		<GCWL1>0.000</GCWL1>
+		<GCWL2/>
+		<CMGHHG1/>
+		<CMGHHG2/>
+		<CMGHWL1>1.541</CMGHWL1>
+		<CMGHWL2/>
+		<MghMethod>Average</MghMethod>
+		<Factors/>
+		<stageRemark/>
+	</StageMeas>
+	<DisMeas>
+		<startTime>13:20</startTime>
+		<endTime>14:01</endTime>
+		<airTemp>-11.0</airTemp>
+		<waterTemp>0.0</waterTemp>
+		<width>21.5</width>
+		<area>11.1</area>
+		<meanVel>0.221</meanVel>
+		<mgh>1.541</mgh>
+		<mghCmbo>1.541  (WLR1)</mghCmbo>
+		<discharge>2.46</discharge>
+		<dischCombo/>
+		<mmtTimeVal>13:40</mmtTimeVal>
+		<shift>-0.227</shift>
+		<diff>-45.6</diff>
+		<curve>11.000</curve>
+		<condition>Ice</condition>
+		<dischargeRemark/>
+		<controlConditionRemark>CIC</controlConditionRemark>
+	</DisMeas>
+	<EnvCond>
+		<levels>DWL Ref to S82-454</levels>
+		<cloudCover>Mostly Cloudy</cloudCover>
+		<precipitation>No Precipitation</precipitation>
+		<windMagnitude>Very Light Wind</windMagnitude>
+		<windMagnitudeSpeed>5.00</windMagnitudeSpeed>
+		<windDirection>Blowing Cross Stream</windDirection>
+		<batteryVolt>15.1</batteryVolt>
+		<gasSys/>
+		<feed/>
+		<bpmRotChoice/>
+		<bpmRot/>
+		<gasSysDepCtrl/>
+		<gasArrTime>:</gasArrTime>
+		<gasDepTime>:</gasDepTime>
+		<feedDepCtrl/>
+		<feedArrTime>:</feedArrTime>
+		<feedDepTime>:</feedDepTime>
+		<bpmrotDepCtrl/>
+		<bpmrotArrTime>:</bpmrotArrTime>
+		<bpmrotDepTime>:</bpmrotDepTime>
+		<intakeFlushed>False</intakeFlushed>
+		<intakeTime>00:00</intakeTime>
+		<orificeTime>00:00</orificeTime>
+		<orificePurged>False</orificePurged>
+		<downloadedProgram>False</downloadedProgram>
+		<downloadedData>False</downloadedData>
+		<dataPeriodStart>2018/12/10</dataPeriodStart>
+		<dataPeriodEnd>2018/12/10</dataPeriodEnd>
+		<stationHealthRemark>Dessicant OK</stationHealthRemark>
+	</EnvCond>
+	<MeasResults empty="True">
+		<SensorRefs/>
+		<HourMinutes/>
+		<Times/>
+		<ObservedVals/>
+		<SensorVals/>
+		<loggerTimeTable>
+			<loggerTimeCol1/>
+			<loggerTimeRemark1/>
+			<Hour7/>
+			<Minute7/>
+			<Hour9/>
+			<Minute9/>
+			<Time7/>
+			<Time9/>
+			<loggerTimeCol2/>
+			<loggerTimeRemark2/>
+			<Hour8/>
+			<Minute8/>
+			<Hour10/>
+			<Minute10/>
+			<Time8/>
+			<Time10/>
+		</loggerTimeTable>
+	</MeasResults>
+	<InstrumentDeployment>
+		<GeneralInfo>
+			<methodType>Mid-section</methodType>
+			<deployment>Ice Cover</deployment>
+			<position>Tagline</position>
+			<instrument>ADV</instrument>
+			<serialNum>FT2P1807010</serialNum>
+			<gauge1>10.0</gauge1>
+			<length>0</length>
+			<gaugePos>1</gaugePos>
+			<selectedGauge>gauge</selectedGauge>
+			<frequency>10</frequency>
+			<firmware/>
+			<software/>
+			<manufacturer>SonTek</manufacturer>
+			<model>FlowTracker2</model>
+			<pictured>True</pictured>
+		</GeneralInfo>
+		<MidsectionInfo empty="False">
+			<panelsNum>20</panelsNum>
+			<flowAngle>Varied</flowAngle>
+			<coeff>0.88</coeff>
+			<method>0.5</method>
+			<metres>On Rod</metres>
+			<weight/>
+			<kglbs>0</kglbs>
+			<weightRadBut1>False</weightRadBut1>
+			<weightRadBut2>True</weightRadBut2>
+		</MidsectionInfo>
+		<ADCPInfo empty="True">
+			<configChoice/>
+			<configVal/>
+			<ADCPSetToClock>False</ADCPSetToClock>
+			<diagnosticTest>False</diagnosticTest>
+			<depth/>
+			<magDecl/>
+			<compassCali>False</compassCali>
+			<passedRev>False</passedRev>
+		</ADCPInfo>
+		<Control/>
+	</InstrumentDeployment>
+	<PartyInfo>
+		<party>N. Engbert &amp; C. Adam</party>
+		<completed>C. Adam</completed>
+		<checked/>
+		<reviewed>True</reviewed>
+	</PartyInfo>
+	<LevelNotes>
+		<LevelChecks>
+			<LevelChecksTable run="0">
+				<LevelChecksRow row="0">
+					<station>**S82-454</station>
+					<backsight>0.601</backsight>
+					<htInst>5.608</htInst>
+					<foresight/>
+					<elevation>5.007</elevation>
+					<establish>5.007</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="1">
+					<station>DWL</station>
+					<backsight>4.078</backsight>
+					<htInst>5.577</htInst>
+					<foresight>4.109</foresight>
+					<elevation>1.499</elevation>
+					<establish/>
+					<comments>0.042 @ 1342</comments>
+				</LevelChecksRow>
+				<LevelChecksRow row="2">
+					<station>**S82-454</station>
+					<backsight/>
+					<htInst/>
+					<foresight>0.569</foresight>
+					<elevation>5.008</elevation>
+					<establish>5.007</establish>
+					<comments/>
+				</LevelChecksRow>
+				<closure>0.001</closure>
+				<upload>True</upload>
+			</LevelChecksTable>
+			<LevelChecksSummaryTable>
+				<SummaryTableRow row="0">
+					<time>13:42</time>
+					<reference>**S82-454</reference>
+					<waterLevel>1.499</waterLevel>
+					<dist>0.042</dist>
+					<surge/>
+					<wlElev>1.541</wlElev>
+					<datum>0.000</datum>
+					<cwl>1.541</cwl>
+					<loggerReading>1.548</loggerReading>
+					<loggerReading2/>
+				</SummaryTableRow>
+			</LevelChecksSummaryTable>
+			<comments/>
+			<loggerName>CS</loggerName>
+			<loggerName2/>
+		</LevelChecks>
+	</LevelNotes>
+	<FieldReview>
+		<pass>True</pass>
+		<dependencyType>Mid-section</dependencyType>
+		<midsectionType>Flow Tracker</midsectionType>
+		<FieldReviewTable>
+			<FieldReviewTableRow row="0">
+				<label>Passed All Instrument QA/QC?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="1">
+				<label>Software Input Same as Notes?</label>
+				<checked>False</checked>
+				<reviewed>False</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="2">
+				<label>Difference in ADCP and Water T &lt; 2°C?</label>
+				<checked>False</checked>
+				<reviewed>False</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="3">
+				<label>Signal to Noise Ratio &gt; 4</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="4">
+				<label>Flow Angles Accounted for?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="5">
+				<label>Exposure Time/Location &gt; 40s?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="6">
+				<label>No Boundary or Spike Problem?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="7">
+				<label>Bed Contour as Expected for Site?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="8">
+				<label>Ice/Slush Depth as Expected?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="9">
+				<label>Velocity Profile Suitable?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="10">
+				<label># Panels ≥ 20?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="11">
+				<label>No Panel Q &gt; 10%?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+		</FieldReviewTable>
+		<siteNotes/>
+	</FieldReview>
+	<MovingBoatMeas empty="True">
+		<bedMaterial/>
+		<mbTest>False</mbTest>
+		<mbTestChoice/>
+		<detected/>
+		<trackRefChoice/>
+		<leftBankChoice/>
+		<leftBank/>
+		<rightBankChoice/>
+		<rightBank/>
+		<edgeDistMmntMethod/>
+		<compositeTrackCmbo/>
+		<depthRefCmbo/>
+		<velocityTopCombo/>
+		<velocityBottomCombo/>
+		<velocityExponentCtrl/>
+		<differenceCtrl/>
+		<extrapUncerCtrl/>
+		<ADCPMeasTable/>
+		<ADCPMeasResults>
+			<mmntStartTime>::</mmntStartTime>
+			<mmntEndTime>::</mmntEndTime>
+			<mmntMeanTime>::</mmntMeanTime>
+			<mbCorrectionApplied/>
+			<finalDischargeMean/>
+			<correctedMeanGaugeHeight/>
+			<baseCurveGaugeHeight/>
+			<calcBaseCurveDischarge/>
+			<standardDevMeanDischarge/>
+			<calculateShiftforBaseCurve/>
+			<dischargeDifferenceBaseCurve/>
+			<comments/>
+		</ADCPMeasResults>
+	</MovingBoatMeas>
+	<MidsecMeas empty="False">
+		<DischargeMeasurement>
+			<MmtInitAndSummary>
+				<MmtInit>
+					<DeploymentMethod/>
+					<StartingBank/>
+					<TagMarkPolarity/>
+					<InitialPoint/>
+					<UnmeasuredFlow/>
+					<TimeWeightedMeanWaterLevel/>
+					<measureSectionCtrl/>
+				</MmtInit>
+				<MetersUsed>
+					<Meter>
+						<Number/>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<MeterCalibDate/>
+					</Meter>
+					<Meter>
+						<Number/>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<MeterCalibDate/>
+					</Meter>
+				</MetersUsed>
+				<MmtSummary>
+					<StartDate/>
+					<EndDate/>
+					<TotalQ/>
+					<TotalArea/>
+					<TotalWidth/>
+					<AverageVelocity/>
+					<AverageDepth/>
+					<NumberOfPanels/>
+					<Uncertainty/>
+				</MmtSummary>
+			</MmtInitAndSummary>
+			<Channels/>
+		</DischargeMeasurement>
+		<nextPid>100</nextPid>
+	</MidsecMeas>
+	<AQ_Upload_Record>
+		<record>
+			<status>Successful</status>
+			<time>2018-12-10 14:17:03.468000</time>
+			<user>cassandra.adam</user>
+		</record>
+	</AQ_Upload_Record>
+</EHSN>

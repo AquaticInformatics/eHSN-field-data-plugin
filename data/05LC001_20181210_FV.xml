@@ -1,0 +1,396 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="WSC_EHSN.xsml"?>
+<EHSN version="v1.3">
+	<TitleHeader>
+		<enteredInHWS>False</enteredInHWS>
+	</TitleHeader>
+	<GenInfo>
+		<station number="05LC001">RED DEER RIVER NEAR ERWOOD</station>
+		<date timezone="CST">2018/12/10</date>
+	</GenInfo>
+	<StageMeas>
+		<HgCkbox>False</HgCkbox>
+		<Hg2Ckbox>False</Hg2Ckbox>
+		<Wlr1Ckbox>True</Wlr1Ckbox>
+		<Wlr2Ckbox>False</Wlr2Ckbox>
+		<HG1Header/>
+		<HG2Header/>
+		<WL1Header>TBM</WL1Header>
+		<WL2Header/>
+		<StageMeasTable>
+			<StageMeasRow row="0">
+				<time>16:00</time>
+				<HG1>1.522</HG1>
+				<HG2/>
+				<WL1>1.379</WL1>
+				<WL2/>
+				<SRC>-0.143</SRC>
+				<SRCApp>No Reset (NR)</SRCApp>
+				<MghCkbox>True</MghCkbox>
+			</StageMeasRow>
+		</StageMeasTable>
+		<hgCkbox>False</hgCkbox>
+		<hg2Ckbox>False</hg2Ckbox>
+		<wlr1Ckbox>True</wlr1Ckbox>
+		<wlr2Ckbox>False</wlr2Ckbox>
+		<MGHHG1/>
+		<MGHHG2/>
+		<MGHWL1>1.379</MGHWL1>
+		<MGHWL2/>
+		<SRCHG1/>
+		<SRCHG2/>
+		<GCHG1/>
+		<GCHG2/>
+		<GCWL1>0.000</GCWL1>
+		<GCWL2/>
+		<CMGHHG1/>
+		<CMGHHG2/>
+		<CMGHWL1>1.379</CMGHWL1>
+		<CMGHWL2/>
+		<MghMethod>Average</MghMethod>
+		<Factors/>
+		<stageRemark/>
+	</StageMeas>
+	<DisMeas>
+		<startTime>15:19</startTime>
+		<endTime>15:46</endTime>
+		<airTemp>-6.0</airTemp>
+		<waterTemp/>
+		<width>49.0</width>
+		<area>70.0</area>
+		<meanVel>0.058</meanVel>
+		<mgh>1.379</mgh>
+		<mghCmbo>1.379  (WLR1)</mghCmbo>
+		<discharge>4.03</discharge>
+		<dischCombo/>
+		<mmtTimeVal>15:32</mmtTimeVal>
+		<shift>-0.12</shift>
+		<diff>-51.8</diff>
+		<curve>15.000</curve>
+		<condition>Ice</condition>
+		<dischargeRemark/>
+		<controlConditionRemark>CIC THROUGHOUT</controlConditionRemark>
+	</DisMeas>
+	<EnvCond>
+		<levels>DWL REF TO TBM</levels>
+		<cloudCover>Partly Cloudy</cloudCover>
+		<precipitation>No Precipitation</precipitation>
+		<windMagnitude>Calm Wind</windMagnitude>
+		<windMagnitudeSpeed/>
+		<windDirection/>
+		<batteryVolt>13.9</batteryVolt>
+		<gasSys/>
+		<feed/>
+		<bpmRotChoice/>
+		<bpmRot/>
+		<gasSysDepCtrl/>
+		<gasArrTime>:</gasArrTime>
+		<gasDepTime>:</gasDepTime>
+		<feedDepCtrl/>
+		<feedArrTime>:</feedArrTime>
+		<feedDepTime>:</feedDepTime>
+		<bpmrotDepCtrl/>
+		<bpmrotArrTime>:</bpmrotArrTime>
+		<bpmrotDepTime>:</bpmrotDepTime>
+		<intakeFlushed>False</intakeFlushed>
+		<intakeTime>00:00</intakeTime>
+		<orificeTime>00:00</orificeTime>
+		<orificePurged>False</orificePurged>
+		<downloadedProgram>False</downloadedProgram>
+		<downloadedData>False</downloadedData>
+		<dataPeriodStart>2018/12/10</dataPeriodStart>
+		<dataPeriodEnd>2018/12/10</dataPeriodEnd>
+		<stationHealthRemark/>
+	</EnvCond>
+	<MeasResults empty="True">
+		<SensorRefs/>
+		<HourMinutes/>
+		<Times/>
+		<ObservedVals/>
+		<SensorVals/>
+		<loggerTimeTable>
+			<loggerTimeCol1/>
+			<loggerTimeRemark1/>
+			<Hour7/>
+			<Minute7/>
+			<Hour9/>
+			<Minute9/>
+			<Time7/>
+			<Time9/>
+			<loggerTimeCol2/>
+			<loggerTimeRemark2/>
+			<Hour8/>
+			<Minute8/>
+			<Hour10/>
+			<Minute10/>
+			<Time8/>
+			<Time10/>
+		</loggerTimeTable>
+	</MeasResults>
+	<InstrumentDeployment>
+		<GeneralInfo>
+			<methodType>Mid-section</methodType>
+			<deployment>Ice Cover</deployment>
+			<position>Tagline</position>
+			<instrument>ADCP</instrument>
+			<serialNum>154</serialNum>
+			<gauge1>0</gauge1>
+			<length>0</length>
+			<gaugePos>0</gaugePos>
+			<selectedGauge>gauge</selectedGauge>
+			<frequency>600</frequency>
+			<firmware>31.12</firmware>
+			<software>SXS</software>
+			<manufacturer>TRDI</manufacturer>
+			<model>StreamPro</model>
+			<pictured>False</pictured>
+		</GeneralInfo>
+		<MidsectionInfo empty="True">
+			<panelsNum/>
+			<flowAngle/>
+			<coeff/>
+			<method/>
+			<metres/>
+			<weight/>
+			<kglbs>0</kglbs>
+			<weightRadBut1>False</weightRadBut1>
+			<weightRadBut2>True</weightRadBut2>
+		</MidsectionInfo>
+		<ADCPInfo empty="False">
+			<configChoice>Auto</configChoice>
+			<configVal/>
+			<ADCPSetToClock>True</ADCPSetToClock>
+			<diagnosticTest>True</diagnosticTest>
+			<depth>0.100</depth>
+			<magDecl/>
+			<compassCali>False</compassCali>
+			<passedRev>True</passedRev>
+		</ADCPInfo>
+		<Control/>
+	</InstrumentDeployment>
+	<PartyInfo>
+		<party>C. GARBUTT &amp; S. POW</party>
+		<completed>C. GARBUTT</completed>
+		<checked/>
+		<reviewed>True</reviewed>
+	</PartyInfo>
+	<LevelNotes>
+		<LevelChecks>
+			<LevelChecksTable run="0">
+				<LevelChecksRow row="0">
+					<station>**TBM</station>
+					<backsight>1.547</backsight>
+					<htInst>4.595</htInst>
+					<foresight/>
+					<elevation>3.048</elevation>
+					<establish>3.048</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="1">
+					<station>TP H2O</station>
+					<backsight>3.241</backsight>
+					<htInst>4.567</htInst>
+					<foresight>3.269</foresight>
+					<elevation>1.326</elevation>
+					<establish/>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="2">
+					<station>**TBM</station>
+					<backsight/>
+					<htInst/>
+					<foresight>1.521</foresight>
+					<elevation>3.046</elevation>
+					<establish>3.048</establish>
+					<comments/>
+				</LevelChecksRow>
+				<closure>-0.002</closure>
+				<upload>True</upload>
+			</LevelChecksTable>
+			<LevelChecksSummaryTable>
+				<SummaryTableRow row="0">
+					<time>16:00</time>
+					<reference>TBM</reference>
+					<waterLevel>1.326</waterLevel>
+					<dist>0.053</dist>
+					<surge/>
+					<wlElev>1.379</wlElev>
+					<datum>0.000</datum>
+					<cwl>1.379</cwl>
+					<loggerReading>1.522</loggerReading>
+					<loggerReading2/>
+				</SummaryTableRow>
+			</LevelChecksSummaryTable>
+			<comments/>
+			<loggerName/>
+			<loggerName2/>
+		</LevelChecks>
+	</LevelNotes>
+	<FieldReview>
+		<pass>True</pass>
+		<dependencyType>Mid-section</dependencyType>
+		<midsectionType>ADCP</midsectionType>
+		<FieldReviewTable>
+			<FieldReviewTableRow row="0">
+				<label>Passed All Instrument QA/QC?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="1">
+				<label>Software Input Same as Notes?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="2">
+				<label>Difference in ADCP and Water T &lt; 2°C?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="3">
+				<label>Exposure Time/Location &gt; 40s?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="4">
+				<label>Valid Ensembles/Panel &gt; 30?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="5">
+				<label>Bed Contour as Expected for Site?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="6">
+				<label>Ice/Slush Depth as Expected?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="7">
+				<label>Velocity Profile Checked with extrap?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="8">
+				<label># Panels ≥ 20?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="9">
+				<label>No Panel Q &gt; 10%?</label>
+				<checked>False</checked>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+		</FieldReviewTable>
+		<siteNotes/>
+	</FieldReview>
+	<MovingBoatMeas empty="True">
+		<bedMaterial/>
+		<mbTest>False</mbTest>
+		<mbTestChoice/>
+		<detected/>
+		<trackRefChoice/>
+		<leftBankChoice/>
+		<leftBank/>
+		<rightBankChoice/>
+		<rightBank/>
+		<edgeDistMmntMethod/>
+		<compositeTrackCmbo/>
+		<depthRefCmbo/>
+		<velocityTopCombo/>
+		<velocityBottomCombo/>
+		<velocityExponentCtrl/>
+		<differenceCtrl/>
+		<extrapUncerCtrl/>
+		<ADCPMeasTable/>
+		<ADCPMeasResults>
+			<mmntStartTime>::</mmntStartTime>
+			<mmntEndTime>::</mmntEndTime>
+			<mmntMeanTime>::</mmntMeanTime>
+			<mbCorrectionApplied/>
+			<finalDischargeMean/>
+			<correctedMeanGaugeHeight/>
+			<baseCurveGaugeHeight/>
+			<calcBaseCurveDischarge/>
+			<standardDevMeanDischarge/>
+			<calculateShiftforBaseCurve/>
+			<dischargeDifferenceBaseCurve/>
+			<comments/>
+		</ADCPMeasResults>
+	</MovingBoatMeas>
+	<MidsecMeas empty="False">
+		<DischargeMeasurement>
+			<MmtInitAndSummary>
+				<MmtInit>
+					<DeploymentMethod/>
+					<StartingBank/>
+					<TagMarkPolarity/>
+					<InitialPoint/>
+					<UnmeasuredFlow/>
+					<TimeWeightedMeanWaterLevel/>
+					<measureSectionCtrl/>
+				</MmtInit>
+				<MetersUsed>
+					<Meter>
+						<Number/>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<MeterCalibDate/>
+					</Meter>
+					<Meter>
+						<Number/>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<MeterCalibDate/>
+					</Meter>
+				</MetersUsed>
+				<MmtSummary>
+					<StartDate/>
+					<EndDate/>
+					<TotalQ/>
+					<TotalArea/>
+					<TotalWidth/>
+					<AverageVelocity/>
+					<AverageDepth/>
+					<NumberOfPanels/>
+					<Uncertainty/>
+				</MmtSummary>
+			</MmtInitAndSummary>
+			<Channels/>
+		</DischargeMeasurement>
+		<nextPid>100</nextPid>
+	</MidsecMeas>
+	<AQ_Upload_Record>
+		<record>
+			<status>Successful</status>
+			<time>2018-12-10 17:29:08.313000</time>
+			<user>cody.garbutt</user>
+		</record>
+	</AQ_Upload_Record>
+</EHSN>
