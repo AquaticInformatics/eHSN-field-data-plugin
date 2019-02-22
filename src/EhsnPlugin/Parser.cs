@@ -57,6 +57,8 @@ namespace EhsnPlugin
         {
             VersionValidator.ThrowIfUnsupportedVersion(eHsn.version);
 
+            _logger.Info($"Parsing eHSN '{eHsn.version}' from location '{eHsn.GenInfo.station.number}' ({eHsn.GenInfo.station.Value}) collected on {eHsn.GenInfo.date.Value}");
+
             var locationIdentifier = eHsn.GenInfo.station.number;
 
             var locationInfo = _appender.GetLocationByIdentifier(locationIdentifier);
