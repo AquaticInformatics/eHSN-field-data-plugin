@@ -49,7 +49,7 @@ namespace EhsnPlugin
                 var originalXml = streamReader.ReadToEnd();
                 stream.Position = 0;
 
-                return Regex.Replace(originalXml, @"<[a-zA-Z_][^<>]*\/>",string.Empty);
+                return Regex.Replace(originalXml, @"<[a-zA-Z]\w*\/>", string.Empty);
             }
         }
 
