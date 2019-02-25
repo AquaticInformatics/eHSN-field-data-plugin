@@ -69,7 +69,7 @@ namespace EhsnPlugin.Mappers
                 }
 
                 if (string.IsNullOrWhiteSpace(row.time) ||
-                    TimeHelper.ParseTimeOrMinValue(row.time, _visitDateTime.Date) == DateTime.MinValue)
+                    TimeHelper.ParseTimeOrMinValue(row.time, _visitDateTime.Date, _locationInfo.UtcOffset) == DateTimeOffset.MinValue)
                 {
                     throw new EHsnPluginException($"Invalid SummaryTableRow: time is invalid {row.time}.");
                 }
@@ -118,8 +118,7 @@ namespace EhsnPlugin.Mappers
 
                 var summaryRow = summaryRowList.First();
 
-                var time = TimeHelper.ParseTimeOrMinValue(summaryRow.time, _visitDateTime);
-                var timeOffset = new DateTimeOffset(time, _locationInfo.UtcOffset);
+                var timeOffset = TimeHelper.ParseTimeOrMinValue(summaryRow.time, _visitDateTime, _locationInfo.UtcOffset);
 
                 var measuredElevation = GetAveragedMeasuredElevation(reference, checkTables);
 

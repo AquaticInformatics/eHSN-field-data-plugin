@@ -52,7 +52,7 @@ namespace EhsnPlugin.Mappers
 
         private DateTime ParseTimeOrMinValue(string timeString)
         {
-            return TimeHelper.ParseTimeOrMinValue(timeString, _visitDate);
+            return TimeHelper.ParseTimeOrMinValue(timeString, _visitDate, _locationUtcOffset).DateTime;
         }
 
         private List<MeasurementRecord> ParseStageMeasurements()
