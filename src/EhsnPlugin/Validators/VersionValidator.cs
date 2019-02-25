@@ -13,7 +13,7 @@ namespace EhsnPlugin.Validators
 
         public VersionValidator()
         {
-            var cfg = ConfigurationManager.OpenExeConfiguration($"{GetType().Namespace?.Split('.')[0]}.dll").AppSettings.Settings;
+            var cfg = ConfigurationManager.OpenExeConfiguration(GetType().Assembly.Location).AppSettings.Settings;
 
             var minVersion = cfg[nameof(MinVersion)]?.Value;
 
