@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using EhsnPlugin.DataModel;
+using EhsnPlugin.Helpers;
 using FieldDataPluginFramework;
 using FieldDataPluginFramework.Context;
 using FieldDataPluginFramework.DataModel;
@@ -33,11 +34,13 @@ namespace EhsnPlugin.Mappers
 
         public FieldVisitDetails MapFieldVisitDetails( )
         {
-            var visitPeriod = GetVisitTimePeriod(_locationInfo);
+            var visitPeriod = GetVisitTimePeriod();
 
             return new FieldVisitDetails(visitPeriod)
             {
-                Party = _eHsn.PartyInfo.party
+                Party = _eHsn.PartyInfo.party,
+                Weather = MapWeather(),
+                Comments = MapComments()
             };
         }
 
@@ -51,28 +54,122 @@ namespace EhsnPlugin.Mappers
             return DateTime.ParseExact(eHsnGenInfo.date.Value, "yyyy/MM/dd", CultureInfo.InvariantCulture);
         }
 
-        private DateTimeInterval GetVisitTimePeriod(LocationInfo locationInfo)
+        private DateTimeInterval GetVisitTimePeriod()
         {
-            var start = _visitDate;
-            //Use end of day minus 1 minute as the visit end time:
-            var end = _visitDate.AddDays(1).AddMinutes(-1);
+            var allTimes = ExtractAllTimes();
 
-            //Use the earliest time and latest time found in measurements if any as start/end times:
-            var allMeasurementTimes =
-                new List<DateTime>(_ehsnMeasurement.EnvironmentConditionMeasurements.Select(m => m.StartTime));
-            allMeasurementTimes.AddRange(_ehsnMeasurement.DischargeMeasurements.Select(m => m.StartTime));
-            allMeasurementTimes.AddRange(_ehsnMeasurement.SensorStageMeasurements.Select(m => m.StartTime));
-            allMeasurementTimes.AddRange(_ehsnMeasurement.StageMeasurements.Select(m => m.StartTime));
+            if (allTimes.Count < 2)
+                throw new ArgumentException($"Can't infer the start and end time. Too few time values found in the file. Date={_visitDate:yyyy/MM/dd} Count={allTimes.Count} Times={string.Join(", ", allTimes.Select(d => d.ToString("O")))}");
 
-            if(allMeasurementTimes.Any())
-            {
-                allMeasurementTimes.Sort();
-                start = allMeasurementTimes.First();
-                end = allMeasurementTimes.Last();
-            }
+            return new DateTimeInterval(
+                allTimes.First(),
+                allTimes.Last());
+        }
 
-            return new DateTimeInterval(new DateTimeOffset(start, locationInfo.UtcOffset),
-                new DateTimeOffset(end, locationInfo.UtcOffset));
+        private List<DateTimeOffset> ExtractAllTimes()
+        {
+            // just date in /GenInfo/date
+            // DateTimeUtc in: (ignore UTC indicator, it is really a location local time)
+            //  /MidsecMeas/DischargeMeasurement/Channels/Channel[]/Panels/Panel[]@Date
+            //  /MidsecMeas/DischargeMeasurement/Channels/Channel[]/Edges/Edge[]@Date
+            // time in:
+            //  /StageMeas/StageMeasTable/StageMeasRow[]/time
+            //  /DisMeas/startTime
+            //  /DisMeas/endTime
+            //  /DisMeas/mmtTimeVal
+            //  /MeasResults/Times/Time[]
+            //  /LevelNotes/LevelChecks/LevelChecksSummaryTable/time
+            //  /MovingBoatMeas/ADCPMeasTable/ADCPMeasRow[]/startTime (HH:MM:SS)
+            //  /MovingBoatMeas/ADCPMeasResults/mmntStartTime
+            //  /MovingBoatMeas/ADCPMeasResults/mmntEndTime
+            //  /MovingBoatMeas/ADCPMeasResults/mmntMeanTime
+            var channels = _eHsn.MidsecMeas?.DischargeMeasurement?.Channels ?? new EHSNMidsecMeasDischargeMeasurementChannel[0];
+            var stageMeasRows = _eHsn.StageMeas?.StageMeasTable ?? new EHSNStageMeasStageMeasRow[0];
+            var measResultTimes = _eHsn.MeasResults?.Times ?? new EHSNMeasResultsTime[0];
+            var levelChecksSummaryRows = _eHsn.LevelNotes?.LevelChecks?.LevelChecksSummaryTable ?? new EHSNLevelNotesLevelChecksSummaryTableRow[0];
+            var movingBoatTransectRows = _eHsn.MovingBoatMeas?.ADCPMeasTable ?? new EHSNMovingBoatMeasADCPMeasRow[0];
+
+            return channels
+                .SelectMany(ExtractAllTimes)
+                .Concat(stageMeasRows
+                    .Select(row => ExtractTime(row.time)))
+                .Append(ExtractTime(_eHsn.DisMeas.startTime))
+                .Append(ExtractTime(_eHsn.DisMeas.endTime))
+                .Append(ExtractTime(_eHsn.DisMeas.mmtTimeVal))
+                .Concat(measResultTimes
+                    .Select(time => ExtractTime(time.Value)))
+                .Concat(levelChecksSummaryRows
+                    .Select(row => ExtractTime(row.time)))
+                .Concat(movingBoatTransectRows
+                    .Select(row => ExtractJustTime(row.startTime)))
+                .Append(ExtractTime(_eHsn.MovingBoatMeas?.ADCPMeasResults?.mmntStartTime))
+                .Append(ExtractTime(_eHsn.MovingBoatMeas?.ADCPMeasResults?.mmntEndTime))
+                .Append(ExtractTime(_eHsn.MovingBoatMeas?.ADCPMeasResults?.mmntMeanTime))
+                .Where(d => d != DateTimeOffset.MinValue)
+                .OrderBy(dateTimeOffset => dateTimeOffset)
+                .ToList();
+        }
+
+        private IEnumerable<DateTimeOffset> ExtractAllTimes(EHSNMidsecMeasDischargeMeasurementChannel channel)
+        {
+            var panels = channel.Panels ?? new EHSNMidsecMeasDischargeMeasurementChannelPanel[0];
+            var edges = channel.Edges ?? new EHSNMidsecMeasDischargeMeasurementChannelEdge[0];
+
+            return panels
+                .Select(panel => panel.Date)
+                .Concat(edges
+                    .Select(edge => edge.Date))
+                .Select(dateTime => new DateTimeOffset(DateTime.SpecifyKind(dateTime, DateTimeKind.Unspecified), _locationInfo.UtcOffset));
+        }
+
+        private DateTimeOffset ExtractTime(string timeText)
+        {
+            return TimeHelper.ParseTimeOrMinValue(timeText, _visitDate, _locationInfo.UtcOffset);
+        }
+
+        private DateTimeOffset ExtractJustTime(DateTime dateTime)
+        {
+            return new DateTimeOffset(
+                _visitDate.Year,
+                _visitDate.Month,
+                _visitDate.Day,
+                dateTime.Hour,
+                dateTime.Minute,
+                dateTime.Second,
+                _locationInfo.UtcOffset);
+        }
+
+        private string MapWeather()
+        {
+            if (_eHsn.EnvCond == null) return null;
+
+            var lines = new List<string>();
+
+            AddCondition(lines, "Cloud Cover: ", _eHsn.EnvCond.cloudCover);
+            AddCondition(lines, "Precipitation: ", _eHsn.EnvCond.precipitation);
+            AddCondition(lines, "Wind Conditions: ", _eHsn.EnvCond.windMagnitude);
+            AddCondition(lines, "Wind Speed: ", _eHsn.EnvCond.windMagnitudeSpeed);
+            AddCondition(lines, "Wind Direction: ", _eHsn.EnvCond.windDirection);
+
+            return string.Join("\n", lines);
+        }
+
+        private static void AddCondition(List<string> lines, string label, string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return;
+
+            lines.Add($"{label}{value.Trim()}");
+        }
+
+        private string MapComments()
+        {
+            var lines = new List<string>();
+            
+            AddCondition(lines, string.Empty, _eHsn.EnvCond?.stationHealthRemark);
+            AddCondition(lines, string.Empty, _eHsn.FieldReview?.siteNotes);
+
+            return string.Join("\n", lines);
         }
 
         public DischargeActivity MapDischargeActivity()
