@@ -69,6 +69,10 @@
       "ParameterId": "UD",
       "UnitId": "deg"
     },
+    "Wind Speed (km/h)": {
+      "ParameterId": "US",
+      "UnitId": "km/hr"
+    },
     "Water Temp (°C)": {
       "ParameterId": "TW",
       "UnitId": "degC"

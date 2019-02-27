@@ -699,15 +699,15 @@ public partial class EHSNStageMeasStageMeasRow {
     
     private string timeField;
     
-    private decimal hG1Field;
+    private string hG1Field;
     
-    private System.Nullable<decimal> hG2Field;
+    private string hG2Field;
     
-    private System.Nullable<decimal> wL1Field;
+    private string wL1Field;
     
-    private System.Nullable<decimal> wL2Field;
+    private string wL2Field;
     
-    private System.Nullable<decimal> sRCField;
+    private string sRCField;
     
     private string sRCAppField;
     
@@ -726,7 +726,7 @@ public partial class EHSNStageMeasStageMeasRow {
     }
     
     /// <remarks/>
-    public decimal HG1 {
+    public string HG1 {
         get {
             return this.hG1Field;
         }
@@ -736,8 +736,7 @@ public partial class EHSNStageMeasStageMeasRow {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-    public System.Nullable<decimal> HG2 {
+    public string HG2 {
         get {
             return this.hG2Field;
         }
@@ -747,8 +746,7 @@ public partial class EHSNStageMeasStageMeasRow {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-    public System.Nullable<decimal> WL1 {
+    public string WL1 {
         get {
             return this.wL1Field;
         }
@@ -758,8 +756,7 @@ public partial class EHSNStageMeasStageMeasRow {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-    public System.Nullable<decimal> WL2 {
+    public string WL2 {
         get {
             return this.wL2Field;
         }
@@ -769,8 +766,7 @@ public partial class EHSNStageMeasStageMeasRow {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-    public System.Nullable<decimal> SRC {
+    public string SRC {
         get {
             return this.sRCField;
         }
@@ -823,9 +819,9 @@ public partial class EHSNDisMeas {
     
     private string endTimeField;
     
-    private decimal airTempField;
+    private string airTempField;
     
-    private decimal waterTempField;
+    private string waterTempField;
     
     private decimal widthField;
     
@@ -876,7 +872,7 @@ public partial class EHSNDisMeas {
     }
     
     /// <remarks/>
-    public decimal airTemp {
+    public string airTemp {
         get {
             return this.airTempField;
         }
@@ -886,7 +882,7 @@ public partial class EHSNDisMeas {
     }
     
     /// <remarks/>
-    public decimal waterTemp {
+    public string waterTemp {
         get {
             return this.waterTempField;
         }
@@ -1056,7 +1052,7 @@ public partial class EHSNEnvCond {
     
     private string windDirectionField;
     
-    private System.Nullable<decimal> batteryVoltField;
+    private string batteryVoltField;
     
     private string gasSysField;
     
@@ -1163,8 +1159,7 @@ public partial class EHSNEnvCond {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-    public System.Nullable<decimal> batteryVolt {
+    public string batteryVolt {
         get {
             return this.batteryVoltField;
         }
@@ -1678,7 +1673,7 @@ public partial class EHSNMeasResultsObservedVal {
     
     private byte rowField;
     
-    private decimal valueField;
+    private string valueField;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -1693,7 +1688,7 @@ public partial class EHSNMeasResultsObservedVal {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlTextAttribute()]
-    public decimal Value {
+    public string Value {
         get {
             return this.valueField;
         }
@@ -1713,7 +1708,7 @@ public partial class EHSNMeasResultsSensorVal {
     
     private byte rowField;
     
-    private decimal valueField;
+    private string valueField;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -1728,7 +1723,7 @@ public partial class EHSNMeasResultsSensorVal {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlTextAttribute()]
-    public decimal Value {
+    public string Value {
         get {
             return this.valueField;
         }

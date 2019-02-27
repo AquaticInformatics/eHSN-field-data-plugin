@@ -64,6 +64,7 @@
     <Compile Include="Mappers\MeasurementParser.cs" />
     <Compile Include="Mappers\FieldVisitMapper.cs" />
     <Compile Include="SystemCode\Parameters.cs" />
+    <Compile Include="SystemCode\SensorRefs.cs" />
     <Compile Include="SystemCode\Units.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Plugin.cs" />

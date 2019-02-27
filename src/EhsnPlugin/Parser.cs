@@ -113,9 +113,7 @@ namespace EhsnPlugin
                 _appender.AddDischargeActivity(fieldVisitInfo, dischargeActivity);
             }
 
-            var readings = mapper.MapReadings();
-
-            foreach (var reading in readings)
+            foreach (var reading in mapper.MapReadings())
             {
                 _appender.AddReading(fieldVisitInfo, reading);
             }

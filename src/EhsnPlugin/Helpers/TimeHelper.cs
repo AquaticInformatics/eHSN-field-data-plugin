@@ -20,6 +20,17 @@ namespace EhsnPlugin.Helpers
             return meanTime < start ? start : meanTime;
         }
 
+        public static DateTimeOffset GetMeanTimeTruncatedToMinute(DateTimeOffset startTime, DateTimeOffset endTime)
+        {
+            if (startTime == DateTimeOffset.MinValue && endTime == DateTimeOffset.MinValue)
+                return DateTimeOffset.MinValue;
+
+            if (startTime == DateTimeOffset.MinValue) return endTime;
+            if (endTime == DateTimeOffset.MinValue) return startTime;
+
+            return new DateTimeOffset(GetMeanTimeTruncatedToMinute(startTime.DateTime, endTime.DateTime), startTime.Offset);
+        }
+
         public static DateTimeOffset ParseTimeOrMinValue(string timeString, DateTime visitDate, TimeSpan locationOffset)
         {
             if (string.IsNullOrWhiteSpace(timeString) ||

@@ -52,11 +52,11 @@
                         <xs:complexType>
                           <xs:sequence>
                             <xs:element name="time" type="xs:string" />
-                            <xs:element name="HG1" type="xs:decimal" />
-                            <xs:element name="HG2" type="xs:decimal" nillable="true"/>
-                            <xs:element name="WL1" type="xs:decimal" nillable="true"/>
-                            <xs:element name="WL2" type="xs:decimal" nillable="true"/>
-                            <xs:element name="SRC" type="xs:decimal" nillable="true"/>
+                            <xs:element name="HG1" type="xs:string" />
+                            <xs:element name="HG2" type="xs:string" />
+                            <xs:element name="WL1" type="xs:string" />
+                            <xs:element name="WL2" type="xs:string" />
+                            <xs:element name="SRC" type="xs:string" />
                             <xs:element name="SRCApp" type="xs:string" />
                             <xs:element name="MghCkbox" type="xs:string" />
                           </xs:sequence>
@@ -95,8 +95,8 @@
               <xs:sequence>
                 <xs:element name="startTime" type="xs:string" />
                 <xs:element name="endTime" type="xs:string" />
-                <xs:element name="airTemp" type="xs:decimal" />
-                <xs:element name="waterTemp" type="xs:decimal" />
+                <xs:element name="airTemp" type="xs:string" />
+                <xs:element name="waterTemp" type="xs:string" />
                 <xs:element name="width" type="xs:decimal" />
                 <xs:element name="area" type="xs:decimal" />
                 <xs:element name="meanVel" type="xs:decimal" />
@@ -123,7 +123,7 @@
                 <xs:element name="windMagnitude" type="xs:string" />
                 <xs:element name="windMagnitudeSpeed" type="xs:string" />
                 <xs:element name="windDirection" type="xs:string" />
-                <xs:element name="batteryVolt" type="xs:decimal" nillable="true" />
+                <xs:element name="batteryVolt" type="xs:string" />
                 <xs:element name="gasSys" type="xs:string" />
                 <xs:element name="feed" type="xs:decimal" nillable="true"/>
                 <xs:element name="bpmRotChoice" type="xs:string" />
@@ -215,7 +215,7 @@
                       <xs:element maxOccurs="unbounded" name="ObservedVal" nillable="true">
                         <xs:complexType>
                           <xs:simpleContent>
-                            <xs:extension base="xs:decimal">
+                            <xs:extension base="xs:string">
                               <xs:attribute name="row" type="xs:unsignedByte" use="required" />
                             </xs:extension>
                           </xs:simpleContent>
@@ -230,7 +230,7 @@
                       <xs:element maxOccurs="unbounded" name="SensorVal">
                         <xs:complexType>
                           <xs:simpleContent>
-                            <xs:extension base="xs:decimal">
+                            <xs:extension base="xs:string">
                               <xs:attribute name="row" type="xs:unsignedByte" use="required" />
                             </xs:extension>
                           </xs:simpleContent>

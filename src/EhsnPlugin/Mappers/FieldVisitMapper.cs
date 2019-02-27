@@ -183,7 +183,7 @@ namespace EhsnPlugin.Mappers
 
         public IEnumerable<Reading> MapReadings()
         {
-            return new ReadingMapper(_eHsn, _ehsnMeasurement).Map();
+            return new ReadingMapper(Config, _locationInfo, _visitDate, _eHsn).Map();
         }
 
         public LevelSurvey MapLevelSurveyOrNull()
@@ -194,7 +194,7 @@ namespace EhsnPlugin.Mappers
         public ControlCondition MapControlConditionOrNull()
         {
             var conditionTypeText = _eHsn.DisMeas?.condition?.Trim();
-            var conditionRemarks = _eHsn.DisMeas?.controlConditionRemark.Trim();
+            var conditionRemarks = _eHsn.DisMeas?.controlConditionRemark?.Trim();
 
             if (string.IsNullOrWhiteSpace(conditionTypeText) && string.IsNullOrWhiteSpace(conditionRemarks))
                 return null;

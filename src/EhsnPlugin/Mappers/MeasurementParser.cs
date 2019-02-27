@@ -68,8 +68,12 @@ namespace EhsnPlugin.Mappers
                 if (time == DateTime.MinValue)
                     continue;
 
+                var value = row.WL1 ?? row.HG1;
+
+                if (value == null) continue;
+
                 var measurement = new MeasurementRecord(time, time, Parameters.StageHg, 
-                    Units.DistanceUnitId, (double)(row.WL1 ?? row.HG1))
+                    Units.DistanceUnitId, double.Parse(value))
                 {
                     Remark = GetStageRowRemark(row)
                 };
@@ -82,8 +86,8 @@ namespace EhsnPlugin.Mappers
 
         private string GetStageRowRemark(EHSNStageMeasStageMeasRow row)
         {
-            return row.SRC.HasValue
-                ? $"@{row.time} {row.SRCApp}. Correction:{row.SRC.Value}"
+            return !string.IsNullOrWhiteSpace(row.SRC)
+                ? $"@{row.time} {row.SRCApp}. Correction:{row.SRC}"
                 : string.Empty;
         }
 
@@ -96,12 +100,6 @@ namespace EhsnPlugin.Mappers
 
             var start = ParseTimeOrMinValue(_eHsn.DisMeas.startTime);
             var end = ParseTimeOrMinValue(_eHsn.DisMeas.endTime);
-
-            //Air temperature:
-            measurements.Add(new MeasurementRecord(start, end, Parameters.AirTemp, Units.TemperatureUnitId, (double)_eHsn.DisMeas.airTemp));
-
-            //Water temperature:
-            measurements.Add(new MeasurementRecord(start, end, Parameters.WaterTemp, Units.TemperatureUnitId, (double)_eHsn.DisMeas.waterTemp));
 
             //Section width:
             measurements.Add(new MeasurementRecord(start, end, Parameters.RiverSectionWidth, Units.DistanceUnitId, (double)_eHsn.DisMeas.width));
@@ -129,7 +127,7 @@ namespace EhsnPlugin.Mappers
                 return measurements;
 
             measurements.Add(new MeasurementRecord(measurementTime, measurementTime, Parameters.Voltage, Units.VoltageUnitId,
-                (double)_eHsn.EnvCond.batteryVolt.Value));
+                double.Parse(_eHsn.EnvCond.batteryVolt)));
 
             return measurements;
         }
@@ -164,7 +162,7 @@ namespace EhsnPlugin.Mappers
                             break;
                         var value = measResults.SensorVals[index].Value;
 
-                        measurements.Add(new MeasurementRecord(time, time, Parameters.HeadStage, Units.DistanceUnitId, (double)value));
+                        measurements.Add(new MeasurementRecord(time, time, Parameters.HeadStage, Units.DistanceUnitId, double.Parse(value)));
                         break;
                 }
             }
