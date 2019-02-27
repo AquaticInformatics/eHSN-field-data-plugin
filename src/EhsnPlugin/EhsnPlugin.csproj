@@ -38,8 +38,10 @@
     <Reference Include="FieldDataPluginFramework, Version=2.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <HintPath>..\packages\Aquarius.FieldDataFramework.18.4.1\lib\net472\FieldDataPluginFramework.dll</HintPath>
     </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.5.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.5.12\lib\net45\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -50,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="DataModel\ParsedEhsnLevelSurvey.cs" />
     <Compile Include="DataModel\EhsnMeasurement.cs" />
     <Compile Include="DataModel\MeasurementRecord.cs" />
@@ -72,7 +75,9 @@
     <Compile Include="DataModel\Version.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Readme.md" />
     <None Include="Schema\eHSN.xsd">
@@ -80,11 +85,7 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties manifest_1json__JSONSchema="" />
-    </VisualStudio>
-  </ProjectExtensions>
+  <ProjectExtensions />
   <PropertyGroup>
     <PostBuildEvent>$(SolutionDir)packages\Aquarius.FieldDataFramework.18.4.1\tools\PluginPackager.exe $(TargetPath) /OutputPath=$(ProjectDir)deploy\$(Configuration)\$(TargetName).plugin /Description="Imports eHSN XML files into AQTS field visits"</PostBuildEvent>
   </PropertyGroup>

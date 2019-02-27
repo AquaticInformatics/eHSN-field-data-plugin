@@ -17,14 +17,16 @@ namespace EhsnPlugin.Mappers
 {
     public class FieldVisitMapper
     {
+        private Config Config { get; }
         private readonly EHSN _eHsn;
         private readonly LocationInfo _locationInfo;
         private readonly EhsnMeasurement _ehsnMeasurement;
         private readonly DateTime _visitDate;
         private readonly ILog _logger;
 
-        public FieldVisitMapper(EHSN eHsn, LocationInfo locationInfo, ILog logger)
+        public FieldVisitMapper(Config config, EHSN eHsn, LocationInfo locationInfo, ILog logger)
         {
+            Config = config ?? throw new ArgumentException(nameof(config));
             _eHsn = eHsn ?? throw new ArgumentNullException(nameof(eHsn));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _locationInfo = locationInfo ?? throw new ArgumentNullException(nameof(locationInfo));
@@ -147,16 +149,16 @@ namespace EhsnPlugin.Mappers
 
             var lines = new List<string>();
 
-            AddCondition(lines, "Cloud Cover: ", _eHsn.EnvCond.cloudCover);
-            AddCondition(lines, "Precipitation: ", _eHsn.EnvCond.precipitation);
-            AddCondition(lines, "Wind Conditions: ", _eHsn.EnvCond.windMagnitude);
-            AddCondition(lines, "Wind Speed: ", _eHsn.EnvCond.windMagnitudeSpeed);
-            AddCondition(lines, "Wind Direction: ", _eHsn.EnvCond.windDirection);
+            AddCommentLine(lines, "Cloud Cover: ", _eHsn.EnvCond.cloudCover);
+            AddCommentLine(lines, "Precipitation: ", _eHsn.EnvCond.precipitation);
+            AddCommentLine(lines, "Wind Conditions: ", _eHsn.EnvCond.windMagnitude);
+            AddCommentLine(lines, "Wind Speed: ", _eHsn.EnvCond.windMagnitudeSpeed);
+            AddCommentLine(lines, "Wind Direction: ", _eHsn.EnvCond.windDirection);
 
             return string.Join("\n", lines);
         }
 
-        private static void AddCondition(List<string> lines, string label, string value)
+        private static void AddCommentLine(List<string> lines, string label, string value)
         {
             if (string.IsNullOrWhiteSpace(value))
                 return;
@@ -168,20 +170,20 @@ namespace EhsnPlugin.Mappers
         {
             var lines = new List<string>();
             
-            AddCondition(lines, string.Empty, _eHsn.EnvCond?.stationHealthRemark);
-            AddCondition(lines, string.Empty, _eHsn.FieldReview?.siteNotes);
+            AddCommentLine(lines, string.Empty, _eHsn.EnvCond?.stationHealthRemark);
+            AddCommentLine(lines, string.Empty, _eHsn.FieldReview?.siteNotes);
 
             return string.Join("\n", lines);
         }
 
-        public DischargeActivity MapDischargeActivity()
+        public DischargeActivity MapDischargeActivityOrNull()
         {
             return new DischargeActivityMapper(_ehsnMeasurement, _eHsn).Map();
         }
 
         public IEnumerable<Reading> MapReadings()
         {
-            return new ReadingMapper(_ehsnMeasurement).Map();
+            return new ReadingMapper(_eHsn, _ehsnMeasurement).Map();
         }
 
         public LevelSurvey MapLevelSurveyOrNull()
@@ -191,22 +193,31 @@ namespace EhsnPlugin.Mappers
 
         public ControlCondition MapControlConditionOrNull()
         {
-            var conditionTypeText = _eHsn.DisMeas?.condition;
-            var conditionRemarks = _eHsn.DisMeas?.controlConditionRemark;
+            var conditionTypeText = _eHsn.DisMeas?.condition?.Trim();
+            var conditionRemarks = _eHsn.DisMeas?.controlConditionRemark.Trim();
 
             if (string.IsNullOrWhiteSpace(conditionTypeText) && string.IsNullOrWhiteSpace(conditionRemarks))
                 return null;
 
-            // TODO: Support some configurable mapping to the WSC picklist definition
-            var conditionType = string.IsNullOrWhiteSpace(conditionTypeText)
-                ? null
-                : new ControlConditionPickList(conditionTypeText);
-
-            return new ControlCondition
+            var controlCondition = new ControlCondition
             {
                 Comments = conditionRemarks,
-                ConditionType = conditionType
             };
+
+            if (!string.IsNullOrWhiteSpace(conditionTypeText))
+            {
+                if (Config.KnownControlConditions.ContainsKey(conditionTypeText))
+                {
+                    controlCondition.ConditionType = new ControlConditionPickList(conditionTypeText);
+                }
+                else
+                {
+                    controlCondition.Comments = string.Join("\n", new[] {conditionTypeText, controlCondition.Comments}
+                        .Select(s => !string.IsNullOrWhiteSpace(s)));
+                }
+            }
+
+            return controlCondition;
         }
     }
 }

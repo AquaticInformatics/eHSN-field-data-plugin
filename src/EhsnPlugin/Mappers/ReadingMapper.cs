@@ -11,9 +11,11 @@ namespace EhsnPlugin.Mappers
     public class ReadingMapper
     {
         private readonly EhsnMeasurement _ehsnMeasurement;
+        private readonly EHSN _eHsn;
 
-        public ReadingMapper(EhsnMeasurement ehsnMeasurement)
+        public ReadingMapper(EHSN eHsn, EhsnMeasurement ehsnMeasurement)
         {
+            _eHsn = eHsn;
             _ehsnMeasurement = ehsnMeasurement;
         }
 

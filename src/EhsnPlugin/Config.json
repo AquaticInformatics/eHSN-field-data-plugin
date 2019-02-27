@@ -1,0 +1,109 @@
+﻿{
+  "MinVersion": "v1.3",
+  "MaxVersion": "v1.3.2",
+  "KnownControlConditions": {
+    "Unspecified": "Unspecified",
+    "No Flow": "NoFlow",
+    "Clear": "Clear",
+    "Altered": "Altered",
+    "Debris": "Debris",
+    "Vegetation": "Vegetation",
+    "Fill": "Fill",
+    "Scour": "Scour",
+    "Ice": "Ice"
+  },
+  "KnownSensors": {
+    "Atmos Pres (kPa)": {
+      "ParameterId": "PA",
+      "UnitId": "kPa"
+    },
+    "Battery Voltage Under Load (V)": {
+      "ParameterId": "YBL",
+      "UnitId": "V"
+    },
+    "Internal Temp (°C)": {
+      "ParameterId": "InternalTemp",
+      "UnitId": "degC"
+    },
+    "Open Water Extent (km)": {
+      "ParameterId": "IO",
+      "UnitId": "km"
+    },
+    "Precip (mm)": {
+      "ParameterId": "PN",
+      "UnitId": "mm"
+    },
+    "Reflective Power (W)": {
+      "ParameterId": "YR",
+      "UnitId": "W"
+    },
+    "Sediment Load (kg)": {
+      "ParameterId": "SL",
+      "UnitId": "kg"
+    },
+    "Sediment Transport Rate (kg/s)": {
+      "ParameterId": "STR",
+      "UnitId": "kg/s"
+    },
+    "Signal Strength(dBm)": {
+      "ParameterId": "YSS",
+      "UnitId": "dBm"
+    },
+    "Snow Cover (%)": {
+      "ParameterId": "SA",
+      "UnitId": "%"
+    },
+    "Snow Depth (cm)": {
+      "ParameterId": "SD",
+      "UnitId": "cm"
+    },
+    "Solar Panel Voltage (V)": {
+      "ParameterId": "SolarPanelVoltage",
+      "UnitId": "V"
+    },
+    "Tank Pressure(psi)": {
+      "ParameterId": "YP",
+      "UnitId": "psi"
+    },
+    "Wind Dir (deg)": {
+      "ParameterId": "UD",
+      "UnitId": "deg"
+    },
+    "Water Temp (°C)": {
+      "ParameterId": "TW",
+      "UnitId": "degC"
+    },
+    "Air Temp (°C)": {
+      "ParameterId": "TA",
+      "UnitId": "degC"
+    },
+    "Accumulated Precip (mm)": {
+      "ParameterId": "PC",
+      "UnitId": "mm"
+    },
+    "Snow Water Equivalent (cm)": {
+      "ParameterId": "SW",
+      "UnitId": "cm"
+    },
+    "Forward Power (W)": {
+      "ParameterId": "YF",
+      "UnitId": "W"
+    },
+    "Voltage (V)": {
+      "ParameterId": "VB",
+      "UnitId": "V"
+    },
+    "Radiation (W/m^2)": {
+      "ParameterId": "RN",
+      "UnitId": "W/m^2"
+    },
+    "Head Stage (m)": {
+      "ParameterId": "HD",
+      "UnitId": "m"
+    },
+    "Precip Inc (mm)": {
+      "ParameterId": "PP",
+      "UnitId": "mm"
+    }
+  }
+}
