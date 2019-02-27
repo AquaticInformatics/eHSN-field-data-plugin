@@ -81,6 +81,13 @@ namespace EhsnPlugin
 
         private void AppendMappedMeasurements(FieldVisitMapper mapper, FieldVisitInfo fieldVisitInfo)
         {
+            var controlCondition = mapper.MapControlConditionOrNull();
+
+            if (controlCondition != null)
+            {
+                _appender.AddControlCondition(fieldVisitInfo, controlCondition);
+            }
+
             _appender.AddDischargeActivity(fieldVisitInfo, mapper.MapDischargeActivity());
 
             var readings = mapper.MapReadings();

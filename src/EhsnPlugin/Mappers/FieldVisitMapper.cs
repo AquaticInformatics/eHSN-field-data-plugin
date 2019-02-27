@@ -7,8 +7,10 @@ using EhsnPlugin.Helpers;
 using FieldDataPluginFramework;
 using FieldDataPluginFramework.Context;
 using FieldDataPluginFramework.DataModel;
+using FieldDataPluginFramework.DataModel.ControlConditions;
 using FieldDataPluginFramework.DataModel.DischargeActivities;
 using FieldDataPluginFramework.DataModel.LevelSurveys;
+using FieldDataPluginFramework.DataModel.PickLists;
 using FieldDataPluginFramework.DataModel.Readings;
 
 namespace EhsnPlugin.Mappers
@@ -185,6 +187,26 @@ namespace EhsnPlugin.Mappers
         public LevelSurvey MapLevelSurveyOrNull()
         {
             return new LevelSurveyMapper(_locationInfo, _visitDate, _logger).MapOrNull(_eHsn);
+        }
+
+        public ControlCondition MapControlConditionOrNull()
+        {
+            var conditionTypeText = _eHsn.DisMeas?.condition;
+            var conditionRemarks = _eHsn.DisMeas?.controlConditionRemark;
+
+            if (string.IsNullOrWhiteSpace(conditionTypeText) && string.IsNullOrWhiteSpace(conditionRemarks))
+                return null;
+
+            // TODO: Support some configurable mapping to the WSC picklist definition
+            var conditionType = string.IsNullOrWhiteSpace(conditionTypeText)
+                ? null
+                : new ControlConditionPickList(conditionTypeText);
+
+            return new ControlCondition
+            {
+                Comments = conditionRemarks,
+                ConditionType = conditionType
+            };
         }
     }
 }
