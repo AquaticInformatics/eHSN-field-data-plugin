@@ -2,12 +2,13 @@
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Xml.Serialization;
 using EhsnPlugin.Mappers;
 using EhsnPlugin.Validators;
 using FieldDataPluginFramework;
 using FieldDataPluginFramework.Context;
 using FieldDataPluginFramework.Results;
+using ServiceStack;
+using XmlSerializer = System.Xml.Serialization.XmlSerializer;
 
 namespace EhsnPlugin
 {
@@ -16,12 +17,29 @@ namespace EhsnPlugin
         private readonly IFieldDataResultsAppender _appender;
         private readonly ILog _logger;
 
-        private VersionValidator VersionValidator { get; } = new VersionValidator();
+        private Config Config { get; }
+        private VersionValidator VersionValidator { get; }
  
         public Parser(IFieldDataResultsAppender appender, ILog logger)
         {
             _appender = appender;
             _logger = logger;
+
+            Config = LoadConfig();
+            VersionValidator = new VersionValidator(Config);
+        }
+
+        private Config LoadConfig()
+        {
+            var configPath = Path.Combine(
+                // ReSharper disable once AssignNullToNotNullAttribute
+                Path.GetDirectoryName(GetType().Assembly.Location),
+                $"{nameof(Config)}.json");
+
+            if (!File.Exists(configPath))
+                return new Config();
+
+            return File.ReadAllText(configPath).FromJson<Config>();
         }
 
         public EHSN LoadFromStream(Stream stream)
@@ -49,7 +67,7 @@ namespace EhsnPlugin
                 var originalXml = streamReader.ReadToEnd();
                 stream.Position = 0;
 
-                return Regex.Replace(originalXml, @"<[a-zA-Z_][^<>]*\/>",string.Empty);
+                return Regex.Replace(originalXml, @"<[a-zA-Z]\w*\/>", string.Empty);
             }
         }
 
@@ -63,7 +81,7 @@ namespace EhsnPlugin
 
             var locationInfo = _appender.GetLocationByIdentifier(locationIdentifier);
 
-            var mapper = new FieldVisitMapper(eHsn, locationInfo, _logger);
+            var mapper = new FieldVisitMapper(Config, eHsn, locationInfo, _logger);
 
             var fieldVisitInfo = AppendMappedFieldVisitInfo(mapper, locationInfo);
 
@@ -81,16 +99,27 @@ namespace EhsnPlugin
 
         private void AppendMappedMeasurements(FieldVisitMapper mapper, FieldVisitInfo fieldVisitInfo)
         {
-            _appender.AddDischargeActivity(fieldVisitInfo, mapper.MapDischargeActivity());
+            var controlCondition = mapper.MapControlConditionOrNull();
 
-            var readings = mapper.MapReadings();
+            if (controlCondition != null)
+            {
+                _appender.AddControlCondition(fieldVisitInfo, controlCondition);
+            }
 
-            foreach (var reading in readings)
+            var dischargeActivity = mapper.MapDischargeActivityOrNull();
+
+            if (dischargeActivity != null)
+            {
+                _appender.AddDischargeActivity(fieldVisitInfo, dischargeActivity);
+            }
+
+            foreach (var reading in mapper.MapReadings())
             {
                 _appender.AddReading(fieldVisitInfo, reading);
             }
 
             var levelSurvey = mapper.MapLevelSurveyOrNull();
+
             if(levelSurvey != null)
             {
                 _appender.AddLevelSurvey(fieldVisitInfo, levelSurvey);

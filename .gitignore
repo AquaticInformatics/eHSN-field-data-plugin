@@ -10,6 +10,9 @@
 # Skip the deploy folder
 deploy/
 
+# Skip the integration test JSON output
+results/
+
 # User-specific files
 *.suo
 *.user

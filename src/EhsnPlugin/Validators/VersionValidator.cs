@@ -1,26 +1,26 @@
 ﻿using System;
-using System.Configuration;
 using Version = EhsnPlugin.DataModel.Version;
 
 namespace EhsnPlugin.Validators
 {
     public class VersionValidator
     {
+        private Config Config { get; }
         private Version MinVersion { get; } = DefaultVersion;
         private Version MaxVersion { get; } = DefaultVersion;
 
-        private static readonly Version DefaultVersion = Version.Create("v1.3");
+        private static readonly Version DefaultVersion = Version.Create("v1.3.2");
 
-        public VersionValidator()
+        public VersionValidator(Config config)
         {
-            var cfg = ConfigurationManager.OpenExeConfiguration($"{GetType().Namespace?.Split('.')[0]}.dll").AppSettings.Settings;
+            Config = config;
 
-            var minVersion = cfg[nameof(MinVersion)]?.Value;
+            var minVersion = Config.MinVersion;
 
             if (!string.IsNullOrWhiteSpace(minVersion))
                 MinVersion = Version.Create(minVersion.Trim());
 
-            var maxVersion = cfg[nameof(MaxVersion)]?.Value;
+            var maxVersion = Config.MaxVersion;
 
             if (!string.IsNullOrWhiteSpace(maxVersion))
                 MaxVersion = Version.Create(maxVersion.Trim());
