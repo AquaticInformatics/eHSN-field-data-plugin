@@ -12,6 +12,12 @@ using FieldDataPluginFramework.DataModel.DischargeActivities;
 using FieldDataPluginFramework.DataModel.Meters;
 using FieldDataPluginFramework.DataModel.PickLists;
 using FieldDataPluginFramework.DataModel.Verticals;
+using Channel = EHSNMidsecMeasDischargeMeasurementChannel;
+using Meter = EHSNMidsecMeasDischargeMeasurementMmtInitAndSummaryMeter;
+using MeterEquation = EHSNMidsecMeasDischargeMeasurementMmtInitAndSummaryMeterEquation;
+using Edge = EHSNMidsecMeasDischargeMeasurementChannelEdge;
+using Panel = EHSNMidsecMeasDischargeMeasurementChannelPanel;
+using PointMeasurement = EHSNMidsecMeasDischargeMeasurementChannelPanelPointMeasurement;
 
 namespace EhsnPlugin.Mappers
 {
@@ -259,47 +265,121 @@ namespace EhsnPlugin.Mappers
 
         private void AddPanelMeasurements(ManualGaugingDischargeSection dischargeSection)
         {
-            var channels = _ehsn.MidsecMeas?.DischargeMeasurement?.Channels ?? new EHSNMidsecMeasDischargeMeasurementChannel[0];
+            var channels = _ehsn.MidsecMeas?.DischargeMeasurement?.Channels ?? new Channel[0];
 
             if (!channels.Any()) return;
 
-            if (channels.Length != 1)
-                throw new ArgumentException($"Only single-channel measurements are supported, but {channels.Length} were found.");
+            var (edges, panels) = MergeAllChannels(channels.ToList());
 
-            var channel = channels.First();
-            var edges = channel.Edges ?? new EHSNMidsecMeasDischargeMeasurementChannelEdge[0];
-            var panels = channel.Panels ?? new EHSNMidsecMeasDischargeMeasurementChannelPanel[0];
-
-            var startingEdge = edges
-                .FirstOrDefault(e => e.StartingEdge.ToBoolean());
-
-            if (startingEdge == null)
-                throw new ArgumentException($"No starting edge found.");
-
-            if (edges.Length != 2)
-                throw new ArgumentException($"Only 2 edges expected but {edges.Length} were found.");
-
-            var endingEdge = edges
-                .First(e => !e.StartingEdge.Equals(startingEdge.StartingEdge));
+            var startingEdge = edges.First();
+            var endingEdge = edges.Last();
 
             dischargeSection.StartPoint = GetMappedEnum(startingEdge.LeftOrRight, KnownStartPointTypes);
 
-            var meters = (_ehsn.MidsecMeas?.DischargeMeasurement?.MmtInitAndSummary?.MetersUsed ?? new EHSNMidsecMeasDischargeMeasurementMmtInitAndSummaryMeter[0])
+            var meters = (_ehsn.MidsecMeas?.DischargeMeasurement?.MmtInitAndSummary?.MetersUsed ?? new Meter[0])
                 .Select(CreateMeterCalibration)
                 .ToList();
 
             var edgeMeter = FindMeter(meters);
 
-            AddVertical(dischargeSection.Verticals, CreateEdge(startingEdge, VerticalType.StartEdgeNoWaterBefore, edgeMeter));
+            AddVertical(dischargeSection.Verticals, CreateEdgeVertical(startingEdge, VerticalType.StartEdgeNoWaterBefore, edgeMeter));
 
             foreach (var panel in panels)
             {
-                AddVertical(dischargeSection.Verticals, CreatePanel(panel, FindMeter(meters, panel.MeterNumber)));
+                AddVertical(dischargeSection.Verticals, CreatePanelVertical(panel, FindMeter(meters, panel.MeterNumber)));
             }
 
-            AddVertical(dischargeSection.Verticals, CreateEdge(endingEdge, VerticalType.EndEdgeNoWaterAfter, edgeMeter));
+            AddVertical(dischargeSection.Verticals, CreateEdgeVertical(endingEdge, VerticalType.EndEdgeNoWaterAfter, edgeMeter));
 
             dischargeSection.VelocityObservationMethod = FindMostCommonVelocityMethod(dischargeSection.Verticals);
+        }
+
+        private (List<Edge> Edges, List<Panel> Panels) MergeAllChannels(List<Channel> channels)
+        {
+            var outerEdges = new List<Edge>();
+            var innerPanels = new List<Panel>();
+
+            foreach (var channel in channels)
+            {
+                var isFirstChannel = channel == channels.First();
+                var isLastChannel = channel == channels.Last();
+
+                var edges = channel.Edges ?? new Edge[0];
+                var panels = channel.Panels ?? new Panel[0];
+
+                if (edges.Length != 2)
+                    throw new ArgumentException($"Only 2 edges expected but {edges.Length} were found.");
+
+                var bankEdges = edges
+                    .Where(IsBankEdge)
+                    .ToList();
+
+                var islandEdges = edges
+                    .Where(edge => !bankEdges.Contains(edge))
+                    .ToList();
+
+                if (isFirstChannel)
+                {
+                    if (!bankEdges.Any())
+                    {
+                        bankEdges.Add(islandEdges.First());
+                        islandEdges.RemoveAt(0);
+                    }
+
+                    outerEdges.Add(bankEdges.First());
+                }
+                else
+                {
+                    innerPanels.Add(CreateIslandPanel(islandEdges.First()));
+                }
+
+                innerPanels.AddRange(panels);
+
+                if (isLastChannel)
+                {
+                    if (!bankEdges.Any())
+                    {
+                        bankEdges.Add(islandEdges.Last());
+                        islandEdges.RemoveAt(islandEdges.Count - 1);
+                    }
+
+                    outerEdges.Add(bankEdges.Last());
+                }
+                else
+                {
+                    innerPanels.Add(CreateIslandPanel(islandEdges.Last()));
+                }
+            }
+
+            return (outerEdges, innerPanels);
+        }
+
+        private static bool IsBankEdge(Edge edge)
+        {
+            return "Edge @ Bank".Equals(edge.EdgeType, StringComparison.InvariantCultureIgnoreCase);
+        }
+
+        private static Panel CreateIslandPanel(Edge edge)
+        {
+            return new Panel
+            {
+                Date = edge.Date,
+                ReverseFlow = "False",
+                Tagmark = edge.Tagmark,
+                Discharge = edge.Discharge,
+                Flow = edge.Flow,
+                Width = edge.Width,
+                PanelNum = edge.panelId,
+                AverageVelocity = edge.Velocity,
+                DepthReading = edge.Depth,
+                DepthWithOffset = edge.Depth,
+                Open = new EHSNMidsecMeasDischargeMeasurementChannelPanelOpen
+                {
+                    DeploymentMethod = "",
+                    TotalDepth = edge.Depth
+                },
+                PointMeasurements = new PointMeasurement[0]
+            };
         }
 
         private MeterCalibration FindMeter(List<MeterCalibration> meters, string serialNumber = null)
@@ -319,7 +399,7 @@ namespace EhsnPlugin.Mappers
             };
         }
 
-        private MeterCalibration CreateMeterCalibration(EHSNMidsecMeasDischargeMeasurementMmtInitAndSummaryMeter meter)
+        private MeterCalibration CreateMeterCalibration(Meter meter)
         {
             var meterCalibration = new MeterCalibration
             {
@@ -331,7 +411,7 @@ namespace EhsnPlugin.Mappers
                 MeterType = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.model, KnownMeterTypes),
             };
 
-            foreach (var equation in meter.Equation ?? new EHSNMidsecMeasDischargeMeasurementMmtInitAndSummaryMeterEquation[0])
+            foreach (var equation in meter.Equation ?? new MeterEquation[0])
             {
                 var slope = equation.Slope.ToNullableDouble();
                 var intercept = equation.Intercept.ToNullableDouble();
@@ -356,7 +436,7 @@ namespace EhsnPlugin.Mappers
             verticals.Add(vertical);
         }
 
-        private Vertical CreateEdge(EHSNMidsecMeasDischargeMeasurementChannelEdge edge, VerticalType verticalType, MeterCalibration edgeMeter)
+        private Vertical CreateEdgeVertical(Edge edge, VerticalType verticalType, MeterCalibration edgeMeter)
         {
             var taglinePosition = edge.Tagmark.ToNullableDouble() ?? 0;
             var depth = edge.Depth.ToNullableDouble() ?? 0;
@@ -405,7 +485,7 @@ namespace EhsnPlugin.Mappers
             };
         }
 
-        private Vertical CreatePanel(EHSNMidsecMeasDischargeMeasurementChannelPanel panel, MeterCalibration meter)
+        private Vertical CreatePanelVertical(Panel panel, MeterCalibration meter)
         {
             var taglinePosition = panel.Tagmark.ToNullableDouble() ?? 0;
             var soundedDepth = panel.DepthReading.ToNullableDouble() ?? 0;
@@ -439,7 +519,7 @@ namespace EhsnPlugin.Mappers
 
             effectiveDepth = panel.IceCovered?.EffectiveDepth.ToNullableDouble() ?? effectiveDepth;
 
-            var points = panel.PointMeasurements ?? new EHSNMidsecMeasDischargeMeasurementChannelPanelPointMeasurement[0];
+            var points = panel.PointMeasurements ?? new PointMeasurement[0];
 
             var fractionalDepths = string.Join("/", points.Select(p=>p.SamplingDepthCoefficient));
 
@@ -448,6 +528,7 @@ namespace EhsnPlugin.Mappers
                 if (!points.Any())
                 {
                     pointVelocityObservationType = PointVelocityObservationType.Surface;
+                    soundedDepth = effectiveDepth = 0;
                 }
                 else
                 {
@@ -459,7 +540,7 @@ namespace EhsnPlugin.Mappers
             {
                 VelocityObservationMethod = pointVelocityObservationType,
                 MeanVelocity = velocity,
-                DeploymentMethod = DeploymentMethodType.Unspecified,
+                DeploymentMethod = GetPanelDeploymentMethod(panel),
                 MeterCalibration = meter
             };
 
@@ -467,8 +548,8 @@ namespace EhsnPlugin.Mappers
             {
                 velocityObservation.Observations.Add(new VelocityDepthObservation
                 {
-                    Depth = soundedDepth,
-                    Velocity = velocity,
+                    Depth = 0,
+                    Velocity = 0,
                     ObservationInterval = 0,
                     RevolutionCount = 0
                 });
@@ -520,6 +601,22 @@ namespace EhsnPlugin.Mappers
             {"0.2/0.8", PointVelocityObservationType.OneAtPointTwoAndPointEight },
             {"0.2/0.6/0.8", PointVelocityObservationType.OneAtPointTwoPointSixAndPointEight },
         };
+
+        private DeploymentMethodType? GetPanelDeploymentMethod(Panel panel)
+        {
+            if (panel.IceCovered != null)
+                return DeploymentMethodType.Ice;
+
+            var deploymentMethodText = panel.Open?.DeploymentMethod;
+
+            if (string.IsNullOrWhiteSpace(deploymentMethodText))
+                return DeploymentMethodType.Unspecified;
+
+            if (KnownMidSectionDeploymentTypes.TryGetValue(deploymentMethodText.Trim(), out var deploymentMethod))
+                return deploymentMethod;
+
+            return DeploymentMethodType.Unspecified;
+        }
 
         private PointVelocityObservationType FindMostCommonVelocityMethod(IEnumerable<Vertical> verticals)
         {
@@ -610,6 +707,12 @@ namespace EhsnPlugin.Mappers
                 {"Cableway", DeploymentMethodType.Cableway},
                 {"Manned Boat", DeploymentMethodType.MannedMovingBoat},
                 {"Ice Cover", DeploymentMethodType.Ice},
+                {"Bridge", DeploymentMethodType.BridgeCrane},
+                {"Boat", DeploymentMethodType.Boat},
+                {"Ice", DeploymentMethodType.Ice},
+                {"Ice_Bridge", DeploymentMethodType.Ice},
+                {"Ice_Cableway", DeploymentMethodType.Ice},
+                {"Ice_Wading", DeploymentMethodType.Ice},
             };
 
         private static readonly Dictionary<string, StartPointType> KnownStartPointTypes =
