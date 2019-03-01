@@ -281,17 +281,32 @@ namespace EhsnPlugin.Mappers
                 .Select(CreateMeterCalibration)
                 .ToList();
 
-            dischargeSection.Verticals.Add(CreateEdge(startingEdge, VerticalType.StartEdgeNoWaterBefore));
+            var edgeMeter = FindMeter(meters);
+
+            dischargeSection.Verticals.Add(CreateEdge(startingEdge, VerticalType.StartEdgeNoWaterBefore, edgeMeter));
 
             foreach (var panel in panels)
             {
-                dischargeSection.Verticals.Add(CreatePanel(panel, meters.First(m => m.SerialNumber == panel.MeterNumber)));
+                dischargeSection.Verticals.Add(CreatePanel(panel, FindMeter(meters, panel.MeterNumber)));
             }
 
-            dischargeSection.Verticals.Add(CreateEdge(endingEdge, VerticalType.EndEdgeNoWaterAfter));
+            dischargeSection.Verticals.Add(CreateEdge(endingEdge, VerticalType.EndEdgeNoWaterAfter, edgeMeter));
 
-            // TODO Find most common method
-            //dischargeSection.VelocityObservationMethod = ;
+            dischargeSection.VelocityObservationMethod = FindMostCommonVelocityMethod(dischargeSection.Verticals);
+        }
+
+        private MeterCalibration FindMeter(List<MeterCalibration> meters, string serialNumber = null)
+        {
+            var meter = meters.FirstOrDefault(m => m.SerialNumber == serialNumber);
+
+            if (meter != null)
+                return meter;
+
+            return new MeterCalibration
+            {
+                MeterType = MeterType.Unspecified,
+                Equations = {new MeterCalibrationEquation {InterceptUnitId = Units.VelocityUnitId}}
+            };
         }
 
         private MeterCalibration CreateMeterCalibration(EHSNMidsecMeasDischargeMeasurementMmtInitAndSummaryMeter meter)
@@ -324,7 +339,7 @@ namespace EhsnPlugin.Mappers
             return meterCalibration;
         }
 
-        private Vertical CreateEdge(EHSNMidsecMeasDischargeMeasurementChannelEdge edge, VerticalType verticalType)
+        private Vertical CreateEdge(EHSNMidsecMeasDischargeMeasurementChannelEdge edge, VerticalType verticalType, MeterCalibration edgeMeter)
         {
             var taglinePosition = edge.Tagmark.ToNullableDouble() ?? 0;
             var depth = edge.Depth.ToNullableDouble() ?? 0;
@@ -339,15 +354,17 @@ namespace EhsnPlugin.Mappers
                 VelocityObservationMethod = PointVelocityObservationType.Surface,
                 MeanVelocity = velocity,
                 DeploymentMethod = DeploymentMethodType.Unspecified,
+                MeterCalibration = edgeMeter,
+                Observations = {
+                    new VelocityDepthObservation
+                    {
+                        Depth = depth,
+                        Velocity = velocity,
+                        ObservationInterval = 0,
+                        RevolutionCount = 0
+                    },
+                },
             };
-
-            velocityObservation.Observations.Add(new VelocityDepthObservation
-            {
-                Depth = depth,
-                Velocity = velocity,
-                ObservationInterval = 0,
-                RevolutionCount = 0
-            });
 
             return new Vertical
             {
@@ -483,6 +500,30 @@ namespace EhsnPlugin.Mappers
             {"0.2/0.8", PointVelocityObservationType.OneAtPointTwoAndPointEight },
             {"0.2/0.6/0.8", PointVelocityObservationType.OneAtPointTwoPointSixAndPointEight },
         };
+
+        private PointVelocityObservationType FindMostCommonVelocityMethod(IEnumerable<Vertical> verticals)
+        {
+            var velocityMethodCounts = new Dictionary<PointVelocityObservationType, int>();
+
+            var pointTypes = verticals
+                .Select(v => v.VelocityObservation.VelocityObservationMethod ?? PointVelocityObservationType.Unknown);
+
+            foreach (var pointType in pointTypes)
+            {
+                if (velocityMethodCounts.ContainsKey(pointType))
+                {
+                    velocityMethodCounts[pointType] += 1;
+                }
+                else
+                {
+                    velocityMethodCounts[pointType] = 1;
+                }
+            }
+
+            return velocityMethodCounts
+                .First(kvp => kvp.Value == velocityMethodCounts.Max(kvp2 => kvp2.Value))
+                .Key;
+        }
 
         private AdcpDischargeSection CreateAdcpMeasurement(DischargeActivity dischargeActivity, double discharge)
         {
