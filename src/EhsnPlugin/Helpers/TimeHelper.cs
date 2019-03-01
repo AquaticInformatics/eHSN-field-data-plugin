@@ -46,5 +46,10 @@ namespace EhsnPlugin.Helpers
 
             return new DateTimeOffset(visitDate.Year, visitDate.Month, visitDate.Day, hour, minute, second, locationOffset);
         }
+
+        public static DateTimeOffset CoerceDateTimeIntoUtcOffset(DateTime dateTime, TimeSpan utcOffset)
+        {
+            return new DateTimeOffset(DateTime.SpecifyKind(dateTime, DateTimeKind.Unspecified), utcOffset);
+        }
     }
 }

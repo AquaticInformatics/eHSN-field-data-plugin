@@ -2,6 +2,7 @@
   "MinVersion": "v1.3",
   "MaxVersion": "v1.3.2",
   "DefaultChannelName": "Main",
+  "UnknownMeterPlaceholder":  "Unknown", 
   "KnownControlConditions": {
     "Unspecified": "Unspecified",
     "No Flow": "NoFlow",

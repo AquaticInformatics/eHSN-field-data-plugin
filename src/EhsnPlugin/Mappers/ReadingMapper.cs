@@ -48,8 +48,33 @@ namespace EhsnPlugin.Mappers
 
         private void AddEnvironmentalConditionReadings(List<Reading> readings)
         {
-            AddEnvironmentalConditionReading(readings, SensorRefs.WindSpeed, _eHsn.EnvCond?.windMagnitudeSpeed);
-            AddEnvironmentalConditionReading(readings, SensorRefs.BatteryVoltageUnderLoad, _eHsn.EnvCond?.batteryVolt);
+            var readingTime = InferEnvironmentalConditionReadingTime();
+
+            AddEnvironmentalConditionReading(readings, readingTime, SensorRefs.WindSpeed, _eHsn.EnvCond?.windMagnitudeSpeed);
+            AddEnvironmentalConditionReading(readings, readingTime, SensorRefs.BatteryVoltageUnderLoad, _eHsn.EnvCond?.batteryVolt);
+        }
+
+        private DateTimeOffset? InferEnvironmentalConditionReadingTime()
+        {
+            var orificePurged = _eHsn.EnvCond?.orificePurged.ToNullableBoolean() ?? false;
+            var intakeFlushed = _eHsn.EnvCond?.intakeFlushed.ToNullableBoolean() ?? false;
+
+            var times = new[]
+                {
+                    _eHsn.EnvCond?.bpmrotArrTime,
+                    _eHsn.EnvCond?.bpmrotDepTime,
+                    _eHsn.EnvCond?.gasArrTime,
+                    _eHsn.EnvCond?.gasDepTime,
+                    orificePurged ? _eHsn.EnvCond?.orificeTime : null,
+                    intakeFlushed ? _eHsn.EnvCond?.intakeTime : null,
+                }
+                .Select(s => TimeHelper.ParseTimeOrMinValue(s, VisitDate, LocationInfo.UtcOffset))
+                .Where(d => d != DateTimeOffset.MinValue)
+                .ToList();
+
+            if (!times.Any()) return null;
+
+            return TimeHelper.GetMeanTimeTruncatedToMinute(times.First(), times.Last());
         }
 
         private void AddNonAggregatedGageHeightReadings(List<Reading> readings)
@@ -120,11 +145,11 @@ namespace EhsnPlugin.Mappers
                 {DateTimeOffset = dateTimeOffset});
         }
 
-        private void AddEnvironmentalConditionReading(List<Reading> readings, string sensorRefName, string value)
+        private void AddEnvironmentalConditionReading(List<Reading> readings, DateTimeOffset? dateTimeOffset, string sensorRefName, string value)
         {
             if (!Config.KnownSensors.TryGetValue(sensorRefName, out var sensorRef)) return;
 
-            AddReading(readings, null, sensorRef.ParameterId, sensorRef.UnitId, value);
+            AddReading(readings, dateTimeOffset, sensorRef.ParameterId, sensorRef.UnitId, value);
         }
 
         private void AddNonAggregatedStageMeasurementReading(List<Reading> readings, EHSNStageMeasStageMeasRow stageMeasurement)
@@ -133,7 +158,7 @@ namespace EhsnPlugin.Mappers
             // TODO: When InstrumentDeployment/GeneralInfo/methodType == None, treat all stage readings as non-aggregated
             // TODO: If the measurement includes a water-level reference value, add that as a reference point?
 
-            if (bool.TryParse(stageMeasurement.MghCkbox, out var isAggregated) && isAggregated) return;
+            if (stageMeasurement.MghCkbox.ToBoolean()) return;
 
             var time = TimeHelper.ParseTimeOrMinValue(stageMeasurement.time, VisitDate, LocationInfo.UtcOffset);
 

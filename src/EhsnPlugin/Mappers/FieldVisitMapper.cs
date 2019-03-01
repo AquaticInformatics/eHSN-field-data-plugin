@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using EhsnPlugin.DataModel;
 using EhsnPlugin.Helpers;
 using FieldDataPluginFramework;
 using FieldDataPluginFramework.Context;
@@ -39,7 +38,7 @@ namespace EhsnPlugin.Mappers
 
             return new FieldVisitDetails(visitPeriod)
             {
-                Party = _eHsn.PartyInfo.party,
+                Party = _eHsn.PartyInfo?.party,
                 Weather = MapWeather(),
                 Comments = MapComments()
             };
@@ -120,7 +119,7 @@ namespace EhsnPlugin.Mappers
                 .Select(panel => panel.Date)
                 .Concat(edges
                     .Select(edge => edge.Date))
-                .Select(dateTime => new DateTimeOffset(DateTime.SpecifyKind(dateTime, DateTimeKind.Unspecified), _locationInfo.UtcOffset));
+                .Select(dateTime => TimeHelper.CoerceDateTimeIntoUtcOffset(dateTime, _locationInfo.UtcOffset));
         }
 
         private DateTimeOffset ExtractTime(string timeText)
@@ -199,6 +198,7 @@ namespace EhsnPlugin.Mappers
             var controlCondition = new ControlCondition
             {
                 Comments = conditionRemarks,
+                Party = _eHsn.PartyInfo?.party,
             };
 
             if (!string.IsNullOrWhiteSpace(conditionTypeText))

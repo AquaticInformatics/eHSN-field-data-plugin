@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using EhsnPlugin.DataModel;
 using EhsnPlugin.Helpers;
@@ -111,10 +112,11 @@ namespace EhsnPlugin.Mappers
 
             var stageMeasurementSummary = GetStageMeasurementSummary(meanGageHeightSelector.Value);
 
-            var isAverage = "Average".Equals(_ehsn.StageMeas.MghMethod, StringComparison.InvariantCultureIgnoreCase);
-
             var gageHeightMeasurements = GetGageHeightMeasurements(meanGageHeightSelector.Value)
                 .ToList();
+
+            var isAverage = gageHeightMeasurements.Any()
+                            && "Average".Equals(_ehsn.StageMeas.MghMethod, StringComparison.InvariantCultureIgnoreCase);
 
             if (isAverage)
             {
@@ -134,6 +136,10 @@ namespace EhsnPlugin.Mappers
             {
                 dischargeActivity.ManuallyCalculatedMeanGageHeight = new Measurement(publishedMeanGageHeight.Value, Units.DistanceUnitId);
             }
+
+            dischargeActivity.Comments = string.Join("\n",
+                new[] {dischargeActivity.Comments, _ehsn.StageMeas?.stageRemark}
+                    .Where(s => !string.IsNullOrWhiteSpace(s)));
         }
 
         private class StageMeasurementSummary
@@ -182,7 +188,7 @@ namespace EhsnPlugin.Mappers
 
             foreach (var row in stageMeasRows)
             {
-                var include = bool.TryParse(row.MghCkbox, out var isEnabled) && isEnabled;
+                var include = row.MghCkbox.ToBoolean();
 
                 var time = TimeHelper.ParseTimeOrMinValue(row.time, VisitDate, LocationInfo.UtcOffset);
 
@@ -237,6 +243,7 @@ namespace EhsnPlugin.Mappers
             var dischargeSection = factory.CreateManualGaugingDischargeSection(dischargeActivity.MeasurementPeriod, discharge);
 
             dischargeSection.DischargeMethod = DischargeMethodType.MidSection;
+            dischargeSection.Comments = _ehsn.DisMeas.dischargeRemark;
 
             dischargeSection.AreaUnitId = Units.AreaUnitId;
             dischargeSection.AreaValue = _ehsn.DisMeas.area.ToNullableDouble();
@@ -264,7 +271,7 @@ namespace EhsnPlugin.Mappers
             var panels = channel.Panels ?? new EHSNMidsecMeasDischargeMeasurementChannelPanel[0];
 
             var startingEdge = edges
-                .FirstOrDefault(e => bool.TryParse(e.StartingEdge, out var value) && value);
+                .FirstOrDefault(e => e.StartingEdge.ToBoolean());
 
             if (startingEdge == null)
                 throw new ArgumentException($"No starting edge found.");
@@ -283,14 +290,14 @@ namespace EhsnPlugin.Mappers
 
             var edgeMeter = FindMeter(meters);
 
-            dischargeSection.Verticals.Add(CreateEdge(startingEdge, VerticalType.StartEdgeNoWaterBefore, edgeMeter));
+            AddVertical(dischargeSection.Verticals, CreateEdge(startingEdge, VerticalType.StartEdgeNoWaterBefore, edgeMeter));
 
             foreach (var panel in panels)
             {
-                dischargeSection.Verticals.Add(CreatePanel(panel, FindMeter(meters, panel.MeterNumber)));
+                AddVertical(dischargeSection.Verticals, CreatePanel(panel, FindMeter(meters, panel.MeterNumber)));
             }
 
-            dischargeSection.Verticals.Add(CreateEdge(endingEdge, VerticalType.EndEdgeNoWaterAfter, edgeMeter));
+            AddVertical(dischargeSection.Verticals, CreateEdge(endingEdge, VerticalType.EndEdgeNoWaterAfter, edgeMeter));
 
             dischargeSection.VelocityObservationMethod = FindMostCommonVelocityMethod(dischargeSection.Verticals);
         }
@@ -304,6 +311,9 @@ namespace EhsnPlugin.Mappers
 
             return new MeterCalibration
             {
+                Manufacturer = Config.UnknownMeterPlaceholder,
+                Model = Config.UnknownMeterPlaceholder,
+                SerialNumber = Config.UnknownMeterPlaceholder,
                 MeterType = MeterType.Unspecified,
                 Equations = {new MeterCalibrationEquation {InterceptUnitId = Units.VelocityUnitId}}
             };
@@ -314,9 +324,9 @@ namespace EhsnPlugin.Mappers
             var meterCalibration = new MeterCalibration
             {
                 FirmwareVersion = _ehsn.InstrumentDeployment?.GeneralInfo?.firmware,
-                Manufacturer = _ehsn.InstrumentDeployment?.GeneralInfo?.manufacturer,
-                Model = _ehsn.InstrumentDeployment?.GeneralInfo?.model,
-                SerialNumber = meter.Number,
+                Manufacturer = _ehsn.InstrumentDeployment?.GeneralInfo?.manufacturer.WithDefaultValue(Config.UnknownMeterPlaceholder),
+                Model = _ehsn.InstrumentDeployment?.GeneralInfo?.model.WithDefaultValue(Config.UnknownMeterPlaceholder),
+                SerialNumber = meter.Number.WithDefaultValue(Config.UnknownMeterPlaceholder),
                 Configuration = meter.MeterCalibDate,
                 MeterType = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.model, KnownMeterTypes),
             };
@@ -337,6 +347,13 @@ namespace EhsnPlugin.Mappers
             }
 
             return meterCalibration;
+        }
+
+        private void AddVertical(Collection<Vertical> verticals, Vertical vertical)
+        {
+            vertical.SequenceNumber = 1 + verticals.Count;
+
+            verticals.Add(vertical);
         }
 
         private Vertical CreateEdge(EHSNMidsecMeasDischargeMeasurementChannelEdge edge, VerticalType verticalType, MeterCalibration edgeMeter)
@@ -369,7 +386,7 @@ namespace EhsnPlugin.Mappers
             return new Vertical
             {
                 VerticalType = verticalType,
-                MeasurementTime = new DateTimeOffset(edge.Date, LocationInfo.UtcOffset),
+                MeasurementTime = TimeHelper.CoerceDateTimeIntoUtcOffset(edge.Date, LocationInfo.UtcOffset),
                 SequenceNumber = edge.panelId,
                 TaglinePosition = taglinePosition,
                 SoundedDepth = depth,
@@ -398,6 +415,9 @@ namespace EhsnPlugin.Mappers
             var width = panel.Width.ToNullableDouble() ?? 0;
             var percentFlow = panel.Flow.ToNullableDouble() ?? 0;
 
+            var waterSurfaceToBottomOfIce = panel.IceCovered?.WSToBottomOfIceAdjusted.ToNullableDouble() ?? 0;
+            var waterSurfaceToBottomOfSlush = panel.IceCovered?.WaterSurfaceToBottomOfSlush.ToNullableDouble() ?? waterSurfaceToBottomOfIce;
+
             var measurementCondition = panel.IceCovered != null
                 ? (MeasurementConditionData) new IceCoveredData
                 {
@@ -405,8 +425,8 @@ namespace EhsnPlugin.Mappers
                     IceThickness = panel.IceCovered.IceThickness.ToNullableDouble(),
                     AboveFooting = panel.IceCovered.MeterAboveFooting.ToNullableDouble(),
                     BelowFooting = panel.IceCovered.MeterBelowFooting.ToNullableDouble(),
-                    WaterSurfaceToBottomOfIce = panel.IceCovered.WSToBottomOfIceAdjusted.ToNullableDouble() ?? 0,
-                    WaterSurfaceToBottomOfSlush = panel.IceCovered.WaterSurfaceToBottomOfSlush.ToNullableDouble() ?? 0,
+                    WaterSurfaceToBottomOfIce = waterSurfaceToBottomOfIce,
+                    WaterSurfaceToBottomOfSlush = waterSurfaceToBottomOfSlush,
                 }
                 : new OpenWaterData
                 {
@@ -470,13 +490,13 @@ namespace EhsnPlugin.Mappers
             var vertical = new Vertical
             {
                 VerticalType = VerticalType.MidRiver,
-                MeasurementTime = new DateTimeOffset(panel.Date, LocationInfo.UtcOffset),
+                MeasurementTime = TimeHelper.CoerceDateTimeIntoUtcOffset(panel.Date, LocationInfo.UtcOffset),
                 SequenceNumber = panel.panelId,
                 TaglinePosition = taglinePosition,
                 SoundedDepth = soundedDepth,
                 EffectiveDepth = effectiveDepth,
                 MeasurementConditionData = measurementCondition,
-                FlowDirection = bool.TryParse(panel.ReverseFlow, out var value) && value
+                FlowDirection = panel.ReverseFlow.ToBoolean()
                     ? FlowDirectionType.Reversed
                     : FlowDirectionType.Normal,
                 VelocityObservation = velocityObservation,
@@ -530,7 +550,7 @@ namespace EhsnPlugin.Mappers
             return new AdcpDischargeSection(
                 dischargeActivity.MeasurementPeriod,
                 Config.DefaultChannelName,
-                new Measurement(discharge, Units.DistanceUnitId),
+                new Measurement(discharge, Units.DischargeUnitId),
                 _ehsn.InstrumentDeployment?.GeneralInfo?.instrument ?? "ADCP",
                 Units.DistanceUnitId,
                 Units.AreaUnitId,
@@ -549,12 +569,12 @@ namespace EhsnPlugin.Mappers
                 TransducerDepth = _ehsn.InstrumentDeployment?.ADCPInfo?.depth.ToNullableDouble(),
                 DeploymentMethod = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.deployment, KnownAdcpDeploymentTypes),
                 DepthReference = GetMappedEnum(_ehsn.MovingBoatMeas?.depthRefCmbo, KnownDepthReferenceTypes),
-                Comments = _ehsn.MovingBoatMeas?.ADCPMeasResults?.comments,
+                Comments = _ehsn.MovingBoatMeas?.ADCPMeasResults?.comments ?? _ehsn.DisMeas.dischargeRemark,
                 BottomEstimateExponent = _ehsn.MovingBoatMeas?.velocityExponentCtrl.ToNullableDouble(),
                 TopEstimateMethod = GetPicklistItem(_ehsn.MovingBoatMeas?.velocityTopCombo, Config.KnownTopEstimateMethods, s => new TopEstimateMethodPickList(s)),
                 BottomEstimateMethod = GetPicklistItem(_ehsn.MovingBoatMeas?.velocityTopCombo, Config.KnownBottomEstimateMethods, s => new BottomEstimateMethodPickList(s)),
                 NumberOfTransects = (_ehsn.MovingBoatMeas?.ADCPMeasTable ?? new EHSNMovingBoatMeasADCPMeasRow[0])
-                    .Count(row => bool.TryParse(row.checkbox, out var enabled) && enabled),
+                    .Count(row => row.checkbox.ToBoolean()),
             };
         }
 
