@@ -1,6 +1,7 @@
 ﻿{
   "MinVersion": "v1.3",
   "MaxVersion": "v1.3.2",
+  "DefaultChannelName": "Main",
   "KnownControlConditions": {
     "Unspecified": "Unspecified",
     "No Flow": "NoFlow",
@@ -11,6 +12,15 @@
     "Fill": "Fill",
     "Scour": "Scour",
     "Ice": "Ice"
+  },
+  "KnownTopEstimateMethods": {
+    "Power": "POWR",
+    "Constant": "CNST",
+    "3-Point": "3PNT"
+  },
+  "KnownBottomEstimateMethods": {
+    "Power": "POWR",
+    "No Slip": "NSLP"
   },
   "KnownSensors": {
     "Atmos Pres (kPa)": {

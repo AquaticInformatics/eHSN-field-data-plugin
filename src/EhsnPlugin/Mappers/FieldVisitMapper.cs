@@ -20,7 +20,6 @@ namespace EhsnPlugin.Mappers
         private Config Config { get; }
         private readonly EHSN _eHsn;
         private readonly LocationInfo _locationInfo;
-        private readonly EhsnMeasurement _ehsnMeasurement;
         private readonly DateTime _visitDate;
         private readonly ILog _logger;
 
@@ -32,8 +31,6 @@ namespace EhsnPlugin.Mappers
             _locationInfo = locationInfo ?? throw new ArgumentNullException(nameof(locationInfo));
 
             _visitDate = GetVisitDate(eHsn.GenInfo);
-
-            _ehsnMeasurement = new MeasurementParser(eHsn, _visitDate, _locationInfo.UtcOffset).Parse();
         }
 
         public FieldVisitDetails MapFieldVisitDetails( )
@@ -178,7 +175,7 @@ namespace EhsnPlugin.Mappers
 
         public DischargeActivity MapDischargeActivityOrNull()
         {
-            return new DischargeActivityMapper(_ehsnMeasurement, _eHsn).Map();
+            return new DischargeActivityMapper(Config, _locationInfo, _visitDate, _eHsn).Map();
         }
 
         public IEnumerable<Reading> MapReadings()

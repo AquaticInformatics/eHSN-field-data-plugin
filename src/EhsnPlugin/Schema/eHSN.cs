@@ -353,33 +353,33 @@ public partial class EHSNStageMeas {
     
     private string wlr2CkboxField1;
     
-    private decimal mGHHG1Field;
+    private string mGHHG1Field;
     
-    private decimal mGHHG2Field;
+    private string mGHHG2Field;
     
-    private decimal mGHWL1Field;
+    private string mGHWL1Field;
     
-    private decimal mGHWL2Field;
+    private string mGHWL2Field;
     
-    private decimal sRCHG1Field;
+    private string sRCHG1Field;
     
-    private decimal sRCHG2Field;
+    private string sRCHG2Field;
     
-    private decimal gCHG1Field;
+    private string gCHG1Field;
     
-    private decimal gCHG2Field;
+    private string gCHG2Field;
     
-    private decimal gCWL1Field;
+    private string gCWL1Field;
     
-    private decimal gCWL2Field;
+    private string gCWL2Field;
     
-    private decimal cMGHHG1Field;
+    private string cMGHHG1Field;
     
-    private decimal cMGHHG2Field;
+    private string cMGHHG2Field;
     
-    private decimal cMGHWL1Field;
+    private string cMGHWL1Field;
     
-    private decimal cMGHWL2Field;
+    private string cMGHWL2Field;
     
     private string mghMethodField;
     
@@ -519,7 +519,7 @@ public partial class EHSNStageMeas {
     }
     
     /// <remarks/>
-    public decimal MGHHG1 {
+    public string MGHHG1 {
         get {
             return this.mGHHG1Field;
         }
@@ -529,7 +529,7 @@ public partial class EHSNStageMeas {
     }
     
     /// <remarks/>
-    public decimal MGHHG2 {
+    public string MGHHG2 {
         get {
             return this.mGHHG2Field;
         }
@@ -539,7 +539,7 @@ public partial class EHSNStageMeas {
     }
     
     /// <remarks/>
-    public decimal MGHWL1 {
+    public string MGHWL1 {
         get {
             return this.mGHWL1Field;
         }
@@ -549,7 +549,7 @@ public partial class EHSNStageMeas {
     }
     
     /// <remarks/>
-    public decimal MGHWL2 {
+    public string MGHWL2 {
         get {
             return this.mGHWL2Field;
         }
@@ -559,7 +559,7 @@ public partial class EHSNStageMeas {
     }
     
     /// <remarks/>
-    public decimal SRCHG1 {
+    public string SRCHG1 {
         get {
             return this.sRCHG1Field;
         }
@@ -569,7 +569,7 @@ public partial class EHSNStageMeas {
     }
     
     /// <remarks/>
-    public decimal SRCHG2 {
+    public string SRCHG2 {
         get {
             return this.sRCHG2Field;
         }
@@ -579,7 +579,7 @@ public partial class EHSNStageMeas {
     }
     
     /// <remarks/>
-    public decimal GCHG1 {
+    public string GCHG1 {
         get {
             return this.gCHG1Field;
         }
@@ -589,7 +589,7 @@ public partial class EHSNStageMeas {
     }
     
     /// <remarks/>
-    public decimal GCHG2 {
+    public string GCHG2 {
         get {
             return this.gCHG2Field;
         }
@@ -599,7 +599,7 @@ public partial class EHSNStageMeas {
     }
     
     /// <remarks/>
-    public decimal GCWL1 {
+    public string GCWL1 {
         get {
             return this.gCWL1Field;
         }
@@ -609,7 +609,7 @@ public partial class EHSNStageMeas {
     }
     
     /// <remarks/>
-    public decimal GCWL2 {
+    public string GCWL2 {
         get {
             return this.gCWL2Field;
         }
@@ -619,7 +619,7 @@ public partial class EHSNStageMeas {
     }
     
     /// <remarks/>
-    public decimal CMGHHG1 {
+    public string CMGHHG1 {
         get {
             return this.cMGHHG1Field;
         }
@@ -629,7 +629,7 @@ public partial class EHSNStageMeas {
     }
     
     /// <remarks/>
-    public decimal CMGHHG2 {
+    public string CMGHHG2 {
         get {
             return this.cMGHHG2Field;
         }
@@ -639,7 +639,7 @@ public partial class EHSNStageMeas {
     }
     
     /// <remarks/>
-    public decimal CMGHWL1 {
+    public string CMGHWL1 {
         get {
             return this.cMGHWL1Field;
         }
@@ -649,7 +649,7 @@ public partial class EHSNStageMeas {
     }
     
     /// <remarks/>
-    public decimal CMGHWL2 {
+    public string CMGHWL2 {
         get {
             return this.cMGHWL2Field;
         }
@@ -823,27 +823,27 @@ public partial class EHSNDisMeas {
     
     private string waterTempField;
     
-    private decimal widthField;
+    private string widthField;
     
-    private decimal areaField;
+    private string areaField;
     
-    private decimal meanVelField;
+    private string meanVelField;
     
-    private decimal mghField;
+    private string mghField;
     
     private string mghCmboField;
     
-    private decimal dischargeField;
+    private string dischargeField;
     
     private string dischComboField;
     
     private string mmtTimeValField;
     
-    private decimal shiftField;
+    private string shiftField;
     
-    private decimal diffField;
+    private string diffField;
     
-    private decimal curveField;
+    private string curveField;
     
     private string conditionField;
     
@@ -892,7 +892,7 @@ public partial class EHSNDisMeas {
     }
     
     /// <remarks/>
-    public decimal width {
+    public string width {
         get {
             return this.widthField;
         }
@@ -902,7 +902,7 @@ public partial class EHSNDisMeas {
     }
     
     /// <remarks/>
-    public decimal area {
+    public string area {
         get {
             return this.areaField;
         }
@@ -912,7 +912,7 @@ public partial class EHSNDisMeas {
     }
     
     /// <remarks/>
-    public decimal meanVel {
+    public string meanVel {
         get {
             return this.meanVelField;
         }
@@ -922,7 +922,7 @@ public partial class EHSNDisMeas {
     }
     
     /// <remarks/>
-    public decimal mgh {
+    public string mgh {
         get {
             return this.mghField;
         }
@@ -942,7 +942,7 @@ public partial class EHSNDisMeas {
     }
     
     /// <remarks/>
-    public decimal discharge {
+    public string discharge {
         get {
             return this.dischargeField;
         }
@@ -972,7 +972,7 @@ public partial class EHSNDisMeas {
     }
     
     /// <remarks/>
-    public decimal shift {
+    public string shift {
         get {
             return this.shiftField;
         }
@@ -982,7 +982,7 @@ public partial class EHSNDisMeas {
     }
     
     /// <remarks/>
-    public decimal diff {
+    public string diff {
         get {
             return this.diffField;
         }
@@ -992,7 +992,7 @@ public partial class EHSNDisMeas {
     }
     
     /// <remarks/>
-    public decimal curve {
+    public string curve {
         get {
             return this.curveField;
         }

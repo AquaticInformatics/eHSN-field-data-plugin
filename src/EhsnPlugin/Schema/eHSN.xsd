@@ -70,20 +70,20 @@
                 <xs:element minOccurs="0" name="hg2Ckbox" type="xs:string" />
                 <xs:element minOccurs="0" name="wlr1Ckbox" type="xs:string" />
                 <xs:element minOccurs="0" name="wlr2Ckbox" type="xs:string" />
-                <xs:element name="MGHHG1" type="xs:decimal" />
-                <xs:element name="MGHHG2" type="xs:decimal"/>
-                <xs:element name="MGHWL1" type="xs:decimal" />
-                <xs:element name="MGHWL2" type="xs:decimal"/>
-                <xs:element name="SRCHG1" type="xs:decimal" />
-                <xs:element name="SRCHG2" type="xs:decimal"/>
-                <xs:element name="GCHG1" type="xs:decimal" />
-                <xs:element name="GCHG2" type="xs:decimal"/>
-                <xs:element name="GCWL1" type="xs:decimal" />
-                <xs:element name="GCWL2" type="xs:decimal"/>
-                <xs:element name="CMGHHG1" type="xs:decimal" />
-                <xs:element name="CMGHHG2" type="xs:decimal"/>
-                <xs:element name="CMGHWL1" type="xs:decimal" />
-                <xs:element name="CMGHWL2" type="xs:decimal"/>
+                <xs:element name="MGHHG1" type="xs:string" />
+                <xs:element name="MGHHG2" type="xs:string"/>
+                <xs:element name="MGHWL1" type="xs:string" />
+                <xs:element name="MGHWL2" type="xs:string"/>
+                <xs:element name="SRCHG1" type="xs:string" />
+                <xs:element name="SRCHG2" type="xs:string"/>
+                <xs:element name="GCHG1" type="xs:string" />
+                <xs:element name="GCHG2" type="xs:string"/>
+                <xs:element name="GCWL1" type="xs:string" />
+                <xs:element name="GCWL2" type="xs:string" />
+                <xs:element name="CMGHHG1" type="xs:string" />
+                <xs:element name="CMGHHG2" type="xs:string" />
+                <xs:element name="CMGHWL1" type="xs:string" />
+                <xs:element name="CMGHWL2" type="xs:string" />
                 <xs:element name="MghMethod" type="xs:string" />
                 <xs:element name="Factors" type="xs:string" />
                 <xs:element name="stageRemark" type="xs:string" />
@@ -97,17 +97,17 @@
                 <xs:element name="endTime" type="xs:string" />
                 <xs:element name="airTemp" type="xs:string" />
                 <xs:element name="waterTemp" type="xs:string" />
-                <xs:element name="width" type="xs:decimal" />
-                <xs:element name="area" type="xs:decimal" />
-                <xs:element name="meanVel" type="xs:decimal" />
-                <xs:element name="mgh" type="xs:decimal" />
+                <xs:element name="width" type="xs:string" />
+                <xs:element name="area" type="xs:string" />
+                <xs:element name="meanVel" type="xs:string" />
+                <xs:element name="mgh" type="xs:string" />
                 <xs:element minOccurs="0" name="mghCmbo" type="xs:string" />
-                <xs:element name="discharge" type="xs:decimal" />
+                <xs:element name="discharge" type="xs:string" />
                 <xs:element minOccurs="0" name="dischCombo"  type="xs:string" />
                 <xs:element name="mmtTimeVal" type="xs:string" />
-                <xs:element name="shift" type="xs:decimal" />
-                <xs:element name="diff" type="xs:decimal" />
-                <xs:element name="curve" type="xs:decimal" />
+                <xs:element name="shift" type="xs:string" />
+                <xs:element name="diff" type="xs:string" />
+                <xs:element name="curve" type="xs:string" />
                 <xs:element name="condition" type="xs:string" />
                 <xs:element name="dischargeRemark" type="xs:string" />
                 <xs:element name="controlConditionRemark" type="xs:string" />

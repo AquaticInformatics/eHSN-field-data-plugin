@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using EhsnPlugin.Helpers;
 using EhsnPlugin.SystemCode;
@@ -112,10 +111,12 @@ namespace EhsnPlugin.Mappers
         {
             if (string.IsNullOrWhiteSpace(value)) return;
 
-            if (!double.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out var number))
+            var number = value.ToNullableDouble();
+
+            if (!number.HasValue)
                 throw new ArgumentException($"Can't parse '{value}' as a number for parameterId='{parameterId}' unitId='{unitId}'");
 
-            readings.Add(new Reading(parameterId, new Measurement(number, unitId))
+            readings.Add(new Reading(parameterId, new Measurement(number.Value, unitId))
                 {DateTimeOffset = dateTimeOffset});
         }
 
@@ -128,6 +129,10 @@ namespace EhsnPlugin.Mappers
 
         private void AddNonAggregatedStageMeasurementReading(List<Reading> readings, EHSNStageMeasStageMeasRow stageMeasurement)
         {
+            // TODO: Add support for sensor reset corrections (add the corrected value to the reading comment)
+            // TODO: When InstrumentDeployment/GeneralInfo/methodType == None, treat all stage readings as non-aggregated
+            // TODO: If the measurement includes a water-level reference value, add that as a reference point?
+
             if (bool.TryParse(stageMeasurement.MghCkbox, out var isAggregated) && isAggregated) return;
 
             var time = TimeHelper.ParseTimeOrMinValue(stageMeasurement.time, VisitDate, LocationInfo.UtcOffset);

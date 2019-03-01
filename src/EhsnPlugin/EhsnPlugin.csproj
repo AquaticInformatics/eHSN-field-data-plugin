@@ -53,15 +53,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
+    <Compile Include="DataModel\MeanGageHeightSelector.cs" />
     <Compile Include="DataModel\ParsedEhsnLevelSurvey.cs" />
-    <Compile Include="DataModel\EhsnMeasurement.cs" />
     <Compile Include="DataModel\MeasurementRecord.cs" />
     <Compile Include="Exceptions\EHsnPluginException.cs" />
+    <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Helpers\TimeHelper.cs" />
     <Compile Include="Mappers\LevelSurveyMapper.cs" />
+    <Compile Include="Mappers\MeanGageHeightSelectorMapper.cs" />
     <Compile Include="Mappers\ReadingMapper.cs" />
     <Compile Include="Mappers\DischargeActivityMapper.cs" />
-    <Compile Include="Mappers\MeasurementParser.cs" />
     <Compile Include="Mappers\FieldVisitMapper.cs" />
     <Compile Include="SystemCode\Parameters.cs" />
     <Compile Include="SystemCode\SensorRefs.cs" />
