@@ -610,16 +610,16 @@
                                         <xs:complexType>
                                           <xs:sequence>
                                             <xs:element name="panelId" type="xs:unsignedByte" />
-                                            <xs:element name="Tagmark" type="xs:decimal" />
+                                            <xs:element name="Tagmark" type="xs:string" />
                                             <xs:element name="ReverseFlow" type="xs:string" />
-                                            <xs:element name="AngleOfFlowCoefficient" type="xs:decimal" />
-                                            <xs:element name="DepthReading" type="xs:decimal" />
+                                            <xs:element name="AngleOfFlowCoefficient" type="xs:string" />
+                                            <xs:element name="DepthReading" type="xs:string" />
                                             <xs:element name="DepthWithOffset" type="xs:string" />
-                                            <xs:element name="Width" type="xs:decimal" />
+                                            <xs:element name="Width" type="xs:string" />
                                             <xs:element name="AverageVelocity" type="xs:string" />
                                             <xs:element name="Discharge" type="xs:string" />
                                             <xs:element name="PanelNum" type="xs:unsignedByte" />
-                                            <xs:element name="Slop" type="xs:decimal" />
+                                            <xs:element name="Slop" type="xs:string" />
                                             <xs:element name="Slop2" />
                                             <xs:element name="SlopBtn1" type="xs:string" />
                                             <xs:element name="Intercept" type="xs:decimal" />
@@ -633,9 +633,9 @@
                                               <xs:complexType>
                                                 <xs:sequence>
                                                   <xs:element name="DeploymentMethod" type="xs:string" />
-                                                  <xs:element name="AmountOfWeight" type="xs:unsignedByte" />
-                                                  <xs:element name="DistanceAboveWeight" type="xs:unsignedByte" />
-                                                  <xs:element name="TotalDepth" type="xs:decimal" />
+                                                  <xs:element name="AmountOfWeight" type="xs:string" />
+                                                  <xs:element name="DistanceAboveWeight" type="xs:string" />
+                                                  <xs:element name="TotalDepth" type="xs:string" />
                                                 </xs:sequence>
                                               </xs:complexType>
                                             </xs:element>
@@ -643,17 +643,17 @@
                                               <xs:complexType>
                                                 <xs:sequence>
                                                   <xs:element name="IceAssembly" type="xs:string" />
-                                                  <xs:element name="DistanceAboveWeight" type="xs:decimal" />
-                                                  <xs:element name="MeterAboveFooting" type="xs:decimal" />
-                                                  <xs:element name="MeterBelowFooting" type="xs:decimal" />
-                                                  <xs:element name="IceThickness" type="xs:decimal" />
-                                                  <xs:element name="WaterSurfaceToBottomOfIce" type="xs:decimal" />
+                                                  <xs:element name="DistanceAboveWeight" type="xs:string" />
+                                                  <xs:element name="MeterAboveFooting" type="xs:string" />
+                                                  <xs:element name="MeterBelowFooting" type="xs:string" />
+                                                  <xs:element name="IceThickness" type="xs:string" />
+                                                  <xs:element name="WaterSurfaceToBottomOfIce" type="xs:string" />
                                                   <xs:element name="Slush" type="xs:string" />
-                                                  <xs:element name="WaterSurfaceToBottomOfSlush" />
+                                                  <xs:element name="WaterSurfaceToBottomOfSlush" type="xs:string" />
                                                   <xs:element name="SlushThickness" />
-                                                  <xs:element name="EffectiveDepth" type="xs:decimal" />
-                                                  <xs:element name="IceAdjusted" type="xs:decimal" />
-                                                  <xs:element name="WSToBottomOfIceAdjusted" type="xs:decimal" />
+                                                  <xs:element name="EffectiveDepth" type="xs:string" />
+                                                  <xs:element name="IceAdjusted" type="xs:string" />
+                                                  <xs:element name="WSToBottomOfIceAdjusted" type="xs:string" />
                                                 </xs:sequence>
                                               </xs:complexType>
                                             </xs:element>
@@ -665,12 +665,12 @@
                                                   <xs:element maxOccurs="unbounded" name="PointMeasurement">
                                                     <xs:complexType>
                                                       <xs:sequence>
-                                                        <xs:element name="SamplingDepthCoefficient" type="xs:decimal" />
-                                                        <xs:element name="MeasurementDepth" type="xs:decimal" />
+                                                        <xs:element name="SamplingDepthCoefficient" type="xs:string" />
+                                                        <xs:element name="MeasurementDepth" type="xs:string" />
                                                         <xs:element name="Revolutions" type="xs:unsignedByte" />
-                                                        <xs:element name="ElapsedTime" type="xs:decimal" />
-                                                        <xs:element name="Velocity" type="xs:decimal" />
-                                                        <xs:element name="VelocityCoefficient" type="xs:decimal" />
+                                                        <xs:element name="ElapsedTime" type="xs:string" />
+                                                        <xs:element name="Velocity" type="xs:string" />
+                                                        <xs:element name="VelocityCoefficient" type="xs:string" />
                                                         <xs:element name="MeanVelocity" type="xs:string" />
                                                       </xs:sequence>
                                                     </xs:complexType>
@@ -692,14 +692,14 @@
                                         <xs:complexType>
                                           <xs:sequence>
                                             <xs:element name="StartingEdge" type="xs:string" />
-                                            <xs:element name="Tagmark" type="xs:decimal" />
-                                            <xs:element name="Depth" type="xs:decimal" />
+                                            <xs:element name="Tagmark" type="xs:string" />
+                                            <xs:element name="Depth" type="xs:string" />
                                             <xs:element name="DepthSameAsAdjacent" type="xs:string" />
                                             <xs:element name="Velocity" type="xs:string" />
                                             <xs:element name="VelocitySameAsAdjacent" type="xs:string" />
                                             <xs:element name="panelId" type="xs:unsignedByte" />
-                                            <xs:element name="Width" type="xs:decimal" />
-                                            <xs:element name="Area" type="xs:decimal" />
+                                            <xs:element name="Width" type="xs:string" />
+                                            <xs:element name="Area" type="xs:string" />
                                             <xs:element name="Discharge" type="xs:string" />
                                             <xs:element name="LeftOrRight" type="xs:string" />
                                             <xs:element name="EdgeType" type="xs:string" />

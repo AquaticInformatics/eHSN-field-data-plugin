@@ -4251,17 +4251,17 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanel {
     
     private byte panelIdField;
     
-    private decimal tagmarkField;
+    private string tagmarkField;
     
     private string reverseFlowField;
     
-    private decimal angleOfFlowCoefficientField;
+    private string angleOfFlowCoefficientField;
     
-    private decimal depthReadingField;
+    private string depthReadingField;
     
     private string depthWithOffsetField;
     
-    private decimal widthField;
+    private string widthField;
     
     private string averageVelocityField;
     
@@ -4269,7 +4269,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanel {
     
     private byte panelNumField;
     
-    private decimal slopField;
+    private string slopField;
     
     private object slop2Field;
     
@@ -4312,7 +4312,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanel {
     }
     
     /// <remarks/>
-    public decimal Tagmark {
+    public string Tagmark {
         get {
             return this.tagmarkField;
         }
@@ -4332,7 +4332,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanel {
     }
     
     /// <remarks/>
-    public decimal AngleOfFlowCoefficient {
+    public string AngleOfFlowCoefficient {
         get {
             return this.angleOfFlowCoefficientField;
         }
@@ -4342,7 +4342,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanel {
     }
     
     /// <remarks/>
-    public decimal DepthReading {
+    public string DepthReading {
         get {
             return this.depthReadingField;
         }
@@ -4362,7 +4362,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanel {
     }
     
     /// <remarks/>
-    public decimal Width {
+    public string Width {
         get {
             return this.widthField;
         }
@@ -4402,7 +4402,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanel {
     }
     
     /// <remarks/>
-    public decimal Slop {
+    public string Slop {
         get {
             return this.slopField;
         }
@@ -4574,11 +4574,11 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelOpen {
     
     private string deploymentMethodField;
     
-    private byte amountOfWeightField;
+    private string amountOfWeightField;
     
-    private byte distanceAboveWeightField;
+    private string distanceAboveWeightField;
     
-    private decimal totalDepthField;
+    private string totalDepthField;
     
     /// <remarks/>
     public string DeploymentMethod {
@@ -4591,7 +4591,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelOpen {
     }
     
     /// <remarks/>
-    public byte AmountOfWeight {
+    public string AmountOfWeight {
         get {
             return this.amountOfWeightField;
         }
@@ -4601,7 +4601,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelOpen {
     }
     
     /// <remarks/>
-    public byte DistanceAboveWeight {
+    public string DistanceAboveWeight {
         get {
             return this.distanceAboveWeightField;
         }
@@ -4611,7 +4611,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelOpen {
     }
     
     /// <remarks/>
-    public decimal TotalDepth {
+    public string TotalDepth {
         get {
             return this.totalDepthField;
         }
@@ -4631,27 +4631,27 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelIceCovered {
     
     private string iceAssemblyField;
     
-    private decimal distanceAboveWeightField;
+    private string distanceAboveWeightField;
     
-    private decimal meterAboveFootingField;
+    private string meterAboveFootingField;
     
-    private decimal meterBelowFootingField;
+    private string meterBelowFootingField;
     
-    private decimal iceThicknessField;
+    private string iceThicknessField;
     
-    private decimal waterSurfaceToBottomOfIceField;
+    private string waterSurfaceToBottomOfIceField;
     
     private string slushField;
     
-    private object waterSurfaceToBottomOfSlushField;
+    private string waterSurfaceToBottomOfSlushField;
     
     private object slushThicknessField;
     
-    private decimal effectiveDepthField;
+    private string effectiveDepthField;
     
-    private decimal iceAdjustedField;
+    private string iceAdjustedField;
     
-    private decimal wSToBottomOfIceAdjustedField;
+    private string wSToBottomOfIceAdjustedField;
     
     /// <remarks/>
     public string IceAssembly {
@@ -4664,7 +4664,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelIceCovered {
     }
     
     /// <remarks/>
-    public decimal DistanceAboveWeight {
+    public string DistanceAboveWeight {
         get {
             return this.distanceAboveWeightField;
         }
@@ -4674,7 +4674,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelIceCovered {
     }
     
     /// <remarks/>
-    public decimal MeterAboveFooting {
+    public string MeterAboveFooting {
         get {
             return this.meterAboveFootingField;
         }
@@ -4684,7 +4684,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelIceCovered {
     }
     
     /// <remarks/>
-    public decimal MeterBelowFooting {
+    public string MeterBelowFooting {
         get {
             return this.meterBelowFootingField;
         }
@@ -4694,7 +4694,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelIceCovered {
     }
     
     /// <remarks/>
-    public decimal IceThickness {
+    public string IceThickness {
         get {
             return this.iceThicknessField;
         }
@@ -4704,7 +4704,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelIceCovered {
     }
     
     /// <remarks/>
-    public decimal WaterSurfaceToBottomOfIce {
+    public string WaterSurfaceToBottomOfIce {
         get {
             return this.waterSurfaceToBottomOfIceField;
         }
@@ -4724,7 +4724,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelIceCovered {
     }
     
     /// <remarks/>
-    public object WaterSurfaceToBottomOfSlush {
+    public string WaterSurfaceToBottomOfSlush {
         get {
             return this.waterSurfaceToBottomOfSlushField;
         }
@@ -4744,7 +4744,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelIceCovered {
     }
     
     /// <remarks/>
-    public decimal EffectiveDepth {
+    public string EffectiveDepth {
         get {
             return this.effectiveDepthField;
         }
@@ -4754,7 +4754,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelIceCovered {
     }
     
     /// <remarks/>
-    public decimal IceAdjusted {
+    public string IceAdjusted {
         get {
             return this.iceAdjustedField;
         }
@@ -4764,7 +4764,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelIceCovered {
     }
     
     /// <remarks/>
-    public decimal WSToBottomOfIceAdjusted {
+    public string WSToBottomOfIceAdjusted {
         get {
             return this.wSToBottomOfIceAdjustedField;
         }
@@ -4782,22 +4782,22 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelIceCovered {
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
 public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelPointMeasurement {
     
-    private decimal samplingDepthCoefficientField;
+    private string samplingDepthCoefficientField;
     
-    private decimal measurementDepthField;
+    private string measurementDepthField;
     
     private byte revolutionsField;
     
-    private decimal elapsedTimeField;
+    private string elapsedTimeField;
     
-    private decimal velocityField;
+    private string velocityField;
     
-    private decimal velocityCoefficientField;
+    private string velocityCoefficientField;
     
     private string meanVelocityField;
     
     /// <remarks/>
-    public decimal SamplingDepthCoefficient {
+    public string SamplingDepthCoefficient {
         get {
             return this.samplingDepthCoefficientField;
         }
@@ -4807,7 +4807,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelPointMeasurem
     }
     
     /// <remarks/>
-    public decimal MeasurementDepth {
+    public string MeasurementDepth {
         get {
             return this.measurementDepthField;
         }
@@ -4827,7 +4827,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelPointMeasurem
     }
     
     /// <remarks/>
-    public decimal ElapsedTime {
+    public string ElapsedTime {
         get {
             return this.elapsedTimeField;
         }
@@ -4837,7 +4837,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelPointMeasurem
     }
     
     /// <remarks/>
-    public decimal Velocity {
+    public string Velocity {
         get {
             return this.velocityField;
         }
@@ -4847,7 +4847,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelPointMeasurem
     }
     
     /// <remarks/>
-    public decimal VelocityCoefficient {
+    public string VelocityCoefficient {
         get {
             return this.velocityCoefficientField;
         }
@@ -4877,9 +4877,9 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelEdge {
     
     private string startingEdgeField;
     
-    private decimal tagmarkField;
+    private string tagmarkField;
     
-    private decimal depthField;
+    private string depthField;
     
     private string depthSameAsAdjacentField;
     
@@ -4889,9 +4889,9 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelEdge {
     
     private byte panelIdField;
     
-    private decimal widthField;
+    private string widthField;
     
-    private decimal areaField;
+    private string areaField;
     
     private string dischargeField;
     
@@ -4914,7 +4914,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelEdge {
     }
     
     /// <remarks/>
-    public decimal Tagmark {
+    public string Tagmark {
         get {
             return this.tagmarkField;
         }
@@ -4924,7 +4924,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelEdge {
     }
     
     /// <remarks/>
-    public decimal Depth {
+    public string Depth {
         get {
             return this.depthField;
         }
@@ -4974,7 +4974,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelEdge {
     }
     
     /// <remarks/>
-    public decimal Width {
+    public string Width {
         get {
             return this.widthField;
         }
@@ -4984,7 +4984,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelEdge {
     }
     
     /// <remarks/>
-    public decimal Area {
+    public string Area {
         get {
             return this.areaField;
         }

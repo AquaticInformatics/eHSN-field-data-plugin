@@ -8,7 +8,9 @@ using FieldDataPluginFramework.Context;
 using FieldDataPluginFramework.DataModel;
 using FieldDataPluginFramework.DataModel.ChannelMeasurements;
 using FieldDataPluginFramework.DataModel.DischargeActivities;
+using FieldDataPluginFramework.DataModel.Meters;
 using FieldDataPluginFramework.DataModel.PickLists;
+using FieldDataPluginFramework.DataModel.Verticals;
 
 namespace EhsnPlugin.Mappers
 {
@@ -241,11 +243,246 @@ namespace EhsnPlugin.Mappers
             dischargeSection.WidthValue = _ehsn.DisMeas.width.ToNullableDouble();
             dischargeSection.VelocityAverageValue = _ehsn.DisMeas.meanVel.ToNullableDouble();
             dischargeSection.VelocityUnitId = Units.VelocityUnitId;
+            dischargeSection.DeploymentMethod = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.deployment, KnownMidSectionDeploymentTypes);
 
-            // TODO: Fill in panel measurement details
+            AddPanelMeasurements(dischargeSection);
 
             return dischargeSection;
         }
+
+        private void AddPanelMeasurements(ManualGaugingDischargeSection dischargeSection)
+        {
+            var channels = _ehsn.MidsecMeas?.DischargeMeasurement?.Channels ?? new EHSNMidsecMeasDischargeMeasurementChannel[0];
+
+            if (!channels.Any()) return;
+
+            if (channels.Length != 1)
+                throw new ArgumentException($"Only single-channel measurements are supported, but {channels.Length} were found.");
+
+            var channel = channels.First();
+            var edges = channel.Edges ?? new EHSNMidsecMeasDischargeMeasurementChannelEdge[0];
+            var panels = channel.Panels ?? new EHSNMidsecMeasDischargeMeasurementChannelPanel[0];
+
+            var startingEdge = edges
+                .FirstOrDefault(e => bool.TryParse(e.StartingEdge, out var value) && value);
+
+            if (startingEdge == null)
+                throw new ArgumentException($"No starting edge found.");
+
+            if (edges.Length != 2)
+                throw new ArgumentException($"Only 2 edges expected but {edges.Length} were found.");
+
+            var endingEdge = edges
+                .First(e => !e.StartingEdge.Equals(startingEdge.StartingEdge));
+
+            dischargeSection.StartPoint = GetMappedEnum(startingEdge.LeftOrRight, KnownStartPointTypes);
+
+            var meters = (_ehsn.MidsecMeas?.DischargeMeasurement?.MmtInitAndSummary?.MetersUsed ?? new EHSNMidsecMeasDischargeMeasurementMmtInitAndSummaryMeter[0])
+                .Select(CreateMeterCalibration)
+                .ToList();
+
+            dischargeSection.Verticals.Add(CreateEdge(startingEdge, VerticalType.StartEdgeNoWaterBefore));
+
+            foreach (var panel in panels)
+            {
+                dischargeSection.Verticals.Add(CreatePanel(panel, meters.First(m => m.SerialNumber == panel.MeterNumber)));
+            }
+
+            dischargeSection.Verticals.Add(CreateEdge(endingEdge, VerticalType.EndEdgeNoWaterAfter));
+
+            // TODO Find most common method
+            //dischargeSection.VelocityObservationMethod = ;
+        }
+
+        private MeterCalibration CreateMeterCalibration(EHSNMidsecMeasDischargeMeasurementMmtInitAndSummaryMeter meter)
+        {
+            var meterCalibration = new MeterCalibration
+            {
+                FirmwareVersion = _ehsn.InstrumentDeployment?.GeneralInfo?.firmware,
+                Manufacturer = _ehsn.InstrumentDeployment?.GeneralInfo?.manufacturer,
+                Model = _ehsn.InstrumentDeployment?.GeneralInfo?.model,
+                SerialNumber = meter.Number,
+                Configuration = meter.MeterCalibDate,
+                MeterType = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.model, KnownMeterTypes),
+            };
+
+            foreach (var equation in meter.Equation ?? new EHSNMidsecMeasDischargeMeasurementMmtInitAndSummaryMeterEquation[0])
+            {
+                var slope = equation.Slope.ToNullableDouble();
+                var intercept = equation.Intercept.ToNullableDouble();
+
+                if (!slope.HasValue || !intercept.HasValue) continue;
+
+                meterCalibration.Equations.Add(new MeterCalibrationEquation
+                {
+                    Slope = slope.Value,
+                    Intercept = intercept.Value,
+                    InterceptUnitId = Units.VelocityUnitId
+                });
+            }
+
+            return meterCalibration;
+        }
+
+        private Vertical CreateEdge(EHSNMidsecMeasDischargeMeasurementChannelEdge edge, VerticalType verticalType)
+        {
+            var taglinePosition = edge.Tagmark.ToNullableDouble() ?? 0;
+            var depth = edge.Depth.ToNullableDouble() ?? 0;
+            var area = edge.Area.ToNullableDouble() ?? 0;
+            var velocity = edge.Velocity.ToNullableDouble() ?? 0;
+            var discharge = edge.Discharge.ToNullableDouble() ?? 0;
+            var width = edge.Width.ToNullableDouble() ?? 0;
+            var percentFlow = edge.Flow.ToNullableDouble() ?? 0;
+
+            var velocityObservation = new VelocityObservation
+            {
+                VelocityObservationMethod = PointVelocityObservationType.Surface,
+                MeanVelocity = velocity,
+                DeploymentMethod = DeploymentMethodType.Unspecified,
+            };
+
+            velocityObservation.Observations.Add(new VelocityDepthObservation
+            {
+                Depth = depth,
+                Velocity = velocity,
+                ObservationInterval = 0,
+                RevolutionCount = 0
+            });
+
+            return new Vertical
+            {
+                VerticalType = verticalType,
+                MeasurementTime = new DateTimeOffset(edge.Date, LocationInfo.UtcOffset),
+                SequenceNumber = edge.panelId,
+                TaglinePosition = taglinePosition,
+                SoundedDepth = depth,
+                EffectiveDepth = depth,
+                MeasurementConditionData = new OpenWaterData(),
+                FlowDirection = FlowDirectionType.Normal,
+                VelocityObservation = velocityObservation,
+                Segment = new Segment
+                {
+                    Area = area,
+                    Discharge = discharge,
+                    Width = width,
+                    Velocity = velocity,
+                    TotalDischargePortion = percentFlow,
+                }
+            };
+        }
+
+        private Vertical CreatePanel(EHSNMidsecMeasDischargeMeasurementChannelPanel panel, MeterCalibration meter)
+        {
+            var taglinePosition = panel.Tagmark.ToNullableDouble() ?? 0;
+            var soundedDepth = panel.DepthReading.ToNullableDouble() ?? 0;
+            var effectiveDepth = panel.DepthWithOffset.ToNullableDouble() ?? soundedDepth;
+            var velocity = panel.AverageVelocity.ToNullableDouble() ?? 0;
+            var discharge = panel.Discharge.ToNullableDouble() ?? 0;
+            var width = panel.Width.ToNullableDouble() ?? 0;
+            var percentFlow = panel.Flow.ToNullableDouble() ?? 0;
+
+            var measurementCondition = panel.IceCovered != null
+                ? (MeasurementConditionData) new IceCoveredData
+                {
+                    IceAssemblyType = panel.IceCovered.IceAssembly,
+                    IceThickness = panel.IceCovered.IceThickness.ToNullableDouble(),
+                    AboveFooting = panel.IceCovered.MeterAboveFooting.ToNullableDouble(),
+                    BelowFooting = panel.IceCovered.MeterBelowFooting.ToNullableDouble(),
+                    WaterSurfaceToBottomOfIce = panel.IceCovered.WSToBottomOfIceAdjusted.ToNullableDouble() ?? 0,
+                    WaterSurfaceToBottomOfSlush = panel.IceCovered.WaterSurfaceToBottomOfSlush.ToNullableDouble() ?? 0,
+                }
+                : new OpenWaterData
+                {
+                    DistanceToMeter = panel.Open?.DistanceAboveWeight.ToNullableDouble(),
+                    DryLineAngle = panel.DryAngle.ToNullableDouble() ?? 0,
+                    DryLineCorrection = panel.DryCorrection.ToNullableDouble(),
+                    WetLineCorrection = panel.WetCorrection.ToNullableDouble(),
+                    SuspensionWeight = panel.Open?.AmountOfWeight
+                };
+
+            effectiveDepth = panel.IceCovered?.EffectiveDepth.ToNullableDouble() ?? effectiveDepth;
+
+            var points = panel.PointMeasurements ?? new EHSNMidsecMeasDischargeMeasurementChannelPanelPointMeasurement[0];
+
+            var fractionalDepths = string.Join("/", points.Select(p=>p.SamplingDepthCoefficient));
+
+            if (!PointVelocityTypes.TryGetValue(fractionalDepths, out var pointVelocityObservationType))
+            {
+                if (!points.Any())
+                {
+                    pointVelocityObservationType = PointVelocityObservationType.Surface;
+                }
+                else
+                {
+                    throw new ArgumentException($"'{fractionalDepths}' is not a supported point velocity observation type");
+                }
+            }
+
+            var velocityObservation = new VelocityObservation
+            {
+                VelocityObservationMethod = pointVelocityObservationType,
+                MeanVelocity = velocity,
+                DeploymentMethod = DeploymentMethodType.Unspecified,
+                MeterCalibration = meter
+            };
+
+            if (!points.Any())
+            {
+                velocityObservation.Observations.Add(new VelocityDepthObservation
+                {
+                    Depth = soundedDepth,
+                    Velocity = velocity,
+                    ObservationInterval = 0,
+                    RevolutionCount = 0
+                });
+            }
+            else
+            {
+                foreach (var point in points)
+                {
+                    velocityObservation.Observations.Add(new VelocityDepthObservation
+                    {
+                        Depth = point.MeasurementDepth.ToNullableDouble() ?? 0,
+                        Velocity = point.Velocity.ToNullableDouble() ?? 0,
+                        ObservationInterval = point.ElapsedTime.ToNullableDouble(),
+                        RevolutionCount = point.Revolutions
+                    });
+                }
+            }
+
+            var vertical = new Vertical
+            {
+                VerticalType = VerticalType.MidRiver,
+                MeasurementTime = new DateTimeOffset(panel.Date, LocationInfo.UtcOffset),
+                SequenceNumber = panel.panelId,
+                TaglinePosition = taglinePosition,
+                SoundedDepth = soundedDepth,
+                EffectiveDepth = effectiveDepth,
+                MeasurementConditionData = measurementCondition,
+                FlowDirection = bool.TryParse(panel.ReverseFlow, out var value) && value
+                    ? FlowDirectionType.Reversed
+                    : FlowDirectionType.Normal,
+                VelocityObservation = velocityObservation,
+                Segment = new Segment
+                {
+                    Area = soundedDepth * width, // We need to infer the area
+                    Discharge = discharge,
+                    Width = width,
+                    Velocity = velocity,
+                    TotalDischargePortion = percentFlow,
+                }
+            };
+
+            return vertical;
+        }
+
+        private static readonly Dictionary<string, PointVelocityObservationType> PointVelocityTypes = new Dictionary<string, PointVelocityObservationType>
+        {
+            {"0.5", PointVelocityObservationType.OneAtPointFive },
+            {"0.6", PointVelocityObservationType.OneAtPointSix },
+            {"0.2/0.8", PointVelocityObservationType.OneAtPointTwoAndPointEight },
+            {"0.2/0.6/0.8", PointVelocityObservationType.OneAtPointTwoPointSixAndPointEight },
+        };
 
         private AdcpDischargeSection CreateAdcpMeasurement(DischargeActivity dischargeActivity, double discharge)
         {
@@ -269,7 +506,7 @@ namespace EhsnPlugin.Mappers
                     _ehsn.InstrumentDeployment?.GeneralInfo?.serialNum),
                 MagneticVariation = _ehsn.InstrumentDeployment?.ADCPInfo?.magDecl.ToNullableDouble(),
                 TransducerDepth = _ehsn.InstrumentDeployment?.ADCPInfo?.depth.ToNullableDouble(),
-                DeploymentMethod = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.deployment, KnownDeploymentTypes),
+                DeploymentMethod = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.deployment, KnownAdcpDeploymentTypes),
                 DepthReference = GetMappedEnum(_ehsn.MovingBoatMeas?.depthRefCmbo, KnownDepthReferenceTypes),
                 Comments = _ehsn.MovingBoatMeas?.ADCPMeasResults?.comments,
                 BottomEstimateExponent = _ehsn.MovingBoatMeas?.velocityExponentCtrl.ToNullableDouble(),
@@ -300,7 +537,36 @@ namespace EhsnPlugin.Mappers
                 : null;
         }
 
-        private static readonly Dictionary<string, AdcpDeploymentMethodType> KnownDeploymentTypes =
+        private static readonly Dictionary<string, DeploymentMethodType> KnownMidSectionDeploymentTypes =
+            new Dictionary<string, DeploymentMethodType>(StringComparer.InvariantCultureIgnoreCase)
+            {
+                {"Wading", DeploymentMethodType.Wading},
+                {"Bridge Upstream", DeploymentMethodType.BridgeUpstreamSide},
+                {"Bridge Downstream", DeploymentMethodType.BridgeDownstreamSide},
+                {"Tethered Bridge Upstream", DeploymentMethodType.BridgeUpstreamSide},
+                {"Tethered Bridge Downstream", DeploymentMethodType.BridgeDownstreamSide},
+                {"Tethered Cableway", DeploymentMethodType.Cableway},
+                {"Cableway", DeploymentMethodType.Cableway},
+                {"Manned Boat", DeploymentMethodType.MannedMovingBoat},
+                {"Ice Cover", DeploymentMethodType.Ice},
+            };
+
+        private static readonly Dictionary<string, StartPointType> KnownStartPointTypes =
+            new Dictionary<string, StartPointType>(StringComparer.InvariantCultureIgnoreCase)
+            {
+                {"Left Bank", StartPointType.LeftEdgeOfWater},
+                {"Right Bank", StartPointType.RightEdgeOfWater},
+            };
+
+        private static readonly Dictionary<string, MeterType> KnownMeterTypes =
+            new Dictionary<string, MeterType>(StringComparer.InvariantCultureIgnoreCase)
+            {
+                {"Price AA", MeterType.PriceAa},
+                {"Pygmy", MeterType.Pygmy},
+                {"FlowTracker", MeterType.Adv},
+            };
+
+        private static readonly Dictionary<string, AdcpDeploymentMethodType> KnownAdcpDeploymentTypes =
             new Dictionary<string, AdcpDeploymentMethodType>(StringComparer.InvariantCultureIgnoreCase)
             {
                 {"Tethered Cableway", AdcpDeploymentMethodType.Cableway},
