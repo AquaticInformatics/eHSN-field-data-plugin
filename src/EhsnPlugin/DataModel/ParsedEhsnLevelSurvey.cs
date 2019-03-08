@@ -12,13 +12,37 @@ namespace EhsnPlugin.DataModel
         public ParsedEhsnLevelSurvey(EHSNLevelNotesLevelChecksLevelChecksTable[] levelChecksTables, 
             EHSNLevelNotesLevelChecksSummaryTableRow[] summaryTableRows)
         {
-            LevelCheckTables = levelChecksTables == null
-                ? new List<EHSNLevelNotesLevelChecksLevelChecksTable>()
-                : new List<EHSNLevelNotesLevelChecksLevelChecksTable>(levelChecksTables);
+            levelChecksTables = levelChecksTables ?? new EHSNLevelNotesLevelChecksLevelChecksTable[0];
 
-            LevelSummaryRows = summaryTableRows == null
-                ? new List<EHSNLevelNotesLevelChecksSummaryTableRow>()
-                : new List<EHSNLevelNotesLevelChecksSummaryTableRow>(summaryTableRows);
+            foreach (var table in levelChecksTables)
+            {
+                table.LevelChecksRow = table.LevelChecksRow ?? new EHSNLevelNotesLevelChecksLevelChecksTableLevelChecksRow[0];
+
+                foreach (var row in table.LevelChecksRow)
+                {
+                    row.station = SanitizeBenchmarkName(row.station);
+                }
+            }
+
+            summaryTableRows = summaryTableRows ?? new EHSNLevelNotesLevelChecksSummaryTableRow[0];
+
+            foreach (var row in summaryTableRows)
+            {
+                row.reference = SanitizeBenchmarkName(row.reference);
+            }
+
+            LevelCheckTables = new List<EHSNLevelNotesLevelChecksLevelChecksTable>(levelChecksTables);
+            LevelSummaryRows = new List<EHSNLevelNotesLevelChecksSummaryTableRow>(summaryTableRows);
+        }
+
+        private const string PrimaryPrefix = "**";
+
+        private static string SanitizeBenchmarkName(string value)
+        {
+            if (value == null || !value.StartsWith(PrimaryPrefix))
+                return value;
+
+            return value.Substring(PrimaryPrefix.Length);
         }
     }
 }
