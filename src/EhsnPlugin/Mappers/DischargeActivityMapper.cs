@@ -111,12 +111,26 @@ namespace EhsnPlugin.Mappers
 
             if (!meanGageHeightSelector.HasValue) return;
 
-            var publishedMeanGageHeight = _ehsn.DisMeas.mgh.ToNullableDouble();
-
-            if (!publishedMeanGageHeight.HasValue)
-                throw new ArgumentException($"'{_ehsn.DisMeas.mgh}' is not a valid mean gage height value");
-
             var stageMeasurementSummary = GetStageMeasurementSummary(meanGageHeightSelector.Value);
+
+            var sensorResetCorrectionComment = stageMeasurementSummary.SensorResetCorrection.HasValue
+                ? $"Sensor Reset Correction of {stageMeasurementSummary.SensorResetCorrection:F3}"
+                : string.Empty;
+            var gageCorrectionComment = stageMeasurementSummary.GageCorrection.HasValue
+                ? $"Gage Correction of {stageMeasurementSummary.GageCorrection:F3}"
+                : string.Empty;
+
+            var meanGaugeHeightComment = string.Empty;
+
+            if (!DoubleHelper.AreEqual(stageMeasurementSummary.MeanGageHeight, stageMeasurementSummary.CorrectedMeanGageHeight))
+            {
+                meanGaugeHeightComment = $"Corrected M.G.H. includes {string.Join(" and ", new[]{sensorResetCorrectionComment, gageCorrectionComment}.Where(s => !string.IsNullOrWhiteSpace(s)))} applied to Weighted M.G.H of {stageMeasurementSummary.MeanGageHeight:F3}";
+
+                if (!string.IsNullOrWhiteSpace(dischargeActivity.Comments))
+                {
+                    meanGaugeHeightComment = "\n" + meanGaugeHeightComment;
+                }
+            }
 
             var gageHeightMeasurements = GetGageHeightMeasurements(meanGageHeightSelector.Value)
                 .ToList();
@@ -128,7 +142,7 @@ namespace EhsnPlugin.Mappers
             {
                 var meanGageHeight = gageHeightMeasurements.Average(ghm => ghm.GageHeight.Value);
 
-                isAverage = publishedMeanGageHeight.Value.ToString("F3").Equals(meanGageHeight.ToString("F3"));
+                isAverage = stageMeasurementSummary.CorrectedMeanGageHeight.ToString("F3").Equals(meanGageHeight.ToString("F3"));
             }
 
             if (isAverage)
@@ -140,11 +154,11 @@ namespace EhsnPlugin.Mappers
             }
             else
             {
-                dischargeActivity.ManuallyCalculatedMeanGageHeight = new Measurement(publishedMeanGageHeight.Value, Units.DistanceUnitId);
+                dischargeActivity.ManuallyCalculatedMeanGageHeight = new Measurement(stageMeasurementSummary.CorrectedMeanGageHeight, Units.DistanceUnitId);
             }
 
             dischargeActivity.Comments = string.Join("\n",
-                new[] {dischargeActivity.Comments, _ehsn.StageMeas?.stageRemark}
+                new[] {dischargeActivity.Comments, meanGaugeHeightComment, _ehsn.StageMeas?.stageRemark}
                     .Where(s => !string.IsNullOrWhiteSpace(s)));
         }
 

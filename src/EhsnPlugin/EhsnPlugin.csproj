@@ -56,6 +56,7 @@
     <Compile Include="DataModel\MeanGageHeightSelector.cs" />
     <Compile Include="DataModel\ParsedEhsnLevelSurvey.cs" />
     <Compile Include="Exceptions\EHsnPluginException.cs" />
+    <Compile Include="Helpers\DoubleHelper.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Helpers\TimeHelper.cs" />
     <Compile Include="Mappers\LevelSurveyMapper.cs" />
