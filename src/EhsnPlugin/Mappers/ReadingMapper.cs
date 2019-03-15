@@ -56,19 +56,19 @@ namespace EhsnPlugin.Mappers
 
         private DateTimeOffset? InferEnvironmentalConditionReadingTime()
         {
-            var orificePurged = _eHsn.EnvCond?.orificePurged.ToNullableBoolean() ?? false;
-            var intakeFlushed = _eHsn.EnvCond?.intakeFlushed.ToNullableBoolean() ?? false;
+            // Match the time inference logic from AquariusUploadManager.py:
+            // Use the /DisMeas/mmtTimeVal if available
+            // Else calculate the mean value of all /StageMeas/StageMeasTable/StageMeasRow[]/time
 
-            var times = new[]
-                {
-                    _eHsn.EnvCond?.bpmrotArrTime,
-                    _eHsn.EnvCond?.bpmrotDepTime,
-                    _eHsn.EnvCond?.gasArrTime,
-                    _eHsn.EnvCond?.gasDepTime,
-                    orificePurged ? _eHsn.EnvCond?.orificeTime : null,
-                    intakeFlushed ? _eHsn.EnvCond?.intakeTime : null,
-                }
-                .Select(s => TimeHelper.ParseTimeOrMinValue(s, VisitDate, LocationInfo.UtcOffset))
+            var time = TimeHelper.ParseTimeOrMinValue(_eHsn.DisMeas?.mmtTimeVal, VisitDate, LocationInfo.UtcOffset);
+
+            if (time != DateTimeOffset.MinValue)
+                return time;
+
+            var stageMeasRows = _eHsn.StageMeas?.StageMeasTable ?? new EHSNStageMeasStageMeasRow[0];
+
+            var times = stageMeasRows
+                .Select(row => TimeHelper.ParseTimeOrMinValue(row.time, VisitDate, LocationInfo.UtcOffset))
                 .Where(d => d != DateTimeOffset.MinValue)
                 .ToList();
 
