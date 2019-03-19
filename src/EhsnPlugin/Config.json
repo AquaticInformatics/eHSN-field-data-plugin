@@ -119,6 +119,18 @@
     "Precip Inc (mm)": {
       "ParameterId": "PP",
       "UnitId": "mm"
+    },
+    "N2 Bubble Rate (B./min)": {
+      "ParameterId": "N2BubbleRate",
+      "UnitId": "B./min"
+    },
+    "Tank Pressure (psi)": {
+      "ParameterId": "YP",
+      "UnitId": "psi"
+    },
+    "Tank Feed (psi)": {
+      "ParameterId": "YP2",
+      "UnitId": "psi"
     }
   }
 }

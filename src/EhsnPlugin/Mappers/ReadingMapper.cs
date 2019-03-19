@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EhsnPlugin.DataModel;
 using EhsnPlugin.Helpers;
 using EhsnPlugin.SystemCode;
 using FieldDataPluginFramework.Context;
@@ -30,7 +31,7 @@ namespace EhsnPlugin.Mappers
 
             AddSensorReadings(readings);
             AddEnvironmentalConditionReadings(readings);
-            AddNonAggregatedGageHeightReadings(readings);
+            AddGageHeightReadings(readings);
             AddDischargeTemperatureReadings(readings);
 
             return readings;
@@ -52,6 +53,30 @@ namespace EhsnPlugin.Mappers
 
             AddEnvironmentalConditionReading(readings, readingTime, SensorRefs.WindSpeed, _eHsn.EnvCond?.windMagnitudeSpeed);
             AddEnvironmentalConditionReading(readings, readingTime, SensorRefs.BatteryVoltageUnderLoad, _eHsn.EnvCond?.batteryVolt);
+
+            AddTankReading(readings, readingTime, _eHsn.EnvCond?.gasArrTime, SensorRefs.TankPressure, _eHsn.EnvCond?.gasSys.ToNullableDouble());
+            AddTankReading(readings, readingTime, _eHsn.EnvCond?.gasDepTime, SensorRefs.TankPressure, _eHsn.EnvCond?.gasSysDepCtrl.ToNullableDouble());
+            AddTankReading(readings, readingTime, _eHsn.EnvCond?.feedArrTime, SensorRefs.TankFeed, _eHsn.EnvCond?.feed.ToNullableDouble());
+            AddTankReading(readings, readingTime, _eHsn.EnvCond?.feedDepTime, SensorRefs.TankFeed, _eHsn.EnvCond?.feedDepCtrl.ToNullableDouble());
+
+            if ("bpm".Equals(_eHsn.EnvCond?.bpmRotChoice, StringComparison.InvariantCultureIgnoreCase))
+            {
+                AddTankReading(readings, readingTime, _eHsn.EnvCond?.bpmrotArrTime, SensorRefs.N2BubbleRate, _eHsn.EnvCond?.bpmRot.ToNullableDouble());
+                AddTankReading(readings, readingTime, _eHsn.EnvCond?.bpmrotDepTime, SensorRefs.N2BubbleRate, _eHsn.EnvCond?.bpmrotDepCtrl.ToNullableDouble());
+            }
+        }
+
+        private void AddTankReading(List<Reading> readings, DateTimeOffset? readingTime, string time, string sensorRefName, double? value)
+        {
+            if (!value.HasValue) return;
+
+            var dateTimeOffset = TimeHelper.ParseTimeOrMinValue(time, VisitDate, LocationInfo.UtcOffset);
+
+            if (dateTimeOffset != DateTimeOffset.MinValue)
+                // Use the inferred reading time when a specific time is missing
+                readingTime = dateTimeOffset;
+
+            AddEnvironmentalConditionReading(readings, readingTime, sensorRefName, value.ToString());
         }
 
         private DateTimeOffset? InferEnvironmentalConditionReadingTime()
@@ -77,13 +102,13 @@ namespace EhsnPlugin.Mappers
             return TimeHelper.GetMeanTimeTruncatedToMinute(times.First(), times.Last());
         }
 
-        private void AddNonAggregatedGageHeightReadings(List<Reading> readings)
+        private void AddGageHeightReadings(List<Reading> readings)
         {
             var stageMeasRows = _eHsn.StageMeas?.StageMeasTable ?? new EHSNStageMeasStageMeasRow[0];
 
             foreach (var row in stageMeasRows)
             {
-                AddNonAggregatedStageMeasurementReading(readings, row);
+                AddGageHeightReading(readings, row);
             }
         }
 
@@ -132,17 +157,21 @@ namespace EhsnPlugin.Mappers
             AddReading(readings, dateTimeOffset, sensor.ParameterId, sensor.UnitId, value);
         }
 
-        private void AddReading(List<Reading> readings, DateTimeOffset? dateTimeOffset, string parameterId, string unitId, string value)
+        private Reading AddReading(List<Reading> readings, DateTimeOffset? dateTimeOffset, string parameterId, string unitId, string value)
         {
-            if (string.IsNullOrWhiteSpace(value)) return;
+            if (string.IsNullOrWhiteSpace(value)) return null;
 
             var number = value.ToNullableDouble();
 
             if (!number.HasValue)
                 throw new ArgumentException($"Can't parse '{value}' as a number for parameterId='{parameterId}' unitId='{unitId}'");
 
-            readings.Add(new Reading(parameterId, new Measurement(number.Value, unitId))
-                {DateTimeOffset = dateTimeOffset});
+            var reading = new Reading(parameterId, new Measurement(number.Value, unitId))
+                {DateTimeOffset = dateTimeOffset};
+
+            readings.Add(reading);
+
+            return reading;
         }
 
         private void AddEnvironmentalConditionReading(List<Reading> readings, DateTimeOffset? dateTimeOffset, string sensorRefName, string value)
@@ -152,20 +181,65 @@ namespace EhsnPlugin.Mappers
             AddReading(readings, dateTimeOffset, sensorRef.ParameterId, sensorRef.UnitId, value);
         }
 
-        private void AddNonAggregatedStageMeasurementReading(List<Reading> readings, EHSNStageMeasStageMeasRow stageMeasurement)
+        private void AddGageHeightReading(List<Reading> readings, EHSNStageMeasStageMeasRow stageMeasurement)
         {
-            // TODO: Add support for sensor reset corrections (add the corrected value to the reading comment)
-            // TODO: When InstrumentDeployment/GeneralInfo/methodType == None, treat all stage readings as non-aggregated
-            // TODO: If the measurement includes a water-level reference value, add that as a reference point?
-
-            if (stageMeasurement.MghCkbox.ToBoolean()) return;
+            if (!stageMeasurement.MghCkbox.ToBoolean())
+                // Measurements not selected for mean gage-height aggregation are not imported as readings, just as visit comments
+                return;
 
             var time = TimeHelper.ParseTimeOrMinValue(stageMeasurement.time, VisitDate, LocationInfo.UtcOffset);
 
             if (time == DateTimeOffset.MinValue) return;
 
-            AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, stageMeasurement.HG1);
-            AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, stageMeasurement.HG2);
+            var hg = stageMeasurement.HG1.ToNullableDouble();
+            var wl = stageMeasurement.WL1.ToNullableDouble();
+            var src = stageMeasurement.SRC.ToNullableDouble();
+            var hgLabel = "HG";
+
+            if (!hg.HasValue && !wl.HasValue)
+            {
+                hg = stageMeasurement.HG2.ToNullableDouble();
+                wl = stageMeasurement.WL2.ToNullableDouble();
+                hgLabel = "HG2";
+            }
+
+            if (!hg.HasValue) return;
+
+            var value = wl ?? hg;
+
+            var reading = AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, value.ToString());
+
+            if (wl.HasValue)
+            {
+                reading.ReferencePointName = GetReferencePointName(stageMeasurement.time);
+            }
+
+            var comments = new []
+                {
+                    wl.HasValue ? $"{hgLabel}: {hg:F3}" : null,
+                    src.HasValue ? $"includes Sensor Reset Correction of {src:F3}" : null,
+                    stageMeasurement.SRCApp,
+                }
+                .Where(s => !string.IsNullOrWhiteSpace(s))
+                .ToList();
+
+            if (comments.Any())
+            {
+                reading.Comments = string.Join(", ", comments);
+            }
+        }
+
+        private string GetReferencePointName(string time)
+        {
+            var levelChecksSummaryRows = _eHsn.LevelNotes?.LevelChecks?.LevelChecksSummaryTable ?? new EHSNLevelNotesLevelChecksSummaryTableRow[0];
+
+            var levelCheck = levelChecksSummaryRows
+                .FirstOrDefault(row => row.time == time);
+
+            if (levelCheck == null)
+                return null;
+
+            return ParsedEhsnLevelSurvey.SanitizeBenchmarkName(levelCheck.reference);
         }
     }
 }

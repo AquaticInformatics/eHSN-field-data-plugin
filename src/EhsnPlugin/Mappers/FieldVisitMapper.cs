@@ -167,6 +167,21 @@ namespace EhsnPlugin.Mappers
             var lines = new List<string>();
             
             AddCommentLine(lines, string.Empty, _eHsn.EnvCond?.stationHealthRemark);
+
+            if (_eHsn.EnvCond?.intakeFlushed.ToBoolean() ?? false)
+                AddCommentLine(lines, "Intake Flushed:", $"@{_eHsn.EnvCond?.intakeTime}");
+
+            if (_eHsn.EnvCond?.orificePurged.ToBoolean() ?? false)
+                AddCommentLine(lines, "Orifice Purged:", $"@{_eHsn.EnvCond?.orificeTime}");
+
+            if (_eHsn.EnvCond?.downloadedProgram.ToBoolean() ?? false)
+                AddCommentLine(lines, "Downloaded Program:", string.Empty);
+
+            if (_eHsn.EnvCond?.downloadedData.ToBoolean() ?? false)
+                AddCommentLine(lines, "Downloaded Data:", $"From {_eHsn.EnvCond?.dataPeriodStart} To {_eHsn.EnvCond?.dataPeriodEnd}");
+
+            // TODO: Map unaggregated MGH measurements as comments
+
             AddCommentLine(lines, string.Empty, _eHsn.FieldReview?.siteNotes);
 
             return string.Join("\n", lines);

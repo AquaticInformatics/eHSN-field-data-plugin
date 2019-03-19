@@ -1056,7 +1056,7 @@ public partial class EHSNEnvCond {
     
     private string gasSysField;
     
-    private System.Nullable<decimal> feedField;
+    private string feedField;
     
     private string bpmRotChoiceField;
     
@@ -1179,8 +1179,7 @@ public partial class EHSNEnvCond {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-    public System.Nullable<decimal> feed {
+    public string feed {
         get {
             return this.feedField;
         }
