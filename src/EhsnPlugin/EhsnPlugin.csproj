@@ -55,7 +55,9 @@
     <Compile Include="Config.cs" />
     <Compile Include="DataModel\MeanGageHeightSelector.cs" />
     <Compile Include="DataModel\ParsedEhsnLevelSurvey.cs" />
+    <Compile Include="DataModel\StageMeasurementSummary.cs" />
     <Compile Include="Exceptions\EHsnPluginException.cs" />
+    <Compile Include="Helpers\DoubleHelper.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Helpers\TimeHelper.cs" />
     <Compile Include="Mappers\LevelSurveyMapper.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="Mappers\ReadingMapper.cs" />
     <Compile Include="Mappers\DischargeActivityMapper.cs" />
     <Compile Include="Mappers\FieldVisitMapper.cs" />
+    <Compile Include="Mappers\StageMeasurementMapper.cs" />
     <Compile Include="SystemCode\Parameters.cs" />
     <Compile Include="SystemCode\SensorRefs.cs" />
     <Compile Include="SystemCode\Units.cs" />

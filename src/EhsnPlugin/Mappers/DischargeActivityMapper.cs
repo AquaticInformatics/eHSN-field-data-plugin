@@ -107,18 +107,31 @@ namespace EhsnPlugin.Mappers
         {
             if (_ehsn.StageMeas == null) return;
 
-            var meanGageHeightSelector = MeanGageHeightSelectorMapper.Map(_ehsn.DisMeas.mghCmbo);
+            var stageMeasurementSummary = new StageMeasurementMapper(_ehsn)
+                .Map();
 
-            if (!meanGageHeightSelector.HasValue) return;
+            if (stageMeasurementSummary == null) return;
 
-            var publishedMeanGageHeight = _ehsn.DisMeas.mgh.ToNullableDouble();
+            var sensorResetCorrectionComment = stageMeasurementSummary.SensorResetCorrection.HasValue
+                ? $"Sensor Reset Correction of {stageMeasurementSummary.SensorResetCorrection:F3}"
+                : string.Empty;
+            var gageCorrectionComment = stageMeasurementSummary.GageCorrection.HasValue
+                ? $"Gage Correction of {stageMeasurementSummary.GageCorrection:F3}"
+                : string.Empty;
 
-            if (!publishedMeanGageHeight.HasValue)
-                throw new ArgumentException($"'{_ehsn.DisMeas.mgh}' is not a valid mean gage height value");
+            var meanGaugeHeightComment = string.Empty;
 
-            var stageMeasurementSummary = GetStageMeasurementSummary(meanGageHeightSelector.Value);
+            if (!DoubleHelper.AreEqual(stageMeasurementSummary.MeanGageHeight, stageMeasurementSummary.CorrectedMeanGageHeight))
+            {
+                meanGaugeHeightComment = $"Corrected M.G.H. includes {string.Join(" and ", new[]{sensorResetCorrectionComment, gageCorrectionComment}.Where(s => !string.IsNullOrWhiteSpace(s)))} applied to Weighted M.G.H of {stageMeasurementSummary.MeanGageHeight:F3}";
 
-            var gageHeightMeasurements = GetGageHeightMeasurements(meanGageHeightSelector.Value)
+                if (!string.IsNullOrWhiteSpace(dischargeActivity.Comments))
+                {
+                    meanGaugeHeightComment = "\n" + meanGaugeHeightComment;
+                }
+            }
+
+            var gageHeightMeasurements = GetGageHeightMeasurements(stageMeasurementSummary.Selector)
                 .ToList();
 
             var isAverage = gageHeightMeasurements.Any()
@@ -128,7 +141,7 @@ namespace EhsnPlugin.Mappers
             {
                 var meanGageHeight = gageHeightMeasurements.Average(ghm => ghm.GageHeight.Value);
 
-                isAverage = publishedMeanGageHeight.Value.ToString("F3").Equals(meanGageHeight.ToString("F3"));
+                isAverage = stageMeasurementSummary.CorrectedMeanGageHeight.ToString("F3").Equals(meanGageHeight.ToString("F3"));
             }
 
             if (isAverage)
@@ -140,52 +153,12 @@ namespace EhsnPlugin.Mappers
             }
             else
             {
-                dischargeActivity.ManuallyCalculatedMeanGageHeight = new Measurement(publishedMeanGageHeight.Value, Units.DistanceUnitId);
+                dischargeActivity.ManuallyCalculatedMeanGageHeight = new Measurement(stageMeasurementSummary.CorrectedMeanGageHeight, Units.DistanceUnitId);
             }
 
             dischargeActivity.Comments = string.Join("\n",
-                new[] {dischargeActivity.Comments, _ehsn.StageMeas?.stageRemark}
+                new[] {dischargeActivity.Comments, meanGaugeHeightComment, _ehsn.StageMeas?.stageRemark}
                     .Where(s => !string.IsNullOrWhiteSpace(s)));
-        }
-
-        private class StageMeasurementSummary
-        {
-            public double MeanGageHeight { get; set; }
-            public double? SensorResetCorrection { get; set; }
-            public double? GageCorrection { get; set; }
-            public double CorrectedMeanGageHeight { get; set; }
-        }
-
-        private StageMeasurementSummary GetStageMeasurementSummary(MeanGageHeightSelector selector)
-        {
-            var measurements = new Dictionary<MeanGageHeightSelector, (string MeanGageHeight, string SensorResetCorrection, string GageCorrection, string CorrectedMeanGageHeight)>
-                {
-                   {MeanGageHeightSelector.HG1,  (_ehsn.StageMeas.MGHHG1, _ehsn.StageMeas.SRCHG1, _ehsn.StageMeas.GCHG1, _ehsn.StageMeas.CMGHHG1)},
-                   {MeanGageHeightSelector.HG2,  (_ehsn.StageMeas.MGHHG2, _ehsn.StageMeas.SRCHG2, _ehsn.StageMeas.GCHG2, _ehsn.StageMeas.CMGHHG2)},
-                   {MeanGageHeightSelector.WLR1, (_ehsn.StageMeas.MGHWL1, null, _ehsn.StageMeas.GCWL1, _ehsn.StageMeas.CMGHWL1)},
-                   {MeanGageHeightSelector.WLR2, (_ehsn.StageMeas.MGHWL2, null, _ehsn.StageMeas.GCWL2, _ehsn.StageMeas.CMGHWL2)},
-                };
-
-            var column = measurements[selector];
-
-            var meanGageHeight = column.MeanGageHeight.ToNullableDouble();
-            var sensorResetCorrection = column.SensorResetCorrection.ToNullableDouble();
-            var gageCorrection = column.GageCorrection.ToNullableDouble();
-            var correctedMeanGageHeight = column.CorrectedMeanGageHeight.ToNullableDouble();
-
-            if (!meanGageHeight.HasValue)
-                throw new ArgumentException($"The weighted mean gauge height value for {selector} is missing");
-
-            if (!correctedMeanGageHeight.HasValue)
-                throw new ArgumentException($"The corrected mean gauge height value for {selector} is missing");
-
-            return new StageMeasurementSummary
-            {
-                MeanGageHeight = meanGageHeight.Value,
-                SensorResetCorrection = sensorResetCorrection,
-                GageCorrection = gageCorrection,
-                CorrectedMeanGageHeight = correctedMeanGageHeight.Value
-            };
         }
 
         private IEnumerable<GageHeightMeasurement> GetGageHeightMeasurements(MeanGageHeightSelector selector)

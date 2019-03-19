@@ -125,7 +125,7 @@
                 <xs:element name="windDirection" type="xs:string" />
                 <xs:element name="batteryVolt" type="xs:string" />
                 <xs:element name="gasSys" type="xs:string" />
-                <xs:element name="feed" type="xs:decimal" nillable="true"/>
+                <xs:element name="feed" type="xs:string" />
                 <xs:element name="bpmRotChoice" type="xs:string" />
                 <xs:element name="bpmRot" type="xs:string" />
                 <xs:element name="gasSysDepCtrl" type="xs:string" />

@@ -37,12 +37,12 @@ namespace EhsnPlugin.DataModel
 
         private const string PrimaryPrefix = "**";
 
-        private static string SanitizeBenchmarkName(string value)
+        public static string SanitizeBenchmarkName(string value)
         {
             if (value == null || !value.StartsWith(PrimaryPrefix))
                 return value;
 
-            return value.Substring(PrimaryPrefix.Length);
+            return value.Substring(PrimaryPrefix.Length).Trim();
         }
     }
 }
