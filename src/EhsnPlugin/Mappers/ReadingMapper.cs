@@ -217,7 +217,7 @@ namespace EhsnPlugin.Mappers
             var comments = new []
                 {
                     wl.HasValue ? $"{hgLabel}: {hg:F3}" : null,
-                    src.HasValue ? $"includes Sensor Reset Correction of {src:F3}" : null,
+                    !DoubleHelper.AreSame(src, 0.0) ? $"includes Sensor Reset Correction of {src:F3}" : null,
                     stageMeasurement.SRCApp,
                 }
                 .Where(s => !string.IsNullOrWhiteSpace(s))
