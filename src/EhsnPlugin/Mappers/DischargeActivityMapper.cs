@@ -310,7 +310,7 @@ namespace EhsnPlugin.Mappers
 
                 if (isLastChannel)
                 {
-                    if (!bankEdges.Any())
+                    if (bankEdges.Count < 2)
                     {
                         bankEdges.Add(islandEdges.Last());
                         islandEdges.RemoveAt(islandEdges.Count - 1);
