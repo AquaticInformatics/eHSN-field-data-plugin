@@ -2708,7 +2708,7 @@ public partial class EHSNLevelNotesLevelChecksLevelChecksTableLevelChecksRow {
     
     private string foresightField;
     
-    private decimal elevationField;
+    private string elevationField;
     
     private string establishField;
     
@@ -2757,7 +2757,7 @@ public partial class EHSNLevelNotesLevelChecksLevelChecksTableLevelChecksRow {
     }
     
     /// <remarks/>
-    public decimal elevation {
+    public string elevation {
         get {
             return this.elevationField;
         }

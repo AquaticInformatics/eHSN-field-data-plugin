@@ -197,9 +197,9 @@ namespace EhsnPlugin.Mappers
             return new ReadingMapper(Config, _locationInfo, _visitDate, _eHsn).Map();
         }
 
-        public LevelSurvey MapLevelSurveyOrNull()
+        public IEnumerable<LevelSurvey> MapLevelSurveys()
         {
-            return new LevelSurveyMapper(_locationInfo, _visitDate, _logger).MapOrNull(_eHsn);
+            return new LevelSurveyMapper(_locationInfo, _visitDate, _logger).Map(_eHsn);
         }
 
         public ControlCondition MapControlConditionOrNull()

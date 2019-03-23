@@ -358,7 +358,7 @@
                                   <xs:element name="backsight" type="xs:string" />
                                   <xs:element name="htInst" type="xs:string" />
                                   <xs:element name="foresight" type="xs:string" />
-                                  <xs:element name="elevation" type="xs:decimal" />
+                                  <xs:element name="elevation" type="xs:string" />
                                   <xs:element name="establish" type="xs:string" />
                                   <xs:element name="comments" type="xs:string" />
                                 </xs:sequence>

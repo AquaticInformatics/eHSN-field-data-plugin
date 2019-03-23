@@ -118,9 +118,7 @@ namespace EhsnPlugin
                 _appender.AddReading(fieldVisitInfo, reading);
             }
 
-            var levelSurvey = mapper.MapLevelSurveyOrNull();
-
-            if(levelSurvey != null)
+            foreach(var levelSurvey in mapper.MapLevelSurveys())
             {
                 _appender.AddLevelSurvey(fieldVisitInfo, levelSurvey);
             }
