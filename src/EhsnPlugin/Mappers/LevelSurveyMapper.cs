@@ -54,7 +54,9 @@ namespace EhsnPlugin.Mappers
 
             Validate(parsedSurvey);
 
-            return ToLevelSurvey(parsedSurvey);
+            var levelSurveyTime = GetLevelSurveyTime(eHsn);
+
+            return ToLevelSurvey(parsedSurvey, levelSurveyTime);
         }
 
         private void Validate(ParsedEhsnLevelSurvey parsedEhsnLevelSurvey)
@@ -67,27 +69,47 @@ namespace EhsnPlugin.Mappers
                 {
                     throw new EHsnPluginException("Invalid SummaryTableRow: 'reference' cannot be null or empty.");
                 }
-
-                if (string.IsNullOrWhiteSpace(row.time) ||
-                    TimeHelper.ParseTimeOrMinValue(row.time, _visitDateTime.Date, _locationInfo.UtcOffset) == DateTimeOffset.MinValue)
-                {
-                    throw new EHsnPluginException($"Invalid SummaryTableRow: time is invalid {row.time}.");
-                }
             }
         }
 
-        private LevelSurvey ToLevelSurvey(ParsedEhsnLevelSurvey parsedEhsnLevelSurvey)
+        private DateTimeOffset GetLevelSurveyTime(EHSN eHsn)
         {
+            var aggregatedTimes = (eHsn.StageMeas?.StageMeasTable ?? new EHSNStageMeasStageMeasRow[0])
+                .Where(row => row.MghCkbox.ToNullableBoolean() ?? false)
+                .Select(row => TimeHelper.ParseTimeOrMinValue(row.time, _visitDateTime, _locationInfo.UtcOffset))
+                .Where(time => time != DateTimeOffset.MinValue)
+                .ToList();
+
+            if (!aggregatedTimes.Any())
+                throw new EHsnPluginException("Can't create average mean gage height time for level survey");
+
+            var datetime = new DateTimeOffset(aggregatedTimes.Sum(time => time.Ticks) / aggregatedTimes.Count, _locationInfo.UtcOffset);
+
+            // Truncate the seconds / fractional seconds
+            return new DateTimeOffset(
+                datetime.Year,
+                datetime.Month,
+                datetime.Day,
+                datetime.Hour,
+                datetime.Minute,
+                0,
+                _locationInfo.UtcOffset);
+        }
+
+        private LevelSurvey ToLevelSurvey(ParsedEhsnLevelSurvey parsedEhsnLevelSurvey, DateTimeOffset levelSurveyTime)
+        {
+            // Origin reference name should be the first
             var originReferenceName = GetFirstReferenceInSummaryTableAsOriginReferenceName(
                 parsedEhsnLevelSurvey.LevelSummaryRows);
 
-            var levelSurveyMeasurements = GetLevelSurveyMeasurements(parsedEhsnLevelSurvey).ToList();
+            var levelSurveyMeasurements = GetLevelSurveyMeasurements(parsedEhsnLevelSurvey, levelSurveyTime).ToList();
 
             return new LevelSurvey(originReferenceName)
             {
                 Comments = parsedEhsnLevelSurvey.LevelCheckComments,
                 LevelSurveyMeasurements = levelSurveyMeasurements,
-                Party = parsedEhsnLevelSurvey.Party
+                Party = parsedEhsnLevelSurvey.Party,
+                // Method = "", // TODO: How to set "Differential Leveling"? Is it a picklist? Or a string?
             };
         }
 
@@ -98,7 +120,7 @@ namespace EhsnPlugin.Mappers
         }
 
         private IEnumerable<LevelSurveyMeasurement> GetLevelSurveyMeasurements(
-            ParsedEhsnLevelSurvey parsedEhsnLevelSurvey)
+            ParsedEhsnLevelSurvey parsedEhsnLevelSurvey, DateTimeOffset levelSurveyTime)
         {
             var levelMeasurements = new List<LevelSurveyMeasurement>();
 
@@ -116,13 +138,9 @@ namespace EhsnPlugin.Mappers
                     _logger.Error($"{reference} has multiple summary rows. Only first one is used.");
                 }
 
-                var summaryRow = summaryRowList.First();
-
-                var timeOffset = TimeHelper.ParseTimeOrMinValue(summaryRow.time, _visitDateTime, _locationInfo.UtcOffset);
-
                 var measuredElevation = GetAveragedMeasuredElevation(reference, checkTables);
 
-                var measurement = new LevelSurveyMeasurement(reference, timeOffset, measuredElevation)
+                var measurement = new LevelSurveyMeasurement(reference, levelSurveyTime, measuredElevation)
                 {
                     Comments = GetCombinedRemarks(reference, checkTables)
                 };
@@ -140,8 +158,7 @@ namespace EhsnPlugin.Mappers
 
             if (!allCheckRows.Any())
             {
-                throw new EHsnPluginException("Not enough level check rows to determine the elevation " +
-                                              $"for {reference}.");
+                throw new EHsnPluginException($"Not enough level check rows to determine the elevation for {reference}.");
             }
 
             var allElevationSum = allCheckRows.Select(row => row.elevation).Sum();
