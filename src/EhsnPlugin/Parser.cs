@@ -92,7 +92,7 @@ namespace EhsnPlugin
         {
             var fieldVisitDetails = mapper.MapFieldVisitDetails();
 
-            _logger.Info($"Successfully parsed one visit '{fieldVisitDetails.FieldVisitPeriod}' for location '{locationInfo.LocationIdentifier}'");
+            _logger.Info($"Successfully parsed one visit '{fieldVisitDetails.FieldVisitPeriod.Start:O}/{fieldVisitDetails.FieldVisitPeriod.End:O}' for location '{locationInfo.LocationIdentifier}'");
 
             return _appender.AddFieldVisit(locationInfo, fieldVisitDetails);
         }
