@@ -41,7 +41,8 @@ namespace EhsnPlugin.Mappers
 
             var parsedSurvey = ParseLevelSurveyInfo(eHsn);
 
-            var levelSurveyTime = GetLevelSurveyTime(eHsn);
+            var levelSurvey = (LevelSurvey) null;
+            var levelSurveyTime = (DateTimeOffset?) null;
 
             foreach (var table in parsedSurvey.LevelCheckTables)
             {
@@ -61,22 +62,68 @@ namespace EhsnPlugin.Mappers
                 if (!measuredRows.Any())
                     continue;
 
-                yield return new LevelSurvey(originReferenceName)
+                if (levelSurvey == null)
                 {
-                    Comments = parsedSurvey.LevelCheckComments,
-                    LevelSurveyMeasurements = measuredRows
-                        .Select(row => new LevelSurveyMeasurement(row.station, levelSurveyTime, row.elevation.ToNullableDouble() ?? 0){Comments = row.comments})
-                        .ToList(),
-                    Party = parsedSurvey.Party,
-                    // Method = "", // TODO: How to set "Differential Leveling"? Is it a picklist? Or a string?
-                };
+                    levelSurvey = new LevelSurvey(originReferenceName)
+                    {
+                        Comments = parsedSurvey.LevelCheckComments,
+                        Party = parsedSurvey.Party
+                    };
+                }
+                else if (levelSurvey.OriginReferencePointName != originReferenceName)
+                {
+                    _logger.Error($"Can't change the {nameof(LevelSurvey)}.{nameof(levelSurvey.OriginReferencePointName)} from '{levelSurvey.OriginReferencePointName}' to '{originReferenceName}'. Retaining first origin.");
+                }
+
+                if (!levelSurveyTime.HasValue)
+                {
+                    levelSurveyTime = GetLevelSurveyTime(eHsn);
+                }
+
+                var measurements = measuredRows
+                    .Select(row => new LevelSurveyMeasurement(row.station, levelSurveyTime.Value, row.elevation.ToNullableDouble() ?? 0) {Comments = row.comments})
+                    .ToList();
+
+                var secondaryMeasurements = measurements
+                    .Where(m => IsReferencePointMeasured(levelSurvey, m.ReferencePointName))
+                    .ToList();
+
+                foreach (var secondaryMeasurement in secondaryMeasurements)
+                {
+                    var existingMeasurement = levelSurvey
+                        .LevelSurveyMeasurements
+                        .Single(m => m.ReferencePointName.Equals(secondaryMeasurement.ReferencePointName, StringComparison.InvariantCultureIgnoreCase));
+
+                    if (!DoubleHelper.AreEqual(secondaryMeasurement.MeasuredElevation, existingMeasurement.MeasuredElevation))
+                    {
+                        _logger.Error($"'{existingMeasurement.ReferencePointName}' with first measured elevation of {existingMeasurement.MeasuredElevation}. Ignoring secondary measured elevation of {secondaryMeasurement.MeasuredElevation}");
+                    }
+                    else
+                    {
+                        _logger.Info($"'{existingMeasurement.ReferencePointName}' was remeasured a second time with the same elevation of {secondaryMeasurement.MeasuredElevation}");
+                    }
+                }
+
+                var newMeasurements = measurements
+                    .Where(m => !secondaryMeasurements.Contains(m))
+                    .ToList();
+
+                levelSurvey.LevelSurveyMeasurements.AddRange(newMeasurements);
             }
+
+            return new[] {levelSurvey};
+        }
+
+        private bool IsReferencePointMeasured(LevelSurvey levelSurvey, string referencePointName)
+        {
+            return levelSurvey
+                .LevelSurveyMeasurements
+                .Any(m => m.ReferencePointName.Equals(referencePointName, StringComparison.InvariantCultureIgnoreCase));
         }
 
         private DateTimeOffset GetLevelSurveyTime(EHSN eHsn)
         {
             var aggregatedTimes = (eHsn.StageMeas?.StageMeasTable ?? new EHSNStageMeasStageMeasRow[0])
-                .Where(row => row.MghCkbox.ToNullableBoolean() ?? false)
                 .Select(row => TimeHelper.ParseTimeOrMinValue(row.time, _visitDateTime, _locationInfo.UtcOffset))
                 .Where(time => time != DateTimeOffset.MinValue)
                 .ToList();
