@@ -111,7 +111,14 @@ namespace EhsnPlugin.Mappers
                 levelSurvey.LevelSurveyMeasurements.AddRange(newMeasurements);
             }
 
-            return new[] {levelSurvey};
+            var levelSurveys = new List<LevelSurvey>();
+
+            if (levelSurvey != null)
+            {
+                levelSurveys.Add(levelSurvey);
+            }
+
+            return levelSurveys;
         }
 
         private bool IsReferencePointMeasured(LevelSurvey levelSurvey, string referencePointName)
