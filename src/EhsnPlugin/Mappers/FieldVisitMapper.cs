@@ -189,7 +189,7 @@ namespace EhsnPlugin.Mappers
 
         public DischargeActivity MapDischargeActivityOrNull()
         {
-            return new DischargeActivityMapper(Config, _locationInfo, _visitDate, _eHsn).Map();
+            return new DischargeActivityMapper(Config, _locationInfo, _visitDate, _eHsn, _logger).Map();
         }
 
         public IEnumerable<Reading> MapReadings()
