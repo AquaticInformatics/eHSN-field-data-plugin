@@ -5,6 +5,7 @@ using System.Linq;
 using EhsnPlugin.DataModel;
 using EhsnPlugin.Helpers;
 using EhsnPlugin.SystemCode;
+using FieldDataPluginFramework;
 using FieldDataPluginFramework.Context;
 using FieldDataPluginFramework.DataModel;
 using FieldDataPluginFramework.DataModel.ChannelMeasurements;
@@ -27,13 +28,16 @@ namespace EhsnPlugin.Mappers
         private LocationInfo LocationInfo { get; }
         private DateTime VisitDate { get; }
         private readonly EHSN _ehsn;
+        private readonly ILog _logger;
 
-        public DischargeActivityMapper(Config config, LocationInfo locationInfo, DateTime visitDate, EHSN eHsn)
+
+        public DischargeActivityMapper(Config config, LocationInfo locationInfo, DateTime visitDate, EHSN eHsn, ILog logger)
         {
             Config = config;
             LocationInfo = locationInfo;
             VisitDate = visitDate;
             _ehsn = eHsn;
+            _logger = logger;
         }
 
         public DischargeActivity Map()
@@ -287,6 +291,8 @@ namespace EhsnPlugin.Mappers
                     .Where(IsBankEdge)
                     .ToList();
 
+                var expectedBankEdges = (isFirstChannel ? 1 : 0) + (isLastChannel ? 1 : 0);
+
                 var islandEdges = edges
                     .Where(edge => !bankEdges.Contains(edge))
                     .ToList();
@@ -295,8 +301,7 @@ namespace EhsnPlugin.Mappers
                 {
                     if (!bankEdges.Any())
                     {
-                        bankEdges.Add(islandEdges.First());
-                        islandEdges.RemoveAt(0);
+                        AddInferredBankEdge(bankEdges, islandEdges, islandEdges.First());
                     }
 
                     outerEdges.Add(bankEdges.First());
@@ -310,10 +315,9 @@ namespace EhsnPlugin.Mappers
 
                 if (isLastChannel)
                 {
-                    if (bankEdges.Count < 2)
+                    if (bankEdges.Count < expectedBankEdges)
                     {
-                        bankEdges.Add(islandEdges.Last());
-                        islandEdges.RemoveAt(islandEdges.Count - 1);
+                        AddInferredBankEdge(bankEdges, islandEdges, islandEdges.Last());
                     }
 
                     outerEdges.Add(bankEdges.Last());
@@ -330,6 +334,13 @@ namespace EhsnPlugin.Mappers
         private static bool IsBankEdge(Edge edge)
         {
             return "Edge @ Bank".Equals(edge.EdgeType, StringComparison.InvariantCultureIgnoreCase);
+        }
+
+        private void AddInferredBankEdge(List<Edge> bankEdges, List<Edge> islandEdges, Edge islandEdge)
+        {
+            _logger.Info($"Using island edge Tagmark={islandEdge.Tagmark} EdgeType={islandEdge.EdgeType} as bank edge {bankEdges.Count}");
+            islandEdges.Remove(islandEdge);
+            bankEdges.Add(islandEdge);
         }
 
         private static Panel CreateIslandPanel(Edge edge)
