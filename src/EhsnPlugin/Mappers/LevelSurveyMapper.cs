@@ -7,6 +7,7 @@ using EhsnPlugin.Helpers;
 using FieldDataPluginFramework;
 using FieldDataPluginFramework.Context;
 using FieldDataPluginFramework.DataModel.LevelSurveys;
+using MoreLinq;
 
 namespace EhsnPlugin.Mappers
 {
@@ -80,7 +81,25 @@ namespace EhsnPlugin.Mappers
                     levelSurveyTime = GetLevelSurveyTime(eHsn);
                 }
 
-                var measurements = measuredRows
+                var distinctRows = measuredRows
+                    .DistinctBy(r => new {r.station})
+                    .ToList();
+
+                var skippedRows = measuredRows
+                    .Where(r => !distinctRows.Contains(r))
+                    .ToList();
+
+                if (skippedRows.Any())
+                {
+                    foreach (var skippedRow in skippedRows)
+                    {
+                        var keptRow = distinctRows.First(r => r.station == skippedRow.station);
+
+                        _logger.Error($"'{keptRow.station}' using first circuit measurement of {keptRow.elevation}, and ignoring secondary measurement of {skippedRow.elevation}");
+                    }
+                }
+
+                var measurements = distinctRows
                     .Select(row => new LevelSurveyMeasurement(row.station, levelSurveyTime.Value, row.elevation.ToNullableDouble() ?? 0) {Comments = row.comments})
                     .ToList();
 
