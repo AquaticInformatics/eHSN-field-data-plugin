@@ -145,11 +145,11 @@ namespace EhsnPlugin.Mappers
 
             var lines = new List<string>();
 
-            AddCommentLine(lines, "Cloud Cover: ", _eHsn.EnvCond.cloudCover);
-            AddCommentLine(lines, "Precipitation: ", _eHsn.EnvCond.precipitation);
-            AddCommentLine(lines, "Wind Conditions: ", _eHsn.EnvCond.windMagnitude);
-            AddCommentLine(lines, "Wind Speed: ", _eHsn.EnvCond.windMagnitudeSpeed);
-            AddCommentLine(lines, "Wind Direction: ", _eHsn.EnvCond.windDirection);
+            AddCommentLine(lines, "Cloud Cover", _eHsn.EnvCond.cloudCover);
+            AddCommentLine(lines, "Precipitation", _eHsn.EnvCond.precipitation);
+            AddCommentLine(lines, "Wind Conditions", _eHsn.EnvCond.windMagnitude);
+            AddCommentLine(lines, "Wind Speed", _eHsn.EnvCond.windMagnitudeSpeed);
+            AddCommentLine(lines, "Wind Direction", _eHsn.EnvCond.windDirection);
 
             return string.Join("\n", lines);
         }
@@ -159,30 +159,42 @@ namespace EhsnPlugin.Mappers
             if (string.IsNullOrWhiteSpace(value))
                 return;
 
-            lines.Add($"{label}{value.Trim()}");
+            var valueLines = value.Trim().Split('\n');
+
+            if (valueLines.Length == 1)
+            {
+                // Single-line values map to a single line in the comment
+                lines.Add($"{label}: {valueLines[0]}");
+                return;
+            }
+
+            // Multi-line values are de-marked
+            lines.Add($"== {label}:");
+            lines.AddRange(valueLines);
+            lines.Add("==");
         }
 
         private string MapComments()
         {
             var lines = new List<string>();
-            
-            AddCommentLine(lines, string.Empty, _eHsn.EnvCond?.stationHealthRemark);
+
+            AddCommentLine(lines, "Station Health Remarks", _eHsn.EnvCond?.stationHealthRemark);
 
             if (_eHsn.EnvCond?.intakeFlushed.ToBoolean() ?? false)
-                AddCommentLine(lines, "Intake Flushed: ", $"@{_eHsn.EnvCond?.intakeTime}");
+                AddCommentLine(lines, "Intake Flushed", $"@{_eHsn.EnvCond?.intakeTime}");
 
             if (_eHsn.EnvCond?.orificePurged.ToBoolean() ?? false)
-                AddCommentLine(lines, "Orifice Purged: ", $"@{_eHsn.EnvCond?.orificeTime}");
+                AddCommentLine(lines, "Orifice Purged", $"@{_eHsn.EnvCond?.orificeTime}");
 
             if (_eHsn.EnvCond?.downloadedProgram.ToBoolean() ?? false)
-                AddCommentLine(lines, "Downloaded Program: ", string.Empty);
+                AddCommentLine(lines, "Downloaded Program", string.Empty);
 
             if (_eHsn.EnvCond?.downloadedData.ToBoolean() ?? false)
-                AddCommentLine(lines, "Downloaded Data: ", $"From {_eHsn.EnvCond?.dataPeriodStart} To {_eHsn.EnvCond?.dataPeriodEnd}");
+                AddCommentLine(lines, "Downloaded Data", $"From {_eHsn.EnvCond?.dataPeriodStart} To {_eHsn.EnvCond?.dataPeriodEnd}");
 
-            // TODO: Map unaggregated MGH measurements as comments
-
-            AddCommentLine(lines, string.Empty, _eHsn.FieldReview?.siteNotes);
+            AddCommentLine(lines, "Stage Activity Summary Remarks", _eHsn.StageMeas?.stageRemark);
+            AddCommentLine(lines, "Field Review Site Notes", _eHsn.FieldReview?.siteNotes);
+            AddCommentLine(lines, "Field Review Plan Notes", _eHsn.FieldReview?.planNotes);
 
             return string.Join("\n", lines);
         }
@@ -194,7 +206,7 @@ namespace EhsnPlugin.Mappers
 
         public IEnumerable<Reading> MapReadings()
         {
-            return new ReadingMapper(Config, _locationInfo, _visitDate, _eHsn).Map();
+            return new ReadingMapper(Config, _locationInfo, _visitDate, _eHsn, _logger).Map();
         }
 
         public IEnumerable<LevelSurvey> MapLevelSurveys()

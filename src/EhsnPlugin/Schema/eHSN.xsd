@@ -428,6 +428,7 @@
                   </xs:complexType>
                 </xs:element>
                 <xs:element name="siteNotes" type="xs:string" />
+                <xs:element name="planNotes" type="xs:string" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>

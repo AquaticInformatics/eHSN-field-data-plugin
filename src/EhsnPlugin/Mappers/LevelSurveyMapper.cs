@@ -47,6 +47,9 @@ namespace EhsnPlugin.Mappers
 
             foreach (var table in parsedSurvey.LevelCheckTables)
             {
+                if (!table.upload.ToNullableBoolean() ?? false)
+                    continue;
+
                 var establishedRows = table.LevelChecksRow
                     .Where(row => row.establish.ToNullableDouble().HasValue)
                     .ToList();
@@ -57,7 +60,7 @@ namespace EhsnPlugin.Mappers
                 var originReferenceName = establishedRows.First().station;
 
                 var measuredRows = establishedRows
-                    .Where(row => row.foresight.ToNullableDouble().HasValue)
+                    .Where(row => row == establishedRows.First() || row.foresight.ToNullableDouble().HasValue)
                     .ToList();
 
                 if (!measuredRows.Any())
