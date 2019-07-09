@@ -47,6 +47,9 @@ namespace EhsnPlugin.Mappers
 
             foreach (var table in parsedSurvey.LevelCheckTables)
             {
+                if (!table.upload.ToNullableBoolean() ?? false)
+                    continue;
+
                 var establishedRows = table.LevelChecksRow
                     .Where(row => row.establish.ToNullableDouble().HasValue)
                     .ToList();
