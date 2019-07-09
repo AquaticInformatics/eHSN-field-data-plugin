@@ -206,7 +206,7 @@ namespace EhsnPlugin.Mappers
 
         public IEnumerable<Reading> MapReadings()
         {
-            return new ReadingMapper(Config, _locationInfo, _visitDate, _eHsn).Map();
+            return new ReadingMapper(Config, _locationInfo, _visitDate, _eHsn, _logger).Map();
         }
 
         public IEnumerable<LevelSurvey> MapLevelSurveys()

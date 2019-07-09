@@ -4,6 +4,7 @@ using System.Linq;
 using EhsnPlugin.DataModel;
 using EhsnPlugin.Helpers;
 using EhsnPlugin.SystemCode;
+using FieldDataPluginFramework;
 using FieldDataPluginFramework.Context;
 using FieldDataPluginFramework.DataModel;
 using FieldDataPluginFramework.DataModel.Readings;
@@ -16,13 +17,15 @@ namespace EhsnPlugin.Mappers
         private LocationInfo LocationInfo { get; }
         private DateTime VisitDate { get; }
         private readonly EHSN _eHsn;
+        private readonly ILog _logger;
 
-        public ReadingMapper(Config config, LocationInfo locationInfo, DateTime visitDate, EHSN eHsn)
+        public ReadingMapper(Config config, LocationInfo locationInfo, DateTime visitDate, EHSN eHsn, ILog logger)
         {
             Config = config;
             LocationInfo = locationInfo;
             VisitDate = visitDate;
             _eHsn = eHsn;
+            _logger = logger;
         }
 
         public IEnumerable<Reading> Map()
@@ -148,13 +151,18 @@ namespace EhsnPlugin.Mappers
             var observedValue = _eHsn.MeasResults.ObservedVals.SingleOrDefault(r => r.row == sensorRef.row)?.Value;
             var sensorValue = _eHsn.MeasResults.SensorVals.SingleOrDefault(r => r.row == sensorRef.row)?.Value;
 
-            AddSensorReading(readings, time, sensor, observedValue);
-            AddSensorReading(readings, time, sensor, sensorValue);
+            AddSensorReading(readings, time, sensor, observedValue, ReadingType.Routine);
+            AddSensorReading(readings, time, sensor, sensorValue, ReadingType.Reference);
         }
 
-        private void AddSensorReading(List<Reading> readings, DateTimeOffset dateTimeOffset, Config.Sensor sensor, string value)
+        private void AddSensorReading(List<Reading> readings, DateTimeOffset dateTimeOffset, Config.Sensor sensor, string value, ReadingType readingType)
         {
-            AddReading(readings, dateTimeOffset, sensor.ParameterId, sensor.UnitId, value);
+            var reading = AddReading(readings, dateTimeOffset, sensor.ParameterId, sensor.UnitId, value);
+
+            if (reading != null)
+            {
+                reading.ReadingType = readingType;
+            }
         }
 
         private Reading AddReading(List<Reading> readings, DateTimeOffset? dateTimeOffset, string parameterId, string unitId, string value)
@@ -167,7 +175,11 @@ namespace EhsnPlugin.Mappers
                 throw new ArgumentException($"Can't parse '{value}' as a number for parameterId='{parameterId}' unitId='{unitId}'");
 
             var reading = new Reading(parameterId, new Measurement(number.Value, unitId))
-                {DateTimeOffset = dateTimeOffset};
+            {
+                DateTimeOffset = dateTimeOffset,
+                Publish = true,
+                ReadingType = ReadingType.Routine
+            };
 
             readings.Add(reading);
 
@@ -183,42 +195,62 @@ namespace EhsnPlugin.Mappers
 
         private void AddGageHeightReading(List<Reading> readings, EHSNStageMeasStageMeasRow stageMeasurement)
         {
-            if (!stageMeasurement.MghCkbox.ToBoolean())
-                // Measurements not selected for mean gage-height aggregation are not imported as readings, just as visit comments
+            var hg1 = stageMeasurement.HG1.ToNullableDouble();
+            var wl1 = stageMeasurement.WL1.ToNullableDouble();
+            var hg2 = stageMeasurement.HG2.ToNullableDouble();
+            var wl2 = stageMeasurement.WL2.ToNullableDouble();
+            var src = stageMeasurement.SRC.ToNullableDouble();
+            var srcAction = stageMeasurement.SRCApp;
+
+            AddLoggerReading(readings, stageMeasurement.time, "HG", hg1, wl1, src, srcAction);
+            AddLoggerReading(readings, stageMeasurement.time, "HG2", hg2, wl2, src, srcAction);
+        }
+
+        private void AddLoggerReading(List<Reading> readings, string timeText, string hgLabel, double? hg, double? wl, double? src, string srcAction)
+        {
+            var time = TimeHelper.ParseTimeOrMinValue(timeText, VisitDate, LocationInfo.UtcOffset);
+
+            if (time == DateTimeOffset.MinValue)
                 return;
 
-            var time = TimeHelper.ParseTimeOrMinValue(stageMeasurement.time, VisitDate, LocationInfo.UtcOffset);
+            var referencePointName = wl.HasValue
+                ? GetReferencePointName(timeText)
+                : null;
 
-            if (time == DateTimeOffset.MinValue) return;
-
-            var hg = stageMeasurement.HG1.ToNullableDouble();
-            var wl = stageMeasurement.WL1.ToNullableDouble();
-            var src = stageMeasurement.SRC.ToNullableDouble();
-            var hgLabel = "HG";
-
-            if (!hg.HasValue && !wl.HasValue)
+            if (!hg.HasValue)
             {
-                hg = stageMeasurement.HG2.ToNullableDouble();
-                wl = stageMeasurement.WL2.ToNullableDouble();
-                hgLabel = "HG2";
+                if (wl.HasValue)
+                    _logger.Error($"Water level ({referencePointName}) has value {wl} but no logger value @{timeText}");
+
+                return;
             }
 
-            if (!hg.HasValue) return;
-
+            var isWaterLevel = wl.HasValue;
             var value = wl ?? hg;
 
             var reading = AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, value.ToString());
 
-            if (wl.HasValue)
+            if (isWaterLevel)
             {
-                reading.ReferencePointName = GetReferencePointName(stageMeasurement.time);
+                reading.ReferencePointName = referencePointName;
+                reading.Publish = true;
+                reading.ReadingType = "Reset (RS)".Equals(srcAction, StringComparison.InvariantCultureIgnoreCase)
+                    ? ReadingType.ResetAfter
+                    : string.IsNullOrWhiteSpace(srcAction)
+                        ? ReadingType.Routine
+                        : ReadingType.Unknown;
+            }
+            else
+            {
+                reading.Publish = false;
+                reading.ReadingType = ReadingType.Routine;
             }
 
             var comments = new []
                 {
                     wl.HasValue ? $"{hgLabel}: {hg:F3}" : null,
-                    !DoubleHelper.AreSame(src, 0.0) ? $"includes Sensor Reset Correction of {src:F3}" : null,
-                    stageMeasurement.SRCApp,
+                    !DoubleHelper.AreSame(src, 0.0) ? $"Sensor Reset Correction of {src:F3}" : null,
+                    srcAction,
                 }
                 .Where(s => !string.IsNullOrWhiteSpace(s))
                 .ToList();
