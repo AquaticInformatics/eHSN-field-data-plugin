@@ -177,7 +177,7 @@ namespace EhsnPlugin.Mappers
             var reading = new Reading(parameterId, new Measurement(number.Value, unitId))
             {
                 DateTimeOffset = dateTimeOffset,
-                Publish = true,
+                Publish = false,
                 ReadingType = ReadingType.Routine
             };
 
@@ -195,6 +195,13 @@ namespace EhsnPlugin.Mappers
 
         private void AddGageHeightReading(List<Reading> readings, EHSNStageMeasStageMeasRow stageMeasurement)
         {
+            var timeText = stageMeasurement.time;
+
+            var time = TimeHelper.ParseTimeOrMinValue(timeText, VisitDate, LocationInfo.UtcOffset);
+
+            if (time == DateTimeOffset.MinValue)
+                return;
+
             var hg1 = stageMeasurement.HG1.ToNullableDouble();
             var wl1 = stageMeasurement.WL1.ToNullableDouble();
             var hg2 = stageMeasurement.HG2.ToNullableDouble();
@@ -202,56 +209,60 @@ namespace EhsnPlugin.Mappers
             var src = stageMeasurement.SRC.ToNullableDouble();
             var srcAction = stageMeasurement.SRCApp;
 
-            AddLoggerReading(readings, stageMeasurement.time, "HG", hg1, wl1, src, srcAction);
-            AddLoggerReading(readings, stageMeasurement.time, "HG2", hg2, wl2, src, srcAction);
+            AddLoggerReading(readings, time, hg1, src, srcAction);
+            AddLoggerReading(readings, time, hg2, src, srcAction);
+            AddWaterLevelReading(readings, time, wl1, timeText, hg1, hg2, src, srcAction);
+            AddWaterLevelReading(readings, time, wl2, timeText, hg1, hg2, src, srcAction);
         }
 
-        private void AddLoggerReading(List<Reading> readings, string timeText, string hgLabel, double? hg, double? wl, double? src, string srcAction)
+        private void AddWaterLevelReading(List<Reading> readings, DateTimeOffset time, double? wl,
+            string timeText, double? hg1, double? hg2, double? src, string srcAction)
         {
-            var time = TimeHelper.ParseTimeOrMinValue(timeText, VisitDate, LocationInfo.UtcOffset);
+            if (!wl.HasValue) return;
 
-            if (time == DateTimeOffset.MinValue)
-                return;
+            var referencePointName = GetReferencePointName(timeText);
 
-            var referencePointName = wl.HasValue
-                ? GetReferencePointName(timeText)
-                : null;
+            var hgComments = GetHgComment(hg1, hg2);
 
-            if (!hg.HasValue)
-            {
-                if (wl.HasValue)
-                    _logger.Error($"Water level ({referencePointName}) has value {wl} but no logger value @{timeText}");
+            var reading = AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, wl.ToString());
 
-                return;
-            }
+            reading.ReferencePointName = referencePointName;
+            reading.Publish = true;
+            reading.ReadingType = "Reset (RS)".Equals(srcAction, StringComparison.InvariantCultureIgnoreCase)
+                ? ReadingType.ResetAfter
+                : string.IsNullOrWhiteSpace(srcAction)
+                    ? ReadingType.Routine
+                    : ReadingType.Unknown;
 
-            var isWaterLevel = wl.HasValue;
-            var value = wl ?? hg;
+            AddReadingComments(reading, src, srcAction, hgComments.ToArray());
+        }
 
-            var reading = AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, value.ToString());
+        private IEnumerable<string> GetHgComment(double? hg1, double? hg2)
+        {
+            if (hg1.HasValue)
+                yield return $"HG: {hg1:F3}";
 
-            if (isWaterLevel)
-            {
-                reading.ReferencePointName = referencePointName;
-                reading.Publish = true;
-                reading.ReadingType = "Reset (RS)".Equals(srcAction, StringComparison.InvariantCultureIgnoreCase)
-                    ? ReadingType.ResetAfter
-                    : string.IsNullOrWhiteSpace(srcAction)
-                        ? ReadingType.Routine
-                        : ReadingType.Unknown;
-            }
-            else
-            {
-                reading.Publish = false;
-                reading.ReadingType = ReadingType.Routine;
-            }
+            if (hg2.HasValue)
+                yield return $"HG2: {hg2:F3}";
+        }
 
-            var comments = new []
+        private void AddLoggerReading(List<Reading> readings, DateTimeOffset time, double? hg, double? src, string srcAction)
+        {
+            if (!hg.HasValue) return;
+
+            var reading = AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, hg.ToString());
+
+            AddReadingComments(reading, src, srcAction);
+        }
+
+        private void AddReadingComments(Reading reading, double? src, string srcAction, params string[] otherComments)
+        {
+            var comments = otherComments
+                .Concat(new []
                 {
-                    wl.HasValue ? $"{hgLabel}: {hg:F3}" : null,
-                    !DoubleHelper.AreSame(src, 0.0) ? $"Sensor Reset Correction of {src:F3}" : null,
+                    src.HasValue && !DoubleHelper.AreSame(src, 0.0) ? $"Sensor Reset Correction of {src:F3}" : null,
                     srcAction,
-                }
+                })
                 .Where(s => !string.IsNullOrWhiteSpace(s))
                 .ToList();
 
