@@ -44,22 +44,21 @@ namespace EhsnPlugin
 
         public EHSN LoadFromStream(Stream stream)
         {
+            var originalXmlText = ReadXmlText(stream);
+            var cleanedUpXml = GetXmlWithEmptyElementsRemoved(originalXmlText);
+
             try
             {
-                var cleanedUpXml = GetXmlWithEmptyElementsRemoved(stream);
-
-                var serializer = new XmlSerializer(typeof(EHSN));
-                var memoryStream = new MemoryStream((new UTF8Encoding()).GetBytes(cleanedUpXml));              
-
-                return serializer.Deserialize(memoryStream) as EHSN;
+                return DeserializeXml(cleanedUpXml);
             }
-            catch (Exception)
+            catch (Exception exception)
             {
+                _logger.Error($"XML parsing error: {exception.Message} {exception.InnerException?.Message}");
                 return null;
             }
         }
 
-        private string GetXmlWithEmptyElementsRemoved(Stream stream)
+        private string ReadXmlText(Stream stream)
         {
             using (var streamReader = new StreamReader(stream, Encoding.UTF8,
                 detectEncodingFromByteOrderMarks: true, bufferSize: 4096, leaveOpen: true))
@@ -67,8 +66,21 @@ namespace EhsnPlugin
                 var originalXml = streamReader.ReadToEnd();
                 stream.Position = 0;
 
-                return Regex.Replace(originalXml, @"<[a-zA-Z]\w*\/>", string.Empty);
+                return originalXml;
             }
+        }
+
+        private string GetXmlWithEmptyElementsRemoved(string originalXml)
+        {
+            return Regex.Replace(originalXml, @"<[a-zA-Z]\w*\/>", string.Empty);
+        }
+
+        private EHSN DeserializeXml(string xmlText)
+        {
+            var serializer = new XmlSerializer(typeof(EHSN));
+            var memoryStream = new MemoryStream((new UTF8Encoding()).GetBytes(xmlText));
+
+            return serializer.Deserialize(memoryStream) as EHSN;
         }
 
         public void Parse(EHSN eHsn)

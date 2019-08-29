@@ -462,7 +462,7 @@
                             <xs:element name="transectID">
                               <xs:complexType>
                                 <xs:simpleContent>
-                                  <xs:extension base="xs:unsignedByte">
+                                  <xs:extension base="xs:string">
                                     <xs:attribute name="imported" type="xs:unsignedByte" use="required" />
                                   </xs:extension>
                                 </xs:simpleContent>
