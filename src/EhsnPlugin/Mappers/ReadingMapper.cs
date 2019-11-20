@@ -154,7 +154,7 @@ namespace EhsnPlugin.Mappers
             AddSensorReading(readings, time, sensor, observedValue, ReadingType.Routine);
             var sensorReading = AddSensorReading(readings, time, sensor, sensorValue, ReadingType.Reference);
 
-            if (sensorReading != null)
+            if (sensorReading != null && !string.IsNullOrEmpty(sensor.SensorMethodCode))
             {
                 sensorReading.Method = sensor.SensorMethodCode;
             }
