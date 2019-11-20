@@ -152,10 +152,15 @@ namespace EhsnPlugin.Mappers
             var sensorValue = _eHsn.MeasResults.SensorVals.SingleOrDefault(r => r.row == sensorRef.row)?.Value;
 
             AddSensorReading(readings, time, sensor, observedValue, ReadingType.Routine);
-            AddSensorReading(readings, time, sensor, sensorValue, ReadingType.Reference);
+            var sensorReading = AddSensorReading(readings, time, sensor, sensorValue, ReadingType.Reference);
+
+            if (sensorReading != null && !string.IsNullOrEmpty(sensor.SensorMethodCode))
+            {
+                sensorReading.Method = sensor.SensorMethodCode;
+            }
         }
 
-        private void AddSensorReading(List<Reading> readings, DateTimeOffset dateTimeOffset, Config.Sensor sensor, string value, ReadingType readingType)
+        private Reading AddSensorReading(List<Reading> readings, DateTimeOffset dateTimeOffset, Config.Sensor sensor, string value, ReadingType readingType)
         {
             var reading = AddReading(readings, dateTimeOffset, sensor.ParameterId, sensor.UnitId, value);
 
@@ -163,6 +168,8 @@ namespace EhsnPlugin.Mappers
             {
                 reading.ReadingType = readingType;
             }
+
+            return reading;
         }
 
         private Reading AddReading(List<Reading> readings, DateTimeOffset? dateTimeOffset, string parameterId, string unitId, string value)
@@ -226,6 +233,7 @@ namespace EhsnPlugin.Mappers
 
             var reading = AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, wl.ToString());
 
+            reading.Method = Config.StageWaterLevelMethodCode;
             reading.ReferencePointName = referencePointName;
             reading.Publish = true;
             reading.ReadingType = "Reset (RS)".Equals(srcAction, StringComparison.InvariantCultureIgnoreCase)
@@ -252,6 +260,8 @@ namespace EhsnPlugin.Mappers
 
             var reading = AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, hg.ToString());
 
+            reading.Method = Config.StageLoggerMethodCode;
+
             AddReadingComments(reading, src, srcAction);
         }
 
@@ -268,7 +278,7 @@ namespace EhsnPlugin.Mappers
 
             if (comments.Any())
             {
-                reading.Comments = string.Join(", ", comments);
+                reading.Comments = string.Join("\r\n", comments);
             }
         }
 
