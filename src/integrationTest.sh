@@ -4,7 +4,7 @@ Configuration=$1
 PluginTesterPath=$2
 
 [ ! -z "$Configuration" ] || Configuration=Debug
-[ ! -z "$PluginTesterPath" ] || PluginTesterPath=packages/Aquarius.FieldDataFramework.19.3.0/tools
+[ ! -z "$PluginTesterPath" ] || PluginTesterPath=packages/Aquarius.FieldDataFramework.19.2.2/tools
 
 mkdir -p ../results
 
