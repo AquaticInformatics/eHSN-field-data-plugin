@@ -2,7 +2,9 @@
   "MinVersion": "v1.3",
   "MaxVersion": "v1.3.2",
   "DefaultChannelName": "Main",
-  "UnknownMeterPlaceholder":  "Unknown", 
+  "UnknownMeterPlaceholder": "Unknown",
+  "StageWaterLevelMethodCode": "HGDWL",
+  "StageLoggerMethodCode": "HGLOGGER",
   "KnownControlConditions": {
     "Unspecified": "Unspecified",
     "No Flow": "NoFlow",
@@ -106,7 +108,8 @@
     },
     "Voltage (V)": {
       "ParameterId": "VB",
-      "UnitId": "V"
+      "UnitId": "V",
+      "SensorMethodCode": "VBLOGGER"
     },
     "Radiation (W/m^2)": {
       "ParameterId": "RN",
