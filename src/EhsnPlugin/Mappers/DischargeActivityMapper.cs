@@ -580,6 +580,7 @@ namespace EhsnPlugin.Mappers
 
         private static readonly Dictionary<string, PointVelocityObservationType> PointVelocityTypes = new Dictionary<string, PointVelocityObservationType>
         {
+            {"Surface", PointVelocityObservationType.Surface },
             {"0.5", PointVelocityObservationType.OneAtPointFive },
             {"0.6", PointVelocityObservationType.OneAtPointSix },
             {"0.2/0.8", PointVelocityObservationType.OneAtPointTwoAndPointEight },
