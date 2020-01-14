@@ -58,7 +58,7 @@ namespace EhsnPlugin.Mappers
         {
             var allTimes = ExtractAllTimes();
 
-            if (allTimes.Count < 2)
+            if (!allTimes.Any())
                 throw new ArgumentException($"Can't infer the start and end time. Too few time values found in the file. Date={_visitDate:yyyy/MM/dd} Count={allTimes.Count} Times={string.Join(", ", allTimes.Select(d => d.ToString("O")))}");
 
             return new DateTimeInterval(
