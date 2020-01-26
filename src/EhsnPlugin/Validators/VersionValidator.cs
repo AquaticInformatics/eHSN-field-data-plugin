@@ -9,7 +9,7 @@ namespace EhsnPlugin.Validators
         private Version MinVersion { get; } = DefaultVersion;
         private Version MaxVersion { get; } = DefaultVersion;
 
-        private static readonly Version DefaultVersion = Version.Create("v1.3.2");
+        private static readonly Version DefaultVersion = Version.Create("v2.0.0");
 
         public VersionValidator(Config config)
         {

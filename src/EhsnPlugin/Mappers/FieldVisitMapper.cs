@@ -105,6 +105,12 @@ namespace EhsnPlugin.Mappers
                 .Append(ExtractTime(_eHsn.MovingBoatMeas?.ADCPMeasResults?.mmntStartTime))
                 .Append(ExtractTime(_eHsn.MovingBoatMeas?.ADCPMeasResults?.mmntEndTime))
                 .Append(ExtractTime(_eHsn.MovingBoatMeas?.ADCPMeasResults?.mmntMeanTime))
+                .Append(ExtractTime(_eHsn.EnvCond?.gasArrTime))
+                .Append(ExtractTime(_eHsn.EnvCond?.gasDepTime))
+                .Append(ExtractTime(_eHsn.EnvCond?.feedArrTime))
+                .Append(ExtractTime(_eHsn.EnvCond?.feedDepTime))
+                .Append(ExtractTime(_eHsn.EnvCond?.bpmrotArrTime))
+                .Append(ExtractTime(_eHsn.EnvCond?.bpmrotDepTime))
                 .Where(d => d != DateTimeOffset.MinValue)
                 .OrderBy(dateTimeOffset => dateTimeOffset)
                 .ToList();

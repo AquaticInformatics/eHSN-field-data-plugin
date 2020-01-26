@@ -1,6 +1,6 @@
 ﻿{
   "MinVersion": "v1.3",
-  "MaxVersion": "v1.3.2",
+  "MaxVersion": "v2.0.0",
   "DefaultChannelName": "Main",
   "UnknownMeterPlaceholder": "Unknown",
   "StageWaterLevelMethodCode": "HGDWL",

@@ -118,22 +118,10 @@ namespace EhsnPlugin.Mappers
         private void AddDischargeTemperatureReadings(List<Reading> readings)
         {
             if (_eHsn.DisMeas == null) return;
+            var readingtime = InferEnvironmentalConditionReadingTime();
 
-            DateTimeOffset? time = TimeHelper.ParseTimeOrMinValue(_eHsn.DisMeas.mmtTimeVal, VisitDate, LocationInfo.UtcOffset);
-
-            if (time == DateTimeOffset.MinValue)
-            {
-                var startTime = TimeHelper.ParseTimeOrMinValue(_eHsn.DisMeas.startTime, VisitDate, LocationInfo.UtcOffset);
-                var endTime = TimeHelper.ParseTimeOrMinValue(_eHsn.DisMeas.endTime, VisitDate, LocationInfo.UtcOffset);
-
-                time = TimeHelper.GetMeanTimeTruncatedToMinute(startTime, endTime);
-
-                if (time == DateTimeOffset.MinValue)
-                    time = null;
-            }
-
-            AddReading(readings, time, Parameters.WaterTemp, Units.TemperatureUnitId, _eHsn.DisMeas.waterTemp);
-            AddReading(readings, time, Parameters.AirTemp, Units.TemperatureUnitId, _eHsn.DisMeas.airTemp);
+            AddReading(readings, readingtime, Parameters.WaterTemp, Units.TemperatureUnitId, _eHsn.DisMeas.waterTemp);
+            AddReading(readings, readingtime, Parameters.AirTemp, Units.TemperatureUnitId, _eHsn.DisMeas.airTemp);
         }
 
         private void AddSensorReading(List<Reading> readings, EHSNMeasResultsSensorRef sensorRef)
