@@ -98,6 +98,6 @@
   <ProjectExtensions />
   <PropertyGroup>
     <PostBuildEvent>$(SolutionDir)packages\Aquarius.FieldDataFramework.19.2.2\tools\PluginPackager.exe $(TargetPath) /OutputPath=$(ProjectDir)deploy\$(Configuration)\$(TargetName).plugin /Description="Imports eHSN XML files into AQTS field visits"
-$(SolutionDir)packages\Aquarius.FieldDataFramework.19.2.2\tools\PluginTester.exe /Plugin=$(TargetPath) /Data=$(SolutionDir)..\data\*.xml</PostBuildEvent>
+$(SolutionDir)packages\Aquarius.FieldDataFramework.19.2.2\tools\PluginTester.exe /Plugin=$(TargetPath) /Data=$(SolutionDir)..\data\knowngood\*.xml</PostBuildEvent>
   </PropertyGroup>
 </Project>
