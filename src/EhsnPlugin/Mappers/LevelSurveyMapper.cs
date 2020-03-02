@@ -158,19 +158,38 @@ namespace EhsnPlugin.Mappers
                 .ToList();
 
             if (!aggregatedTimes.Any())
-                throw new EHsnPluginException("Can't create average mean gage height time for level survey");
+            {
+                // return Discharge mean time if no time in stage table
+                String meanDisTime = eHsn.DisMeas.mmtTimeVal;
+                String[] timeString = meanDisTime.Split(':');
+                int hour = Int32.Parse(timeString[0]);
+                int min = Int32.Parse(timeString[1]);
 
-            var datetime = new DateTimeOffset(aggregatedTimes.Sum(time => time.Ticks) / aggregatedTimes.Count, _locationInfo.UtcOffset);
+                var altDatetime = new DateTimeOffset(_visitDateTime.Year, _visitDateTime.Month, _visitDateTime.Day, hour, min, 0, _locationInfo.UtcOffset);
 
-            // Truncate the seconds / fractional seconds
-            return new DateTimeOffset(
-                datetime.Year,
-                datetime.Month,
-                datetime.Day,
-                datetime.Hour,
-                datetime.Minute,
-                0,
-                _locationInfo.UtcOffset);
+                return new DateTimeOffset(
+                    altDatetime.Year,
+                    altDatetime.Month,
+                    altDatetime.Day,
+                    altDatetime.Hour,
+                    altDatetime.Minute,
+                    0,
+                    _locationInfo.UtcOffset);
+            }
+            else 
+            {
+                var datetime = new DateTimeOffset(aggregatedTimes.Sum(time => time.Ticks) / aggregatedTimes.Count, _locationInfo.UtcOffset);
+
+                // Truncate the seconds / fractional seconds
+                return new DateTimeOffset(
+                    datetime.Year,
+                    datetime.Month,
+                    datetime.Day,
+                    datetime.Hour,
+                    datetime.Minute,
+                    0,
+                    _locationInfo.UtcOffset);
+            }
         }
     }
 }

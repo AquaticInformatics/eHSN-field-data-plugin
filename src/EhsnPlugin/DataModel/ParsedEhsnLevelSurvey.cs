@@ -35,14 +35,14 @@ namespace EhsnPlugin.DataModel
             LevelSummaryRows = new List<EHSNLevelNotesLevelChecksSummaryTableRow>(summaryTableRows);
         }
 
-        private const string PrimaryPrefix = "**";
+        private const string PrimaryPrefix = "*";
 
         public static string SanitizeBenchmarkName(string value)
         {
-            if (value == null || !value.StartsWith(PrimaryPrefix))
+            if (value == null || !value.Contains(PrimaryPrefix))
                 return value;
 
-            return value.Substring(PrimaryPrefix.Length).Trim();
+            return value.Replace("*", "");
         }
     }
 }
