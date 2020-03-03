@@ -171,16 +171,7 @@ namespace EhsnPlugin.Mappers
                     int hour = Int32.Parse(timeString[0]);
                     int min = Int32.Parse(timeString[1]);
 
-                    var altDatetime = new DateTimeOffset(_visitDateTime.Year, _visitDateTime.Month, _visitDateTime.Day, hour, min, 0, _locationInfo.UtcOffset);
-
-                    return new DateTimeOffset(
-                        altDatetime.Year,
-                        altDatetime.Month,
-                        altDatetime.Day,
-                        altDatetime.Hour,
-                        altDatetime.Minute,
-                        0,
-                        _locationInfo.UtcOffset);
+                    return new DateTimeOffset(_visitDateTime.Year, _visitDateTime.Month, _visitDateTime.Day, hour, min, 0, _locationInfo.UtcOffset);
                 }
                 
             }

@@ -42,7 +42,7 @@ namespace EhsnPlugin.DataModel
             if (value == null || !value.Contains(PrimaryPrefix))
                 return value;
 
-            return value.Replace("*", "");
+            return value.Replace("*", string.Empty).Trim();
         }
     }
 }
