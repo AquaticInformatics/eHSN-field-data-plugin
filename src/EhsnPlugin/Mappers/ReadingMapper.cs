@@ -287,6 +287,8 @@ namespace EhsnPlugin.Mappers
 
         public static string SanitizeBenchmarkName(string value)
         {
+            if (value == null)
+                return value;
             if (value.StartsWith(PrimaryPrefix))
                 return value.Substring(PrimaryPrefix.Length).Trim();
             if (value.EndsWith(PrimarySuffix))
