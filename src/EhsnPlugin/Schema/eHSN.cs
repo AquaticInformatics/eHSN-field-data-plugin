@@ -2011,7 +2011,11 @@ public partial class EHSNInstrumentDeployment {
 public partial class EHSNInstrumentDeploymentGeneralInfo {
     
     private string methodTypeField;
-    
+
+    private string otherMethodsField;
+
+    private string engineeredStructuresField;
+
     private string deploymentField;
     
     private string positionField;
@@ -2049,7 +2053,31 @@ public partial class EHSNInstrumentDeploymentGeneralInfo {
             this.methodTypeField = value;
         }
     }
-    
+
+    public string otherMethods
+    {
+        get
+        {
+            return this.otherMethodsField;
+        }
+        set
+        {
+            this.otherMethodsField = value;
+        }
+    }
+
+    public string engineeredStructures
+    {
+        get
+        {
+            return this.engineeredStructuresField;
+        }
+        set
+        {
+            this.engineeredStructuresField = value;
+        }
+    }
+
     /// <remarks/>
     public string deployment {
         get {
@@ -2701,6 +2729,8 @@ public partial class EHSNLevelNotesLevelChecksLevelChecksTable {
 public partial class EHSNLevelNotesLevelChecksLevelChecksTableLevelChecksRow {
     
     private string stationField;
+
+    private string timeField;
     
     private string backsightField;
     
@@ -2725,7 +2755,19 @@ public partial class EHSNLevelNotesLevelChecksLevelChecksTableLevelChecksRow {
             this.stationField = value;
         }
     }
-    
+
+    public string time
+    {
+        get
+        {
+            return this.timeField;
+        }
+        set
+        {
+            this.timeField = value;
+        }
+    }
+
     /// <remarks/>
     public string backsight {
         get {

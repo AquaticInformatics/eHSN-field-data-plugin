@@ -65,6 +65,8 @@ namespace EhsnPlugin.Mappers
             None,
             MidSection,
             MovingBoat,
+            EngineeredStructures,
+            OtherMethods,
         }
 
         private InstrumentDeploymentType GetDischargeMeasurementType()
@@ -83,6 +85,8 @@ namespace EhsnPlugin.Mappers
                 {"None", InstrumentDeploymentType.None},
                 {"Mid-section", InstrumentDeploymentType.MidSection},
                 {"ADCP by Moving Boat", InstrumentDeploymentType.MovingBoat},
+                {"Engineered Structures", InstrumentDeploymentType.EngineeredStructures},
+                {"Other Methods", InstrumentDeploymentType.OtherMethods },
             };
 
         private DischargeActivity CreateDischargeActivityWithSummary(double discharge)
@@ -212,6 +216,13 @@ namespace EhsnPlugin.Mappers
 
                 case InstrumentDeploymentType.MovingBoat:
                     return CreateAdcpMeasurement(dischargeActivity, discharge);
+
+                case InstrumentDeploymentType.EngineeredStructures:
+                    return CreateMidSectionMeasurement(dischargeActivity, discharge);
+
+                case InstrumentDeploymentType.OtherMethods:
+                    return CreateMidSectionMeasurement(dischargeActivity, discharge);
+
             }
 
             throw new ArgumentException($"Can't create discharge section for measurement type = '{dischargeMeasurementType}'");
@@ -225,8 +236,21 @@ namespace EhsnPlugin.Mappers
             };
             var dischargeSection = factory.CreateManualGaugingDischargeSection(dischargeActivity.MeasurementPeriod, discharge);
 
+            var methodType = _ehsn.InstrumentDeployment.GeneralInfo.methodType;
+            var otherType = _ehsn.InstrumentDeployment.GeneralInfo.otherMethods ?? _ehsn.InstrumentDeployment.GeneralInfo.engineeredStructures;
+
             dischargeSection.DischargeMethod = DischargeMethodType.MidSection;
-            dischargeSection.Comments = _ehsn.DisMeas.dischargeRemark;
+            var dischargeComments = _ehsn.DisMeas.dischargeRemark;
+
+            string[] commentItems = { methodType, otherType, dischargeComments };
+            if (methodType == "Engineered Structures" || methodType == "Other Methods")
+            {
+                dischargeSection.Comments = string.Join("\r\n", commentItems);
+            }
+            else
+            {
+                dischargeSection.Comments = _ehsn.DisMeas.dischargeRemark;
+            }
 
             dischargeSection.AreaUnitId = Units.AreaUnitId;
             dischargeSection.AreaValue = _ehsn.DisMeas.area.ToNullableDouble();
