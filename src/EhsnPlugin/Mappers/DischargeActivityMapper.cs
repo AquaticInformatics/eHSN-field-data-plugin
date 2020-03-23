@@ -165,7 +165,7 @@ namespace EhsnPlugin.Mappers
             }
 
             dischargeActivity.Comments = string.Join("\n",
-                new[] {dischargeActivity.Comments, meanGaugeHeightComment, _ehsn.StageMeas?.stageRemark}
+                new[] {dischargeActivity.Comments, meanGaugeHeightComment, _ehsn.StageMeas?.stageRemark, _ehsn.InstrumentDeployment?.GeneralInfo?.methodType, _ehsn.InstrumentDeployment?.GeneralInfo?.structureType, _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod }
                     .Where(s => !string.IsNullOrWhiteSpace(s)));
         }
 
@@ -236,21 +236,9 @@ namespace EhsnPlugin.Mappers
             };
             var dischargeSection = factory.CreateManualGaugingDischargeSection(dischargeActivity.MeasurementPeriod, discharge);
 
-            var methodType = _ehsn.InstrumentDeployment.GeneralInfo.methodType;
-            var otherType = _ehsn.InstrumentDeployment.GeneralInfo.otherMethods ?? _ehsn.InstrumentDeployment.GeneralInfo.engineeredStructures;
-
             dischargeSection.DischargeMethod = DischargeMethodType.MidSection;
-            var dischargeComments = _ehsn.DisMeas.dischargeRemark;
 
-            string[] commentItems = { methodType, otherType, dischargeComments };
-            if (methodType == "Engineered Structures" || methodType == "Other Methods")
-            {
-                dischargeSection.Comments = string.Join("\r\n", commentItems);
-            }
-            else
-            {
-                dischargeSection.Comments = _ehsn.DisMeas.dischargeRemark;
-            }
+            dischargeSection.Comments = _ehsn.DisMeas.dischargeRemark;
 
             dischargeSection.AreaUnitId = Units.AreaUnitId;
             dischargeSection.AreaValue = _ehsn.DisMeas.area.ToNullableDouble();

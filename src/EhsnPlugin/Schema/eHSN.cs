@@ -2012,9 +2012,9 @@ public partial class EHSNInstrumentDeploymentGeneralInfo {
     
     private string methodTypeField;
 
-    private string otherMethodsField;
+    private string monitoringMethodField;
 
-    private string engineeredStructuresField;
+    private string structureTypeField;
 
     private string deploymentField;
     
@@ -2054,27 +2054,27 @@ public partial class EHSNInstrumentDeploymentGeneralInfo {
         }
     }
 
-    public string otherMethods
+    public string monitoringMethod
     {
         get
         {
-            return this.otherMethodsField;
+            return this.monitoringMethodField;
         }
         set
         {
-            this.otherMethodsField = value;
+            this.monitoringMethodField = value;
         }
     }
 
-    public string engineeredStructures
+    public string structureType
     {
         get
         {
-            return this.engineeredStructuresField;
+            return this.structureTypeField;
         }
         set
         {
-            this.engineeredStructuresField = value;
+            this.structureTypeField = value;
         }
     }
 
