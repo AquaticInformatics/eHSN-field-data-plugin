@@ -284,11 +284,13 @@ namespace EhsnPlugin.Mappers
 
         private const string PrimarySuffix = "*";
         private const string PrimaryPrefix = "**";
-
         public static string SanitizeBenchmarkName(string value)
         {
+            string[] invalidBM = { "RP1", "RP2", "TP1", "TP2" };
             if (value == null)
                 return value;
+            if (invalidBM.Contains(value))
+                return null;
             if (value.StartsWith(PrimaryPrefix))
                 return value.Substring(PrimaryPrefix.Length).Trim();
             if (value.EndsWith(PrimarySuffix))
