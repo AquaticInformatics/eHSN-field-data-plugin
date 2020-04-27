@@ -710,6 +710,8 @@ public partial class EHSNStageMeasStageMeasRow {
     private string sRCField;
     
     private string sRCAppField;
+
+    private string ReadingTypeField;
     
     private string mghCkboxField;
     
@@ -784,7 +786,20 @@ public partial class EHSNStageMeasStageMeasRow {
             this.sRCAppField = value;
         }
     }
-    
+
+    /// <remarks/>
+    public string ReadingType
+    {
+        get
+        {
+            return this.ReadingTypeField;
+        }
+        set
+        {
+            this.ReadingTypeField = value;
+        }
+    }
+
     /// <remarks/>
     public string MghCkbox {
         get {
