@@ -494,6 +494,15 @@ namespace EhsnPlugin.Mappers
             var waterSurfaceToBottomOfIce = panel.IceCovered?.WSToBottomOfIceAdjusted.ToNullableDouble() ?? 0;
             var waterSurfaceToBottomOfSlush = panel.IceCovered?.WaterSurfaceToBottomOfSlush.ToNullableDouble() ?? waterSurfaceToBottomOfIce;
 
+            string comments = null;
+            var distanceToMeter = panel.Open?.DistanceAboveWeight.ToNullableDouble();
+
+            if (distanceToMeter > soundedDepth)
+            {
+                comments = $"Original DistanceToMeter={distanceToMeter:F2} {Units.DistanceUnitId} updated to SoundedDepth={soundedDepth:F2} {Units.DistanceUnitId} by eHSN plugin.";
+                distanceToMeter = soundedDepth;
+            }
+
             var measurementCondition = panel.IceCovered != null
                 ? (MeasurementConditionData) new IceCoveredData
                 {
@@ -506,7 +515,7 @@ namespace EhsnPlugin.Mappers
                 }
                 : new OpenWaterData
                 {
-                    DistanceToMeter = panel.Open?.DistanceAboveWeight.ToNullableDouble(),
+                    DistanceToMeter = distanceToMeter,
                     DryLineAngle = panel.DryAngle.ToNullableDouble() ?? 0,
                     DryLineCorrection = panel.DryCorrection.ToNullableDouble(),
                     WetLineCorrection = panel.WetCorrection.ToNullableDouble(),
@@ -567,6 +576,7 @@ namespace EhsnPlugin.Mappers
             var vertical = new Vertical
             {
                 VerticalType = VerticalType.MidRiver,
+                Comments = comments,
                 MeasurementTime = TimeHelper.CoerceDateTimeIntoUtcOffset(panel.Date, LocationInfo.UtcOffset),
                 SequenceNumber = panel.panelId,
                 TaglinePosition = taglinePosition,
