@@ -173,7 +173,7 @@ namespace EhsnPlugin.Mappers
             {
                 DateTimeOffset = dateTimeOffset,
                 Publish = false,
-                ReadingType = ReadingType.Routine
+                ReadingType = ReadingType.Unknown
             };
 
             readings.Add(reading);
