@@ -1771,21 +1771,21 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     
     private string time9Field;
     
-    private object loggerTimeCol2Field;
+    private string loggerTimeCol2Field;
     
-    private object loggerTimeRemark2Field;
+    private string loggerTimeRemark2Field;
     
-    private object hour8Field;
+    private string hour8Field;
     
-    private object minute8Field;
+    private string minute8Field;
     
-    private object hour10Field;
+    private string hour10Field;
     
-    private object minute10Field;
+    private string minute10Field;
     
-    private object time8Field;
+    private string time8Field;
     
-    private object time10Field;
+    private string time10Field;
     
     /// <remarks/>
     public string loggerTimeCol1 {
@@ -1868,7 +1868,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object loggerTimeCol2 {
+    public string loggerTimeCol2 {
         get {
             return this.loggerTimeCol2Field;
         }
@@ -1878,7 +1878,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object loggerTimeRemark2 {
+    public string loggerTimeRemark2 {
         get {
             return this.loggerTimeRemark2Field;
         }
@@ -1888,7 +1888,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object Hour8 {
+    public string Hour8 {
         get {
             return this.hour8Field;
         }
@@ -1898,7 +1898,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object Minute8 {
+    public string Minute8 {
         get {
             return this.minute8Field;
         }
@@ -1908,7 +1908,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object Hour10 {
+    public string Hour10 {
         get {
             return this.hour10Field;
         }
@@ -1918,7 +1918,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object Minute10 {
+    public string Minute10 {
         get {
             return this.minute10Field;
         }
@@ -1928,7 +1928,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object Time8 {
+    public string Time8 {
         get {
             return this.time8Field;
         }
@@ -1938,7 +1938,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object Time10 {
+    public string Time10 {
         get {
             return this.time10Field;
         }
