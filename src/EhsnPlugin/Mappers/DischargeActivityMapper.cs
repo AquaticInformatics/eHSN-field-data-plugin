@@ -65,6 +65,8 @@ namespace EhsnPlugin.Mappers
             None,
             MidSection,
             MovingBoat,
+            EngineeredStructures,
+            OtherMethods,
         }
 
         private InstrumentDeploymentType GetDischargeMeasurementType()
@@ -83,6 +85,8 @@ namespace EhsnPlugin.Mappers
                 {"None", InstrumentDeploymentType.None},
                 {"Mid-section", InstrumentDeploymentType.MidSection},
                 {"ADCP by Moving Boat", InstrumentDeploymentType.MovingBoat},
+                {"Engineered Structures", InstrumentDeploymentType.EngineeredStructures},
+                {"Other Methods", InstrumentDeploymentType.OtherMethods },
             };
 
         private DischargeActivity CreateDischargeActivityWithSummary(double discharge)
@@ -161,7 +165,7 @@ namespace EhsnPlugin.Mappers
             }
 
             dischargeActivity.Comments = string.Join("\n",
-                new[] {dischargeActivity.Comments, meanGaugeHeightComment, _ehsn.StageMeas?.stageRemark}
+                new[] {dischargeActivity.Comments, meanGaugeHeightComment, _ehsn.StageMeas?.stageRemark, _ehsn.InstrumentDeployment?.GeneralInfo?.methodType, _ehsn.InstrumentDeployment?.GeneralInfo?.structureType, _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod }
                     .Where(s => !string.IsNullOrWhiteSpace(s)));
         }
 
@@ -212,6 +216,13 @@ namespace EhsnPlugin.Mappers
 
                 case InstrumentDeploymentType.MovingBoat:
                     return CreateAdcpMeasurement(dischargeActivity, discharge);
+
+                case InstrumentDeploymentType.EngineeredStructures:
+                    return CreateMidSectionMeasurement(dischargeActivity, discharge);
+
+                case InstrumentDeploymentType.OtherMethods:
+                    return CreateMidSectionMeasurement(dischargeActivity, discharge);
+
             }
 
             throw new ArgumentException($"Can't create discharge section for measurement type = '{dischargeMeasurementType}'");
@@ -226,6 +237,7 @@ namespace EhsnPlugin.Mappers
             var dischargeSection = factory.CreateManualGaugingDischargeSection(dischargeActivity.MeasurementPeriod, discharge);
 
             dischargeSection.DischargeMethod = DischargeMethodType.MidSection;
+
             dischargeSection.Comments = _ehsn.DisMeas.dischargeRemark;
 
             dischargeSection.AreaUnitId = Units.AreaUnitId;

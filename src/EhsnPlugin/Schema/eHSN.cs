@@ -710,6 +710,8 @@ public partial class EHSNStageMeasStageMeasRow {
     private string sRCField;
     
     private string sRCAppField;
+
+    private string ReadingTypeField;
     
     private string mghCkboxField;
     
@@ -784,7 +786,20 @@ public partial class EHSNStageMeasStageMeasRow {
             this.sRCAppField = value;
         }
     }
-    
+
+    /// <remarks/>
+    public string ReadingType
+    {
+        get
+        {
+            return this.ReadingTypeField;
+        }
+        set
+        {
+            this.ReadingTypeField = value;
+        }
+    }
+
     /// <remarks/>
     public string MghCkbox {
         get {
@@ -1756,21 +1771,21 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     
     private string time9Field;
     
-    private object loggerTimeCol2Field;
+    private string loggerTimeCol2Field;
     
-    private object loggerTimeRemark2Field;
+    private string loggerTimeRemark2Field;
     
-    private object hour8Field;
+    private string hour8Field;
     
-    private object minute8Field;
+    private string minute8Field;
     
-    private object hour10Field;
+    private string hour10Field;
     
-    private object minute10Field;
+    private string minute10Field;
     
-    private object time8Field;
+    private string time8Field;
     
-    private object time10Field;
+    private string time10Field;
     
     /// <remarks/>
     public string loggerTimeCol1 {
@@ -1853,7 +1868,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object loggerTimeCol2 {
+    public string loggerTimeCol2 {
         get {
             return this.loggerTimeCol2Field;
         }
@@ -1863,7 +1878,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object loggerTimeRemark2 {
+    public string loggerTimeRemark2 {
         get {
             return this.loggerTimeRemark2Field;
         }
@@ -1873,7 +1888,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object Hour8 {
+    public string Hour8 {
         get {
             return this.hour8Field;
         }
@@ -1883,7 +1898,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object Minute8 {
+    public string Minute8 {
         get {
             return this.minute8Field;
         }
@@ -1893,7 +1908,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object Hour10 {
+    public string Hour10 {
         get {
             return this.hour10Field;
         }
@@ -1903,7 +1918,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object Minute10 {
+    public string Minute10 {
         get {
             return this.minute10Field;
         }
@@ -1913,7 +1928,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object Time8 {
+    public string Time8 {
         get {
             return this.time8Field;
         }
@@ -1923,7 +1938,7 @@ public partial class EHSNMeasResultsLoggerTimeTable {
     }
     
     /// <remarks/>
-    public object Time10 {
+    public string Time10 {
         get {
             return this.time10Field;
         }
@@ -2011,7 +2026,11 @@ public partial class EHSNInstrumentDeployment {
 public partial class EHSNInstrumentDeploymentGeneralInfo {
     
     private string methodTypeField;
-    
+
+    private string monitoringMethodField;
+
+    private string structureTypeField;
+
     private string deploymentField;
     
     private string positionField;
@@ -2049,7 +2068,31 @@ public partial class EHSNInstrumentDeploymentGeneralInfo {
             this.methodTypeField = value;
         }
     }
-    
+
+    public string monitoringMethod
+    {
+        get
+        {
+            return this.monitoringMethodField;
+        }
+        set
+        {
+            this.monitoringMethodField = value;
+        }
+    }
+
+    public string structureType
+    {
+        get
+        {
+            return this.structureTypeField;
+        }
+        set
+        {
+            this.structureTypeField = value;
+        }
+    }
+
     /// <remarks/>
     public string deployment {
         get {
@@ -2701,6 +2744,8 @@ public partial class EHSNLevelNotesLevelChecksLevelChecksTable {
 public partial class EHSNLevelNotesLevelChecksLevelChecksTableLevelChecksRow {
     
     private string stationField;
+
+    private string timeField;
     
     private string backsightField;
     
@@ -2725,7 +2770,19 @@ public partial class EHSNLevelNotesLevelChecksLevelChecksTableLevelChecksRow {
             this.stationField = value;
         }
     }
-    
+
+    public string time
+    {
+        get
+        {
+            return this.timeField;
+        }
+        set
+        {
+            this.timeField = value;
+        }
+    }
+
     /// <remarks/>
     public string backsight {
         get {

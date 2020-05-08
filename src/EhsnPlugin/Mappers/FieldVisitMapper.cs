@@ -88,6 +88,7 @@ namespace EhsnPlugin.Mappers
             var measResultTimes = _eHsn.MeasResults?.Times ?? new EHSNMeasResultsTime[0];
             var levelChecksSummaryRows = _eHsn.LevelNotes?.LevelChecks?.LevelChecksSummaryTable ?? new EHSNLevelNotesLevelChecksSummaryTableRow[0];
             var movingBoatTransectRows = _eHsn.MovingBoatMeas?.ADCPMeasTable ?? new EHSNMovingBoatMeasADCPMeasRow[0];
+            var levelChecksTable = _eHsn.LevelNotes?.LevelChecks?.LevelChecksTable[0]?.LevelChecksRow ?? new EHSNLevelNotesLevelChecksLevelChecksTableLevelChecksRow[0];
 
             return channels
                 .SelectMany(ExtractAllTimes)
@@ -100,6 +101,8 @@ namespace EhsnPlugin.Mappers
                     .Select(time => ExtractTime(time.Value)))
                 .Concat(levelChecksSummaryRows
                     .Select(row => ExtractTime(row.time)))
+                .Concat(levelChecksTable
+                    .Select(row => ExtractTime(row.time)))
                 .Concat(movingBoatTransectRows
                     .Select(row => ExtractJustTime(row.startTime)))
                 .Append(ExtractTime(_eHsn.MovingBoatMeas?.ADCPMeasResults?.mmntStartTime))
@@ -111,6 +114,10 @@ namespace EhsnPlugin.Mappers
                 .Append(ExtractTime(_eHsn.EnvCond?.feedDepTime))
                 .Append(ExtractTime(_eHsn.EnvCond?.bpmrotArrTime))
                 .Append(ExtractTime(_eHsn.EnvCond?.bpmrotDepTime))
+                .Append(ExtractTime(_eHsn.MeasResults?.loggerTimeTable?.Time7))
+                .Append(ExtractTime(_eHsn.MeasResults?.loggerTimeTable?.Time8))
+                .Append(ExtractTime(_eHsn.MeasResults?.loggerTimeTable?.Time9))
+                .Append(ExtractTime(_eHsn.MeasResults?.loggerTimeTable?.Time10))
                 .Where(d => d != DateTimeOffset.MinValue)
                 .OrderBy(dateTimeOffset => dateTimeOffset)
                 .ToList();

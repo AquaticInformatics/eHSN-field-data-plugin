@@ -43,6 +43,7 @@ namespace EhsnPlugin.Mappers
             var parsedSurvey = ParseLevelSurveyInfo(eHsn);
 
             var levelSurvey = (LevelSurvey) null;
+
             var levelSurveyTime = (DateTimeOffset?) null;
 
             foreach (var table in parsedSurvey.LevelCheckTables)
@@ -152,43 +153,63 @@ namespace EhsnPlugin.Mappers
 
         private DateTimeOffset GetLevelSurveyTime(EHSN eHsn)
         {
-            var aggregatedTimes = (eHsn.StageMeas?.StageMeasTable ?? new EHSNStageMeasStageMeasRow[0])
+            var levelNoteTimes = (eHsn.LevelNotes?.LevelChecks?.LevelChecksTable[0]?.LevelChecksRow)
                 .Select(row => TimeHelper.ParseTimeOrMinValue(row.time, _visitDateTime, _locationInfo.UtcOffset))
                 .Where(time => time != DateTimeOffset.MinValue)
                 .ToList();
 
-            if (!aggregatedTimes.Any())
+            if (!levelNoteTimes.Any())
             {
-                // return Discharge mean time if no time in stage table
-                String meanDisTime = eHsn.DisMeas.mmtTimeVal;
-                if (meanDisTime == null)
+                var aggregatedTimes = (eHsn.StageMeas?.StageMeasTable ?? new EHSNStageMeasStageMeasRow[0])
+                    .Select(row => TimeHelper.ParseTimeOrMinValue(row.time, _visitDateTime, _locationInfo.UtcOffset))
+                    .Where(time => time != DateTimeOffset.MinValue)
+                    .ToList();
+
+                if (!aggregatedTimes.Any())
                 {
-                    throw new EHsnPluginException("Can't create average mean gage height time for level survey");
+                    // return Discharge mean time if no time in stage table
+                    String meanDisTime = eHsn.DisMeas.mmtTimeVal;
+                    if (meanDisTime == null)
+                    {
+                        throw new EHsnPluginException("Can't create average mean gage height time for level survey");
+                    }
+                    else
+                    {
+                        String[] timeString = meanDisTime.Split(':');
+                        int hour = Int32.Parse(timeString[0]);
+                        int min = Int32.Parse(timeString[1]);
+
+                        return new DateTimeOffset(_visitDateTime.Year, _visitDateTime.Month, _visitDateTime.Day, hour, min, 0, _locationInfo.UtcOffset);
+                    }
+
                 }
                 else
                 {
-                    String[] timeString = meanDisTime.Split(':');
-                    int hour = Int32.Parse(timeString[0]);
-                    int min = Int32.Parse(timeString[1]);
 
-                    return new DateTimeOffset(_visitDateTime.Year, _visitDateTime.Month, _visitDateTime.Day, hour, min, 0, _locationInfo.UtcOffset);
+                    var datetime = new DateTimeOffset(aggregatedTimes.Sum(time => time.Ticks) / aggregatedTimes.Count, _locationInfo.UtcOffset);
+
+                    // Truncate the seconds / fractional seconds
+                    return new DateTimeOffset(
+                        datetime.Year,
+                        datetime.Month,
+                        datetime.Day,
+                        datetime.Hour,
+                        datetime.Minute,
+                        0,
+                        _locationInfo.UtcOffset);
                 }
-                
             }
             else
             {
-
-                var datetime = new DateTimeOffset(aggregatedTimes.Sum(time => time.Ticks) / aggregatedTimes.Count, _locationInfo.UtcOffset);
-
-                // Truncate the seconds / fractional seconds
+                var levelSurveyTime = new DateTimeOffset(levelNoteTimes.Sum(time => time.Ticks) / levelNoteTimes.Count, _locationInfo.UtcOffset);
                 return new DateTimeOffset(
-                    datetime.Year,
-                    datetime.Month,
-                    datetime.Day,
-                    datetime.Hour,
-                    datetime.Minute,
-                    0,
-                    _locationInfo.UtcOffset);
+                        levelSurveyTime.Year,
+                        levelSurveyTime.Month,
+                        levelSurveyTime.Day,
+                        levelSurveyTime.Hour,
+                        levelSurveyTime.Minute,
+                        0,
+                        _locationInfo.UtcOffset);
             }
         }
     }

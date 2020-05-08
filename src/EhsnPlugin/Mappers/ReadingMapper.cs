@@ -173,7 +173,7 @@ namespace EhsnPlugin.Mappers
             {
                 DateTimeOffset = dateTimeOffset,
                 Publish = false,
-                ReadingType = ReadingType.Routine
+                ReadingType = ReadingType.Unknown
             };
 
             readings.Add(reading);
@@ -203,38 +203,55 @@ namespace EhsnPlugin.Mappers
             var wl2 = stageMeasurement.WL2.ToNullableDouble();
             var src = stageMeasurement.SRC.ToNullableDouble();
             var srcAction = stageMeasurement.SRCApp;
+            var readingType = stageMeasurement.ReadingType;
+            var wl1Header = SanitizeBenchmarkName(_eHsn?.StageMeas?.WL1Header);
+            var wl2Header = SanitizeBenchmarkName(_eHsn?.StageMeas?.WL2Header);
+            var gc1 = _eHsn?.StageMeas?.GCWL1.ToNullableDouble();
+            var gc2 = _eHsn?.StageMeas?.GCWL2.ToNullableDouble();
+            string hg1Header = "WL Source: HG";
+            string hg2Header = "WL Source: HG2";
 
-            AddLoggerReading(readings, time, hg1, src, srcAction);
-            AddLoggerReading(readings, time, hg2, src, srcAction);
-            AddWaterLevelReading(readings, time, wl1, timeText, hg1, hg2, src, srcAction);
-            AddWaterLevelReading(readings, time, wl2, timeText, hg1, hg2, src, srcAction);
+            AddLoggerReading(readings, time, hg1, hg1Header, src, srcAction);
+            AddLoggerReading(readings, time, hg2, hg2Header, src, srcAction);
+            AddWaterLevelReading(readings, time, wl1, gc1, wl1Header, hg1, hg2, src, srcAction, readingType);
+            AddWaterLevelReading(readings, time, wl2, gc2, wl2Header, hg1, hg2, src, srcAction, readingType);
         }
 
-        private void AddWaterLevelReading(List<Reading> readings, DateTimeOffset time, double? wl,
-            string timeText, double? hg1, double? hg2, double? src, string srcAction)
+        private void AddWaterLevelReading(List<Reading> readings, DateTimeOffset time, double? wl, double? gc, string wlHeader,
+             double? hg1, double? hg2, double? src, string srcAction, string readingType)
         {
             if (!wl.HasValue) return;
 
-            var referencePointName = GetReferencePointName(timeText);
+            var hgComments = GetHgComment(gc, hg1, hg2);
 
-            var hgComments = GetHgComment(hg1, hg2);
+            if (gc.HasValue)
+            {
+                wl += gc;
+            }
 
             var reading = AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, wl.ToString());
 
             reading.Method = Config.StageWaterLevelMethodCode;
-            reading.ReferencePointName = referencePointName;
+            reading.ReferencePointName = wlHeader;
             reading.Publish = true;
-            reading.ReadingType = "Reset (RS)".Equals(srcAction, StringComparison.InvariantCultureIgnoreCase)
-                ? ReadingType.ResetAfter
-                : string.IsNullOrWhiteSpace(srcAction)
-                    ? ReadingType.Routine
-                    : ReadingType.Unknown;
+            if (string.IsNullOrWhiteSpace(readingType))
+            {
+                reading.ReadingType = ReadingType.Unknown;
+            }
+            else
+            {
+                string formattedReadingType = readingType.Replace(" ", String.Empty);
+                reading.ReadingType = (ReadingType)Enum.Parse(typeof(ReadingType), formattedReadingType);
+            }
 
             AddReadingComments(reading, src, srcAction, hgComments.ToArray());
         }
 
-        private IEnumerable<string> GetHgComment(double? hg1, double? hg2)
+        private IEnumerable<string> GetHgComment(double? gc, double? hg1, double? hg2)
         {
+            if (gc.HasValue)
+                yield return $"GC: {gc:F3}";
+
             if (hg1.HasValue)
                 yield return $"HG: {hg1:F3}";
 
@@ -242,7 +259,7 @@ namespace EhsnPlugin.Mappers
                 yield return $"HG2: {hg2:F3}";
         }
 
-        private void AddLoggerReading(List<Reading> readings, DateTimeOffset time, double? hg, double? src, string srcAction)
+        private void AddLoggerReading(List<Reading> readings, DateTimeOffset time, double? hg, string hgHeader, double? src, string srcAction)
         {
             if (!hg.HasValue) return;
 
@@ -250,7 +267,7 @@ namespace EhsnPlugin.Mappers
 
             reading.Method = Config.StageLoggerMethodCode;
 
-            AddReadingComments(reading, src, srcAction);
+            AddReadingComments(reading, src, srcAction, hgHeader);
         }
 
         private void AddReadingComments(Reading reading, double? src, string srcAction, params string[] otherComments)
@@ -258,7 +275,7 @@ namespace EhsnPlugin.Mappers
             var comments = otherComments
                 .Concat(new []
                 {
-                    src.HasValue && !DoubleHelper.AreSame(src, 0.0) ? $"Sensor Reset Correction of {src:F3}" : null,
+                    src.HasValue && !DoubleHelper.AreSame(src, 0.0) ? $"SRC: {src:F3}" : null,
                     srcAction,
                 })
                 .Where(s => !string.IsNullOrWhiteSpace(s))
@@ -270,17 +287,20 @@ namespace EhsnPlugin.Mappers
             }
         }
 
-        private string GetReferencePointName(string time)
+        private const string PrimarySuffix = "*";
+        private const string PrimaryPrefix = "**";
+        public static string SanitizeBenchmarkName(string value)
         {
-            var levelChecksSummaryRows = _eHsn.LevelNotes?.LevelChecks?.LevelChecksSummaryTable ?? new EHSNLevelNotesLevelChecksSummaryTableRow[0];
-
-            var levelCheck = levelChecksSummaryRows
-                .FirstOrDefault(row => row.time == time);
-
-            if (levelCheck == null)
+            string[] invalidBM = { "RP1", "RP2", "TP1", "TP2" };
+            if (value == null)
+                return value;
+            if (invalidBM.Contains(value))
                 return null;
-
-            return ParsedEhsnLevelSurvey.SanitizeBenchmarkName(levelCheck.reference);
+            if (value.StartsWith(PrimaryPrefix))
+                return value.Substring(PrimaryPrefix.Length).Trim();
+            if (value.EndsWith(PrimarySuffix))
+                return value.TrimEnd('*').Trim();
+            return value;
         }
     }
 }

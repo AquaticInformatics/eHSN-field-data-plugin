@@ -272,6 +272,8 @@
                   <xs:complexType>
                     <xs:sequence>
                       <xs:element name="methodType" type="xs:string" />
+					  <xs:element name="otherMethods" type="xs:string" />
+					  <xs:element name="engineeredStructures" type="xs:string" />
                       <xs:element name="deployment" type="xs:string" />
                       <xs:element name="position" type="xs:string" />
                       <xs:element name="instrument" type="xs:string" />
