@@ -234,15 +234,7 @@ namespace EhsnPlugin.Mappers
             reading.Method = Config.StageWaterLevelMethodCode;
             reading.ReferencePointName = wlHeader;
             reading.Publish = true;
-            if (string.IsNullOrWhiteSpace(readingType))
-            {
-                reading.ReadingType = ReadingType.Unknown;
-            }
-            else
-            {
-                string formattedReadingType = readingType.Replace(" ", String.Empty);
-                reading.ReadingType = (ReadingType)Enum.Parse(typeof(ReadingType), formattedReadingType);
-            }
+            reading.ReadingType = Enum.TryParse<ReadingType>(readingType, true, out var value) ? value : ReadingType.Unknown;
 
             AddReadingComments(reading, src, srcAction, hgComments.ToArray());
         }
@@ -287,20 +279,14 @@ namespace EhsnPlugin.Mappers
             }
         }
 
-        private const string PrimarySuffix = "*";
-        private const string PrimaryPrefix = "**";
         public static string SanitizeBenchmarkName(string value)
         {
-            string[] invalidBM = { "RP1", "RP2", "TP1", "TP2" };
+            string[] invalidBM = { "RP1", "RP2", "RP3", "RP4", "RP5", "TP1", "TP2", "TP3", "TP4", "TP5" };
             if (value == null)
                 return value;
             if (invalidBM.Contains(value))
                 return null;
-            if (value.StartsWith(PrimaryPrefix))
-                return value.Substring(PrimaryPrefix.Length).Trim();
-            if (value.EndsWith(PrimarySuffix))
-                return value.TrimEnd('*').Trim();
-            return value;
+            return value?.Trim('*');
         }
     }
 }
