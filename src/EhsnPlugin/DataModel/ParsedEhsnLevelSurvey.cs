@@ -20,6 +20,7 @@ namespace EhsnPlugin.DataModel
 
                 foreach (var row in table.LevelChecksRow)
                 {
+                    if (row.station == null) { continue; }
                     row.station = SanitizeBenchmarkName(row.station);
                 }
             }
@@ -38,7 +39,12 @@ namespace EhsnPlugin.DataModel
 
         public static string SanitizeBenchmarkName(string value)
         {
-            return value?.Trim('*');
+            if (value.EndsWith("*"))
+                return value.TrimEnd('*').Trim();
+            else
+            {
+                return value;
+            }
         }
     }
 }
