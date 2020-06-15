@@ -39,12 +39,7 @@ namespace EhsnPlugin.DataModel
 
         public static string SanitizeBenchmarkName(string value)
         {
-            if (value.EndsWith("*"))
-                return value.TrimEnd('*').Trim();
-            else
-            {
-                return value;
-            }
+            return value?.Trim('*');
         }
     }
 }

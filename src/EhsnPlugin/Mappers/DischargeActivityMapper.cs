@@ -247,7 +247,14 @@ namespace EhsnPlugin.Mappers
             dischargeSection.VelocityUnitId = Units.VelocityUnitId;
             dischargeSection.DeploymentMethod = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.deployment, KnownMidSectionDeploymentTypes);
 
-            AddPanelMeasurements(dischargeSection);
+            var meters = (_ehsn.MidsecMeas?.DischargeMeasurement?.MmtInitAndSummary?.MetersUsed ?? new Meter[0])
+                .Select(CreateMeterCalibration)
+                .ToList();
+
+            if (meters[0].Equations.Count < 2 && meters[1].Equations.Count < 2)
+            {
+                AddPanelMeasurements(dischargeSection);
+            }
 
             return dischargeSection;
         }

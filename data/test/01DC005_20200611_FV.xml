@@ -1,12 +1,12 @@
 <?xml version="1.0" ?>
 <?xml-stylesheet type="text/xsl" href="WSC_EHSN.xsml"?>
-<EHSN version="v2.1.0">
+<EHSN version="v2.2.0">
 	<TitleHeader>
 		<enteredInHWS>False</enteredInHWS>
 	</TitleHeader>
 	<GenInfo>
-		<station number="02OA041">SAINT-LAURENT (FLEUVE) A LA PRAIRIE</station>
-		<date timezone="EST">2020/06/05</date>
+		<station number="01DC005">ANNAPOLIS RIVER AT WILMOT</station>
+		<date timezone="AST">2020/06/11</date>
 	</GenInfo>
 	<StageMeas>
 		<HgCkbox>False</HgCkbox>
@@ -15,23 +15,12 @@
 		<Wlr2Ckbox>False</Wlr2Ckbox>
 		<HG1Header/>
 		<HG2Header/>
-		<WL1Header>zero échelle</WL1Header>
+		<WL1Header/>
 		<WL2Header/>
 		<StageMeasTable>
 			<StageMeasRow row="0">
-				<time>9:30</time>
-				<HG1>1.266</HG1>
-				<HG2/>
-				<WL1>1.240</WL1>
-				<WL2/>
-				<SRC>-0.026</SRC>
-				<SRCApp>No Reset (NR)</SRCApp>
-				<MghCkbox>False</MghCkbox>
-				<ReadingType>Routine</ReadingType>
-			</StageMeasRow>
-			<StageMeasRow row="1">
-				<time>9:40</time>
-				<HG1>1.266</HG1>
+				<time>10:40</time>
+				<HG1/>
 				<HG2/>
 				<WL1/>
 				<WL2/>
@@ -61,11 +50,11 @@
 		<CMGHWL2/>
 		<MghMethod/>
 		<Factors/>
-		<stageRemark>Vagues de 3 cm</stageRemark>
+		<stageRemark/>
 	</StageMeas>
 	<DisMeas>
-		<startTime>:</startTime>
-		<endTime>:</endTime>
+		<startTime>10:40</startTime>
+		<endTime>10:40</endTime>
 		<airTemp/>
 		<waterTemp/>
 		<width/>
@@ -73,9 +62,9 @@
 		<meanVel/>
 		<mgh/>
 		<mghCmbo/>
-		<discharge/>
+		<discharge>1.00</discharge>
 		<uncertainty/>
-		<mmtTimeVal/>
+		<mmtTimeVal>10:40</mmtTimeVal>
 		<shift/>
 		<diff/>
 		<curve/>
@@ -110,8 +99,8 @@
 		<orificePurged>False</orificePurged>
 		<downloadedProgram>False</downloadedProgram>
 		<downloadedData>False</downloadedData>
-		<dataPeriodStart>2020/06/05</dataPeriodStart>
-		<dataPeriodEnd>2020/06/05</dataPeriodEnd>
+		<dataPeriodStart>2020/06/11</dataPeriodStart>
+		<dataPeriodEnd>2020/06/11</dataPeriodEnd>
 		<stationHealthRemark/>
 	</EnvCond>
 	<MeasResults empty="True">
@@ -185,10 +174,10 @@
 		</SiteConditions>
 	</InstrumentDeployment>
 	<PartyInfo>
-		<party>GM</party>
-		<completed>GIM</completed>
+		<party/>
+		<completed/>
 		<checked/>
-		<reviewed>True</reviewed>
+		<reviewed>False</reviewed>
 	</PartyInfo>
 	<LevelNotes>
 		<LevelChecks>
@@ -427,7 +416,7 @@
 			<MmtInitAndSummary>
 				<MmtInit>
 					<DeploymentMethod/>
-					<StartingBank/>
+					<StartingBank>Left</StartingBank>
 					<TagMarkPolarity/>
 					<InitialPoint/>
 					<UnmeasuredFlow/>
@@ -436,16 +425,16 @@
 				</MmtInit>
 				<MetersUsed>
 					<Meter>
-						<Number/>
+						<Number>1</Number>
 						<Equation>
 							<Type/>
-							<Slope/>
-							<Intercept/>
+							<Slope>1.0000</Slope>
+							<Intercept>2.0000</Intercept>
 						</Equation>
 						<Equation>
 							<Type/>
-							<Slope/>
-							<Intercept/>
+							<Slope>3.0000</Slope>
+							<Intercept>4.0000</Intercept>
 						</Equation>
 						<MeterCalibDate/>
 					</Meter>
@@ -476,8 +465,291 @@
 					<Uncertainty/>
 				</MmtSummary>
 			</MmtInitAndSummary>
-			<Channels/>
+			<Channels>
+				<Channel>
+					<Panels>
+						<Panel Date="2020-06-11T10:41:00Z">
+							<panelId>102</panelId>
+							<Tagmark>1.20</Tagmark>
+							<ReverseFlow>False</ReverseFlow>
+							<AngleOfFlowCoefficient>1</AngleOfFlowCoefficient>
+							<DepthReading/>
+							<DepthWithOffset/>
+							<Width>0.2</Width>
+							<AverageVelocity/>
+							<Discharge/>
+							<PanelNum>1</PanelNum>
+							<Slop>1.0000</Slop>
+							<Slop2>3.0000</Slop2>
+							<SlopBtn1>True</SlopBtn1>
+							<Intercept>2.0000</Intercept>
+							<Intercept2>4.0000</Intercept2>
+							<Wldl>No</Wldl>
+							<DryAngle/>
+							<DistWaterSurface/>
+							<DryCorrection/>
+							<WetCorrection>0</WetCorrection>
+							<Open>
+								<DeploymentMethod/>
+								<AmountOfWeight>0</AmountOfWeight>
+								<DistanceAboveWeight>0</DistanceAboveWeight>
+								<TotalDepth/>
+							</Open>
+							<MeterNumber>1</MeterNumber>
+							<Flow/>
+							<PointMeasurements>
+								<PointMeasurement>
+									<SamplingDepthCoefficient>0.6</SamplingDepthCoefficient>
+									<MeasurementDepth/>
+									<Revolutions/>
+									<ElapsedTime/>
+									<Velocity/>
+									<VelocityCoefficient>1.0</VelocityCoefficient>
+									<MeanVelocity/>
+								</PointMeasurement>
+							</PointMeasurements>
+						</Panel>
+						<Panel Date="2020-06-11T10:41:00Z">
+							<panelId>103</panelId>
+							<Tagmark>1.40</Tagmark>
+							<ReverseFlow>False</ReverseFlow>
+							<AngleOfFlowCoefficient>1</AngleOfFlowCoefficient>
+							<DepthReading/>
+							<DepthWithOffset/>
+							<Width>0.2</Width>
+							<AverageVelocity/>
+							<Discharge/>
+							<PanelNum>2</PanelNum>
+							<Slop>1.0000</Slop>
+							<Slop2>3.0000</Slop2>
+							<SlopBtn1>True</SlopBtn1>
+							<Intercept>2.0000</Intercept>
+							<Intercept2>4.0000</Intercept2>
+							<Wldl>No</Wldl>
+							<DryAngle/>
+							<DistWaterSurface/>
+							<DryCorrection/>
+							<WetCorrection>0</WetCorrection>
+							<Open>
+								<DeploymentMethod/>
+								<AmountOfWeight>0</AmountOfWeight>
+								<DistanceAboveWeight>0</DistanceAboveWeight>
+								<TotalDepth/>
+							</Open>
+							<MeterNumber>1</MeterNumber>
+							<Flow/>
+							<PointMeasurements>
+								<PointMeasurement>
+									<SamplingDepthCoefficient>0.6</SamplingDepthCoefficient>
+									<MeasurementDepth/>
+									<Revolutions/>
+									<ElapsedTime/>
+									<Velocity/>
+									<VelocityCoefficient>1.0</VelocityCoefficient>
+									<MeanVelocity/>
+								</PointMeasurement>
+							</PointMeasurements>
+						</Panel>
+						<Panel Date="2020-06-11T10:41:00Z">
+							<panelId>104</panelId>
+							<Tagmark>1.60</Tagmark>
+							<ReverseFlow>False</ReverseFlow>
+							<AngleOfFlowCoefficient>1</AngleOfFlowCoefficient>
+							<DepthReading/>
+							<DepthWithOffset/>
+							<Width>0.2</Width>
+							<AverageVelocity/>
+							<Discharge/>
+							<PanelNum>3</PanelNum>
+							<Slop>1.0000</Slop>
+							<Slop2>3.0000</Slop2>
+							<SlopBtn1>True</SlopBtn1>
+							<Intercept>2.0000</Intercept>
+							<Intercept2>4.0000</Intercept2>
+							<Wldl>No</Wldl>
+							<DryAngle/>
+							<DistWaterSurface/>
+							<DryCorrection/>
+							<WetCorrection>0</WetCorrection>
+							<Open>
+								<DeploymentMethod/>
+								<AmountOfWeight>0</AmountOfWeight>
+								<DistanceAboveWeight>0</DistanceAboveWeight>
+								<TotalDepth/>
+							</Open>
+							<MeterNumber>1</MeterNumber>
+							<Flow/>
+							<PointMeasurements>
+								<PointMeasurement>
+									<SamplingDepthCoefficient>0.6</SamplingDepthCoefficient>
+									<MeasurementDepth/>
+									<Revolutions/>
+									<ElapsedTime/>
+									<Velocity/>
+									<VelocityCoefficient>1.0</VelocityCoefficient>
+									<MeanVelocity/>
+								</PointMeasurement>
+							</PointMeasurements>
+						</Panel>
+						<Panel Date="2020-06-11T10:41:00Z">
+							<panelId>105</panelId>
+							<Tagmark>1.80</Tagmark>
+							<ReverseFlow>False</ReverseFlow>
+							<AngleOfFlowCoefficient>1</AngleOfFlowCoefficient>
+							<DepthReading/>
+							<DepthWithOffset/>
+							<Width>0.2</Width>
+							<AverageVelocity/>
+							<Discharge/>
+							<PanelNum>4</PanelNum>
+							<Slop>1.0000</Slop>
+							<Slop2>3.0000</Slop2>
+							<SlopBtn1>True</SlopBtn1>
+							<Intercept>2.0000</Intercept>
+							<Intercept2>4.0000</Intercept2>
+							<Wldl>No</Wldl>
+							<DryAngle/>
+							<DistWaterSurface/>
+							<DryCorrection/>
+							<WetCorrection>0</WetCorrection>
+							<Open>
+								<DeploymentMethod/>
+								<AmountOfWeight>0</AmountOfWeight>
+								<DistanceAboveWeight>0</DistanceAboveWeight>
+								<TotalDepth/>
+							</Open>
+							<MeterNumber>1</MeterNumber>
+							<Flow/>
+							<PointMeasurements>
+								<PointMeasurement>
+									<SamplingDepthCoefficient>0.6</SamplingDepthCoefficient>
+									<MeasurementDepth/>
+									<Revolutions/>
+									<ElapsedTime/>
+									<Velocity/>
+									<VelocityCoefficient>1.0</VelocityCoefficient>
+									<MeanVelocity/>
+								</PointMeasurement>
+							</PointMeasurements>
+						</Panel>
+						<Panel Date="2020-06-11T10:41:00Z">
+							<panelId>106</panelId>
+							<Tagmark>2.00</Tagmark>
+							<ReverseFlow>False</ReverseFlow>
+							<AngleOfFlowCoefficient>1</AngleOfFlowCoefficient>
+							<DepthReading/>
+							<DepthWithOffset/>
+							<Width>0.2</Width>
+							<AverageVelocity/>
+							<Discharge/>
+							<PanelNum>5</PanelNum>
+							<Slop>1.0000</Slop>
+							<Slop2>3.0000</Slop2>
+							<SlopBtn1>True</SlopBtn1>
+							<Intercept>2.0000</Intercept>
+							<Intercept2>4.0000</Intercept2>
+							<Wldl>No</Wldl>
+							<DryAngle/>
+							<DistWaterSurface/>
+							<DryCorrection/>
+							<WetCorrection>0</WetCorrection>
+							<Open>
+								<DeploymentMethod/>
+								<AmountOfWeight>0</AmountOfWeight>
+								<DistanceAboveWeight>0</DistanceAboveWeight>
+								<TotalDepth/>
+							</Open>
+							<MeterNumber>1</MeterNumber>
+							<Flow/>
+							<PointMeasurements>
+								<PointMeasurement>
+									<SamplingDepthCoefficient>0.6</SamplingDepthCoefficient>
+									<MeasurementDepth/>
+									<Revolutions/>
+									<ElapsedTime/>
+									<Velocity/>
+									<VelocityCoefficient>1.0</VelocityCoefficient>
+									<MeanVelocity/>
+								</PointMeasurement>
+							</PointMeasurements>
+						</Panel>
+						<Panel Date="2020-06-11T10:41:00Z">
+							<panelId>107</panelId>
+							<Tagmark>2.20</Tagmark>
+							<ReverseFlow>False</ReverseFlow>
+							<AngleOfFlowCoefficient>1</AngleOfFlowCoefficient>
+							<DepthReading/>
+							<DepthWithOffset/>
+							<Width>0.2</Width>
+							<AverageVelocity/>
+							<Discharge/>
+							<PanelNum>6</PanelNum>
+							<Slop>1.0000</Slop>
+							<Slop2>3.0000</Slop2>
+							<SlopBtn1>True</SlopBtn1>
+							<Intercept>2.0000</Intercept>
+							<Intercept2>4.0000</Intercept2>
+							<Wldl>No</Wldl>
+							<DryAngle/>
+							<DistWaterSurface/>
+							<DryCorrection/>
+							<WetCorrection>0</WetCorrection>
+							<Open>
+								<DeploymentMethod/>
+								<AmountOfWeight>0</AmountOfWeight>
+								<DistanceAboveWeight>0</DistanceAboveWeight>
+								<TotalDepth/>
+							</Open>
+							<MeterNumber>1</MeterNumber>
+							<Flow/>
+							<PointMeasurements>
+								<PointMeasurement>
+									<SamplingDepthCoefficient>0.6</SamplingDepthCoefficient>
+									<MeasurementDepth/>
+									<Revolutions/>
+									<ElapsedTime/>
+									<Velocity/>
+									<VelocityCoefficient>1.0</VelocityCoefficient>
+									<MeanVelocity/>
+								</PointMeasurement>
+							</PointMeasurements>
+						</Panel>
+					</Panels>
+					<Edges>
+						<Edge Date="2020-06-11T10:40:00Z">
+							<StartingEdge>True</StartingEdge>
+							<Tagmark>1.00</Tagmark>
+							<Depth>0</Depth>
+							<DepthSameAsAdjacent>False</DepthSameAsAdjacent>
+							<Velocity>0</Velocity>
+							<VelocitySameAsAdjacent>False</VelocitySameAsAdjacent>
+							<panelId>101</panelId>
+							<Width>0.1</Width>
+							<Area>0.0</Area>
+							<Discharge>0.0</Discharge>
+							<LeftOrRight>Left Bank</LeftOrRight>
+							<EdgeType>Edge</EdgeType>
+							<Flow/>
+						</Edge>
+						<Edge Date="2020-06-11T10:41:00Z">
+							<StartingEdge>False</StartingEdge>
+							<Tagmark>2.40</Tagmark>
+							<Depth>0</Depth>
+							<DepthSameAsAdjacent>False</DepthSameAsAdjacent>
+							<Velocity>0</Velocity>
+							<VelocitySameAsAdjacent>False</VelocitySameAsAdjacent>
+							<panelId>108</panelId>
+							<Width>0.1</Width>
+							<Area>0.0</Area>
+							<Discharge>0.0</Discharge>
+							<LeftOrRight>Right Bank</LeftOrRight>
+							<EdgeType>Edge</EdgeType>
+							<Flow/>
+						</Edge>
+					</Edges>
+				</Channel>
+			</Channels>
 		</DischargeMeasurement>
-		<nextPid>100</nextPid>
+		<nextPid>108</nextPid>
 	</MidsecMeas>
 </EHSN>
