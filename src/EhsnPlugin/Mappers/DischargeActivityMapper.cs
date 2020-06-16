@@ -251,7 +251,12 @@ namespace EhsnPlugin.Mappers
                 .Select(CreateMeterCalibration)
                 .ToList();
 
-            if (meters[0].Equations.Count < 2 && meters[1].Equations.Count < 2)
+            if (meters.Count == 2 && meters[0].Equations.Count < 2 && meters[1].Equations.Count < 2)
+            {
+                AddPanelMeasurements(dischargeSection);
+            }
+
+            if (meters.Count == 1 && meters[0].Equations.Count < 2)
             {
                 AddPanelMeasurements(dischargeSection);
             }
