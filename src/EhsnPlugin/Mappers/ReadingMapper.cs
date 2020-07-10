@@ -279,6 +279,8 @@ namespace EhsnPlugin.Mappers
             }
         }
 
+        private const string PrimaryPrefix = "**";
+
         public static string SanitizeBenchmarkName(string value)
         {
             string[] invalidBM = { "RP1", "RP2", "RP3", "RP4", "RP5", "TP1", "TP2", "TP3", "TP4", "TP5" };
@@ -286,7 +288,9 @@ namespace EhsnPlugin.Mappers
                 return value;
             if (invalidBM.Contains(value))
                 return null;
-            return value?.Trim('*');
+            if (value.StartsWith(PrimaryPrefix))
+                return value.Substring(PrimaryPrefix.Length).Trim();
+            return value;
         }
     }
 }
