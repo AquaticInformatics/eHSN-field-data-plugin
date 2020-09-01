@@ -246,6 +246,17 @@ namespace EhsnPlugin.Mappers
             dischargeSection.VelocityAverageValue = _ehsn.DisMeas.meanVel.ToNullableDouble();
             dischargeSection.VelocityUnitId = Units.VelocityUnitId;
             dischargeSection.DeploymentMethod = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.deployment, KnownMidSectionDeploymentTypes);
+            dischargeSection.MeterCalibration = new MeterCalibration
+            {
+                Configuration = "",
+                Model = _ehsn.InstrumentDeployment?.GeneralInfo?.model.WithDefaultValue(Config.UnknownMeterPlaceholder),
+                Manufacturer = _ehsn.InstrumentDeployment?.GeneralInfo?.manufacturer.WithDefaultValue(Config.UnknownMeterPlaceholder),
+                SerialNumber = _ehsn.InstrumentDeployment?.GeneralInfo?.serialNum.WithDefaultValue(Config.UnknownMeterPlaceholder),
+                FirmwareVersion = _ehsn.InstrumentDeployment?.GeneralInfo?.firmware,
+                SoftwareVersion = _ehsn.InstrumentDeployment?.GeneralInfo?.software,
+                MeterType = MeterType.PriceAa
+            };
+
 
             var meters = (_ehsn.MidsecMeas?.DischargeMeasurement?.MmtInitAndSummary?.MetersUsed ?? new Meter[0])
                 .Select(CreateMeterCalibration)
