@@ -201,7 +201,7 @@ namespace EhsnPlugin.Mappers
             }
             else
             {
-                var levelSurveyTime = new DateTimeOffset(levelNoteTimes.Sum(time => time.Ticks) / levelNoteTimes.Count, _locationInfo.UtcOffset);
+                var levelSurveyTime = new DateTimeOffset(levelNoteTimes.Sum(time => time.Ticks / levelNoteTimes.Count), _locationInfo.UtcOffset);
                 return new DateTimeOffset(
                         levelSurveyTime.Year,
                         levelSurveyTime.Month,
