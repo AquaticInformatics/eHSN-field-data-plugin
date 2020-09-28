@@ -238,7 +238,12 @@ namespace EhsnPlugin.Mappers
 
             dischargeSection.DischargeMethod = DischargeMethodType.MidSection;
 
-            dischargeSection.Comments = _ehsn.DisMeas.dischargeRemark;
+            //dischargeSection.Comments = _ehsn.DisMeas.dischargeRemark;
+            dischargeSection.Comments = string.Join("\n",
+                new[] {_ehsn.DisMeas.dischargeRemark, "+++++++++", string.Join(" - ", new[] {_ehsn.InstrumentDeployment?.GeneralInfo?.methodType, _ehsn.InstrumentDeployment?.GeneralInfo?.deployment, 
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.instrument, _ehsn.InstrumentDeployment?.GeneralInfo?.manufacturer, _ehsn.InstrumentDeployment?.GeneralInfo?.model, 
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.serialNum, _ehsn.InstrumentDeployment?.GeneralInfo?.structureType, _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod }.Where(s => !string.IsNullOrWhiteSpace(s)))}
+                    .Where(s => !string.IsNullOrWhiteSpace(s)));
 
             dischargeSection.AreaUnitId = Units.AreaUnitId;
             dischargeSection.AreaValue = _ehsn.DisMeas.area.ToNullableDouble();
@@ -246,6 +251,17 @@ namespace EhsnPlugin.Mappers
             dischargeSection.VelocityAverageValue = _ehsn.DisMeas.meanVel.ToNullableDouble();
             dischargeSection.VelocityUnitId = Units.VelocityUnitId;
             dischargeSection.DeploymentMethod = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.deployment, KnownMidSectionDeploymentTypes);
+            dischargeSection.MeterCalibration = new MeterCalibration
+            {
+                Configuration = "",
+                Model = _ehsn.InstrumentDeployment?.GeneralInfo?.model.WithDefaultValue(Config.UnknownMeterPlaceholder),
+                Manufacturer = _ehsn.InstrumentDeployment?.GeneralInfo?.manufacturer.WithDefaultValue(Config.UnknownMeterPlaceholder),
+                SerialNumber = _ehsn.InstrumentDeployment?.GeneralInfo?.serialNum.WithDefaultValue(Config.UnknownMeterPlaceholder),
+                FirmwareVersion = _ehsn.InstrumentDeployment?.GeneralInfo?.firmware,
+                SoftwareVersion = _ehsn.InstrumentDeployment?.GeneralInfo?.software,
+                MeterType = MeterType.PriceAa
+            };
+
 
             var meters = (_ehsn.MidsecMeas?.DischargeMeasurement?.MmtInitAndSummary?.MetersUsed ?? new Meter[0])
                 .Select(CreateMeterCalibration)
