@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using EhsnPlugin.Mappers;
@@ -31,15 +32,37 @@ namespace EhsnPlugin
 
         private Config LoadConfig()
         {
-            var configPath = Path.Combine(
-                // ReSharper disable once AssignNullToNotNullAttribute
-                Path.GetDirectoryName(GetType().Assembly.Location),
-                $"{nameof(Config)}.json");
+            var settings = _appender.GetPluginConfigurations();
 
-            if (!File.Exists(configPath))
-                return new Config();
+            if (settings == null || !settings.TryGetValue(nameof(Config), out var jsonText) || string.IsNullOrWhiteSpace(jsonText))
+            {
+                jsonText = GetDefaultConfiguration();
+            }
 
-            return File.ReadAllText(configPath).FromJson<Config>();
+            return jsonText.FromJson<Config>();
+        }
+
+        private string GetDefaultConfiguration()
+        {
+            using (var stream = new MemoryStream(LoadEmbeddedResource("Config.json")))
+            using (var reader = new StreamReader(stream))
+            {
+                return reader.ReadToEnd();
+            }
+        }
+
+        private static byte[] LoadEmbeddedResource(string path)
+        {
+            // ReSharper disable once PossibleNullReferenceException
+            var resourceName = $"{MethodBase.GetCurrentMethod().DeclaringType.Namespace}.{path}";
+
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName))
+            {
+                if (stream == null)
+                    throw new ArgumentException($"Can't load '{resourceName}' as embedded resource.");
+
+                return stream.ReadFully();
+            }
         }
 
         public EHSN LoadFromStream(Stream stream)
