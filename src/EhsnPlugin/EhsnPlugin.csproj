@@ -35,8 +35,8 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FieldDataPluginFramework, Version=2.9.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\Aquarius.FieldDataFramework.20.2.0\lib\net472\FieldDataPluginFramework.dll</HintPath>
+    <Reference Include="FieldDataPluginFramework, Version=2.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aquarius.FieldDataFramework.20.3.7\lib\net472\FieldDataPluginFramework.dll</HintPath>
     </Reference>
     <Reference Include="MoreLinq, Version=3.1.1.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
       <HintPath>..\packages\morelinq.3.1.1\lib\net451\MoreLinq.dll</HintPath>
@@ -97,7 +97,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions />
   <PropertyGroup>
-    <PostBuildEvent>$(SolutionDir)packages\Aquarius.FieldDataFramework.20.2.0\tools\PluginPackager.exe $(TargetPath) /OutputPath=$(ProjectDir)deploy\$(Configuration)\$(TargetName).plugin /Description="Imports eHSN XML files into AQTS field visits"
-$(SolutionDir)packages\Aquarius.FieldDataFramework.20.2.0\tools\PluginTester.exe /Plugin=$(TargetPath) /Data=$(SolutionDir)..\data\*.xml</PostBuildEvent>
+    <PostBuildEvent>$(SolutionDir)packages\Aquarius.FieldDataFramework.20.3.7\tools\PluginPackager.exe $(TargetPath) /OutputPath=$(ProjectDir)deploy\$(Configuration)\$(TargetName).plugin /Description="Imports eHSN XML files into AQTS field visits"
+$(SolutionDir)packages\Aquarius.FieldDataFramework.20.3.7\tools\PluginTester.exe /Plugin=$(TargetPath) /Data=$(SolutionDir)..\data\*.xml</PostBuildEvent>
   </PropertyGroup>
 </Project>
