@@ -243,9 +243,9 @@ namespace EhsnPlugin.Mappers
 
             if (!string.IsNullOrWhiteSpace(conditionTypeText))
             {
-                if (Config.KnownControlConditions.ContainsKey(conditionTypeText))
+                if (Config.KnownControlConditions.TryGetValue(conditionTypeText, out var controlConditionValue))
                 {
-                    controlCondition.ConditionType = new ControlConditionPickList(conditionTypeText);
+                    controlCondition.ConditionType = new ControlConditionPickList(controlConditionValue);
                 }
                 else
                 {
