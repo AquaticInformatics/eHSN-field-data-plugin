@@ -147,7 +147,9 @@ namespace EhsnPlugin.Mappers
 
             if (isAverage)
             {
-                var meanGageHeight = gageHeightMeasurements.Average(ghm => ghm.GageHeight.Value);
+                var meanGageHeight = gageHeightMeasurements
+                    .Where(ghm => ghm.Include)
+                    .Average(ghm => ghm.GageHeight.Value);
 
                 isAverage = stageMeasurementSummary.CorrectedMeanGageHeight.ToString("F3").Equals(meanGageHeight.ToString("F3"));
             }
