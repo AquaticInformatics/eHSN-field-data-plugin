@@ -163,11 +163,14 @@ namespace EhsnPlugin.Mappers
             }
             else
             {
-                dischargeActivity.ManuallyCalculatedMeanGageHeight = new Measurement(stageMeasurementSummary.CorrectedMeanGageHeight, Units.DistanceUnitId);
+                dischargeActivity.ManuallyCalculatedMeanGageHeight = new Measurement(stageMeasurementSummary.MeanGageHeight, Units.DistanceUnitId);
+                dischargeActivity.GageHeightAdjustmentAmount = stageMeasurementSummary.SensorResetCorrection +
+                                                               stageMeasurementSummary.GageCorrection;
+                dischargeActivity.GageHeightComments = meanGaugeHeightComment;
             }
 
             dischargeActivity.Comments = string.Join("\n",
-                new[] {dischargeActivity.Comments, meanGaugeHeightComment, _ehsn.StageMeas?.stageRemark, _ehsn.InstrumentDeployment?.GeneralInfo?.methodType, _ehsn.InstrumentDeployment?.GeneralInfo?.structureType, _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod }
+                new[] {dischargeActivity.Comments, _ehsn.StageMeas?.stageRemark, _ehsn.InstrumentDeployment?.GeneralInfo?.methodType, _ehsn.InstrumentDeployment?.GeneralInfo?.structureType, _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod }
                     .Where(s => !string.IsNullOrWhiteSpace(s)));
         }
 

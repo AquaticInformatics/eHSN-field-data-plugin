@@ -201,42 +201,47 @@ namespace EhsnPlugin.Mappers
             var wl1 = stageMeasurement.WL1.ToNullableDouble();
             var hg2 = stageMeasurement.HG2.ToNullableDouble();
             var wl2 = stageMeasurement.WL2.ToNullableDouble();
-            var src = stageMeasurement.SRC.ToNullableDouble();
+            var sensorResetCorrection = stageMeasurement.SRC.ToNullableDouble();
             var srcAction = stageMeasurement.SRCApp;
             var readingType = stageMeasurement.ReadingType;
             var wl1Header = SanitizeBenchmarkName(_eHsn?.StageMeas?.WL1Header);
             var wl2Header = SanitizeBenchmarkName(_eHsn?.StageMeas?.WL2Header);
-            var gc1 = _eHsn?.StageMeas?.GCWL1.ToNullableDouble();
-            var gc2 = _eHsn?.StageMeas?.GCWL2.ToNullableDouble();
+            var gaugeCorrection1 = _eHsn?.StageMeas?.GCHG1.ToNullableDouble();
+            var gaugeCorrection2 = _eHsn?.StageMeas?.GCHG2.ToNullableDouble();
             string hg1Header = "WL Source: HG";
             string hg2Header = "WL Source: HG2";
 
-            AddLoggerReading(readings, time, hg1, hg1Header, src, srcAction);
-            AddLoggerReading(readings, time, hg2, hg2Header, src, srcAction);
-            AddWaterLevelReading(readings, time, wl1, gc1, wl1Header, hg1, hg2, src, srcAction, readingType);
-            AddWaterLevelReading(readings, time, wl2, gc2, wl2Header, hg1, hg2, src, srcAction, readingType);
+            AddLoggerReading(readings, time, hg1, gaugeCorrection1, hg1Header, sensorResetCorrection, srcAction);
+            AddLoggerReading(readings, time, hg2, gaugeCorrection2, hg2Header, sensorResetCorrection, srcAction);
+            AddWaterLevelReading(readings, time, wl1, gaugeCorrection1, wl1Header, hg1, hg2, sensorResetCorrection, srcAction, readingType);
+            AddWaterLevelReading(readings, time, wl2, gaugeCorrection2, wl2Header, hg1, hg2, sensorResetCorrection, srcAction, readingType);
         }
 
-        private void AddWaterLevelReading(List<Reading> readings, DateTimeOffset time, double? wl, double? gc, string wlHeader,
-             double? hg1, double? hg2, double? src, string srcAction, string readingType)
+        private void AddWaterLevelReading(
+            List<Reading> readings,
+            DateTimeOffset time,
+            double? wl,
+            double? gaugeCorrection,
+            string wlHeader,
+            double? hg1,
+            double? hg2,
+            double? sensorResetCorrection,
+            string srcAction,
+            string readingType)
         {
             if (!wl.HasValue) return;
 
-            var hgComments = GetHgComment(gc, hg1, hg2);
-
-            if (gc.HasValue)
-            {
-                wl += gc;
-            }
+            var hgComments = GetHgComment(gaugeCorrection, hg1, hg2);
 
             var reading = AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, wl.ToString());
 
             reading.Method = Config.StageWaterLevelMethodCode;
+            reading.AdjustmentAmount = gaugeCorrection;
             reading.ReferencePointName = wlHeader;
             reading.Publish = true;
             reading.ReadingType = Enum.TryParse<ReadingType>(readingType, true, out var value) ? value : ReadingType.Unknown;
 
-            AddReadingComments(reading, src, srcAction, hgComments.ToArray());
+            AddReadingComments(reading, sensorResetCorrection, srcAction, hgComments.ToArray());
         }
 
         private IEnumerable<string> GetHgComment(double? gc, double? hg1, double? hg2)
@@ -251,7 +256,14 @@ namespace EhsnPlugin.Mappers
                 yield return $"HG2: {hg2:F3}";
         }
 
-        private void AddLoggerReading(List<Reading> readings, DateTimeOffset time, double? hg, string hgHeader, double? src, string srcAction)
+        private void AddLoggerReading(
+            List<Reading> readings,
+            DateTimeOffset time,
+            double? hg,
+            double? gaugeCorrection,
+            string hgHeader,
+            double? sensorResetCorrection,
+            string srcAction)
         {
             if (!hg.HasValue) return;
 
@@ -259,15 +271,22 @@ namespace EhsnPlugin.Mappers
 
             reading.Method = Config.StageLoggerMethodCode;
 
-            AddReadingComments(reading, src, srcAction, hgHeader);
+            var adjustmentAmount = sensorResetCorrection + gaugeCorrection;
+
+            if (HasAdjustmentAmount(adjustmentAmount))
+            {
+                reading.AdjustmentAmount = adjustmentAmount;
+            }
+
+            AddReadingComments(reading, sensorResetCorrection, srcAction, hgHeader);
         }
 
-        private void AddReadingComments(Reading reading, double? src, string srcAction, params string[] otherComments)
+        private void AddReadingComments(Reading reading, double? sensorResetCorrection, string srcAction, params string[] otherComments)
         {
             var comments = otherComments
                 .Concat(new []
                 {
-                    src.HasValue && !DoubleHelper.AreSame(src, 0.0) ? $"SRC: {src:F3}" : null,
+                    HasAdjustmentAmount(sensorResetCorrection) ? $"SRC: {sensorResetCorrection:F3}" : null,
                     srcAction,
                 })
                 .Where(s => !string.IsNullOrWhiteSpace(s))
@@ -277,6 +296,11 @@ namespace EhsnPlugin.Mappers
             {
                 reading.Comments = string.Join("\r\n", comments);
             }
+        }
+
+        private static bool HasAdjustmentAmount(double? adjustmentAmount)
+        {
+            return adjustmentAmount.HasValue && !DoubleHelper.AreSame(adjustmentAmount, 0);
         }
 
         private const string PrimaryPrefix = "**";
