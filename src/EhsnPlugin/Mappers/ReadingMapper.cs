@@ -201,6 +201,7 @@ namespace EhsnPlugin.Mappers
             var wl1 = stageMeasurement.WL1.ToNullableDouble();
             var hg2 = stageMeasurement.HG2.ToNullableDouble();
             var wl2 = stageMeasurement.WL2.ToNullableDouble();
+            var surge = stageMeasurement.Surge.ToNullableDouble();
             var sensorResetCorrection = stageMeasurement.SRC.ToNullableDouble();
             var srcAction = stageMeasurement.SRCApp;
             var readingType = stageMeasurement.ReadingType;
@@ -211,10 +212,10 @@ namespace EhsnPlugin.Mappers
             string hg1Header = "WL Source: HG";
             string hg2Header = "WL Source: HG2";
 
-            AddLoggerReading(readings, time, hg1, gaugeCorrection1, hg1Header, sensorResetCorrection, srcAction);
-            AddLoggerReading(readings, time, hg2, gaugeCorrection2, hg2Header, sensorResetCorrection, srcAction);
-            AddWaterLevelReading(readings, time, wl1, gaugeCorrection1, wl1Header, hg1, hg2, sensorResetCorrection, srcAction, readingType);
-            AddWaterLevelReading(readings, time, wl2, gaugeCorrection2, wl2Header, hg1, hg2, sensorResetCorrection, srcAction, readingType);
+            AddLoggerReading(readings, time, hg1, gaugeCorrection1, hg1Header, sensorResetCorrection, srcAction, surge);
+            AddLoggerReading(readings, time, hg2, gaugeCorrection2, hg2Header, sensorResetCorrection, srcAction, surge);
+            AddWaterLevelReading(readings, time, wl1, gaugeCorrection1, wl1Header, hg1, hg2, sensorResetCorrection, srcAction, readingType, surge);
+            AddWaterLevelReading(readings, time, wl2, gaugeCorrection2, wl2Header, hg1, hg2, sensorResetCorrection, srcAction, readingType, surge);
         }
 
         private void AddWaterLevelReading(
@@ -227,7 +228,8 @@ namespace EhsnPlugin.Mappers
             double? hg2,
             double? sensorResetCorrection,
             string srcAction,
-            string readingType)
+            string readingType,
+            double? surge)
         {
             if (!wl.HasValue) return;
 
@@ -240,6 +242,7 @@ namespace EhsnPlugin.Mappers
             reading.ReferencePointName = wlHeader;
             reading.Publish = true;
             reading.ReadingType = Enum.TryParse<ReadingType>(readingType, true, out var value) ? value : ReadingType.Unknown;
+            reading.Uncertainty = surge;
 
             AddReadingComments(reading, sensorResetCorrection, srcAction, hgComments.ToArray());
         }
@@ -263,13 +266,15 @@ namespace EhsnPlugin.Mappers
             double? gaugeCorrection,
             string hgHeader,
             double? sensorResetCorrection,
-            string srcAction)
+            string srcAction,
+            double? surge)
         {
             if (!hg.HasValue) return;
 
             var reading = AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, hg.ToString());
 
             reading.Method = Config.StageLoggerMethodCode;
+            reading.Uncertainty = surge;
 
             var adjustmentAmount = sensorResetCorrection + gaugeCorrection;
 

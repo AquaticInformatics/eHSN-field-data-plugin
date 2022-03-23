@@ -706,6 +706,8 @@ public partial class EHSNStageMeasStageMeasRow {
     private string wL1Field;
     
     private string wL2Field;
+
+    private string surgeField;
     
     private string sRCField;
     
@@ -766,7 +768,20 @@ public partial class EHSNStageMeasStageMeasRow {
             this.wL2Field = value;
         }
     }
-    
+
+    /// <remarks/>
+    public string Surge
+    {
+        get
+        {
+            return this.surgeField;
+        }
+        set
+        {
+            this.surgeField = value;
+        }
+    }
+
     /// <remarks/>
     public string SRC {
         get {
@@ -4854,7 +4869,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelPointMeasurem
     
     private string measurementDepthField;
     
-    private byte revolutionsField;
+    private int revolutionsField;
     
     private string elapsedTimeField;
     
@@ -4885,7 +4900,7 @@ public partial class EHSNMidsecMeasDischargeMeasurementChannelPanelPointMeasurem
     }
     
     /// <remarks/>
-    public byte Revolutions {
+    public int Revolutions {
         get {
             return this.revolutionsField;
         }

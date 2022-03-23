@@ -223,14 +223,44 @@ namespace EhsnPlugin.Mappers
                     return CreateAdcpMeasurement(dischargeActivity, discharge);
 
                 case InstrumentDeploymentType.EngineeredStructures:
-                    return CreateMidSectionMeasurement(dischargeActivity, discharge);
+                    return CreateEngineeredMeasurement(dischargeActivity, discharge);
 
                 case InstrumentDeploymentType.OtherMethods:
-                    return CreateMidSectionMeasurement(dischargeActivity, discharge);
+                    return CreateOtherMeasurement(dischargeActivity, discharge);
 
             }
 
             throw new ArgumentException($"Can't create discharge section for measurement type = '{dischargeMeasurementType}'");
+        }
+
+        private EngineeredStructureDischarge CreateEngineeredMeasurement(DischargeActivity dischargeActivity, double discharge)
+        {
+            return new EngineeredStructureDischarge(
+                dischargeActivity.MeasurementPeriod,
+                Config.DefaultChannelName,
+                new Measurement(discharge, Units.DischargeUnitId),
+                Units.DistanceUnitId,
+                Units.DistanceUnitId)
+            {
+
+                EngineeredStructureType = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.structureType, KnownEngineeredStructureTypes),
+                Comments = _ehsn.DisMeas.dischargeRemark
+            };
+        }
+
+        private OtherDischargeSection CreateOtherMeasurement(DischargeActivity dischargeActivity, double discharge)
+        {
+            return new OtherDischargeSection(
+                dischargeActivity.MeasurementPeriod,
+                Config.DefaultChannelName,
+                new Measurement(discharge, Units.DischargeUnitId),
+                Units.DistanceUnitId,
+                _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod)
+            {
+
+                MonitoringMethodCode = _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod,
+                Comments = _ehsn.DisMeas.dischargeRemark
+            };
         }
 
         private ManualGaugingDischargeSection CreateMidSectionMeasurement(DischargeActivity dischargeActivity, double discharge)
@@ -264,7 +294,10 @@ namespace EhsnPlugin.Mappers
                 SerialNumber = _ehsn.InstrumentDeployment?.GeneralInfo?.serialNum.WithDefaultValue(Config.UnknownMeterPlaceholder),
                 FirmwareVersion = _ehsn.InstrumentDeployment?.GeneralInfo?.firmware,
                 SoftwareVersion = _ehsn.InstrumentDeployment?.GeneralInfo?.software,
-                MeterType = MeterType.PriceAa
+                MeterType = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.instrument, KnownMeterTypes) != default ?
+                            GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.instrument, KnownMeterTypes) :
+                            GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.model, KnownMeterTypes) != default ?
+                            GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.model, KnownMeterTypes) : default
             };
 
 
@@ -788,6 +821,13 @@ namespace EhsnPlugin.Mappers
                 {"Composite (BT)", DepthReferenceType.Composite},
                 {"Composite (VB)", DepthReferenceType.Composite},
                 {"Depth Sounder", DepthReferenceType.DepthSounder},
+            };
+
+        private static readonly Dictionary<string, EngineeredStructureType> KnownEngineeredStructureTypes =
+            new Dictionary<string, EngineeredStructureType>(StringComparer.InvariantCultureIgnoreCase)
+            {
+                {"Weir", EngineeredStructureType.Weir},
+                {"Flume", EngineeredStructureType.Flume},
             };
     }
 }
