@@ -40,6 +40,9 @@ namespace EhsnPlugin.DataModel
 
         public static string SanitizeBenchmarkName(string value)
         {
+            if (string.IsNullOrEmpty(value))
+                return value;
+
             if (value.StartsWith(PrimaryPrefix))
                 return value.Substring(PrimaryPrefix.Length).Trim();
 

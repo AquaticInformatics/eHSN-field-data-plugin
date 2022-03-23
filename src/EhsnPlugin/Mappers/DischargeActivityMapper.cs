@@ -147,7 +147,9 @@ namespace EhsnPlugin.Mappers
 
             if (isAverage)
             {
-                var meanGageHeight = gageHeightMeasurements.Average(ghm => ghm.GageHeight.Value);
+                var meanGageHeight = gageHeightMeasurements
+                    .Where(ghm => ghm.Include)
+                    .Average(ghm => ghm.GageHeight.Value);
 
                 isAverage = stageMeasurementSummary.CorrectedMeanGageHeight.ToString("F3").Equals(meanGageHeight.ToString("F3"));
             }
@@ -161,11 +163,14 @@ namespace EhsnPlugin.Mappers
             }
             else
             {
-                dischargeActivity.ManuallyCalculatedMeanGageHeight = new Measurement(stageMeasurementSummary.CorrectedMeanGageHeight, Units.DistanceUnitId);
+                dischargeActivity.ManuallyCalculatedMeanGageHeight = new Measurement(stageMeasurementSummary.MeanGageHeight, Units.DistanceUnitId);
+                dischargeActivity.GageHeightAdjustmentAmount = stageMeasurementSummary.SensorResetCorrection +
+                                                               stageMeasurementSummary.GageCorrection;
+                dischargeActivity.GageHeightComments = meanGaugeHeightComment;
             }
 
             dischargeActivity.Comments = string.Join("\n",
-                new[] {dischargeActivity.Comments, meanGaugeHeightComment, _ehsn.StageMeas?.stageRemark, _ehsn.InstrumentDeployment?.GeneralInfo?.methodType, _ehsn.InstrumentDeployment?.GeneralInfo?.structureType, _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod }
+                new[] {dischargeActivity.Comments, _ehsn.StageMeas?.stageRemark, _ehsn.InstrumentDeployment?.GeneralInfo?.methodType, _ehsn.InstrumentDeployment?.GeneralInfo?.structureType, _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod }
                     .Where(s => !string.IsNullOrWhiteSpace(s)));
         }
 

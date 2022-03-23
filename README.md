@@ -19,8 +19,9 @@ Choose the appropriate version of the plugin for your AQTS app server.
 
 | AQTS Version | Latest compatible plugin Version |
 | --- | --- |
-| AQTS 2020.3+ | [v20.3.0](https://github.com/AquaticInformatics/eHSN-field-data-plugin/releases/download/v20.3.0/EhsnPlugin.plugin) |
-| AQTS 2020.2<br/>AQTS 2020.1<br/>AQTS 2019.4<br/>AQTS 2019.3<br/>AQTS 2019.2 | [v19.2.22](https://github.com/AquaticInformatics/eHSN-field-data-plugin/releases/download/v19.2.22/EhsnPlugin.plugin) |
+| AQTS 2021.3.Update 1+ | [v21.3.0](https://github.com/AquaticInformatics/eHSN-field-data-plugin/releases/download/v21.3.0/EhsnPlugin.plugin) |
+| AQTS 2020.3+ | [v20.3.1](https://github.com/AquaticInformatics/eHSN-field-data-plugin/releases/download/v20.3.1/EhsnPlugin.plugin) |
+| AQTS 2020.2<br/>AQTS 2020.1<br/>AQTS 2019.4<br/>AQTS 2019.3<br/>AQTS 2019.2 | [v19.2.26](https://github.com/AquaticInformatics/eHSN-field-data-plugin/releases/download/v19.2.26/EhsnPlugin.plugin) |
 
 ## Configuring the plugin
 
@@ -28,13 +29,13 @@ The plugin can be configured via a [`Config.json`](./src/EhsnPlugin/Config.json)
 
 The configurable values include:
 - Parameter IDs, unit IDs, and monitoring method codes for various sensors
-- Configurable picklist values
+- Configurable picklist values. Values can be mapped to either the `List Item ID` (eg. `"Ice": "IceCover"`) or the `List Item Name` (eg. `"Ice": "Ice - Cover"`).
 
 The JSON configuration is stored in different places, depending on the version of the plugin.
 
 | Version | Configuration location |
 | --- | --- |
-| 20.2.x | Use the Settings page of the System Config app to change the settings.<br/><br/>**Group**: `FieldDataPluginConfig-EhsnPlugin`<br/>**Key**: `Config`<br/>**Value**: The entire contents of the Config.json file. If blank or omitted, the plugin's default [`Config.json`](./src/EhsnPlugin/Config.json) is used. |
+| 20.2.x+ | Use the Settings page of the System Config app to change the settings.<br/><br/>**Group**: `FieldDataPluginConfig-Ehsn`<br/>**Key**: `Config`<br/>**Value**: The entire contents of the Config.json file. If blank or omitted, the plugin's default [`Config.json`](./src/EhsnPlugin/Config.json) is used. |
 | 19.2.x | Read from the `Config.json` file in the plugin folder, at `%ProgramData%\Aquatic Informatics\AQUARIUS Server\FieldDataPlugins\EhsnPlugin\Config.json` |
 
 ### Do I need to configure the plugin?
@@ -50,6 +51,7 @@ If an EHSN XML file fails to import into your AQTS app server, then some configu
 The likely items which may need to be configured are:
 - [StageLoggerMethodCode](./src/EhsnPlugin/Config.json#L7) and [Voltage.SensorMethodCode](./src/EhsnPlugin/Config.json#L112)
 - `ParameterId` values for the [KnownSensors](./src/EhsnPlugin/Config.json#L28-L138) list.
+- Picklist mappings for the [KnownControlConditions](./src/EhsnPlugin/Config.json#L9-L17) list.
 
 ## Building the plugin
 
