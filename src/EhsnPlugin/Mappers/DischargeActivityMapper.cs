@@ -256,7 +256,16 @@ namespace EhsnPlugin.Mappers
             {
 
                 EngineeredStructureType = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.structureType, KnownEngineeredStructureTypes),
-                Comments = _ehsn.DisMeas.dischargeRemark
+                Comments = string.Join("\n",
+                new[] 
+                {
+                    _ehsn.DisMeas.dischargeRemark, "+++++++++", string.Join(" - ",
+                    new[] 
+                    {
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.position,
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.gauge1
+                    }.Where(s => !string.IsNullOrWhiteSpace(s)))
+                }.Where(s => !string.IsNullOrWhiteSpace(s)))
             };
         }
 
@@ -271,7 +280,16 @@ namespace EhsnPlugin.Mappers
             {
 
                 MonitoringMethodCode = _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod,
-                Comments = _ehsn.DisMeas.dischargeRemark
+                Comments = string.Join("\n",
+                new[]
+                {
+                    _ehsn.DisMeas.dischargeRemark, "+++++++++", string.Join(" - ",
+                    new[]
+                    {
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.position,
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.gauge1
+                    }.Where(s => !string.IsNullOrWhiteSpace(s)))
+                }.Where(s => !string.IsNullOrWhiteSpace(s)))
             };
         }
 
@@ -287,9 +305,18 @@ namespace EhsnPlugin.Mappers
 
             //dischargeSection.Comments = _ehsn.DisMeas.dischargeRemark;
             dischargeSection.Comments = string.Join("\n",
-                new[] {_ehsn.DisMeas.dischargeRemark, "+++++++++", string.Join(" - ", new[] {_ehsn.InstrumentDeployment?.GeneralInfo?.methodType, _ehsn.InstrumentDeployment?.GeneralInfo?.deployment, 
-                    _ehsn.InstrumentDeployment?.GeneralInfo?.instrument, _ehsn.InstrumentDeployment?.GeneralInfo?.manufacturer, _ehsn.InstrumentDeployment?.GeneralInfo?.model, 
-                    _ehsn.InstrumentDeployment?.GeneralInfo?.serialNum, _ehsn.InstrumentDeployment?.GeneralInfo?.structureType, _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod }.Where(s => !string.IsNullOrWhiteSpace(s)))}
+                new[] {_ehsn.DisMeas.dischargeRemark, "+++++++++", string.Join(" - ", 
+                new[] {_ehsn.InstrumentDeployment?.GeneralInfo?.methodType, 
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.deployment, 
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.instrument, 
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.manufacturer, 
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.model, 
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.serialNum, 
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.structureType, 
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod,
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.position,
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.gauge1
+                    }.Where(s => !string.IsNullOrWhiteSpace(s)))}
                     .Where(s => !string.IsNullOrWhiteSpace(s)));
 
             dischargeSection.AreaUnitId = Units.AreaUnitId;
@@ -751,8 +778,16 @@ namespace EhsnPlugin.Mappers
                 TransducerDepth = _ehsn.InstrumentDeployment?.ADCPInfo?.depth.ToNullableDouble(),
                 DeploymentMethod = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.deployment, KnownAdcpDeploymentTypes),
                 DepthReference = GetMappedEnum(_ehsn.MovingBoatMeas?.depthRefCmbo, KnownDepthReferenceTypes),
-                Comments = _ehsn.MovingBoatMeas?.ADCPMeasResults?.comments ?? _ehsn.DisMeas.dischargeRemark,
-                BottomEstimateExponent = _ehsn.MovingBoatMeas?.velocityExponentCtrl.ToNullableDouble(),
+                //Comments = _ehsn.MovingBoatMeas?.ADCPMeasResults?.comments ?? _ehsn.DisMeas.dischargeRemark,
+                Comments = string.Join("\n",
+                new[] {_ehsn.MovingBoatMeas?.ADCPMeasResults?.comments ?? _ehsn.DisMeas.dischargeRemark, "+++++++++", 
+                    string.Join(" - ", new[] 
+                    {
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.position,
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.gauge1
+                    }.Where(s => !string.IsNullOrWhiteSpace(s)))}
+                    .Where(s => !string.IsNullOrWhiteSpace(s))),
+            BottomEstimateExponent = _ehsn.MovingBoatMeas?.velocityExponentCtrl.ToNullableDouble(),
                 TopEstimateMethod = GetPicklistItem(_ehsn.MovingBoatMeas?.velocityTopCombo, Config.KnownTopEstimateMethods, s => new TopEstimateMethodPickList(s)),
                 BottomEstimateMethod = GetPicklistItem(_ehsn.MovingBoatMeas?.velocityTopCombo, Config.KnownBottomEstimateMethods, s => new BottomEstimateMethodPickList(s)),
                 NumberOfTransects = (_ehsn.MovingBoatMeas?.ADCPMeasTable ?? new EHSNMovingBoatMeasADCPMeasRow[0])
