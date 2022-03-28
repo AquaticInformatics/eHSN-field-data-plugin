@@ -302,6 +302,11 @@ namespace EhsnPlugin.Mappers
                 adjustmentAmount = sensorResetCorrection;
             }
 
+            if (!sensorResetCorrection.HasValue)
+            {
+                adjustmentAmount = gaugeCorrection;
+            }
+
             reading.AdjustmentAmount = adjustmentAmount;
 
             if (gaugeCorrection.HasValue)
