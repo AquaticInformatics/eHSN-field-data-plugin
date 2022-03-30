@@ -336,7 +336,7 @@ namespace EhsnPlugin.Mappers
                 MeterType = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.instrument, KnownMeterTypes) != default ?
                             GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.instrument, KnownMeterTypes) :
                             GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.model, KnownMeterTypes) != default ?
-                            GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.model, KnownMeterTypes) : default
+                            GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.model, KnownMeterTypes) : MeterType.Unspecified
             };
 
 
@@ -850,6 +850,7 @@ namespace EhsnPlugin.Mappers
                 {"FlowTracker", MeterType.Adv},
                 {"ADCP", MeterType.Adcp},
                 {"ADV", MeterType.Adv},
+                {"" ,MeterType.Unspecified}
             };
 
         private static readonly Dictionary<string, AdcpDeploymentMethodType> KnownAdcpDeploymentTypes =
