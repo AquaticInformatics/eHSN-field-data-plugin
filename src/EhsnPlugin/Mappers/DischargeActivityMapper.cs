@@ -848,6 +848,8 @@ namespace EhsnPlugin.Mappers
                 {"Price AA", MeterType.PriceAa},
                 {"Pygmy", MeterType.Pygmy},
                 {"FlowTracker", MeterType.Adv},
+                {"ADCP", MeterType.Adcp},
+                {"ADV", MeterType.Adv},
             };
 
         private static readonly Dictionary<string, AdcpDeploymentMethodType> KnownAdcpDeploymentTypes =
