@@ -864,6 +864,8 @@ public partial class EHSNDisMeas {
     private string mghCmboField;
     
     private string dischargeField;
+
+    private string uncertaintyField;
     
     private string dischComboField;
     
@@ -980,7 +982,20 @@ public partial class EHSNDisMeas {
             this.dischargeField = value;
         }
     }
-    
+
+    /// <remarks/>
+    public string uncertainty
+    {
+        get
+        {
+            return this.uncertaintyField;
+        }
+        set
+        {
+            this.uncertaintyField = value;
+        }
+    }
+
     /// <remarks/>
     public string dischCombo {
         get {

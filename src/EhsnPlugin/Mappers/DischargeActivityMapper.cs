@@ -153,7 +153,7 @@ namespace EhsnPlugin.Mappers
 
                 isAverage = stageMeasurementSummary.CorrectedMeanGageHeight.ToString("F3").Equals(meanGageHeight.ToString("F3"));
             }
-
+            /*
             if (isAverage)
             {
                 foreach (var gageHeightMeasurement in gageHeightMeasurements)
@@ -180,10 +180,33 @@ namespace EhsnPlugin.Mappers
                 }
                 
             }
+            */
+            dischargeActivity.ManuallyCalculatedMeanGageHeight = new Measurement(stageMeasurementSummary.MeanGageHeight, Units.DistanceUnitId);
+            if (stageMeasurementSummary.SensorResetCorrection.HasValue)
+            {
+                dischargeActivity.GageHeightAdjustmentAmount = stageMeasurementSummary.SensorResetCorrection +
+                                                                               stageMeasurementSummary.GageCorrection;
+
+                dischargeActivity.GageHeightComments = meanGaugeHeightComment;
+            }
+            else
+            {
+                dischargeActivity.GageHeightAdjustmentAmount = stageMeasurementSummary.GageCorrection;
+                dischargeActivity.GageHeightComments = meanGaugeHeightComment;
+            }
 
             dischargeActivity.Comments = string.Join("\n",
                 new[] {dischargeActivity.Comments, _ehsn.StageMeas?.stageRemark, _ehsn.InstrumentDeployment?.GeneralInfo?.methodType, _ehsn.InstrumentDeployment?.GeneralInfo?.structureType, _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod }
                     .Where(s => !string.IsNullOrWhiteSpace(s)));
+
+            var uncertainty =  _ehsn.DisMeas.uncertainty;
+
+            if (uncertainty != null)
+            {
+                dischargeActivity.ActiveUncertaintyType = UncertaintyType.Quantitative;
+                dischargeActivity.QuantitativeUncertainty = double.Parse(uncertainty, System.Globalization.CultureInfo.InvariantCulture);
+                dischargeActivity.QualityAssuranceComments = dischargeActivity.Comments;
+            }
         }
 
         private IEnumerable<GageHeightMeasurement> GetGageHeightMeasurements(MeanGageHeightSelector selector)
@@ -303,7 +326,8 @@ namespace EhsnPlugin.Mappers
 
             dischargeSection.DischargeMethod = DischargeMethodType.MidSection;
 
-            //dischargeSection.Comments = _ehsn.DisMeas.dischargeRemark;
+            // dischargeSection.Comments = _ehsn.DisMeas.dischargeRemark;
+            
             dischargeSection.Comments = string.Join("\n",
                 new[] {_ehsn.DisMeas.dischargeRemark, "+++++++++", string.Join(" - ", 
                 new[] {_ehsn.InstrumentDeployment?.GeneralInfo?.methodType, 
@@ -318,13 +342,14 @@ namespace EhsnPlugin.Mappers
                     _ehsn.InstrumentDeployment?.GeneralInfo?.gauge1
                     }.Where(s => !string.IsNullOrWhiteSpace(s)))}
                     .Where(s => !string.IsNullOrWhiteSpace(s)));
-
+            
             dischargeSection.AreaUnitId = Units.AreaUnitId;
             dischargeSection.AreaValue = _ehsn.DisMeas.area.ToNullableDouble();
             dischargeSection.WidthValue = _ehsn.DisMeas.width.ToNullableDouble();
             dischargeSection.VelocityAverageValue = _ehsn.DisMeas.meanVel.ToNullableDouble();
             dischargeSection.VelocityUnitId = Units.VelocityUnitId;
             dischargeSection.DeploymentMethod = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.deployment, KnownMidSectionDeploymentTypes);
+
             dischargeSection.MeterCalibration = new MeterCalibration
             {
                 Configuration = "",
@@ -338,7 +363,6 @@ namespace EhsnPlugin.Mappers
                             GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.model, KnownMeterTypes) != default ?
                             GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.model, KnownMeterTypes) : MeterType.Unspecified
             };
-
 
             var meters = (_ehsn.MidsecMeas?.DischargeMeasurement?.MmtInitAndSummary?.MetersUsed ?? new Meter[0])
                 .Select(CreateMeterCalibration)

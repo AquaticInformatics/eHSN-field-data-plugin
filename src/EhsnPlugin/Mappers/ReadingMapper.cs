@@ -214,8 +214,8 @@ namespace EhsnPlugin.Mappers
             string hg1Header = "WL Source: HG";
             string hg2Header = "WL Source: HG2";
 
-            AddLoggerReading(readings, time, hg1, gaugeCorrection1, hg1Header, sensorResetCorrection, srcAction, surge, wl1, wl2);
-            AddLoggerReading(readings, time, hg2, gaugeCorrection2, hg2Header, sensorResetCorrection, srcAction, surge, wl1, wl2);
+            AddLoggerReading(readings, time, hg1, gaugeCorrection1, hg1Header, sensorResetCorrection, srcAction, wl1, wl2);
+            AddLoggerReading(readings, time, hg2, gaugeCorrection2, hg2Header, sensorResetCorrection, srcAction, wl1, wl2);
             AddWaterLevelReading(readings, time, wl1, gaugeCorrectionWL1, wl1Header, hg1, hg2, sensorResetCorrection, srcAction, readingType, surge);
             AddWaterLevelReading(readings, time, wl2, gaugeCorrectionWL2, wl2Header, hg1, hg2, sensorResetCorrection, srcAction, readingType, surge);
         }
@@ -235,7 +235,9 @@ namespace EhsnPlugin.Mappers
         {
             if (!wl.HasValue) return;
 
-            var hgComments = GetHgComment(gaugeCorrection, hg1, hg2);
+
+            var hgComments = GetHgComment(gaugeCorrection, hg1, hg2, surge);
+            
 
             var reading = AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, wl.ToString());
 
@@ -249,7 +251,7 @@ namespace EhsnPlugin.Mappers
             AddReadingComments(reading, null, srcAction, hgComments.ToArray());
         }
 
-        private IEnumerable<string> GetHgComment(double? gc, double? hg1, double? hg2)
+        private IEnumerable<string> GetHgComment(double? gc, double? hg1, double? hg2, double? surge)
         {
             if (gc.HasValue)
                 yield return $"GC: {gc:F3}";
@@ -259,6 +261,9 @@ namespace EhsnPlugin.Mappers
 
             if (hg2.HasValue)
                 yield return $"HG2: {hg2:F3}";
+
+            if (surge.HasValue)
+                yield return $"Surge: {surge:F3} \r\n* The uncertainty value is equivalent to the surge value in eHSN. ";
         }
 
         private void AddLoggerReading(
@@ -269,7 +274,6 @@ namespace EhsnPlugin.Mappers
             string hgHeader,
             double? sensorResetCorrection,
             string srcAction,
-            double? surge,
             double? wl1,
             double? wl2)
         {
@@ -278,7 +282,6 @@ namespace EhsnPlugin.Mappers
             var reading = AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, hg.ToString());
 
             reading.Method = Config.StageLoggerMethodCode;
-            reading.Uncertainty = surge;
 
             if (wl1.HasValue)
             {
