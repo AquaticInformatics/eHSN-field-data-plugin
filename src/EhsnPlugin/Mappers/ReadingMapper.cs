@@ -283,38 +283,19 @@ namespace EhsnPlugin.Mappers
 
             reading.Method = Config.StageLoggerMethodCode;
 
+            if (gaugeCorrection.HasValue)
+            {
+                hgHeader += $"\r\nGC: {gaugeCorrection:F3}";
+            }
+
             if (wl1.HasValue)
             {
-                if (sensorResetCorrection != wl1 - hg)
-                {
-                    sensorResetCorrection = wl1 - hg;
-                }
+                sensorResetCorrection = wl1 - hg;
             }
 
             if (!wl1.HasValue && wl2.HasValue)
             {
-                if (sensorResetCorrection != wl2 - hg)
-                {
-                    sensorResetCorrection = wl2 - hg;
-                }
-            }
-
-            var adjustmentAmount = sensorResetCorrection + gaugeCorrection;
-            if (!gaugeCorrection.HasValue)
-            {
-                adjustmentAmount = sensorResetCorrection;
-            }
-
-            if (!sensorResetCorrection.HasValue)
-            {
-                adjustmentAmount = gaugeCorrection;
-            }
-
-            reading.AdjustmentAmount = adjustmentAmount;
-
-            if (gaugeCorrection.HasValue)
-            {
-                hgHeader += $"\r\nGC: {gaugeCorrection:F3}";
+                sensorResetCorrection = wl2 - hg;
             }
 
             AddReadingComments(reading, sensorResetCorrection, srcAction, hgHeader);
