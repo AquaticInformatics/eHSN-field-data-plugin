@@ -6,7 +6,7 @@ namespace EhsnPlugin
     public class Config
     {
         public string MinVersion { get; set; } = "v1.3";
-        public string MaxVersion { get; set; } = "v2.3.1";
+        public string MaxVersion { get; set; } = "v2.3.2";
         public string DefaultChannelName { get; set; } = ChannelMeasurementBaseConstants.DefaultChannelName;
         public string UnknownMeterPlaceholder { get; set; } = "Unknown";
         public string StageWaterLevelMethodCode { get; set; }
