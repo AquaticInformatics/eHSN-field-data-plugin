@@ -299,10 +299,9 @@ namespace EhsnPlugin.Mappers
                 Config.DefaultChannelName,
                 new Measurement(discharge, Units.DischargeUnitId),
                 Units.DistanceUnitId,
-                _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod)
+                "DefaultNone")
             {
 
-                MonitoringMethodCode = _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod,
                 Comments = string.Join("\n",
                 new[]
                 {
