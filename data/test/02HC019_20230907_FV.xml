@@ -1,0 +1,586 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="WSC_EHSN.xsml"?>
+<EHSN version="v2.3.2">
+	<TitleHeader/>
+	<GenInfo>
+		<station number="02HC019">DUFFINS CREEK ABOVE PICKERING</station>
+		<date timezone="EST">2023/09/07</date>
+	</GenInfo>
+	<StageMeas>
+		<HgCkbox>False</HgCkbox>
+		<Hg2Ckbox>False</Hg2Ckbox>
+		<Wlr1Ckbox>True</Wlr1Ckbox>
+		<Wlr2Ckbox>False</Wlr2Ckbox>
+		<HG1Header/>
+		<HG2Header/>
+		<WL1Header>MP 22-1</WL1Header>
+		<WL2Header>MP 22-1</WL2Header>
+		<StageMeasTable>
+			<StageMeasRow row="0">
+				<time>10:38</time>
+				<HG1>1.528</HG1>
+				<HG2/>
+				<WL1>1.530</WL1>
+				<WL2/>
+				<Surge/>
+				<SRC>0.002</SRC>
+				<SRCApp/>
+				<MghCkbox>False</MghCkbox>
+				<ReadingType/>
+			</StageMeasRow>
+			<StageMeasRow row="1">
+				<time>10:49</time>
+				<HG1>1.531</HG1>
+				<HG2/>
+				<WL1/>
+				<WL2/>
+				<Surge/>
+				<SRC/>
+				<SRCApp>Purged  (PU)</SRCApp>
+				<MghCkbox>False</MghCkbox>
+				<ReadingType/>
+			</StageMeasRow>
+			<StageMeasRow row="2">
+				<time>10:51</time>
+				<HG1>1.537</HG1>
+				<HG2/>
+				<WL1>1.537</WL1>
+				<WL2/>
+				<Surge/>
+				<SRC>0.000</SRC>
+				<SRCApp>G.C. Applied (GCA)</SRCApp>
+				<MghCkbox>True</MghCkbox>
+				<ReadingType/>
+			</StageMeasRow>
+		</StageMeasTable>
+		<hgCkbox>False</hgCkbox>
+		<hg2Ckbox>False</hg2Ckbox>
+		<wlr1Ckbox>True</wlr1Ckbox>
+		<wlr2Ckbox>False</wlr2Ckbox>
+		<MGHHG1/>
+		<MGHHG2/>
+		<MGHWL1>1.537</MGHWL1>
+		<MGHWL2/>
+		<SRCHG1/>
+		<SRCHG2/>
+		<GCHG1/>
+		<GCHG2/>
+		<GCWL1>0.000</GCWL1>
+		<GCWL2/>
+		<CMGHHG1/>
+		<CMGHHG2/>
+		<CMGHWL1>1.537</CMGHWL1>
+		<CMGHWL2/>
+		<MghMethod>Average</MghMethod>
+		<Factors/>
+		<stageRemark/>
+	</StageMeas>
+	<DisMeas>
+		<startTime>10:49</startTime>
+		<endTime>11:24</endTime>
+		<airTemp>24.0</airTemp>
+		<waterTemp>21.0</waterTemp>
+		<width imported="1">5.80</width>
+		<area imported="1">1.68</area>
+		<meanVel imported="1">0.319</meanVel>
+		<mgh>1.537</mgh>
+		<mghCmbo>1.537  (WLR1)</mghCmbo>
+		<discharge imported="1">0.535</discharge>
+		<uncertainty imported="1">9.90</uncertainty>
+		<mmtTimeVal>11:06</mmtTimeVal>
+		<shift>0.024</shift>
+		<diff>23.3</diff>
+		<curve>37.01</curve>
+		<condition>Clear</condition>
+		<dischargeRemark>@ Uncertainty: IVE method, 2-sigma value (2 x Uncertainty Value reported in *.ft File). @</dischargeRemark>
+		<controlConditionRemark/>
+	</DisMeas>
+	<EnvCond>
+		<levels>GC = +0.007 M, APPLIED</levels>
+		<cloudCover>Partly Cloudy</cloudCover>
+		<precipitation>No Precipitation</precipitation>
+		<windMagnitude>Calm Wind</windMagnitude>
+		<windMagnitudeSpeed/>
+		<windDirection/>
+		<batteryVolt>14.4</batteryVolt>
+		<gasSys/>
+		<feed/>
+		<bpmRotChoice/>
+		<bpmRot/>
+		<gasSysDepCtrl/>
+		<gasArrTime>:</gasArrTime>
+		<gasDepTime>:</gasDepTime>
+		<feedDepCtrl/>
+		<feedArrTime>:</feedArrTime>
+		<feedDepTime>:</feedDepTime>
+		<bpmrotDepCtrl/>
+		<bpmrotArrTime>:</bpmrotArrTime>
+		<bpmrotDepTime>:</bpmrotDepTime>
+		<intakeFlushed>False</intakeFlushed>
+		<intakeTime>00:00</intakeTime>
+		<orificeTime>10:39</orificeTime>
+		<orificePurged>True</orificePurged>
+		<downloadedProgram>False</downloadedProgram>
+		<downloadedData>True</downloadedData>
+		<dataPeriodStart>2023/07/31</dataPeriodStart>
+		<dataPeriodEnd>2023/09/07</dataPeriodEnd>
+		<stationHealthRemark>DESICCANT OK.</stationHealthRemark>
+	</EnvCond>
+	<MeasResults empty="True">
+		<SensorRefs/>
+		<HourMinutes/>
+		<Times/>
+		<ObservedVals/>
+		<SensorVals/>
+		<loggerTimeTable>
+			<loggerTimeCol1/>
+			<loggerTimeRemark1/>
+			<Hour7/>
+			<Minute7/>
+			<Hour9/>
+			<Minute9/>
+			<Time7/>
+			<Time9/>
+			<loggerTimeCol2/>
+			<loggerTimeRemark2/>
+			<Hour8/>
+			<Minute8/>
+			<Hour10/>
+			<Minute10/>
+			<Time8/>
+			<Time10/>
+		</loggerTimeTable>
+	</MeasResults>
+	<InstrumentDeployment>
+		<GeneralInfo>
+			<methodType>Mid-section</methodType>
+			<deployment imported="1">Wading</deployment>
+			<position>Tagline</position>
+			<instrument imported="1">ADV</instrument>
+			<serialNum imported="1">FT2H1640009</serialNum>
+			<gauge1>30.0</gauge1>
+			<length>0</length>
+			<gaugePos>0</gaugePos>
+			<selectedGauge>gauge</selectedGauge>
+			<frequency imported="1">10000</frequency>
+			<firmware imported="1">1.30</firmware>
+			<software imported="1">1.7</software>
+			<manufacturer imported="1">SonTek</manufacturer>
+			<model imported="1">FlowTracker2</model>
+			<monitoringMethod/>
+			<structureType/>
+		</GeneralInfo>
+		<MidsectionInfo empty="False">
+			<panelsNum imported="1">24</panelsNum>
+			<flowAngle/>
+			<coeff>1.00</coeff>
+			<method>0.6</method>
+			<metres>On Rod</metres>
+			<weight/>
+			<kglbs>0</kglbs>
+			<weightRadBut1>False</weightRadBut1>
+			<weightRadBut2>True</weightRadBut2>
+		</MidsectionInfo>
+		<ADCPInfo empty="True">
+			<configChoice/>
+			<configVal/>
+			<ADCPSetToClock>False</ADCPSetToClock>
+			<diagnosticTest>False</diagnosticTest>
+			<depth/>
+			<magDecl/>
+			<compassCali>False</compassCali>
+			<passedRev>False</passedRev>
+		</ADCPInfo>
+		<SiteConditions>
+			<pictured>True</pictured>
+			<attached>True</attached>
+			<preUseCable/>
+		</SiteConditions>
+	</InstrumentDeployment>
+	<PartyInfo>
+		<party>JSY HJD</party>
+		<completed>JSY</completed>
+		<reviewed>True</reviewed>
+	</PartyInfo>
+	<LevelNotes>
+		<ConventionalTotal>
+			<conventional_leveling>True</conventional_leveling>
+			<total_station>False</total_station>
+		</ConventionalTotal>
+		<LevelChecks>
+			<conventionalLevellingRb>True</conventionalLevellingRb>
+			<totalStationRb>False</totalStationRb>
+			<LevelChecksTable run="0">
+				<LevelChecksRow row="0">
+					<station>**BM O-12-103</station>
+					<hour>10</hour>
+					<minute>04</minute>
+					<time>10:04</time>
+					<backsight>1.862</backsight>
+					<htInst>9.664</htInst>
+					<foresight/>
+					<elevation>7.802</elevation>
+					<establish>7.802</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="1">
+					<station>BM O-21-102</station>
+					<hour>10</hour>
+					<minute>06</minute>
+					<time>10:06</time>
+					<backsight/>
+					<htInst/>
+					<foresight>1.718</foresight>
+					<elevation>7.946</elevation>
+					<establish>7.948</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="2">
+					<station>MP 22-1</station>
+					<hour>10</hour>
+					<minute>08</minute>
+					<time>10:08</time>
+					<backsight>0.496</backsight>
+					<htInst>9.671</htInst>
+					<foresight>0.489</foresight>
+					<elevation>9.175</elevation>
+					<establish>9.168</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="3">
+					<station>BM O-21-102</station>
+					<hour>10</hour>
+					<minute>13</minute>
+					<time>10:13</time>
+					<backsight/>
+					<htInst/>
+					<foresight>1.724</foresight>
+					<elevation>7.947</elevation>
+					<establish>7.948</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="4">
+					<station>**BM O-12-103</station>
+					<hour>10</hour>
+					<minute>14</minute>
+					<time>10:14</time>
+					<backsight/>
+					<htInst/>
+					<foresight>1.869</foresight>
+					<elevation>7.802</elevation>
+					<establish>7.802</establish>
+					<comments/>
+				</LevelChecksRow>
+				<closure>0.001</closure>
+				<upload>True</upload>
+			</LevelChecksTable>
+			<LevelChecksTable run="1">
+				<LevelChecksRow row="0">
+					<station>**BM O-12-103</station>
+					<hour>10</hour>
+					<minute>16</minute>
+					<time>10:16</time>
+					<backsight>0.428</backsight>
+					<htInst>8.230</htInst>
+					<foresight/>
+					<elevation>7.802</elevation>
+					<establish>7.802</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="1">
+					<station>BM O-12-102</station>
+					<hour>10</hour>
+					<minute>18</minute>
+					<time>10:18</time>
+					<backsight>4.270</backsight>
+					<htInst>8.413</htInst>
+					<foresight>4.087</foresight>
+					<elevation>4.143</elevation>
+					<establish>4.141</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="2">
+					<station>**BM O-12-103</station>
+					<hour>10</hour>
+					<minute>19</minute>
+					<time>10:19</time>
+					<backsight/>
+					<htInst/>
+					<foresight>0.612</foresight>
+					<elevation>7.801</elevation>
+					<establish>7.802</establish>
+					<comments/>
+				</LevelChecksRow>
+				<closure>0.001</closure>
+				<upload>True</upload>
+			</LevelChecksTable>
+			<LevelChecksTable run="2">
+				<LevelChecksRow row="0">
+					<station>**BM O-12-103</station>
+					<hour>10</hour>
+					<minute>22</minute>
+					<time>10:22</time>
+					<backsight>1.839</backsight>
+					<htInst>9.641</htInst>
+					<foresight/>
+					<elevation>7.802</elevation>
+					<establish>7.802</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="1">
+					<station>MP 22-1</station>
+					<hour>10</hour>
+					<minute>22</minute>
+					<time>10:22</time>
+					<backsight>0.565</backsight>
+					<htInst>9.740</htInst>
+					<foresight>0.466</foresight>
+					<elevation>9.175</elevation>
+					<establish>9.168</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="2">
+					<station>**BM O-12-103</station>
+					<hour>10</hour>
+					<minute>25</minute>
+					<time>10:25</time>
+					<backsight/>
+					<htInst/>
+					<foresight>1.939</foresight>
+					<elevation>7.801</elevation>
+					<establish>7.802</establish>
+					<comments/>
+				</LevelChecksRow>
+				<closure>0.001</closure>
+				<upload>True</upload>
+			</LevelChecksTable>
+			<LevelChecksSummaryTable>
+				<SummaryTableRow row="0">
+					<time>10:38</time>
+					<reference>MP 22-1</reference>
+					<waterLevel>9.168</waterLevel>
+					<dist>-7.638</dist>
+					<surge/>
+					<Comment/>
+					<wlElev>1.530</wlElev>
+					<datum>0.000</datum>
+					<cwl>1.530</cwl>
+					<loggerReading>1.528</loggerReading>
+					<loggerReading2/>
+				</SummaryTableRow>
+				<SummaryTableRow row="1">
+					<time>10:50</time>
+					<reference>MP 22-1</reference>
+					<waterLevel>9.175</waterLevel>
+					<dist>-7.638</dist>
+					<surge/>
+					<Comment>GC APPLIED</Comment>
+					<wlElev>1.537</wlElev>
+					<datum>0.000</datum>
+					<cwl>1.537</cwl>
+					<loggerReading/>
+					<loggerReading2/>
+				</SummaryTableRow>
+				<SummaryTableRow row="2">
+					<time>11:01</time>
+					<reference>MP 22-1</reference>
+					<waterLevel>9.175</waterLevel>
+					<dist>-</dist>
+					<surge/>
+					<Comment/>
+					<wlElev/>
+					<datum>0.000</datum>
+					<cwl/>
+					<loggerReading/>
+					<loggerReading2/>
+				</SummaryTableRow>
+			</LevelChecksSummaryTable>
+			<comments>GC = +0.007 M, APPLIED.
+BRIDGE SPAN EXPANSION?</comments>
+			<surveyedby/>
+			<loggerName/>
+			<loggerName2/>
+		</LevelChecks>
+	</LevelNotes>
+	<FieldReview>
+		<pass>True</pass>
+		<dependencyType>Mid-section</dependencyType>
+		<midsectionType>Flow Tracker</midsectionType>
+		<FieldReviewTable>
+			<FieldReviewTableRow row="0">
+				<label>Passed All Instrument QA/QC?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="1">
+				<label>Software Input Same as Notes?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="2">
+				<label>Difference in ADCP and Water T &lt; 2°C?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="3">
+				<label>Signal to Noise Ratio &gt; 4</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="4">
+				<label>Flow Angles Accounted for?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="5">
+				<label>Exposure Time/Location &gt; 40s?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="6">
+				<label>No Boundary or Spike Problem?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="7">
+				<label>Bed Contour as Expected for Site?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="8">
+				<label>Ice/Slush Depth as Expected?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="9">
+				<label>Velocity Profile Suitable?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="10">
+				<label># Panels ≥ 20?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="11">
+				<label>No Panel Q &gt; 10%?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+		</FieldReviewTable>
+		<siteNotes/>
+		<planNotes/>
+	</FieldReview>
+	<MovingBoatMeas empty="True">
+		<bedMaterial/>
+		<mbTest>False</mbTest>
+		<mbTestChoice/>
+		<detected/>
+		<trackRefChoice/>
+		<leftBankChoice/>
+		<leftBank/>
+		<rightBankChoice/>
+		<rightBank/>
+		<edgeDistMmntMethod/>
+		<compositeTrackCmbo/>
+		<depthRefCmbo/>
+		<velocityTopCombo/>
+		<velocityBottomCombo/>
+		<velocityExponentCtrl/>
+		<differenceCtrl/>
+		<extrapUncerCtrl/>
+		<ADCPMeasTable/>
+		<ADCPMeasResults>
+			<mmntStartTime>::</mmntStartTime>
+			<mmntEndTime>::</mmntEndTime>
+			<mmntMeanTime>::</mmntMeanTime>
+			<mbCorrectionApplied/>
+			<finalDischargeMean/>
+			<correctedMeanGaugeHeight/>
+			<baseCurveGaugeHeight/>
+			<calcBaseCurveDischarge/>
+			<standardDevMeanDischarge/>
+			<calculateShiftforBaseCurve/>
+			<dischargeDifferenceBaseCurve/>
+			<comments/>
+		</ADCPMeasResults>
+	</MovingBoatMeas>
+	<MidsecMeas empty="False">
+		<DischargeMeasurement>
+			<MmtInitAndSummary>
+				<MmtInit>
+					<DeploymentMethod/>
+					<StartingBank/>
+					<TagMarkPolarity/>
+					<InitialPoint/>
+					<UnmeasuredFlow/>
+					<TimeWeightedMeanWaterLevel/>
+					<measureSectionCtrl/>
+				</MmtInit>
+				<MetersUsed>
+					<Meter>
+						<Number/>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<MeterCalibDate/>
+					</Meter>
+					<Meter>
+						<Number/>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<MeterCalibDate/>
+					</Meter>
+				</MetersUsed>
+				<MmtSummary>
+					<StartDate/>
+					<EndDate/>
+					<TotalQ/>
+					<TotalArea/>
+					<TotalWidth/>
+					<AverageVelocity/>
+					<AverageDepth/>
+					<NumberOfPanels/>
+					<Uncertainty/>
+				</MmtSummary>
+			</MmtInitAndSummary>
+			<Channels/>
+		</DischargeMeasurement>
+		<nextPid>100</nextPid>
+	</MidsecMeas>
+	<Attachments>
+		<loggerFolder/>
+		<loggerFiles>'C:\Users\jerryy\Desktop\Data Files\02HC019_20230907_LG1.csv'</loggerFiles>
+		<loggerDiagnostic/>
+		<loggerProgram/>
+		<mmtFiles/>
+		<mmtFolders>'C:\Users\jerryy\Desktop\Data Files\02HC019_20230907_M01'</mmtFolders>
+		<mmtSummary>'C:\Users\jerryy\Desktop\Data Files\02HC019_20230907_M01\Duffins ck Above Pickering_20230907-112607.ft.pdf'</mmtSummary>
+		<SIT/>
+		<STR/>
+		<COL>'C:\Users\jerryy\Desktop\Data Files\02HC019_20230907_COL1.jpg'</COL>
+		<CBL/>
+		<EQP/>
+		<CDT/>
+		<HSN/>
+		<Zip>C:\Users\jerryy\Desktop\Data Files</Zip>
+		<logData>False</logData>
+		<logDiagnostic>False</logDiagnostic>
+		<logProgram>False</logProgram>
+	</Attachments>
+</EHSN>

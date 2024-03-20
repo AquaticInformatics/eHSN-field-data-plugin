@@ -227,7 +227,7 @@ namespace EhsnPlugin.Mappers
                     {MeanGageHeightSelector.HG1, row.HG1.ToNullableDouble()},
                     {MeanGageHeightSelector.HG2, row.HG2.ToNullableDouble()},
                     {MeanGageHeightSelector.WLR1, row.WL1.ToNullableDouble()},
-                    {MeanGageHeightSelector.WLR2, row.WL1.ToNullableDouble()},
+                    {MeanGageHeightSelector.WLR2, row.WL2.ToNullableDouble()},
                 };
 
                 var value = values[selector];
