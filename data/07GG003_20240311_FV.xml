@@ -1,0 +1,584 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="WSC_EHSN.xsml"?>
+<EHSN version="v2.3.2">
+	<TitleHeader/>
+	<GenInfo>
+		<station number="07GG003">IOSEGUN RIVER NEAR LITTLE SMOKY</station>
+		<date timezone="MST">2024/03/11</date>
+	</GenInfo>
+	<StageMeas>
+		<HgCkbox>False</HgCkbox>
+		<Hg2Ckbox>False</Hg2Ckbox>
+		<Wlr1Ckbox>False</Wlr1Ckbox>
+		<Wlr2Ckbox>True</Wlr2Ckbox>
+		<HG1Header>ENCODER</HG1Header>
+		<HG2Header>OTT</HG2Header>
+		<WL1Header>ECG</WL1Header>
+		<WL2Header>**SBM #1*</WL2Header>
+		<StageMeasTable>
+			<StageMeasRow row="0">
+				<time>11:00</time>
+				<HG1>1.063</HG1>
+				<HG2>9.449</HG2>
+				<WL1>1.095</WL1>
+				<WL2/>
+				<Surge/>
+				<SRC>0.032</SRC>
+				<SRCApp>Found (FD)</SRCApp>
+				<MghCkbox>False</MghCkbox>
+				<ReadingType/>
+			</StageMeasRow>
+			<StageMeasRow row="1">
+				<time>11:05</time>
+				<HG1>1.095</HG1>
+				<HG2/>
+				<WL1/>
+				<WL2/>
+				<Surge/>
+				<SRC/>
+				<SRCApp>Recovered (RC)</SRCApp>
+				<MghCkbox>False</MghCkbox>
+				<ReadingType/>
+			</StageMeasRow>
+			<StageMeasRow row="2">
+				<time>11:10</time>
+				<HG1/>
+				<HG2/>
+				<WL1/>
+				<WL2>1.150</WL2>
+				<Surge>0.000</Surge>
+				<SRC/>
+				<SRCApp>Found (FD)</SRCApp>
+				<MghCkbox>True</MghCkbox>
+				<ReadingType>Routine</ReadingType>
+			</StageMeasRow>
+			<StageMeasRow row="3">
+				<time>12:20</time>
+				<HG1/>
+				<HG2/>
+				<WL1/>
+				<WL2>1.142</WL2>
+				<Surge>0.000</Surge>
+				<SRC/>
+				<SRCApp>Found (FD)</SRCApp>
+				<MghCkbox>True</MghCkbox>
+				<ReadingType>Routine</ReadingType>
+			</StageMeasRow>
+		</StageMeasTable>
+		<hgCkbox>False</hgCkbox>
+		<hg2Ckbox>False</hg2Ckbox>
+		<wlr1Ckbox>False</wlr1Ckbox>
+		<wlr2Ckbox>True</wlr2Ckbox>
+		<MGHHG1/>
+		<MGHHG2/>
+		<MGHWL1/>
+		<MGHWL2>1.146</MGHWL2>
+		<SRCHG1/>
+		<SRCHG2/>
+		<GCHG1/>
+		<GCHG2/>
+		<GCWL1/>
+		<GCWL2>0.000</GCWL2>
+		<CMGHHG1/>
+		<CMGHHG2/>
+		<CMGHWL1/>
+		<CMGHWL2>1.146</CMGHWL2>
+		<MghMethod>Average</MghMethod>
+		<Factors/>
+		<stageRemark>Told well may be isolated. Took DWL after initial reading to confirm. Use DWL for actual water level, well not connected, did not reset well again.</stageRemark>
+	</StageMeas>
+	<DisMeas>
+		<startTime>11:38</startTime>
+		<endTime>12:08</endTime>
+		<airTemp>3.0</airTemp>
+		<waterTemp>0.1</waterTemp>
+		<width imported="1">5.00</width>
+		<area imported="1">0.860</area>
+		<meanVel imported="1">0.288</meanVel>
+		<mgh>1.146</mgh>
+		<mghCmbo>1.146  (WLR2)</mghCmbo>
+		<discharge imported="1">0.248</discharge>
+		<uncertainty imported="1">16.2</uncertainty>
+		<mmtTimeVal>11:53</mmtTimeVal>
+		<shift/>
+		<diff/>
+		<curve>17.00</curve>
+		<condition>Ice</condition>
+		<dischargeRemark>Not enough panels, minimal section of flow. Greater flow than in fall.</dischargeRemark>
+		<controlConditionRemark>Complete ice cover, some water flowing over ice. Seen bubbling up out of ice in channel. Thick ice &gt;60cm</controlConditionRemark>
+	</DisMeas>
+	<EnvCond>
+		<levels>ECG tie, DWL</levels>
+		<cloudCover>Clear</cloudCover>
+		<precipitation>No Precipitation</precipitation>
+		<windMagnitude>Calm Wind</windMagnitude>
+		<windMagnitudeSpeed>5.00</windMagnitudeSpeed>
+		<windDirection>Swirling/Variable</windDirection>
+		<batteryVolt>13.9</batteryVolt>
+		<gasSys/>
+		<feed/>
+		<bpmRotChoice/>
+		<bpmRot/>
+		<gasSysDepCtrl/>
+		<gasArrTime>:</gasArrTime>
+		<gasDepTime>:</gasDepTime>
+		<feedDepCtrl/>
+		<feedArrTime>:</feedArrTime>
+		<feedDepTime>:</feedDepTime>
+		<bpmrotDepCtrl/>
+		<bpmrotArrTime>:</bpmrotArrTime>
+		<bpmrotDepTime>:</bpmrotDepTime>
+		<intakeFlushed>False</intakeFlushed>
+		<intakeTime>00:00</intakeTime>
+		<orificeTime>00:00</orificeTime>
+		<orificePurged>False</orificePurged>
+		<downloadedProgram>True</downloadedProgram>
+		<downloadedData>True</downloadedData>
+		<dataPeriodStart>2023/10/23</dataPeriodStart>
+		<dataPeriodEnd>2024/03/11</dataPeriodEnd>
+		<stationHealthRemark>Well appears isolated, OTT frozen in. Could not reset accurately. ECG indicated a 0.009m GC. Changed encoder programming to log 5 minute intervals.</stationHealthRemark>
+	</EnvCond>
+	<MeasResults empty="True">
+		<SensorRefs/>
+		<HourMinutes/>
+		<Times/>
+		<ObservedVals/>
+		<SensorVals/>
+		<loggerTimeTable>
+			<loggerTimeCol1/>
+			<loggerTimeRemark1/>
+			<Hour7/>
+			<Minute7/>
+			<Hour9/>
+			<Minute9/>
+			<Time7/>
+			<Time9/>
+			<loggerTimeCol2/>
+			<loggerTimeRemark2/>
+			<Hour8/>
+			<Minute8/>
+			<Hour10/>
+			<Minute10/>
+			<Time8/>
+			<Time10/>
+		</loggerTimeTable>
+	</MeasResults>
+	<InstrumentDeployment>
+		<GeneralInfo>
+			<methodType>Mid-section</methodType>
+			<deployment imported="1">Wading</deployment>
+			<position>Tagline</position>
+			<instrument imported="1">ADV</instrument>
+			<serialNum imported="1">FT2H2112003</serialNum>
+			<gauge1>100</gauge1>
+			<length>0</length>
+			<gaugePos>1</gaugePos>
+			<selectedGauge>gauge</selectedGauge>
+			<frequency imported="1">10000</frequency>
+			<firmware imported="1">1.30</firmware>
+			<software imported="1">1.7</software>
+			<manufacturer imported="1">SonTek</manufacturer>
+			<model imported="1">FlowTracker2</model>
+			<monitoringMethod/>
+			<structureType/>
+		</GeneralInfo>
+		<MidsectionInfo empty="False">
+			<panelsNum imported="1">15</panelsNum>
+			<flowAngle>Varied</flowAngle>
+			<coeff>0.88</coeff>
+			<method>0.5</method>
+			<metres>On Rod</metres>
+			<weight/>
+			<kglbs>0</kglbs>
+			<weightRadBut1>False</weightRadBut1>
+			<weightRadBut2>True</weightRadBut2>
+		</MidsectionInfo>
+		<ADCPInfo empty="True">
+			<configChoice/>
+			<configVal/>
+			<ADCPSetToClock>False</ADCPSetToClock>
+			<diagnosticTest>False</diagnosticTest>
+			<depth/>
+			<magDecl/>
+			<compassCali>False</compassCali>
+			<passedRev>False</passedRev>
+		</ADCPInfo>
+		<SiteConditions>
+			<pictured>True</pictured>
+			<attached>True</attached>
+			<preUseCable/>
+		</SiteConditions>
+	</InstrumentDeployment>
+	<PartyInfo>
+		<party>C. Steenbergen, A. Basha</party>
+		<completed>C. Steenbergen</completed>
+		<reviewed>True</reviewed>
+	</PartyInfo>
+	<LevelNotes>
+		<ConventionalTotal>
+			<conventional_leveling>True</conventional_leveling>
+			<total_station>False</total_station>
+		</ConventionalTotal>
+		<LevelChecks>
+			<conventionalLevellingRb>True</conventionalLevellingRb>
+			<totalStationRb>False</totalStationRb>
+			<LevelChecksTable run="0">
+				<LevelChecksRow row="0">
+					<station>**SBM #1*</station>
+					<hour/>
+					<minute/>
+					<time/>
+					<backsight>0.953</backsight>
+					<htInst>661.121</htInst>
+					<foresight/>
+					<elevation>660.168</elevation>
+					<establish>660.168</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="1">
+					<station>RP1</station>
+					<hour/>
+					<minute/>
+					<time/>
+					<backsight>3.070</backsight>
+					<htInst>661.188</htInst>
+					<foresight>3.003</foresight>
+					<elevation>658.118</elevation>
+					<establish/>
+					<comments>cut .088, no surge</comments>
+				</LevelChecksRow>
+				<LevelChecksRow row="2">
+					<station>**SBM #1*</station>
+					<hour/>
+					<minute/>
+					<time/>
+					<backsight/>
+					<htInst/>
+					<foresight>1.023</foresight>
+					<elevation>660.165</elevation>
+					<establish>660.168</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="3">
+					<station>GAUGE DATUM</station>
+					<hour/>
+					<minute/>
+					<time/>
+					<backsight/>
+					<htInst/>
+					<foresight/>
+					<elevation/>
+					<establish>657.056</establish>
+					<comments/>
+				</LevelChecksRow>
+				<closure>0.003</closure>
+				<upload>False</upload>
+			</LevelChecksTable>
+			<LevelChecksTable run="1">
+				<LevelChecksRow row="0">
+					<station>**SBM #1*</station>
+					<hour/>
+					<minute/>
+					<time/>
+					<backsight>1.012</backsight>
+					<htInst>661.180</htInst>
+					<foresight/>
+					<elevation>660.168</elevation>
+					<establish>660.168</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="1">
+					<station>ECG</station>
+					<hour/>
+					<minute/>
+					<time/>
+					<backsight>4.175</backsight>
+					<htInst>661.240</htInst>
+					<foresight>4.115</foresight>
+					<elevation>657.065</elevation>
+					<establish>0</establish>
+					<comments>Plus 0.009m GC to ECG</comments>
+				</LevelChecksRow>
+				<LevelChecksRow row="2">
+					<station>**SBM #1*</station>
+					<hour/>
+					<minute/>
+					<time/>
+					<backsight/>
+					<htInst/>
+					<foresight>1.072</foresight>
+					<elevation>660.168</elevation>
+					<establish>660.168</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="3">
+					<station>GAUGE DATUM</station>
+					<hour/>
+					<minute/>
+					<time/>
+					<backsight/>
+					<htInst/>
+					<foresight/>
+					<elevation/>
+					<establish>657.056</establish>
+					<comments/>
+				</LevelChecksRow>
+				<closure>0.0</closure>
+				<upload>True</upload>
+			</LevelChecksTable>
+			<LevelChecksTable run="2">
+				<LevelChecksRow row="0">
+					<station>**SBM #1*</station>
+					<hour/>
+					<minute/>
+					<time/>
+					<backsight>1.009</backsight>
+					<htInst>661.177</htInst>
+					<foresight/>
+					<elevation>660.168</elevation>
+					<establish>660.168</establish>
+					<comments/>
+				</LevelChecksRow>
+				<LevelChecksRow row="1">
+					<station>RP1</station>
+					<hour/>
+					<minute/>
+					<time/>
+					<backsight>3.143</backsight>
+					<htInst>661.262</htInst>
+					<foresight>3.058</foresight>
+					<elevation>658.119</elevation>
+					<establish/>
+					<comments>CUT 0.069</comments>
+				</LevelChecksRow>
+				<LevelChecksRow row="2">
+					<station>**SBM #1*</station>
+					<hour/>
+					<minute/>
+					<time/>
+					<backsight/>
+					<htInst/>
+					<foresight>1.094</foresight>
+					<elevation>660.168</elevation>
+					<establish>660.168</establish>
+					<comments/>
+				</LevelChecksRow>
+				<closure>0.0</closure>
+				<upload>True</upload>
+			</LevelChecksTable>
+			<LevelChecksSummaryTable>
+				<SummaryTableRow row="0">
+					<time>11:10</time>
+					<reference>**SBM #1*</reference>
+					<waterLevel>658.118</waterLevel>
+					<dist>0.088</dist>
+					<surge>0.000</surge>
+					<Comment/>
+					<wlElev>658.206</wlElev>
+					<datum>657.056</datum>
+					<cwl>1.150</cwl>
+					<loggerReading/>
+					<loggerReading2/>
+				</SummaryTableRow>
+				<SummaryTableRow row="1">
+					<time>12:20</time>
+					<reference>**SBM #1*</reference>
+					<waterLevel>658.119</waterLevel>
+					<dist>0.079</dist>
+					<surge>0.000</surge>
+					<Comment/>
+					<wlElev>658.198</wlElev>
+					<datum>657.056</datum>
+					<cwl>1.142</cwl>
+					<loggerReading/>
+					<loggerReading2/>
+				</SummaryTableRow>
+			</LevelChecksSummaryTable>
+			<comments/>
+			<surveyedby>CNS</surveyedby>
+			<loggerName/>
+			<loggerName2/>
+		</LevelChecks>
+	</LevelNotes>
+	<FieldReview>
+		<pass>True</pass>
+		<dependencyType>Mid-section</dependencyType>
+		<midsectionType>Flow Tracker</midsectionType>
+		<FieldReviewTable>
+			<FieldReviewTableRow row="0">
+				<label>Passed All Instrument QA/QC?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="1">
+				<label>Software Input Same as Notes?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="2">
+				<label>Difference in ADCP and Water T &lt; 2°C?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="3">
+				<label>Signal to Noise Ratio &gt; 4</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="4">
+				<label>Flow Angles Accounted for?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="5">
+				<label>Exposure Time/Location &gt; 40s?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="6">
+				<label>No Boundary or Spike Problem?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="7">
+				<label>Bed Contour as Expected for Site?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="8">
+				<label>Ice/Slush Depth as Expected?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="9">
+				<label>Velocity Profile Suitable?</label>
+				<reviewed>True</reviewed>
+				<text/>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="10">
+				<label># Panels ≥ 20?</label>
+				<reviewed>False</reviewed>
+				<text>16 total</text>
+			</FieldReviewTableRow>
+			<FieldReviewTableRow row="11">
+				<label>No Panel Q &gt; 10%?</label>
+				<reviewed>False</reviewed>
+				<text>2 panels over</text>
+			</FieldReviewTableRow>
+		</FieldReviewTable>
+		<siteNotes>Minimum spacing of 0.25m. Several panels over 10%. Localized flow in small section of wide river. Low SNRs but greater than 4. Boundary interference near bank. Okay mmnt</siteNotes>
+		<planNotes/>
+	</FieldReview>
+	<MovingBoatMeas empty="True">
+		<bedMaterial/>
+		<mbTest>False</mbTest>
+		<mbTestChoice/>
+		<detected/>
+		<trackRefChoice/>
+		<leftBankChoice/>
+		<leftBank/>
+		<rightBankChoice/>
+		<rightBank/>
+		<edgeDistMmntMethod/>
+		<compositeTrackCmbo/>
+		<depthRefCmbo/>
+		<velocityTopCombo/>
+		<velocityBottomCombo/>
+		<velocityExponentCtrl/>
+		<differenceCtrl/>
+		<extrapUncerCtrl/>
+		<ADCPMeasTable/>
+		<ADCPMeasResults>
+			<mmntStartTime>::</mmntStartTime>
+			<mmntEndTime>::</mmntEndTime>
+			<mmntMeanTime>::</mmntMeanTime>
+			<mbCorrectionApplied/>
+			<finalDischargeMean/>
+			<correctedMeanGaugeHeight/>
+			<baseCurveGaugeHeight/>
+			<calcBaseCurveDischarge/>
+			<standardDevMeanDischarge/>
+			<calculateShiftforBaseCurve/>
+			<dischargeDifferenceBaseCurve/>
+			<comments/>
+		</ADCPMeasResults>
+	</MovingBoatMeas>
+	<MidsecMeas empty="False">
+		<DischargeMeasurement>
+			<MmtInitAndSummary>
+				<MmtInit>
+					<DeploymentMethod/>
+					<StartingBank/>
+					<TagMarkPolarity/>
+					<InitialPoint/>
+					<UnmeasuredFlow/>
+					<TimeWeightedMeanWaterLevel/>
+					<measureSectionCtrl/>
+				</MmtInit>
+				<MetersUsed>
+					<Meter>
+						<Number/>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<MeterCalibDate/>
+					</Meter>
+					<Meter>
+						<Number/>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<Equation>
+							<Type/>
+							<Slope/>
+							<Intercept/>
+						</Equation>
+						<MeterCalibDate/>
+					</Meter>
+				</MetersUsed>
+				<MmtSummary>
+					<StartDate/>
+					<EndDate/>
+					<TotalQ/>
+					<TotalArea/>
+					<TotalWidth/>
+					<AverageVelocity/>
+					<AverageDepth/>
+					<NumberOfPanels/>
+					<Uncertainty/>
+				</MmtSummary>
+			</MmtInitAndSummary>
+			<Channels/>
+		</DischargeMeasurement>
+		<nextPid>100</nextPid>
+	</MidsecMeas>
+	<Attachments>
+		<loggerFolder>'C:\Users\SteenbergenC\Documents\onedrive\07GG003_20240311_LG1'</loggerFolder>
+		<loggerFiles/>
+		<loggerDiagnostic/>
+		<loggerProgram/>
+		<mmtFiles/>
+		<mmtFolders>'C:\Users\SteenbergenC\Documents\MMNTS\07GG003_20240311_M1'</mmtFolders>
+		<mmtSummary/>
+		<SIT/>
+		<STR/>
+		<COL>'C:\Users\SteenbergenC\Pictures\Camera Roll\WIN_20240311_11_22_24_Pro.jpg'</COL>
+		<CBL/>
+		<EQP/>
+		<CDT/>
+		<HSN/>
+		<Zip>C:\Users\SteenbergenC\Desktop\eHSN 2.3.2</Zip>
+		<logData>True</logData>
+		<logDiagnostic>True</logDiagnostic>
+		<logProgram>True</logProgram>
+	</Attachments>
+</EHSN>
