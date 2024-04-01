@@ -44,7 +44,7 @@ namespace EhsnPlugin.Mappers
             };
         }
 
-        private DateTime GetVisitDate(EHSNGenInfo eHsnGenInfo)
+        private static DateTime GetVisitDate(EHSNGenInfo eHsnGenInfo)
         {
             if (string.IsNullOrWhiteSpace(eHsnGenInfo?.date?.Value))
             {
@@ -83,12 +83,12 @@ namespace EhsnPlugin.Mappers
             //  /MovingBoatMeas/ADCPMeasResults/mmntStartTime
             //  /MovingBoatMeas/ADCPMeasResults/mmntEndTime
             //  /MovingBoatMeas/ADCPMeasResults/mmntMeanTime
-            var channels = _eHsn.MidsecMeas?.DischargeMeasurement?.Channels ?? new EHSNMidsecMeasDischargeMeasurementChannel[0];
-            var stageMeasRows = _eHsn.StageMeas?.StageMeasTable ?? new EHSNStageMeasStageMeasRow[0];
-            var measResultTimes = _eHsn.MeasResults?.Times ?? new EHSNMeasResultsTime[0];
-            var levelChecksSummaryRows = _eHsn.LevelNotes?.LevelChecks?.LevelChecksSummaryTable ?? new EHSNLevelNotesLevelChecksSummaryTableRow[0];
-            var movingBoatTransectRows = _eHsn.MovingBoatMeas?.ADCPMeasTable ?? new EHSNMovingBoatMeasADCPMeasRow[0];
-            var levelChecksTable = _eHsn.LevelNotes?.LevelChecks?.LevelChecksTable[0]?.LevelChecksRow ?? new EHSNLevelNotesLevelChecksLevelChecksTableLevelChecksRow[0];
+            var channels = _eHsn.MidsecMeas?.DischargeMeasurement?.Channels ?? Array.Empty<EHSNMidsecMeasDischargeMeasurementChannel>();
+            var stageMeasRows = _eHsn.StageMeas?.StageMeasTable ?? Array.Empty<EHSNStageMeasStageMeasRow>();
+            var measResultTimes = _eHsn.MeasResults?.Times ?? Array.Empty<EHSNMeasResultsTime>();
+            var levelChecksSummaryRows = _eHsn.LevelNotes?.LevelChecks?.LevelChecksSummaryTable ?? Array.Empty<EHSNLevelNotesLevelChecksSummaryTableRow>();
+            var movingBoatTransectRows = _eHsn.MovingBoatMeas?.ADCPMeasTable ?? Array.Empty<EHSNMovingBoatMeasADCPMeasRow>();
+            var levelChecksTable = _eHsn.LevelNotes?.LevelChecks?.LevelChecksTable[0]?.LevelChecksRow ?? Array.Empty<EHSNLevelNotesLevelChecksLevelChecksTableLevelChecksRow>();
 
             return channels
                 .SelectMany(ExtractAllTimes)
@@ -125,8 +125,8 @@ namespace EhsnPlugin.Mappers
 
         private IEnumerable<DateTimeOffset> ExtractAllTimes(EHSNMidsecMeasDischargeMeasurementChannel channel)
         {
-            var panels = channel.Panels ?? new EHSNMidsecMeasDischargeMeasurementChannelPanel[0];
-            var edges = channel.Edges ?? new EHSNMidsecMeasDischargeMeasurementChannelEdge[0];
+            var panels = channel.Panels ?? Array.Empty<EHSNMidsecMeasDischargeMeasurementChannelPanel>();
+            var edges = channel.Edges ?? Array.Empty<EHSNMidsecMeasDischargeMeasurementChannelEdge>();
 
             return panels
                 .Select(panel => panel.Date)

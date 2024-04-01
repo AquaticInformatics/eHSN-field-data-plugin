@@ -100,7 +100,7 @@ namespace EhsnPlugin.Mappers
             dischargeActivity.Party = _ehsn.PartyInfo?.party;
 
             AddMeanGageHeight(dischargeActivity);
-            
+
             return dischargeActivity;
         }
 
@@ -153,34 +153,7 @@ namespace EhsnPlugin.Mappers
 
                 isAverage = stageMeasurementSummary.CorrectedMeanGageHeight.ToString("F3").Equals(meanGageHeight.ToString("F3"));
             }
-            /*
-            if (isAverage)
-            {
-                foreach (var gageHeightMeasurement in gageHeightMeasurements)
-                {
-                    dischargeActivity.GageHeightMeasurements.Add(gageHeightMeasurement);
-                }
-                dischargeActivity.GageHeightAdjustmentAmount = stageMeasurementSummary.GageCorrection;
-                dischargeActivity.GageHeightComments = meanGaugeHeightComment;
-            }
-            else
-            {
-                dischargeActivity.ManuallyCalculatedMeanGageHeight = new Measurement(stageMeasurementSummary.MeanGageHeight, Units.DistanceUnitId);
-                if (stageMeasurementSummary.SensorResetCorrection.HasValue)
-                {
-                    dischargeActivity.GageHeightAdjustmentAmount = stageMeasurementSummary.SensorResetCorrection +
-                                                                                   stageMeasurementSummary.GageCorrection;
 
-                    dischargeActivity.GageHeightComments = meanGaugeHeightComment;
-                }
-                else
-                {
-                    dischargeActivity.GageHeightAdjustmentAmount = stageMeasurementSummary.GageCorrection;
-                    dischargeActivity.GageHeightComments = meanGaugeHeightComment;
-                }
-                
-            }
-            */
             dischargeActivity.ManuallyCalculatedMeanGageHeight = new Measurement(stageMeasurementSummary.MeanGageHeight, Units.DistanceUnitId);
             if (stageMeasurementSummary.SensorResetCorrection.HasValue)
             {
@@ -211,7 +184,7 @@ namespace EhsnPlugin.Mappers
 
         private IEnumerable<GageHeightMeasurement> GetGageHeightMeasurements(MeanGageHeightSelector selector)
         {
-            var stageMeasRows = _ehsn.StageMeas.StageMeasTable ?? new EHSNStageMeasStageMeasRow[0];
+            var stageMeasRows = _ehsn.StageMeas.StageMeasTable ?? Array.Empty<EHSNStageMeasStageMeasRow>();
 
             foreach (var row in stageMeasRows)
             {
@@ -280,10 +253,10 @@ namespace EhsnPlugin.Mappers
 
                 EngineeredStructureType = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.structureType, KnownEngineeredStructureTypes),
                 Comments = string.Join("\n",
-                new[] 
+                new[]
                 {
                     _ehsn.DisMeas.dischargeRemark, "+++++++++", string.Join(" - ",
-                    new[] 
+                    new[]
                     {
                     _ehsn.InstrumentDeployment?.GeneralInfo?.position,
                     _ehsn.InstrumentDeployment?.GeneralInfo?.gauge1
@@ -326,22 +299,22 @@ namespace EhsnPlugin.Mappers
             dischargeSection.DischargeMethod = DischargeMethodType.MidSection;
 
             // dischargeSection.Comments = _ehsn.DisMeas.dischargeRemark;
-            
+
             dischargeSection.Comments = string.Join("\n",
-                new[] {_ehsn.DisMeas.dischargeRemark, "+++++++++", string.Join(" - ", 
-                new[] {_ehsn.InstrumentDeployment?.GeneralInfo?.methodType, 
-                    _ehsn.InstrumentDeployment?.GeneralInfo?.deployment, 
-                    _ehsn.InstrumentDeployment?.GeneralInfo?.instrument, 
-                    _ehsn.InstrumentDeployment?.GeneralInfo?.manufacturer, 
-                    _ehsn.InstrumentDeployment?.GeneralInfo?.model, 
-                    _ehsn.InstrumentDeployment?.GeneralInfo?.serialNum, 
-                    _ehsn.InstrumentDeployment?.GeneralInfo?.structureType, 
+                new[] {_ehsn.DisMeas.dischargeRemark, "+++++++++", string.Join(" - ",
+                new[] {_ehsn.InstrumentDeployment?.GeneralInfo?.methodType,
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.deployment,
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.instrument,
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.manufacturer,
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.model,
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.serialNum,
+                    _ehsn.InstrumentDeployment?.GeneralInfo?.structureType,
                     _ehsn.InstrumentDeployment?.GeneralInfo?.monitoringMethod,
                     _ehsn.InstrumentDeployment?.GeneralInfo?.position,
                     _ehsn.InstrumentDeployment?.GeneralInfo?.gauge1
                     }.Where(s => !string.IsNullOrWhiteSpace(s)))}
                     .Where(s => !string.IsNullOrWhiteSpace(s)));
-            
+
             dischargeSection.AreaUnitId = Units.AreaUnitId;
             dischargeSection.AreaValue = _ehsn.DisMeas.area.ToNullableDouble();
             dischargeSection.WidthValue = _ehsn.DisMeas.width.ToNullableDouble();
@@ -363,7 +336,7 @@ namespace EhsnPlugin.Mappers
                             GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.model, KnownMeterTypes) : MeterType.Unspecified
             };
 
-            var meters = (_ehsn.MidsecMeas?.DischargeMeasurement?.MmtInitAndSummary?.MetersUsed ?? new Meter[0])
+            var meters = (_ehsn.MidsecMeas?.DischargeMeasurement?.MmtInitAndSummary?.MetersUsed ?? Array.Empty<Meter>())
                 .Select(CreateMeterCalibration)
                 .ToList();
 
@@ -382,7 +355,7 @@ namespace EhsnPlugin.Mappers
 
         private void AddPanelMeasurements(ManualGaugingDischargeSection dischargeSection)
         {
-            var channels = _ehsn.MidsecMeas?.DischargeMeasurement?.Channels ?? new Channel[0];
+            var channels = _ehsn.MidsecMeas?.DischargeMeasurement?.Channels ?? Array.Empty<Channel>();
 
             if (!channels.Any()) return;
 
@@ -393,7 +366,7 @@ namespace EhsnPlugin.Mappers
 
             dischargeSection.StartPoint = GetMappedEnum(startingEdge.LeftOrRight, KnownStartPointTypes);
 
-            var meters = (_ehsn.MidsecMeas?.DischargeMeasurement?.MmtInitAndSummary?.MetersUsed ?? new Meter[0])
+            var meters = (_ehsn.MidsecMeas?.DischargeMeasurement?.MmtInitAndSummary?.MetersUsed ?? Array.Empty<Meter>())
                 .Select(CreateMeterCalibration)
                 .ToList();
 
@@ -421,8 +394,8 @@ namespace EhsnPlugin.Mappers
                 var isFirstChannel = channel == channels.First();
                 var isLastChannel = channel == channels.Last();
 
-                var edges = channel.Edges ?? new Edge[0];
-                var panels = channel.Panels ?? new Panel[0];
+                var edges = channel.Edges ?? Array.Empty<Edge>();
+                var panels = channel.Panels ?? Array.Empty<Panel>();
 
                 if (edges.Length != 2)
                     throw new ArgumentException($"Only 2 edges expected but {edges.Length} were found.");
@@ -502,7 +475,7 @@ namespace EhsnPlugin.Mappers
                     DeploymentMethod = "",
                     TotalDepth = edge.Depth
                 },
-                PointMeasurements = new PointMeasurement[0]
+                PointMeasurements = Array.Empty<PointMeasurement>()
             };
         }
 
@@ -535,7 +508,7 @@ namespace EhsnPlugin.Mappers
                 MeterType = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.model, KnownMeterTypes),
             };
 
-            foreach (var equation in meter.Equation ?? new MeterEquation[0])
+            foreach (var equation in meter.Equation ?? Array.Empty<MeterEquation>())
             {
                 var slope = equation.Slope.ToNullableDouble();
                 var intercept = equation.Intercept.ToNullableDouble();
@@ -652,7 +625,7 @@ namespace EhsnPlugin.Mappers
 
             effectiveDepth = panel.IceCovered?.EffectiveDepth.ToNullableDouble() ?? effectiveDepth;
 
-            var points = panel.PointMeasurements ?? new PointMeasurement[0];
+            var points = panel.PointMeasurements ?? Array.Empty<PointMeasurement>();
 
             var fractionalDepths = string.Join("/", points.Select(p=>p.SamplingDepthCoefficient));
 
@@ -801,10 +774,9 @@ namespace EhsnPlugin.Mappers
                 TransducerDepth = _ehsn.InstrumentDeployment?.ADCPInfo?.depth.ToNullableDouble(),
                 DeploymentMethod = GetMappedEnum(_ehsn.InstrumentDeployment?.GeneralInfo?.deployment, KnownAdcpDeploymentTypes),
                 DepthReference = GetMappedEnum(_ehsn.MovingBoatMeas?.depthRefCmbo, KnownDepthReferenceTypes),
-                //Comments = _ehsn.MovingBoatMeas?.ADCPMeasResults?.comments ?? _ehsn.DisMeas.dischargeRemark,
                 Comments = string.Join("\n",
-                new[] {_ehsn.MovingBoatMeas?.ADCPMeasResults?.comments ?? _ehsn.DisMeas.dischargeRemark, "+++++++++", 
-                    string.Join(" - ", new[] 
+                new[] {_ehsn.MovingBoatMeas?.ADCPMeasResults?.comments ?? _ehsn.DisMeas.dischargeRemark, "+++++++++",
+                    string.Join(" - ", new[]
                     {
                     _ehsn.InstrumentDeployment?.GeneralInfo?.position,
                     _ehsn.InstrumentDeployment?.GeneralInfo?.gauge1
@@ -813,7 +785,7 @@ namespace EhsnPlugin.Mappers
             BottomEstimateExponent = _ehsn.MovingBoatMeas?.velocityExponentCtrl.ToNullableDouble(),
                 TopEstimateMethod = GetPicklistItem(_ehsn.MovingBoatMeas?.velocityTopCombo, Config.KnownTopEstimateMethods, s => new TopEstimateMethodPickList(s)),
                 BottomEstimateMethod = GetPicklistItem(_ehsn.MovingBoatMeas?.velocityTopCombo, Config.KnownBottomEstimateMethods, s => new BottomEstimateMethodPickList(s)),
-                NumberOfTransects = (_ehsn.MovingBoatMeas?.ADCPMeasTable ?? new EHSNMovingBoatMeasADCPMeasRow[0])
+                NumberOfTransects = (_ehsn.MovingBoatMeas?.ADCPMeasTable ?? Array.Empty<EHSNMovingBoatMeasADCPMeasRow>())
                     .Count(row => row.checkbox.ToBoolean()),
             };
         }
