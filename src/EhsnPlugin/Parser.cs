@@ -20,7 +20,7 @@ namespace EhsnPlugin
 
         private Config Config { get; }
         private VersionValidator VersionValidator { get; }
- 
+
         public Parser(IFieldDataResultsAppender appender, ILog logger)
         {
             _appender = appender;
@@ -81,7 +81,7 @@ namespace EhsnPlugin
             }
         }
 
-        private string ReadXmlText(Stream stream)
+        private static string ReadXmlText(Stream stream)
         {
             using (var streamReader = new StreamReader(stream, Encoding.UTF8,
                 detectEncodingFromByteOrderMarks: true, bufferSize: 4096, leaveOpen: true))
@@ -93,15 +93,15 @@ namespace EhsnPlugin
             }
         }
 
-        private string GetXmlWithEmptyElementsRemoved(string originalXml)
+        private static string GetXmlWithEmptyElementsRemoved(string originalXml)
         {
             return Regex.Replace(originalXml, @"<[a-zA-Z]\w*\/>", string.Empty);
         }
 
-        private EHSN DeserializeXml(string xmlText)
+        private static EHSN DeserializeXml(string xmlText)
         {
             var serializer = new XmlSerializer(typeof(EHSN));
-            var memoryStream = new MemoryStream((new UTF8Encoding()).GetBytes(xmlText));
+            using var memoryStream = new MemoryStream(new UTF8Encoding().GetBytes(xmlText));
 
             return serializer.Deserialize(memoryStream) as EHSN;
         }
