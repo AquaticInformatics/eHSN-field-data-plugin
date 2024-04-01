@@ -15,7 +15,7 @@ namespace EhsnPlugin.Helpers
             public bool IsNegative => (Int64 >> 63) != 0L;
         }
 
-        public const int MaxUlps = 4;
+        private const int MaxUlps = 4;
 
         /// <summary>
         /// Compare doubles for equality using units in the last place (ULP) comparison.

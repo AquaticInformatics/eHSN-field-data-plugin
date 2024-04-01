@@ -1,22 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace EhsnPlugin.DataModel
 {
     public class ParsedEhsnLevelSurvey
     {
-        public IReadOnlyList<EHSNLevelNotesLevelChecksLevelChecksTable> LevelCheckTables { get; set; }
-        public IReadOnlyList<EHSNLevelNotesLevelChecksSummaryTableRow> LevelSummaryRows { get; set; }
+        public IReadOnlyList<EHSNLevelNotesLevelChecksLevelChecksTable> LevelCheckTables { get; }
         public string LevelCheckComments { get; set; }
         public string Party { get; set; }
 
-        public ParsedEhsnLevelSurvey(EHSNLevelNotesLevelChecksLevelChecksTable[] levelChecksTables, 
+        public ParsedEhsnLevelSurvey(EHSNLevelNotesLevelChecksLevelChecksTable[] levelChecksTables,
             EHSNLevelNotesLevelChecksSummaryTableRow[] summaryTableRows)
         {
-            levelChecksTables = levelChecksTables ?? new EHSNLevelNotesLevelChecksLevelChecksTable[0];
+            levelChecksTables ??= Array.Empty<EHSNLevelNotesLevelChecksLevelChecksTable>();
 
             foreach (var table in levelChecksTables)
             {
-                table.LevelChecksRow = table.LevelChecksRow ?? new EHSNLevelNotesLevelChecksLevelChecksTableLevelChecksRow[0];
+                table.LevelChecksRow ??= Array.Empty<EHSNLevelNotesLevelChecksLevelChecksTableLevelChecksRow>();
 
                 foreach (var row in table.LevelChecksRow)
                 {
@@ -25,7 +25,7 @@ namespace EhsnPlugin.DataModel
                 }
             }
 
-            summaryTableRows = summaryTableRows ?? new EHSNLevelNotesLevelChecksSummaryTableRow[0];
+            summaryTableRows ??= Array.Empty<EHSNLevelNotesLevelChecksSummaryTableRow>();
 
             foreach (var row in summaryTableRows)
             {
@@ -33,12 +33,11 @@ namespace EhsnPlugin.DataModel
             }
 
             LevelCheckTables = new List<EHSNLevelNotesLevelChecksLevelChecksTable>(levelChecksTables);
-            LevelSummaryRows = new List<EHSNLevelNotesLevelChecksSummaryTableRow>(summaryTableRows);
         }
 
         private const string PrimaryPrefix = "**";
 
-        public static string SanitizeBenchmarkName(string value)
+        private static string SanitizeBenchmarkName(string value)
         {
             if (string.IsNullOrEmpty(value))
                 return value;
