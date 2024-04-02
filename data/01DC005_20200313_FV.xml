@@ -49,7 +49,10 @@
 		<CMGHWL2/>
 		<MghMethod>Average</MghMethod>
 		<Factors/>
-		<stageRemark/>
+		<stageRemark>Stage remark line 1
+line 2
+line 3
+final line</stageRemark>
 	</StageMeas>
 	<DisMeas>
 		<startTime>11:55</startTime>
@@ -73,11 +76,12 @@
 	</DisMeas>
 	<EnvCond>
 		<levels/>
-		<cloudCover/>
+		<cloudCover>  Heavy	</cloudCover>
 		<precipitation/>
 		<windMagnitude/>
 		<windMagnitudeSpeed/>
-		<windDirection/>
+		<windDirection>South
+South West</windDirection>
 		<batteryVolt/>
 		<gasSys/>
 		<feed/>
@@ -92,10 +96,10 @@
 		<bpmrotDepCtrl/>
 		<bpmrotArrTime>:</bpmrotArrTime>
 		<bpmrotDepTime>:</bpmrotDepTime>
-		<intakeFlushed>False</intakeFlushed>
-		<intakeTime>00:00</intakeTime>
-		<orificeTime>00:00</orificeTime>
-		<orificePurged>False</orificePurged>
+		<intakeFlushed>True</intakeFlushed>
+		<intakeTime>03:55</intakeTime>
+		<orificeTime>21:12</orificeTime>
+		<orificePurged>True</orificePurged>
 		<downloadedProgram>False</downloadedProgram>
 		<downloadedData>False</downloadedData>
 		<dataPeriodStart>2020/03/13</dataPeriodStart>
@@ -377,7 +381,8 @@
 				<text/>
 			</FieldReviewTableRow>
 		</FieldReviewTable>
-		<siteNotes/>
+		<siteNotes>Site notes line 1
+final line.</siteNotes>
 		<planNotes/>
 	</FieldReview>
 	<MovingBoatMeas empty="True">

@@ -24,8 +24,8 @@
                     "End": "2020-09-21T09:35:00.0000000-08:00"
                 },
                 "Party": "S Falconer/M Condie",
-                "Comments": "Downloaded Data: From 2020/04/09 To 2020/09/21",
-                "Weather": "Cloud Cover: Clear\nPrecipitation: No Precipitation\nWind Conditions: Light Wind",
+                "Comments": "== Station Health Remarks:\nRemark line 1\nand line 2\nand final line.\n==\nIntake Flushed: @02:34\nOrifice Purged: @1:23\nDownloaded Data: From 2020/04/09 To 2020/09/21\n== Stage Activity Summary Remarks:\nStage remarks line 1\nfinal line\n==\n== Field Review Site Notes:\nSite Notes line 1\nline 2\nfinal line\n==\n== Field Review Plan Notes:\nPlan notes line 1\nline 2\nline 3\nfinal line\n==",
+                "Weather": "== Cloud Cover:\nClear\nPartial cloudiness\n==\n== Precipitation:\nNo Precipitation\nDrizzle\nDownpour\n==\n== Wind Conditions:\nLight Wind\nStrong wind\nGusting\nTyphoon\n==\nWind Speed: 5.7\n== Wind Direction:\nBlowing Downstream\nBlowing Upstream\nBlowing Cross Stream\nBlowing Upstream\n==",
                 "CollectionAgency": null,
                 "CompletedVisitActivities": null
             },
@@ -118,6 +118,33 @@
                     "ReadingType": "Reference",
                     "MeasurementDevice": null,
                     "DateTimeOffset": "2020-09-21T09:30:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": null,
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 5.7,
+                    "AdjustmentAmount": null,
+                    "UnitId": "km/hr",
+                    "ParameterId": "US",
+                    "Method": "DefaultNone",
+                    "Measurement": {
+                        "Value": 5.7,
+                        "UnitId": "km/hr"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-09-21T09:17:00.0000000-08:00",
                     "Publish": false,
                     "SubLocation": null,
                     "Comments": null,

@@ -59,7 +59,8 @@
 		<CMGHWL2>3.650</CMGHWL2>
 		<MghMethod>Average</MghMethod>
 		<Factors/>
-		<stageRemark/>
+		<stageRemark>Stage remark line 1
+final line</stageRemark>
 	</StageMeas>
 	<DisMeas>
 		<startTime>15:43</startTime>
@@ -84,10 +85,14 @@
 	<EnvCond>
 		<levels/>
 		<cloudCover/>
-		<precipitation/>
+		<precipitation>
+Rain
+Heavy Rain</precipitation>
 		<windMagnitude/>
 		<windMagnitudeSpeed/>
-		<windDirection/>
+		<windDirection>
+	Blowing Upstream
+Blowing Crossstream</windDirection>
 		<batteryVolt/>
 		<gasSys/>
 		<feed/>
@@ -102,15 +107,15 @@
 		<bpmrotDepCtrl/>
 		<bpmrotArrTime>:</bpmrotArrTime>
 		<bpmrotDepTime>:</bpmrotDepTime>
-		<intakeFlushed>False</intakeFlushed>
-		<intakeTime>00:00</intakeTime>
+		<intakeFlushed>True</intakeFlushed>
+		<intakeTime>00:11</intakeTime>
 		<orificeTime>00:00</orificeTime>
 		<orificePurged>False</orificePurged>
 		<downloadedProgram>False</downloadedProgram>
-		<downloadedData>False</downloadedData>
+		<downloadedData>True</downloadedData>
 		<dataPeriodStart>2020/03/05</dataPeriodStart>
 		<dataPeriodEnd>2020/03/05</dataPeriodEnd>
-		<stationHealthRemark/>
+		<stationHealthRemark>Station health remark</stationHealthRemark>
 	</EnvCond>
 	<MeasResults empty="True">
 		<SensorRefs/>
@@ -286,7 +291,9 @@
 			</FieldReviewTableRow>
 		</FieldReviewTable>
 		<siteNotes/>
-		<planNotes/>
+		<planNotes>Plan notes line 1
+line 2
+final line</planNotes>
 	</FieldReview>
 	<MovingBoatMeas empty="True">
 		<bedMaterial/>

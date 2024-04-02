@@ -24,8 +24,8 @@
                     "End": "2020-03-05T16:22:00.0000000-08:00"
                 },
                 "Party": null,
-                "Comments": "",
-                "Weather": "",
+                "Comments": "Station Health Remarks: Station health remark\nIntake Flushed: @00:11\nDownloaded Data: From 2020/03/05 To 2020/03/05\n== Stage Activity Summary Remarks:\nStage remark line 1\nfinal line\n==\n== Field Review Plan Notes:\nPlan notes line 1\nline 2\nfinal line\n==",
+                "Weather": "== Precipitation:\nRain\nHeavy Rain\n==\n== Wind Direction:\nBlowing Upstream\nBlowing Crossstream\n==",
                 "CollectionAgency": null,
                 "CompletedVisitActivities": null
             },
@@ -44,7 +44,7 @@
                         "Value": 100,
                         "UnitId": "m^3/s"
                     },
-                    "Comments": "Mid-section",
+                    "Comments": "Stage remark line 1\nfinal line\nMid-section",
                     "ShowInRatingDevelopment": true,
                     "ShowInDataCorrection": true,
                     "PreventAutomaticPublishing": false,

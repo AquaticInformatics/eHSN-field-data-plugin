@@ -24,8 +24,8 @@
                     "End": "2020-03-13T12:09:00.0000000-08:00"
                 },
                 "Party": null,
-                "Comments": "",
-                "Weather": "",
+                "Comments": "Intake Flushed: @03:55\nOrifice Purged: @21:12\n== Stage Activity Summary Remarks:\nStage remark line 1\nline 2\nline 3\nfinal line\n==\n== Field Review Site Notes:\nSite notes line 1\nfinal line.\n==",
+                "Weather": "Cloud Cover: Heavy\n== Wind Direction:\nSouth\nSouth West\n==",
                 "CollectionAgency": null,
                 "CompletedVisitActivities": null
             },
@@ -44,7 +44,7 @@
                         "Value": 100,
                         "UnitId": "m^3/s"
                     },
-                    "Comments": "Engineered Structures",
+                    "Comments": "Stage remark line 1\nline 2\nline 3\nfinal line\nEngineered Structures",
                     "ShowInRatingDevelopment": true,
                     "ShowInDataCorrection": true,
                     "PreventAutomaticPublishing": false,
