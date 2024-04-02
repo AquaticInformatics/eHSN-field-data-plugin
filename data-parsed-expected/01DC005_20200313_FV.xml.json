@@ -1,0 +1,148 @@
+{
+    "FrameworkAssemblyQualifiedName": "FieldDataPluginFramework.IFieldDataPlugin, FieldDataPluginFramework, Version=2.14.0.0, Culture=neutral, PublicKeyToken=null",
+    "PluginAssemblyQualifiedTypeName": "EhsnPlugin.Plugin, EhsnPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "AppendedVisits": [
+        {
+            "LocationInfo": {
+                "LocationId": 0,
+                "LocationIdentifier": "01DC005",
+                "LocationName": "DummyNameFor-01DC005",
+                "UniqueId": "00000000-0000-0000-0000-000000000000",
+                "UtcOffset": "-PT8H"
+            },
+            "LocationId": 0,
+            "FieldVisitId": 0,
+            "StartDate": "2020-03-13T11:55:00.0000000-08:00",
+            "EndDate": "2020-03-13T12:09:00.0000000-08:00",
+            "Party": null,
+            "FieldVisitIdentifier": "01DC005:03/13/2020 11:55:00 -08:00",
+            "FieldVisitDetails": {
+                "StartDate": "2020-03-13T11:55:00.0000000-08:00",
+                "EndDate": "2020-03-13T12:09:00.0000000-08:00",
+                "FieldVisitPeriod": {
+                    "Start": "2020-03-13T11:55:00.0000000-08:00",
+                    "End": "2020-03-13T12:09:00.0000000-08:00"
+                },
+                "Party": null,
+                "Comments": "",
+                "Weather": "",
+                "CollectionAgency": null,
+                "CompletedVisitActivities": null
+            },
+            "DischargeActivities": [
+                {
+                    "MeasurementStartTime": "2020-03-13T11:55:00.0000000-08:00",
+                    "MeasurementEndTime": "2020-03-13T11:55:00.0000000-08:00",
+                    "MeasurementPeriod": {
+                        "Start": "2020-03-13T11:55:00.0000000-08:00",
+                        "End": "2020-03-13T11:55:00.0000000-08:00"
+                    },
+                    "Party": null,
+                    "MeasurementId": null,
+                    "MeanIndexVelocity": null,
+                    "Discharge": {
+                        "Value": 100,
+                        "UnitId": "m^3/s"
+                    },
+                    "Comments": "Engineered Structures",
+                    "ShowInRatingDevelopment": true,
+                    "ShowInDataCorrection": true,
+                    "PreventAutomaticPublishing": false,
+                    "AdjustmentType": null,
+                    "AdjustmentAmount": null,
+                    "ReasonForAdjustment": null,
+                    "ManuallyCalculatedMeanGageHeight": {
+                        "Value": 4,
+                        "UnitId": "m"
+                    },
+                    "GageHeightAdjustmentAmount": 0,
+                    "MeanGageHeightDifferenceDuringVisit": null,
+                    "MeanGageHeightDurationHours": null,
+                    "MeasurementGrade": null,
+                    "QualityAssuranceComments": null,
+                    "GageHeightComments": "",
+                    "GageHeightReferencePointName": null,
+                    "ActiveUncertaintyType": "None",
+                    "QuantitativeUncertainty": null,
+                    "QualitativeUncertainty": null,
+                    "MeasurementTime": null,
+                    "GageHeightMeasurements": [
+                        
+                    ],
+                    "ChannelMeasurements": [
+                        {
+                            "StructureEquation": null,
+                            "EngineeredStructureType": "Unknown",
+                            "MeanHeadUnitId": "m",
+                            "MeanHead": null,
+                            "HeadReadings": [
+                                
+                            ],
+                            "MeasurementStartTime": "2020-03-13T11:55:00.0000000-08:00",
+                            "MeasurementEndTime": "2020-03-13T11:55:00.0000000-08:00",
+                            "MeasurementPeriod": {
+                                "Start": "2020-03-13T11:55:00.0000000-08:00",
+                                "End": "2020-03-13T11:55:00.0000000-08:00"
+                            },
+                            "Party": null,
+                            "ChannelName": "Main",
+                            "Discharge": {
+                                "Value": 100,
+                                "UnitId": "m^3/s"
+                            },
+                            "Comments": "+++++++++\nMarked bridge railing - 300",
+                            "DistanceUnitId": "m"
+                        }
+                    ]
+                }
+            ],
+            "ControlConditions": [
+                
+            ],
+            "CrossSectionSurveys": [
+                
+            ],
+            "LevelSurveys": [
+                
+            ],
+            "Readings": [
+                {
+                    "Value": 4,
+                    "AdjustmentAmount": 0,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGDWL",
+                    "Measurement": {
+                        "Value": 4,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-03-13T12:09:00.0000000-08:00",
+                    "Publish": true,
+                    "SubLocation": null,
+                    "Comments": "GC: 0.000",
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                }
+            ],
+            "Calibrations": [
+                
+            ],
+            "Inspections": [
+                
+            ],
+            "GageZeroFlowActivities": [
+                
+            ]
+        }
+    ]
+}

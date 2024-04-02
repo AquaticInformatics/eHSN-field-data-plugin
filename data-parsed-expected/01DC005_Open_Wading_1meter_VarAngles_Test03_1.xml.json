@@ -1,0 +1,1488 @@
+{
+    "FrameworkAssemblyQualifiedName": "FieldDataPluginFramework.IFieldDataPlugin, FieldDataPluginFramework, Version=2.14.0.0, Culture=neutral, PublicKeyToken=null",
+    "PluginAssemblyQualifiedTypeName": "EhsnPlugin.Plugin, EhsnPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "AppendedVisits": [
+        {
+            "LocationInfo": {
+                "LocationId": 0,
+                "LocationIdentifier": "01DC005",
+                "LocationName": "DummyNameFor-01DC005",
+                "UniqueId": "00000000-0000-0000-0000-000000000000",
+                "UtcOffset": "-PT8H"
+            },
+            "LocationId": 0,
+            "FieldVisitId": 0,
+            "StartDate": "2019-03-19T10:31:00.0000000-08:00",
+            "EndDate": "2019-03-25T10:39:00.0000000-08:00",
+            "Party": null,
+            "FieldVisitIdentifier": "01DC005:03/19/2019 10:31:00 -08:00",
+            "FieldVisitDetails": {
+                "StartDate": "2019-03-19T10:31:00.0000000-08:00",
+                "EndDate": "2019-03-25T10:39:00.0000000-08:00",
+                "FieldVisitPeriod": {
+                    "Start": "2019-03-19T10:31:00.0000000-08:00",
+                    "End": "2019-03-25T10:39:00.0000000-08:00"
+                },
+                "Party": null,
+                "Comments": "",
+                "Weather": "",
+                "CollectionAgency": null,
+                "CompletedVisitActivities": null
+            },
+            "DischargeActivities": [
+                {
+                    "MeasurementStartTime": "2019-03-19T10:31:00.0000000-08:00",
+                    "MeasurementEndTime": "2019-03-19T10:39:00.0000000-08:00",
+                    "MeasurementPeriod": {
+                        "Start": "2019-03-19T10:31:00.0000000-08:00",
+                        "End": "2019-03-19T10:39:00.0000000-08:00"
+                    },
+                    "Party": null,
+                    "MeasurementId": null,
+                    "MeanIndexVelocity": null,
+                    "Discharge": {
+                        "Value": 3.29,
+                        "UnitId": "m^3/s"
+                    },
+                    "Comments": null,
+                    "ShowInRatingDevelopment": true,
+                    "ShowInDataCorrection": true,
+                    "PreventAutomaticPublishing": false,
+                    "AdjustmentType": null,
+                    "AdjustmentAmount": null,
+                    "ReasonForAdjustment": null,
+                    "ManuallyCalculatedMeanGageHeight": null,
+                    "GageHeightAdjustmentAmount": null,
+                    "MeanGageHeightDifferenceDuringVisit": null,
+                    "MeanGageHeightDurationHours": null,
+                    "MeasurementGrade": null,
+                    "QualityAssuranceComments": null,
+                    "GageHeightComments": null,
+                    "GageHeightReferencePointName": null,
+                    "ActiveUncertaintyType": "None",
+                    "QuantitativeUncertainty": null,
+                    "QualitativeUncertainty": null,
+                    "MeasurementTime": null,
+                    "GageHeightMeasurements": [
+                        
+                    ],
+                    "ChannelMeasurements": [
+                        {
+                            "DischargeMethod": "MidSection",
+                            "StartPoint": "RightEdgeOfWater",
+                            "VelocityObservationMethod": "OneAtPointSix",
+                            "MeterSuspension": "Unknown",
+                            "Width": {
+                                "Value": 14,
+                                "UnitId": "m"
+                            },
+                            "AreaUnitId": "m^2",
+                            "Area": {
+                                "Value": 8.78,
+                                "UnitId": "m^2"
+                            },
+                            "VelocityUnitId": "m/s",
+                            "DeploymentMethod": "Unknown",
+                            "MeterCalibration": {
+                                "SerialNumber": "1-054",
+                                "Manufacturer": "Unknown",
+                                "Model": "Price AA",
+                                "MeterType": "PriceAa",
+                                "Configuration": "",
+                                "FirmwareVersion": null,
+                                "SoftwareVersion": "eHSN v1.3.2",
+                                "Equations": [
+                                    
+                                ]
+                            },
+                            "VelocityAverage": {
+                                "Value": 0.375,
+                                "UnitId": "m/s"
+                            },
+                            "NumberOfVerticals": null,
+                            "Verticals": [
+                                {
+                                    "Segment": {
+                                        "Width": 0.4,
+                                        "Area": 0,
+                                        "Velocity": 0,
+                                        "Discharge": 0,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 0
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": null,
+                                        "DistanceToMeter": null,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "Surface",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0,
+                                                "RevolutionCount": 0,
+                                                "ObservationInterval": 0,
+                                                "Velocity": 0,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0
+                                    },
+                                    "SequenceNumber": 1,
+                                    "VerticalType": "StartEdgeNoWaterBefore",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 15,
+                                    "SoundedDepth": 0,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:31:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.8,
+                                        "Area": 0.448,
+                                        "Velocity": 0.0762,
+                                        "Discharge": 0.0341376,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 1
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.336,
+                                                "RevolutionCount": 5,
+                                                "ObservationInterval": 47,
+                                                "Velocity": 0.076,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.0762
+                                    },
+                                    "SequenceNumber": 2,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 14.2,
+                                    "SoundedDepth": 0.56,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:32:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.56
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.8,
+                                        "Area": 0.464,
+                                        "Velocity": 0.262,
+                                        "Discharge": 0.121568,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 3.7
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.348,
+                                                "RevolutionCount": 16,
+                                                "ObservationInterval": 41.9,
+                                                "Velocity": 0.262,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.262
+                                    },
+                                    "SequenceNumber": 3,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 13.4,
+                                    "SoundedDepth": 0.58,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:32:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.58
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.7,
+                                        "Area": 0.448,
+                                        "Velocity": 0.455,
+                                        "Discharge": 0.20384,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 6.2
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.384,
+                                                "RevolutionCount": 28,
+                                                "ObservationInterval": 42,
+                                                "Velocity": 0.455,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.455
+                                    },
+                                    "SequenceNumber": 4,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 12.6,
+                                    "SoundedDepth": 0.64,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:32:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.64
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.444,
+                                        "Velocity": 0.592,
+                                        "Discharge": 0.262848,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 8
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.444,
+                                                "RevolutionCount": 35,
+                                                "ObservationInterval": 40.2,
+                                                "Velocity": 0.592,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.592
+                                    },
+                                    "SequenceNumber": 5,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 12,
+                                    "SoundedDepth": 0.74,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:33:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.74
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.444,
+                                        "Velocity": 0.79,
+                                        "Discharge": 0.35076,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 10.7
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.444,
+                                                "RevolutionCount": 47,
+                                                "ObservationInterval": 40.4,
+                                                "Velocity": 0.79,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.79
+                                    },
+                                    "SequenceNumber": 6,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 11.4,
+                                    "SoundedDepth": 0.74,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:34:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.74
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.432,
+                                        "Velocity": 0.797,
+                                        "Discharge": 0.344304,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 10.5
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.432,
+                                                "RevolutionCount": 50,
+                                                "ObservationInterval": 42.6,
+                                                "Velocity": 0.797,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.797
+                                    },
+                                    "SequenceNumber": 7,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 10.8,
+                                    "SoundedDepth": 0.72,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:34:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.72
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.456,
+                                        "Velocity": 0.654,
+                                        "Discharge": 0.298224,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 9.1
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.456,
+                                                "RevolutionCount": 40,
+                                                "ObservationInterval": 41.6,
+                                                "Velocity": 0.654,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.654
+                                    },
+                                    "SequenceNumber": 8,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 10.2,
+                                    "SoundedDepth": 0.76,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:34:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.76
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.468,
+                                        "Velocity": 0.494,
+                                        "Discharge": 0.231192,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 7
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.468,
+                                                "RevolutionCount": 30,
+                                                "ObservationInterval": 41.4,
+                                                "Velocity": 0.494,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.494
+                                    },
+                                    "SequenceNumber": 9,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 9.6,
+                                    "SoundedDepth": 0.78,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:34:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.78
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.48,
+                                        "Velocity": 0.472,
+                                        "Discharge": 0.22656,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 6.9
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.48,
+                                                "RevolutionCount": 28,
+                                                "ObservationInterval": 40.4,
+                                                "Velocity": 0.472,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.472
+                                    },
+                                    "SequenceNumber": 10,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 9,
+                                    "SoundedDepth": 0.8,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:35:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.8
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.48,
+                                        "Velocity": 0.391,
+                                        "Discharge": 0.18768,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 5.7
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.48,
+                                                "RevolutionCount": 23,
+                                                "ObservationInterval": 40.2,
+                                                "Velocity": 0.391,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.391
+                                    },
+                                    "SequenceNumber": 11,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 8.4,
+                                    "SoundedDepth": 0.8,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:35:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.8
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.492,
+                                        "Velocity": 0.372,
+                                        "Discharge": 0.183024,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 5.6
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.492,
+                                                "RevolutionCount": 22,
+                                                "ObservationInterval": 40.4,
+                                                "Velocity": 0.372,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.372
+                                    },
+                                    "SequenceNumber": 12,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 7.8,
+                                    "SoundedDepth": 0.82,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:35:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.82
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.468,
+                                        "Velocity": 0.328,
+                                        "Discharge": 0.153504,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 4.7
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.468,
+                                                "RevolutionCount": 20,
+                                                "ObservationInterval": 41.8,
+                                                "Velocity": 0.328,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.328
+                                    },
+                                    "SequenceNumber": 13,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 7.2,
+                                    "SoundedDepth": 0.78,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:36:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.78
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.48,
+                                        "Velocity": 0.278,
+                                        "Discharge": 0.13344,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 4.1
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.48,
+                                                "RevolutionCount": 17,
+                                                "ObservationInterval": 42,
+                                                "Velocity": 0.278,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.278
+                                    },
+                                    "SequenceNumber": 14,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 6.6,
+                                    "SoundedDepth": 0.8,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:36:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.8
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.48,
+                                        "Velocity": 0.209,
+                                        "Discharge": 0.10032,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 3.1
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.48,
+                                                "RevolutionCount": 13,
+                                                "ObservationInterval": 42.9,
+                                                "Velocity": 0.209,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.209
+                                    },
+                                    "SequenceNumber": 15,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 6,
+                                    "SoundedDepth": 0.8,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:36:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.8
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.48,
+                                        "Velocity": 0.235,
+                                        "Discharge": 0.1128,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 3.4
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.48,
+                                                "RevolutionCount": 15,
+                                                "ObservationInterval": 43.4,
+                                                "Velocity": 0.238,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.235
+                                    },
+                                    "SequenceNumber": 16,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 5.4,
+                                    "SoundedDepth": 0.8,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:37:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.8
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.348,
+                                        "Velocity": 0.25,
+                                        "Discharge": 0.087,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 2.6
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.348,
+                                                "RevolutionCount": 15,
+                                                "ObservationInterval": 40.4,
+                                                "Velocity": 0.255,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.25
+                                    },
+                                    "SequenceNumber": 17,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 4.8,
+                                    "SoundedDepth": 0.58,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:37:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.58
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.3,
+                                        "Velocity": 0.252,
+                                        "Discharge": 0.0756,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 2.3
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.3,
+                                                "RevolutionCount": 16,
+                                                "ObservationInterval": 42.8,
+                                                "Velocity": 0.257,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.252
+                                    },
+                                    "SequenceNumber": 18,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 4.2,
+                                    "SoundedDepth": 0.5,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:38:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.5
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.3,
+                                        "Velocity": 0.179,
+                                        "Discharge": 0.0537,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 1.6
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.3,
+                                                "RevolutionCount": 11,
+                                                "ObservationInterval": 40.8,
+                                                "Velocity": 0.186,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.179
+                                    },
+                                    "SequenceNumber": 19,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 3.6,
+                                    "SoundedDepth": 0.5,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:38:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.5
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.7,
+                                        "Area": 0.364,
+                                        "Velocity": 0.165,
+                                        "Discharge": 0.06006,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 1.8
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.312,
+                                                "RevolutionCount": 10,
+                                                "ObservationInterval": 40.3,
+                                                "Velocity": 0.172,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.165
+                                    },
+                                    "SequenceNumber": 20,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 3,
+                                    "SoundedDepth": 0.52,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:39:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.52
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.5,
+                                        "Velocity": 0.134,
+                                        "Discharge": 0.067,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 2
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.3,
+                                                "RevolutionCount": 8,
+                                                "ObservationInterval": 41.6,
+                                                "Velocity": 0.134,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.134
+                                    },
+                                    "SequenceNumber": 21,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 2.2,
+                                    "SoundedDepth": 0.5,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:39:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.5
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0,
+                                        "Velocity": 0,
+                                        "Discharge": 0,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 0
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": null,
+                                        "DistanceToMeter": null,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "Surface",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0,
+                                                "RevolutionCount": 0,
+                                                "ObservationInterval": 0,
+                                                "Velocity": 0,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0
+                                    },
+                                    "SequenceNumber": 22,
+                                    "VerticalType": "EndEdgeNoWaterAfter",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 1,
+                                    "SoundedDepth": 0,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T10:39:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0
+                                }
+                            ],
+                            "MeasurementStartTime": "2019-03-19T10:31:00.0000000-08:00",
+                            "MeasurementEndTime": "2019-03-19T10:39:00.0000000-08:00",
+                            "MeasurementPeriod": {
+                                "Start": "2019-03-19T10:31:00.0000000-08:00",
+                                "End": "2019-03-19T10:39:00.0000000-08:00"
+                            },
+                            "Party": null,
+                            "ChannelName": "Main",
+                            "Discharge": {
+                                "Value": 3.29,
+                                "UnitId": "m^3/s"
+                            },
+                            "Comments": "+++++++++\nMid-section - Current Meter - Price AA - 1-054",
+                            "DistanceUnitId": "m"
+                        }
+                    ]
+                }
+            ],
+            "ControlConditions": [
+                
+            ],
+            "CrossSectionSurveys": [
+                
+            ],
+            "LevelSurveys": [
+                
+            ],
+            "Readings": [
+                
+            ],
+            "Calibrations": [
+                
+            ],
+            "Inspections": [
+                
+            ],
+            "GageZeroFlowActivities": [
+                
+            ]
+        }
+    ]
+}
