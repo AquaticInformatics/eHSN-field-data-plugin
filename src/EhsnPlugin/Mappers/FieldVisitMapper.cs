@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using EhsnPlugin.Helpers;
 using FieldDataPluginFramework;
 using FieldDataPluginFramework.Context;
@@ -156,60 +157,60 @@ namespace EhsnPlugin.Mappers
         {
             if (_eHsn.EnvCond == null) return null;
 
-            var lines = new List<string>();
+            var stringBuilder = new StringBuilder();
 
-            AddCommentLine(lines, "Cloud Cover", _eHsn.EnvCond.cloudCover);
-            AddCommentLine(lines, "Precipitation", _eHsn.EnvCond.precipitation);
-            AddCommentLine(lines, "Wind Conditions", _eHsn.EnvCond.windMagnitude);
-            AddCommentLine(lines, "Wind Speed", _eHsn.EnvCond.windMagnitudeSpeed);
-            AddCommentLine(lines, "Wind Direction", _eHsn.EnvCond.windDirection);
+            AddCommentLine(stringBuilder, "Cloud Cover", _eHsn.EnvCond.cloudCover);
+            AddCommentLine(stringBuilder, "Precipitation", _eHsn.EnvCond.precipitation);
+            AddCommentLine(stringBuilder, "Wind Conditions", _eHsn.EnvCond.windMagnitude);
+            AddCommentLine(stringBuilder, "Wind Speed", _eHsn.EnvCond.windMagnitudeSpeed);
+            AddCommentLine(stringBuilder, "Wind Direction", _eHsn.EnvCond.windDirection);
 
-            return string.Join("\n", lines);
+            return stringBuilder.ToString().Trim();
         }
 
-        private static void AddCommentLine(List<string> lines, string label, string value)
+        private static void AddCommentLine(StringBuilder stringBuilder, string label, string value)
         {
             if (string.IsNullOrWhiteSpace(value))
                 return;
 
-            var valueLines = value.Trim().Split('\n');
+            var trimmedValue = value.Trim();
 
-            if (valueLines.Length == 1)
+            // Single-line values map to a single line in the comment
+            if (trimmedValue.Count(v => v == '\n') == 0)
             {
-                // Single-line values map to a single line in the comment
-                lines.Add($"{label}: {valueLines[0]}");
+                stringBuilder.AppendFormat("{0}: {1}\n", label, trimmedValue);
                 return;
             }
 
             // Multi-line values are de-marked
-            lines.Add($"== {label}:");
-            lines.AddRange(valueLines);
-            lines.Add("==");
+            stringBuilder.AppendFormat("== {0}:\n", label);
+            stringBuilder.AppendFormat("{0}\n", trimmedValue);
+            stringBuilder.Append("==\n");
         }
 
         private string MapComments()
         {
-            var lines = new List<string>();
+            var stringBuilder = new StringBuilder();
 
-            AddCommentLine(lines, "Station Health Remarks", _eHsn.EnvCond?.stationHealthRemark);
+            AddCommentLine(stringBuilder, "Station Health Remarks", _eHsn.EnvCond?.stationHealthRemark);
 
             if (_eHsn.EnvCond?.intakeFlushed.ToBoolean() ?? false)
-                AddCommentLine(lines, "Intake Flushed", $"@{_eHsn.EnvCond?.intakeTime}");
+                AddCommentLine(stringBuilder, "Intake Flushed", $"@{_eHsn.EnvCond?.intakeTime}");
 
             if (_eHsn.EnvCond?.orificePurged.ToBoolean() ?? false)
-                AddCommentLine(lines, "Orifice Purged", $"@{_eHsn.EnvCond?.orificeTime}");
+                AddCommentLine(stringBuilder, "Orifice Purged", $"@{_eHsn.EnvCond?.orificeTime}");
 
             if (_eHsn.EnvCond?.downloadedProgram.ToBoolean() ?? false)
-                AddCommentLine(lines, "Downloaded Program", string.Empty);
+                AddCommentLine(stringBuilder, "Downloaded Program", string.Empty);
 
             if (_eHsn.EnvCond?.downloadedData.ToBoolean() ?? false)
-                AddCommentLine(lines, "Downloaded Data", $"From {_eHsn.EnvCond?.dataPeriodStart} To {_eHsn.EnvCond?.dataPeriodEnd}");
+                AddCommentLine(stringBuilder, "Downloaded Data", $"From {_eHsn.EnvCond?.dataPeriodStart} To {_eHsn.EnvCond?.dataPeriodEnd}");
 
-            AddCommentLine(lines, "Stage Activity Summary Remarks", _eHsn.StageMeas?.stageRemark);
-            AddCommentLine(lines, "Field Review Site Notes", _eHsn.FieldReview?.siteNotes);
-            AddCommentLine(lines, "Field Review Plan Notes", _eHsn.FieldReview?.planNotes);
+            AddCommentLine(stringBuilder, "Stage Activity Summary Remarks", _eHsn.StageMeas?.stageRemark);
+            AddCommentLine(stringBuilder, "Field Review Site Notes", _eHsn.FieldReview?.siteNotes);
+            AddCommentLine(stringBuilder, "Field Review Plan Notes", _eHsn.FieldReview?.planNotes);
 
-            return string.Join("\n", lines);
+            return stringBuilder.ToString().Trim();
         }
 
         public DischargeActivity MapDischargeActivityOrNull()
