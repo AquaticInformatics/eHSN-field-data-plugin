@@ -19,8 +19,8 @@ Choose the appropriate version of the plugin for your AQTS app server.
 
 | AQTS Version                                                       | Latest compatible plugin Version                                                                                      |
 |--------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| AQTS 2023.4+                                                       | [v21.3.13](https://github.com/AquaticInformatics/eHSN-field-data-plugin/releases/download/v21.3.13/EhsnPlugin.plugin) |
-| AQTS 2021.3.Update 1+                                              | [v21.3.7](https://github.com/AquaticInformatics/eHSN-field-data-plugin/releases/download/v21.3.07/EhsnPlugin.plugin)  |
+| AQTS 2023.4+                                                       | [v21.3.14](https://github.com/AquaticInformatics/eHSN-field-data-plugin/releases/download/v21.3.14/EhsnPlugin.plugin) |
+| AQTS 2021.3.Update 1+                                              | [v21.3.7](https://github.com/AquaticInformatics/eHSN-field-data-plugin/releases/download/v21.3.7/EhsnPlugin.plugin)  |
 | AQTS 2020.3+                                                       | [v20.3.1](https://github.com/AquaticInformatics/eHSN-field-data-plugin/releases/download/v20.3.1/EhsnPlugin.plugin)   |
 | AQTS 2020.2<br/>AQTS 2020.1<br/>AQTS 2019.4<br/>AQTS 2019.3<br/>AQTS 2019.2 | [v19.2.26](https://github.com/AquaticInformatics/eHSN-field-data-plugin/releases/download/v19.2.26/EhsnPlugin.plugin) |
 
