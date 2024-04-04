@@ -61,7 +61,8 @@
 		<CMGHWL2/>
 		<MghMethod>Average</MghMethod>
 		<Factors/>
-		<stageRemark/>
+		<stageRemark>Stage remarks line 1
+final line</stageRemark>
 	</StageMeas>
 	<DisMeas>
 		<startTime>:</startTime>
@@ -85,11 +86,23 @@
 	</DisMeas>
 	<EnvCond>
 		<levels>Annuals</levels>
-		<cloudCover>Clear</cloudCover>
-		<precipitation>No Precipitation</precipitation>
-		<windMagnitude>Light Wind</windMagnitude>
-		<windMagnitudeSpeed/>
-		<windDirection/>
+		<cloudCover>Clear
+Partial cloudiness</cloudCover>
+		<precipitation>No Precipitation
+Drizzle
+Downpour</precipitation>
+		<windMagnitude>Light Wind
+Strong wind
+Gusting
+Typhoon</windMagnitude>
+		<windMagnitudeSpeed>5.7
+		</windMagnitudeSpeed>
+		<windDirection> 
+			Blowing Downstream
+Blowing Upstream
+Blowing Cross Stream
+Blowing Upstream 
+		</windDirection>
 		<batteryVolt/>
 		<gasSys/>
 		<feed/>
@@ -104,15 +117,17 @@
 		<bpmrotDepCtrl/>
 		<bpmrotArrTime>:</bpmrotArrTime>
 		<bpmrotDepTime>:</bpmrotDepTime>
-		<intakeFlushed>False</intakeFlushed>
-		<intakeTime>00:00</intakeTime>
-		<orificeTime>00:00</orificeTime>
-		<orificePurged>False</orificePurged>
-		<downloadedProgram>False</downloadedProgram>
+		<intakeFlushed>True</intakeFlushed>
+		<intakeTime>02:34</intakeTime>
+		<orificeTime>1:23</orificeTime>
+		<orificePurged>True</orificePurged>
+		<downloadedProgram>True</downloadedProgram>
 		<downloadedData>True</downloadedData>
 		<dataPeriodStart>2020/04/09</dataPeriodStart>
 		<dataPeriodEnd>2020/09/21</dataPeriodEnd>
-		<stationHealthRemark/>
+		<stationHealthRemark> Remark line 1
+and line 2
+and final line.</stationHealthRemark>
 	</EnvCond>
 	<MeasResults empty="False">
 		<SensorRefs>
@@ -631,8 +646,13 @@
 				<text/>
 			</FieldReviewTableRow>
 		</FieldReviewTable>
-		<siteNotes/>
-		<planNotes/>
+		<siteNotes>Site Notes line 1
+line 2
+final line</siteNotes>
+		<planNotes>Plan notes line 1
+line 2
+line 3
+final line</planNotes>
 	</FieldReview>
 	<MovingBoatMeas empty="True">
 		<bedMaterial/>

@@ -5,7 +5,7 @@ namespace EhsnPlugin.Helpers
 {
     public static class TimeHelper
     {
-        public static DateTime GetMeanTimeTruncatedToMinute(DateTime start, DateTime end)
+        private static DateTime GetMeanTimeTruncatedToMinute(DateTime start, DateTime end)
         {
             var exactMeanTime = new DateTime((start.Ticks + end.Ticks) / 2);
 

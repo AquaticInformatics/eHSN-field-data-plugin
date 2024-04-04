@@ -1,0 +1,275 @@
+{
+    "FrameworkAssemblyQualifiedName": "FieldDataPluginFramework.IFieldDataPlugin, FieldDataPluginFramework, Version=2.14.0.0, Culture=neutral, PublicKeyToken=null",
+    "PluginAssemblyQualifiedTypeName": "EhsnPlugin.Plugin, EhsnPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "AppendedVisits": [
+        {
+            "LocationInfo": {
+                "LocationId": 0,
+                "LocationIdentifier": "01DC005",
+                "LocationName": "DummyNameFor-01DC005",
+                "UniqueId": "00000000-0000-0000-0000-000000000000",
+                "UtcOffset": "-PT8H"
+            },
+            "LocationId": 0,
+            "FieldVisitId": 0,
+            "StartDate": "2020-03-05T15:42:00.0000000-08:00",
+            "EndDate": "2020-03-05T16:22:00.0000000-08:00",
+            "Party": null,
+            "FieldVisitIdentifier": "01DC005:03/05/2020 15:42:00 -08:00",
+            "FieldVisitDetails": {
+                "StartDate": "2020-03-05T15:42:00.0000000-08:00",
+                "EndDate": "2020-03-05T16:22:00.0000000-08:00",
+                "FieldVisitPeriod": {
+                    "Start": "2020-03-05T15:42:00.0000000-08:00",
+                    "End": "2020-03-05T16:22:00.0000000-08:00"
+                },
+                "Party": null,
+                "Comments": "Station Health Remarks: Station health remark\nIntake Flushed: @00:11\nDownloaded Data: From 2020/03/05 To 2020/03/05\n== Stage Activity Summary Remarks:\nStage remark line 1\nfinal line\n==\n== Field Review Plan Notes:\nPlan notes line 1\nline 2\nfinal line\n==",
+                "Weather": "== Precipitation:\nRain\nHeavy Rain\n==\n== Wind Direction:\nBlowing Upstream\nBlowing Crossstream\n==",
+                "CollectionAgency": null,
+                "CompletedVisitActivities": null
+            },
+            "DischargeActivities": [
+                {
+                    "MeasurementStartTime": "2020-03-05T15:43:00.0000000-08:00",
+                    "MeasurementEndTime": "2020-03-05T15:43:00.0000000-08:00",
+                    "MeasurementPeriod": {
+                        "Start": "2020-03-05T15:43:00.0000000-08:00",
+                        "End": "2020-03-05T15:43:00.0000000-08:00"
+                    },
+                    "Party": null,
+                    "MeasurementId": null,
+                    "MeanIndexVelocity": null,
+                    "Discharge": {
+                        "Value": 100,
+                        "UnitId": "m^3/s"
+                    },
+                    "Comments": "Stage remark line 1\nfinal line\nMid-section",
+                    "ShowInRatingDevelopment": true,
+                    "ShowInDataCorrection": true,
+                    "PreventAutomaticPublishing": false,
+                    "AdjustmentType": null,
+                    "AdjustmentAmount": null,
+                    "ReasonForAdjustment": null,
+                    "ManuallyCalculatedMeanGageHeight": {
+                        "Value": 3.55,
+                        "UnitId": "m"
+                    },
+                    "GageHeightAdjustmentAmount": 0.1,
+                    "MeanGageHeightDifferenceDuringVisit": null,
+                    "MeanGageHeightDurationHours": null,
+                    "MeasurementGrade": null,
+                    "QualityAssuranceComments": null,
+                    "GageHeightComments": "Corrected M.G.H. includes Gage Correction of 0.100 applied to Weighted M.G.H of 3.550",
+                    "GageHeightReferencePointName": null,
+                    "ActiveUncertaintyType": "None",
+                    "QuantitativeUncertainty": null,
+                    "QualitativeUncertainty": null,
+                    "MeasurementTime": null,
+                    "GageHeightMeasurements": [
+                        
+                    ],
+                    "ChannelMeasurements": [
+                        {
+                            "DischargeMethod": "MidSection",
+                            "StartPoint": "LeftEdgeOfWater",
+                            "VelocityObservationMethod": "Unknown",
+                            "MeterSuspension": "Unknown",
+                            "Width": null,
+                            "AreaUnitId": "m^2",
+                            "Area": null,
+                            "VelocityUnitId": "m/s",
+                            "DeploymentMethod": "Unknown",
+                            "MeterCalibration": {
+                                "SerialNumber": "Unknown",
+                                "Manufacturer": "Unknown",
+                                "Model": "Unknown",
+                                "MeterType": "Unspecified",
+                                "Configuration": "",
+                                "FirmwareVersion": null,
+                                "SoftwareVersion": null,
+                                "Equations": [
+                                    
+                                ]
+                            },
+                            "VelocityAverage": null,
+                            "NumberOfVerticals": null,
+                            "Verticals": [
+                                
+                            ],
+                            "MeasurementStartTime": "2020-03-05T15:43:00.0000000-08:00",
+                            "MeasurementEndTime": "2020-03-05T15:43:00.0000000-08:00",
+                            "MeasurementPeriod": {
+                                "Start": "2020-03-05T15:43:00.0000000-08:00",
+                                "End": "2020-03-05T15:43:00.0000000-08:00"
+                            },
+                            "Party": null,
+                            "ChannelName": "Main",
+                            "Discharge": {
+                                "Value": 100,
+                                "UnitId": "m^3/s"
+                            },
+                            "Comments": "+++++++++\nMid-section",
+                            "DistanceUnitId": "m"
+                        }
+                    ]
+                }
+            ],
+            "ControlConditions": [
+                
+            ],
+            "CrossSectionSurveys": [
+                
+            ],
+            "LevelSurveys": [
+                
+            ],
+            "Readings": [
+                {
+                    "Value": 3.9,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGLOGGER",
+                    "Measurement": {
+                        "Value": 3.9,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-03-05T15:42:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": "WL Source: HG\r\nGC: 0.300\r\nSRC: 0.300",
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 3.95,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGLOGGER",
+                    "Measurement": {
+                        "Value": 3.95,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-03-05T15:42:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": "WL Source: HG2\r\nSRC: 0.250",
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 4.2,
+                    "AdjustmentAmount": 0.5,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGDWL",
+                    "Measurement": {
+                        "Value": 4.2,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-03-05T15:42:00.0000000-08:00",
+                    "Publish": true,
+                    "SubLocation": null,
+                    "Comments": "GC: 0.500\r\nHG: 3.900\r\nHG2: 3.950",
+                    "ReferencePointName": "ISRP 1",
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 4.1,
+                    "AdjustmentAmount": 0.1,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGDWL",
+                    "Measurement": {
+                        "Value": 4.1,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-03-05T15:42:00.0000000-08:00",
+                    "Publish": true,
+                    "SubLocation": null,
+                    "Comments": "GC: 0.100\r\nHG: 3.900\r\nHG2: 3.950",
+                    "ReferencePointName": "NS86-038*",
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 3,
+                    "AdjustmentAmount": 0.1,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGDWL",
+                    "Measurement": {
+                        "Value": 3,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-03-05T16:22:00.0000000-08:00",
+                    "Publish": true,
+                    "SubLocation": null,
+                    "Comments": "GC: 0.100",
+                    "ReferencePointName": "NS86-038*",
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                }
+            ],
+            "Calibrations": [
+                
+            ],
+            "Inspections": [
+                
+            ],
+            "GageZeroFlowActivities": [
+                
+            ]
+        }
+    ]
+}

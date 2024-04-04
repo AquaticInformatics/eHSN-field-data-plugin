@@ -1,0 +1,1563 @@
+{
+    "FrameworkAssemblyQualifiedName": "FieldDataPluginFramework.IFieldDataPlugin, FieldDataPluginFramework, Version=2.14.0.0, Culture=neutral, PublicKeyToken=null",
+    "PluginAssemblyQualifiedTypeName": "EhsnPlugin.Plugin, EhsnPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "AppendedVisits": [
+        {
+            "LocationInfo": {
+                "LocationId": 0,
+                "LocationIdentifier": "05LJ045",
+                "LocationName": "DummyNameFor-05LJ045",
+                "UniqueId": "00000000-0000-0000-0000-000000000000",
+                "UtcOffset": "-PT8H"
+            },
+            "LocationId": 0,
+            "FieldVisitId": 0,
+            "StartDate": "2019-03-15T14:33:00.0000000-08:00",
+            "EndDate": "2019-03-25T14:45:00.0000000-08:00",
+            "Party": null,
+            "FieldVisitIdentifier": "05LJ045:03/15/2019 14:33:00 -08:00",
+            "FieldVisitDetails": {
+                "StartDate": "2019-03-15T14:33:00.0000000-08:00",
+                "EndDate": "2019-03-25T14:45:00.0000000-08:00",
+                "FieldVisitPeriod": {
+                    "Start": "2019-03-15T14:33:00.0000000-08:00",
+                    "End": "2019-03-25T14:45:00.0000000-08:00"
+                },
+                "Party": null,
+                "Comments": "",
+                "Weather": "",
+                "CollectionAgency": null,
+                "CompletedVisitActivities": null
+            },
+            "DischargeActivities": [
+                {
+                    "MeasurementStartTime": "2019-03-15T14:33:00.0000000-08:00",
+                    "MeasurementEndTime": "2019-03-15T14:45:00.0000000-08:00",
+                    "MeasurementPeriod": {
+                        "Start": "2019-03-15T14:33:00.0000000-08:00",
+                        "End": "2019-03-15T14:45:00.0000000-08:00"
+                    },
+                    "Party": null,
+                    "MeasurementId": null,
+                    "MeanIndexVelocity": null,
+                    "Discharge": {
+                        "Value": 20.3,
+                        "UnitId": "m^3/s"
+                    },
+                    "Comments": null,
+                    "ShowInRatingDevelopment": true,
+                    "ShowInDataCorrection": true,
+                    "PreventAutomaticPublishing": false,
+                    "AdjustmentType": null,
+                    "AdjustmentAmount": null,
+                    "ReasonForAdjustment": null,
+                    "ManuallyCalculatedMeanGageHeight": null,
+                    "GageHeightAdjustmentAmount": null,
+                    "MeanGageHeightDifferenceDuringVisit": null,
+                    "MeanGageHeightDurationHours": null,
+                    "MeasurementGrade": null,
+                    "QualityAssuranceComments": null,
+                    "GageHeightComments": null,
+                    "GageHeightReferencePointName": null,
+                    "ActiveUncertaintyType": "None",
+                    "QuantitativeUncertainty": null,
+                    "QualitativeUncertainty": null,
+                    "MeasurementTime": null,
+                    "GageHeightMeasurements": [
+                        
+                    ],
+                    "ChannelMeasurements": [
+                        {
+                            "DischargeMethod": "MidSection",
+                            "StartPoint": "RightEdgeOfWater",
+                            "VelocityObservationMethod": "OneAtPointSix",
+                            "MeterSuspension": "Unknown",
+                            "Width": {
+                                "Value": 20.9,
+                                "UnitId": "m"
+                            },
+                            "AreaUnitId": "m^2",
+                            "Area": {
+                                "Value": 17.4,
+                                "UnitId": "m^2"
+                            },
+                            "VelocityUnitId": "m/s",
+                            "DeploymentMethod": "Unknown",
+                            "MeterCalibration": {
+                                "SerialNumber": "1-647",
+                                "Manufacturer": "Unknown",
+                                "Model": "Price AA",
+                                "MeterType": "PriceAa",
+                                "Configuration": "",
+                                "FirmwareVersion": null,
+                                "SoftwareVersion": "eHSN v1.3.2",
+                                "Equations": [
+                                    
+                                ]
+                            },
+                            "VelocityAverage": {
+                                "Value": 1.16,
+                                "UnitId": "m/s"
+                            },
+                            "NumberOfVerticals": null,
+                            "Verticals": [
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0,
+                                        "Velocity": 0,
+                                        "Discharge": 0,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 0
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": null,
+                                        "DistanceToMeter": null,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "Surface",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0,
+                                                "RevolutionCount": 0,
+                                                "ObservationInterval": 0,
+                                                "Velocity": 0,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0
+                                    },
+                                    "SequenceNumber": 1,
+                                    "VerticalType": "StartEdgeNoWaterBefore",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 9,
+                                    "SoundedDepth": 0,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:33:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1.5,
+                                        "Area": 0.915,
+                                        "Velocity": 0.0983,
+                                        "Discharge": 0.0899445,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 0.4
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.366,
+                                                "RevolutionCount": 10,
+                                                "ObservationInterval": 42.6,
+                                                "Velocity": 0.164,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.0983
+                                    },
+                                    "SequenceNumber": 2,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 11,
+                                    "SoundedDepth": 0.61,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:33:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.61
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.75,
+                                        "Velocity": 0.574,
+                                        "Discharge": 0.4305,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 2.1
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.45,
+                                                "RevolutionCount": 35,
+                                                "ObservationInterval": 41.6,
+                                                "Velocity": 0.574,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.574
+                                    },
+                                    "SequenceNumber": 3,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 12,
+                                    "SoundedDepth": 0.75,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:34:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.75
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.95,
+                                        "Velocity": 1.17,
+                                        "Discharge": 1.1115,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 5.5
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.57,
+                                                "RevolutionCount": 75,
+                                                "ObservationInterval": 43.4,
+                                                "Velocity": 1.17,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.17
+                                    },
+                                    "SequenceNumber": 4,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 13,
+                                    "SoundedDepth": 0.95,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:35:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.95
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.6,
+                                        "Area": 0.66,
+                                        "Velocity": 1.12,
+                                        "Discharge": 0.7392,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 3.6
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointTwoAndPointEight",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.22,
+                                                "RevolutionCount": 80,
+                                                "ObservationInterval": 43,
+                                                "Velocity": 1.26,
+                                                "IsVelocityEstimated": false
+                                            },
+                                            {
+                                                "Depth": 0.88,
+                                                "RevolutionCount": 60,
+                                                "ObservationInterval": 41.6,
+                                                "Velocity": 0.981,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.12
+                                    },
+                                    "SequenceNumber": 5,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 14,
+                                    "SoundedDepth": 1.1,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:35:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 1.1
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.1,
+                                        "Area": 0,
+                                        "Velocity": 1.12,
+                                        "Discharge": 0.1232,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 0.6
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": null,
+                                        "DistanceToMeter": null,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "Surface",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0,
+                                                "RevolutionCount": 0,
+                                                "ObservationInterval": 0,
+                                                "Velocity": 0,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.12
+                                    },
+                                    "SequenceNumber": 6,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 14.2,
+                                    "SoundedDepth": 0,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:35:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.2,
+                                        "Area": 0,
+                                        "Velocity": 1.62,
+                                        "Discharge": 0.3726,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 1.8
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": null,
+                                        "DistanceToMeter": null,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "Surface",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0,
+                                                "RevolutionCount": 0,
+                                                "ObservationInterval": 0,
+                                                "Velocity": 0,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.62
+                                    },
+                                    "SequenceNumber": 7,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 14.6,
+                                    "SoundedDepth": 0,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:36:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.7,
+                                        "Area": 0.805,
+                                        "Velocity": 1.62,
+                                        "Discharge": 1.3041,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 6.4
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointTwoAndPointEight",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.23,
+                                                "RevolutionCount": 115,
+                                                "ObservationInterval": 43,
+                                                "Velocity": 1.81,
+                                                "IsVelocityEstimated": false
+                                            },
+                                            {
+                                                "Depth": 0.92,
+                                                "RevolutionCount": 90,
+                                                "ObservationInterval": 43,
+                                                "Velocity": 1.42,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.62
+                                    },
+                                    "SequenceNumber": 8,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 15,
+                                    "SoundedDepth": 1.15,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:36:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 1.15
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.98,
+                                        "Velocity": 1.96,
+                                        "Discharge": 1.9208,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 9.5
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.588,
+                                                "RevolutionCount": 120,
+                                                "ObservationInterval": 41.6,
+                                                "Velocity": 1.96,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.96
+                                    },
+                                    "SequenceNumber": 9,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 16,
+                                    "SoundedDepth": 0.98,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:36:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.98
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.98,
+                                        "Velocity": 1.89,
+                                        "Discharge": 1.8522,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 9.1
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.588,
+                                                "RevolutionCount": 120,
+                                                "ObservationInterval": 43,
+                                                "Velocity": 1.89,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.89
+                                    },
+                                    "SequenceNumber": 10,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 17,
+                                    "SoundedDepth": 0.98,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:37:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.98
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.93,
+                                        "Velocity": 1.46,
+                                        "Discharge": 1.3578,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 6.7
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.558,
+                                                "RevolutionCount": 90,
+                                                "ObservationInterval": 42,
+                                                "Velocity": 1.46,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.46
+                                    },
+                                    "SequenceNumber": 11,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 18,
+                                    "SoundedDepth": 0.93,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:37:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.93
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 1,
+                                        "Velocity": 1.92,
+                                        "Discharge": 1.92,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 9.5
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.6,
+                                                "RevolutionCount": 120,
+                                                "ObservationInterval": 42.4,
+                                                "Velocity": 1.92,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.92
+                                    },
+                                    "SequenceNumber": 12,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 19,
+                                    "SoundedDepth": 1,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:38:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 1
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.92,
+                                        "Velocity": 1.49,
+                                        "Discharge": 1.3708,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 6.8
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.552,
+                                                "RevolutionCount": 90,
+                                                "ObservationInterval": 41,
+                                                "Velocity": 1.49,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.49
+                                    },
+                                    "SequenceNumber": 13,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 20,
+                                    "SoundedDepth": 0.92,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:38:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.92
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.83,
+                                        "Velocity": 1.31,
+                                        "Discharge": 1.0873,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 5.4
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.498,
+                                                "RevolutionCount": 80,
+                                                "ObservationInterval": 41.6,
+                                                "Velocity": 1.31,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.31
+                                    },
+                                    "SequenceNumber": 14,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 21,
+                                    "SoundedDepth": 0.83,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:38:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.83
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.92,
+                                        "Velocity": 1.44,
+                                        "Discharge": 1.3248,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 6.5
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.552,
+                                                "RevolutionCount": 85,
+                                                "ObservationInterval": 40,
+                                                "Velocity": 1.44,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.44
+                                    },
+                                    "SequenceNumber": 15,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 22,
+                                    "SoundedDepth": 0.92,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:40:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.92
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.9,
+                                        "Velocity": 1.64,
+                                        "Discharge": 1.476,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 7.3
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.54,
+                                                "RevolutionCount": 100,
+                                                "ObservationInterval": 41.4,
+                                                "Velocity": 1.64,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.64
+                                    },
+                                    "SequenceNumber": 16,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 23,
+                                    "SoundedDepth": 0.9,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:40:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.9
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.94,
+                                        "Velocity": 1.62,
+                                        "Discharge": 1.5228,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 7.5
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.564,
+                                                "RevolutionCount": 100,
+                                                "ObservationInterval": 41.8,
+                                                "Velocity": 1.62,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.62
+                                    },
+                                    "SequenceNumber": 17,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 24,
+                                    "SoundedDepth": 0.94,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:43:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.94
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.98,
+                                        "Velocity": 1.35,
+                                        "Discharge": 1.323,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 6.5
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.588,
+                                                "RevolutionCount": 80,
+                                                "ObservationInterval": 40.2,
+                                                "Velocity": 1.35,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 1.35
+                                    },
+                                    "SequenceNumber": 18,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 25,
+                                    "SoundedDepth": 0.98,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:43:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.98
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.88,
+                                        "Velocity": 0.811,
+                                        "Discharge": 0.71368,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 3.5
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.528,
+                                                "RevolutionCount": 50,
+                                                "ObservationInterval": 42,
+                                                "Velocity": 0.811,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.811
+                                    },
+                                    "SequenceNumber": 19,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 26,
+                                    "SoundedDepth": 0.88,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:44:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.88
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.94,
+                                        "Velocity": 0.288,
+                                        "Discharge": 0.27072,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 1.3
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.564,
+                                                "RevolutionCount": 20,
+                                                "ObservationInterval": 40.6,
+                                                "Velocity": 0.338,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.288
+                                    },
+                                    "SequenceNumber": 20,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 27,
+                                    "SoundedDepth": 0.94,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:44:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.94
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0.83,
+                                        "Velocity": 0.0755,
+                                        "Discharge": 0.062665,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 0.3
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.498,
+                                                "RevolutionCount": 10,
+                                                "ObservationInterval": 56,
+                                                "Velocity": 0.126,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.0755
+                                    },
+                                    "SequenceNumber": 21,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 28,
+                                    "SoundedDepth": 0.83,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:44:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.83
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 1.15,
+                                        "Area": 0.9545,
+                                        "Velocity": -0.126,
+                                        "Discharge": -0.120267,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": -0.6
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": "0",
+                                        "DistanceToMeter": 0,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": 0
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "1-647",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "23/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6768,
+                                                    "Intercept": 0.0049,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointSix",
+                                        "DeploymentMethod": "BridgeCrane",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.498,
+                                                "RevolutionCount": 10,
+                                                "ObservationInterval": 56,
+                                                "Velocity": -0.126,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": -0.126
+                                    },
+                                    "SequenceNumber": 22,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Reversed",
+                                    "TaglinePosition": 29,
+                                    "SoundedDepth": 0.83,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:45:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.83
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 0.65,
+                                        "Area": 0,
+                                        "Velocity": 0,
+                                        "Discharge": 0,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 0
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": null,
+                                        "DistanceToMeter": null,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "Surface",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0,
+                                                "RevolutionCount": 0,
+                                                "ObservationInterval": 0,
+                                                "Velocity": 0,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0
+                                    },
+                                    "SequenceNumber": 23,
+                                    "VerticalType": "EndEdgeNoWaterAfter",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 30.3,
+                                    "SoundedDepth": 0,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:45:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0
+                                }
+                            ],
+                            "MeasurementStartTime": "2019-03-15T14:33:00.0000000-08:00",
+                            "MeasurementEndTime": "2019-03-15T14:45:00.0000000-08:00",
+                            "MeasurementPeriod": {
+                                "Start": "2019-03-15T14:33:00.0000000-08:00",
+                                "End": "2019-03-15T14:45:00.0000000-08:00"
+                            },
+                            "Party": null,
+                            "ChannelName": "Main",
+                            "Discharge": {
+                                "Value": 20.3,
+                                "UnitId": "m^3/s"
+                            },
+                            "Comments": "+++++++++\nMid-section - Current Meter - Price AA - 1-647",
+                            "DistanceUnitId": "m"
+                        }
+                    ]
+                }
+            ],
+            "ControlConditions": [
+                
+            ],
+            "CrossSectionSurveys": [
+                
+            ],
+            "LevelSurveys": [
+                
+            ],
+            "Readings": [
+                
+            ],
+            "Calibrations": [
+                
+            ],
+            "Inspections": [
+                
+            ],
+            "GageZeroFlowActivities": [
+                
+            ]
+        }
+    ]
+}

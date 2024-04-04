@@ -80,10 +80,7 @@ namespace EhsnPlugin.Mappers
                     _logger.Error($"Can't change the {nameof(LevelSurvey)}.{nameof(levelSurvey.OriginReferencePointName)} from '{levelSurvey.OriginReferencePointName}' to '{originReferenceName}'. Retaining first origin.");
                 }
 
-                if (!levelSurveyTime.HasValue)
-                {
-                    levelSurveyTime = GetLevelSurveyTime(eHsn);
-                }
+                levelSurveyTime ??= GetLevelSurveyTime(eHsn);
 
                 var distinctRows = measuredRows
                     .DistinctBy(r => new {r.station})
@@ -153,14 +150,16 @@ namespace EhsnPlugin.Mappers
 
         private DateTimeOffset GetLevelSurveyTime(EHSN eHsn)
         {
-            var levelNoteTimes = (eHsn.LevelNotes?.LevelChecks?.LevelChecksTable[0]?.LevelChecksRow)
+            var levelChecksRow =
+                eHsn.LevelNotes?.LevelChecks?.LevelChecksTable[0]?.LevelChecksRow ?? Array.Empty<EHSNLevelNotesLevelChecksLevelChecksTableLevelChecksRow>();
+            var levelNoteTimes = levelChecksRow
                 .Select(row => TimeHelper.ParseTimeOrMinValue(row.time, _visitDateTime, _locationInfo.UtcOffset))
                 .Where(time => time != DateTimeOffset.MinValue)
                 .ToList();
 
             if (!levelNoteTimes.Any())
             {
-                var aggregatedTimes = (eHsn.StageMeas?.StageMeasTable ?? new EHSNStageMeasStageMeasRow[0])
+                var aggregatedTimes = (eHsn.StageMeas?.StageMeasTable ?? Array.Empty<EHSNStageMeasStageMeasRow>())
                     .Select(row => TimeHelper.ParseTimeOrMinValue(row.time, _visitDateTime, _locationInfo.UtcOffset))
                     .Where(time => time != DateTimeOffset.MinValue)
                     .ToList();

@@ -1,0 +1,281 @@
+{
+    "FrameworkAssemblyQualifiedName": "FieldDataPluginFramework.IFieldDataPlugin, FieldDataPluginFramework, Version=2.14.0.0, Culture=neutral, PublicKeyToken=null",
+    "PluginAssemblyQualifiedTypeName": "EhsnPlugin.Plugin, EhsnPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "AppendedVisits": [
+        {
+            "LocationInfo": {
+                "LocationId": 0,
+                "LocationIdentifier": "01AK003",
+                "LocationName": "DummyNameFor-01AK003",
+                "UniqueId": "00000000-0000-0000-0000-000000000000",
+                "UtcOffset": "-PT8H"
+            },
+            "LocationId": 0,
+            "FieldVisitId": 0,
+            "StartDate": "2020-09-21T07:40:00.0000000-08:00",
+            "EndDate": "2020-09-21T09:35:00.0000000-08:00",
+            "Party": "S Falconer/M Condie",
+            "FieldVisitIdentifier": "01AK003:09/21/2020 07:40:00 -08:00",
+            "FieldVisitDetails": {
+                "StartDate": "2020-09-21T07:40:00.0000000-08:00",
+                "EndDate": "2020-09-21T09:35:00.0000000-08:00",
+                "FieldVisitPeriod": {
+                    "Start": "2020-09-21T07:40:00.0000000-08:00",
+                    "End": "2020-09-21T09:35:00.0000000-08:00"
+                },
+                "Party": "S Falconer/M Condie",
+                "Comments": "== Station Health Remarks:\nRemark line 1\nand line 2\nand final line.\n==\nIntake Flushed: @02:34\nOrifice Purged: @1:23\nDownloaded Data: From 2020/04/09 To 2020/09/21\n== Stage Activity Summary Remarks:\nStage remarks line 1\nfinal line\n==\n== Field Review Site Notes:\nSite Notes line 1\nline 2\nfinal line\n==\n== Field Review Plan Notes:\nPlan notes line 1\nline 2\nline 3\nfinal line\n==",
+                "Weather": "== Cloud Cover:\nClear\nPartial cloudiness\n==\n== Precipitation:\nNo Precipitation\nDrizzle\nDownpour\n==\n== Wind Conditions:\nLight Wind\nStrong wind\nGusting\nTyphoon\n==\nWind Speed: 5.7\n== Wind Direction:\nBlowing Downstream\nBlowing Upstream\nBlowing Cross Stream\nBlowing Upstream\n==",
+                "CollectionAgency": null,
+                "CompletedVisitActivities": null
+            },
+            "DischargeActivities": [
+                
+            ],
+            "ControlConditions": [
+                
+            ],
+            "CrossSectionSurveys": [
+                
+            ],
+            "LevelSurveys": [
+                {
+                    "Party": "S Falconer/M Condie",
+                    "Comments": null,
+                    "OriginReferencePointName": "NB77-263",
+                    "Method": null,
+                    "LevelSurveyMeasurements": [
+                        {
+                            "ReferencePointName": "NB77-263",
+                            "MeasurementTime": "2020-09-21T08:36:00.0000000-08:00",
+                            "MeasuredElevation": 10.802,
+                            "Comments": null
+                        },
+                        {
+                            "ReferencePointName": "NB77-261",
+                            "MeasurementTime": "2020-09-21T08:36:00.0000000-08:00",
+                            "MeasuredElevation": 9.301,
+                            "Comments": null
+                        },
+                        {
+                            "ReferencePointName": "TBM85-012",
+                            "MeasurementTime": "2020-09-21T08:36:00.0000000-08:00",
+                            "MeasuredElevation": 8.037,
+                            "Comments": null
+                        },
+                        {
+                            "ReferencePointName": "OSRP 1",
+                            "MeasurementTime": "2020-09-21T08:36:00.0000000-08:00",
+                            "MeasuredElevation": 4.682,
+                            "Comments": null
+                        }
+                    ],
+                    "SurveyPeriod": {
+                        "Start": "2020-09-21T08:36:00.0000000-08:00",
+                        "End": "2020-09-21T08:36:00.0000000-08:00"
+                    }
+                }
+            ],
+            "Readings": [
+                {
+                    "Value": 3,
+                    "AdjustmentAmount": null,
+                    "UnitId": "degC",
+                    "ParameterId": "TA",
+                    "Method": "DefaultNone",
+                    "Measurement": {
+                        "Value": 3,
+                        "UnitId": "degC"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Routine",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-09-21T07:40:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": null,
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 13.8,
+                    "AdjustmentAmount": null,
+                    "UnitId": "V",
+                    "ParameterId": "YBL",
+                    "Method": "DefaultNone",
+                    "Measurement": {
+                        "Value": 13.8,
+                        "UnitId": "V"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Reference",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-09-21T09:30:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": null,
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 5.7,
+                    "AdjustmentAmount": null,
+                    "UnitId": "km/hr",
+                    "ParameterId": "US",
+                    "Method": "DefaultNone",
+                    "Measurement": {
+                        "Value": 5.7,
+                        "UnitId": "km/hr"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-09-21T09:17:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": null,
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 1.151,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGLOGGER",
+                    "Measurement": {
+                        "Value": 1.151,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-09-21T09:00:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": "WL Source: HG\r\nGC: 0.000\r\nSRC: -0.004\r\nNo Reset (NR)",
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 1.147,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGDWL",
+                    "Measurement": {
+                        "Value": 1.147,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Routine",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-09-21T09:00:00.0000000-08:00",
+                    "Publish": true,
+                    "SubLocation": null,
+                    "Comments": "HG: 1.151\r\nNo Reset (NR)",
+                    "ReferencePointName": "NB77-263",
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 1.204,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGLOGGER",
+                    "Measurement": {
+                        "Value": 1.204,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-09-21T09:35:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": "WL Source: HG\r\nGC: 0.000\r\nSRC: -0.002\r\nNo Reset (NR)",
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 1.202,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGDWL",
+                    "Measurement": {
+                        "Value": 1.202,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Routine",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-09-21T09:35:00.0000000-08:00",
+                    "Publish": true,
+                    "SubLocation": null,
+                    "Comments": "HG: 1.204\r\nNo Reset (NR)",
+                    "ReferencePointName": "NB77-263",
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                }
+            ],
+            "Calibrations": [
+                
+            ],
+            "Inspections": [
+                
+            ],
+            "GageZeroFlowActivities": [
+                
+            ]
+        }
+    ]
+}

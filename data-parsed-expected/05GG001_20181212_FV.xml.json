@@ -1,0 +1,338 @@
+{
+    "FrameworkAssemblyQualifiedName": "FieldDataPluginFramework.IFieldDataPlugin, FieldDataPluginFramework, Version=2.14.0.0, Culture=neutral, PublicKeyToken=null",
+    "PluginAssemblyQualifiedTypeName": "EhsnPlugin.Plugin, EhsnPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "AppendedVisits": [
+        {
+            "LocationInfo": {
+                "LocationId": 0,
+                "LocationIdentifier": "05GG001",
+                "LocationName": "DummyNameFor-05GG001",
+                "UniqueId": "00000000-0000-0000-0000-000000000000",
+                "UtcOffset": "-PT8H"
+            },
+            "LocationId": 0,
+            "FieldVisitId": 0,
+            "StartDate": "2018-12-12T09:20:00.0000000-08:00",
+            "EndDate": "2018-12-12T12:41:00.0000000-08:00",
+            "Party": "SJP CWG",
+            "FieldVisitIdentifier": "05GG001:12/12/2018 09:20:00 -08:00",
+            "FieldVisitDetails": {
+                "StartDate": "2018-12-12T09:20:00.0000000-08:00",
+                "EndDate": "2018-12-12T12:41:00.0000000-08:00",
+                "FieldVisitPeriod": {
+                    "Start": "2018-12-12T09:20:00.0000000-08:00",
+                    "End": "2018-12-12T12:41:00.0000000-08:00"
+                },
+                "Party": "SJP CWG",
+                "Comments": "== Stage Activity Summary Remarks:\nHG3 @ 0920 = 2.399\nWL WAS STABLE THROUGHOUT THE MORNING THEREFORE THE DWL WAS USED FOR THE MGH\n==\nField Review Site Notes: excellent mmnt",
+                "Weather": "Cloud Cover: Cloudy\nPrecipitation: No Precipitation\nWind Conditions: Calm Wind",
+                "CollectionAgency": null,
+                "CompletedVisitActivities": null
+            },
+            "DischargeActivities": [
+                {
+                    "MeasurementStartTime": "2018-12-12T12:17:00.0000000-08:00",
+                    "MeasurementEndTime": "2018-12-12T12:41:00.0000000-08:00",
+                    "MeasurementPeriod": {
+                        "Start": "2018-12-12T12:17:00.0000000-08:00",
+                        "End": "2018-12-12T12:41:00.0000000-08:00"
+                    },
+                    "Party": "SJP CWG",
+                    "MeasurementId": null,
+                    "MeanIndexVelocity": null,
+                    "Discharge": {
+                        "Value": 178,
+                        "UnitId": "m^3/s"
+                    },
+                    "Comments": "BACKWATER DUE TO ICE.  MMNT DONE AT BOAT LAUNCH\nHG3 @ 0920 = 2.399\nWL WAS STABLE THROUGHOUT THE MORNING THEREFORE THE DWL WAS USED FOR THE MGH\nMid-section",
+                    "ShowInRatingDevelopment": true,
+                    "ShowInDataCorrection": true,
+                    "PreventAutomaticPublishing": false,
+                    "AdjustmentType": null,
+                    "AdjustmentAmount": null,
+                    "ReasonForAdjustment": null,
+                    "ManuallyCalculatedMeanGageHeight": {
+                        "Value": 2.148,
+                        "UnitId": "m"
+                    },
+                    "GageHeightAdjustmentAmount": 0,
+                    "MeanGageHeightDifferenceDuringVisit": null,
+                    "MeanGageHeightDurationHours": null,
+                    "MeasurementGrade": null,
+                    "QualityAssuranceComments": null,
+                    "GageHeightComments": "",
+                    "GageHeightReferencePointName": null,
+                    "ActiveUncertaintyType": "None",
+                    "QuantitativeUncertainty": null,
+                    "QualitativeUncertainty": null,
+                    "MeasurementTime": null,
+                    "GageHeightMeasurements": [
+                        
+                    ],
+                    "ChannelMeasurements": [
+                        {
+                            "DischargeMethod": "MidSection",
+                            "StartPoint": "LeftEdgeOfWater",
+                            "VelocityObservationMethod": "Unknown",
+                            "MeterSuspension": "Unknown",
+                            "Width": {
+                                "Value": 243,
+                                "UnitId": "m"
+                            },
+                            "AreaUnitId": "m^2",
+                            "Area": {
+                                "Value": 453,
+                                "UnitId": "m^2"
+                            },
+                            "VelocityUnitId": "m/s",
+                            "DeploymentMethod": "Ice",
+                            "MeterCalibration": {
+                                "SerialNumber": "154",
+                                "Manufacturer": "TRDI",
+                                "Model": "StreamPro",
+                                "MeterType": "Adcp",
+                                "Configuration": "",
+                                "FirmwareVersion": "31.12",
+                                "SoftwareVersion": "1.16",
+                                "Equations": [
+                                    
+                                ]
+                            },
+                            "VelocityAverage": {
+                                "Value": 0.393,
+                                "UnitId": "m/s"
+                            },
+                            "NumberOfVerticals": null,
+                            "Verticals": [
+                                
+                            ],
+                            "MeasurementStartTime": "2018-12-12T12:17:00.0000000-08:00",
+                            "MeasurementEndTime": "2018-12-12T12:41:00.0000000-08:00",
+                            "MeasurementPeriod": {
+                                "Start": "2018-12-12T12:17:00.0000000-08:00",
+                                "End": "2018-12-12T12:41:00.0000000-08:00"
+                            },
+                            "Party": "SJP CWG",
+                            "ChannelName": "Main",
+                            "Discharge": {
+                                "Value": 178,
+                                "UnitId": "m^3/s"
+                            },
+                            "Comments": "BACKWATER DUE TO ICE.  MMNT DONE AT BOAT LAUNCH\n+++++++++\nMid-section - Ice Cover - ADCP - TRDI - StreamPro - 154 - Tagline - 1770",
+                            "DistanceUnitId": "m"
+                        }
+                    ]
+                }
+            ],
+            "ControlConditions": [
+                {
+                    "Party": "SJP CWG",
+                    "ControlCode": null,
+                    "ConditionType": {
+                        "IdOrDisplayName": "Ice"
+                    },
+                    "DistanceToGage": null,
+                    "ControlCleaned": "Unknown",
+                    "DateCleaned": null,
+                    "Comments": "OPEN LEADS THROUGHOUT, HOWEVER MMNT SECTION WAS CIC."
+                }
+            ],
+            "CrossSectionSurveys": [
+                
+            ],
+            "LevelSurveys": [
+                {
+                    "Party": "SJP CWG",
+                    "Comments": null,
+                    "OriginReferencePointName": "S07-945",
+                    "Method": null,
+                    "LevelSurveyMeasurements": [
+                        {
+                            "ReferencePointName": "S07-945",
+                            "MeasurementTime": "2018-12-12T09:20:00.0000000-08:00",
+                            "MeasuredElevation": 3.813,
+                            "Comments": null
+                        }
+                    ],
+                    "SurveyPeriod": {
+                        "Start": "2018-12-12T09:20:00.0000000-08:00",
+                        "End": "2018-12-12T09:20:00.0000000-08:00"
+                    }
+                }
+            ],
+            "Readings": [
+                {
+                    "Value": 13.9,
+                    "AdjustmentAmount": null,
+                    "UnitId": "V",
+                    "ParameterId": "YBL",
+                    "Method": "DefaultNone",
+                    "Measurement": {
+                        "Value": 13.9,
+                        "UnitId": "V"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2018-12-12T12:29:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": null,
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 2.183,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGLOGGER",
+                    "Measurement": {
+                        "Value": 2.183,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2018-12-12T09:20:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": "WL Source: HG\r\nSRC: -0.035\r\nNo Reset (NR)",
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 2.14,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGLOGGER",
+                    "Measurement": {
+                        "Value": 2.14,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2018-12-12T09:20:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": "WL Source: HG2\r\nSRC: 0.008\r\nNo Reset (NR)",
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 2.148,
+                    "AdjustmentAmount": 0,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGDWL",
+                    "Measurement": {
+                        "Value": 2.148,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2018-12-12T09:20:00.0000000-08:00",
+                    "Publish": true,
+                    "SubLocation": null,
+                    "Comments": "GC: 0.000\r\nHG: 2.183\r\nHG2: 2.140\r\nNo Reset (NR)",
+                    "ReferencePointName": "S07-945",
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 0,
+                    "AdjustmentAmount": null,
+                    "UnitId": "degC",
+                    "ParameterId": "TW",
+                    "Method": "DefaultNone",
+                    "Measurement": {
+                        "Value": 0,
+                        "UnitId": "degC"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2018-12-12T12:29:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": null,
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": -4,
+                    "AdjustmentAmount": null,
+                    "UnitId": "degC",
+                    "ParameterId": "TA",
+                    "Method": "DefaultNone",
+                    "Measurement": {
+                        "Value": -4,
+                        "UnitId": "degC"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2018-12-12T12:29:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": null,
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                }
+            ],
+            "Calibrations": [
+                
+            ],
+            "Inspections": [
+                
+            ],
+            "GageZeroFlowActivities": [
+                
+            ]
+        }
+    ]
+}
