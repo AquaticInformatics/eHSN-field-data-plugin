@@ -1,0 +1,1523 @@
+{
+    "FrameworkAssemblyQualifiedName": "FieldDataPluginFramework.IFieldDataPlugin, FieldDataPluginFramework, Version=2.14.0.0, Culture=neutral, PublicKeyToken=null",
+    "PluginAssemblyQualifiedTypeName": "EhsnPlugin.Plugin, EhsnPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "AppendedVisits": [
+        {
+            "LocationInfo": {
+                "LocationId": 0,
+                "LocationIdentifier": "01DC005",
+                "LocationName": "DummyNameFor-01DC005",
+                "UniqueId": "00000000-0000-0000-0000-000000000000",
+                "UtcOffset": "-PT8H"
+            },
+            "LocationId": 0,
+            "FieldVisitId": 0,
+            "StartDate": "2019-03-14T13:11:00.0000000-08:00",
+            "EndDate": "2019-03-25T14:55:00.0000000-08:00",
+            "Party": null,
+            "FieldVisitIdentifier": "01DC005:03/14/2019 13:11:00 -08:00",
+            "FieldVisitDetails": {
+                "StartDate": "2019-03-14T13:11:00.0000000-08:00",
+                "EndDate": "2019-03-25T14:55:00.0000000-08:00",
+                "FieldVisitPeriod": {
+                    "Start": "2019-03-14T13:11:00.0000000-08:00",
+                    "End": "2019-03-25T14:55:00.0000000-08:00"
+                },
+                "Party": null,
+                "Comments": "",
+                "Weather": "",
+                "CollectionAgency": null,
+                "CompletedVisitActivities": null
+            },
+            "DischargeActivities": [
+                {
+                    "MeasurementStartTime": "2019-03-14T13:11:00.0000000-08:00",
+                    "MeasurementEndTime": "2019-03-14T14:55:00.0000000-08:00",
+                    "MeasurementPeriod": {
+                        "Start": "2019-03-14T13:11:00.0000000-08:00",
+                        "End": "2019-03-14T14:55:00.0000000-08:00"
+                    },
+                    "Party": null,
+                    "MeasurementId": null,
+                    "MeanIndexVelocity": null,
+                    "Discharge": {
+                        "Value": 17.1,
+                        "UnitId": "m^3/s"
+                    },
+                    "Comments": null,
+                    "ShowInRatingDevelopment": true,
+                    "ShowInDataCorrection": true,
+                    "PreventAutomaticPublishing": false,
+                    "AdjustmentType": null,
+                    "AdjustmentAmount": null,
+                    "ReasonForAdjustment": null,
+                    "ManuallyCalculatedMeanGageHeight": null,
+                    "GageHeightAdjustmentAmount": null,
+                    "MeanGageHeightDifferenceDuringVisit": null,
+                    "MeanGageHeightDurationHours": null,
+                    "MeasurementGrade": null,
+                    "QualityAssuranceComments": null,
+                    "GageHeightComments": null,
+                    "GageHeightReferencePointName": null,
+                    "ActiveUncertaintyType": "None",
+                    "QuantitativeUncertainty": null,
+                    "QualitativeUncertainty": null,
+                    "MeasurementTime": null,
+                    "GageHeightMeasurements": [
+                        
+                    ],
+                    "ChannelMeasurements": [
+                        {
+                            "DischargeMethod": "MidSection",
+                            "StartPoint": "LeftEdgeOfWater",
+                            "VelocityObservationMethod": "OneAtPointFive",
+                            "MeterSuspension": "Unknown",
+                            "Width": {
+                                "Value": 102,
+                                "UnitId": "m"
+                            },
+                            "AreaUnitId": "m^2",
+                            "Area": {
+                                "Value": 79.8,
+                                "UnitId": "m^2"
+                            },
+                            "VelocityUnitId": "m/s",
+                            "DeploymentMethod": "Unknown",
+                            "MeterCalibration": {
+                                "SerialNumber": "6-060",
+                                "Manufacturer": "Unknown",
+                                "Model": "Price AA",
+                                "MeterType": "PriceAa",
+                                "Configuration": "",
+                                "FirmwareVersion": null,
+                                "SoftwareVersion": "eHSN v1.3.2",
+                                "Equations": [
+                                    
+                                ]
+                            },
+                            "VelocityAverage": {
+                                "Value": 0.214,
+                                "UnitId": "m/s"
+                            },
+                            "NumberOfVerticals": null,
+                            "Verticals": [
+                                {
+                                    "Segment": {
+                                        "Width": 1,
+                                        "Area": 0,
+                                        "Velocity": 0,
+                                        "Discharge": 0,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 0
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": null,
+                                        "DistanceToMeter": null,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "Surface",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0,
+                                                "RevolutionCount": 0,
+                                                "ObservationInterval": 0,
+                                                "Velocity": 0,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0
+                                    },
+                                    "SequenceNumber": 1,
+                                    "VerticalType": "StartEdgeNoWaterBefore",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 137,
+                                    "SoundedDepth": 0,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T13:11:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 3.5,
+                                        "Area": 2.485,
+                                        "Velocity": 0.188,
+                                        "Discharge": 0.22372,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 1.3
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.37,
+                                        "WaterSurfaceToBottomOfIce": 0.37,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.54,
+                                                "RevolutionCount": 13,
+                                                "ObservationInterval": 42.6,
+                                                "Velocity": 0.214,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.188
+                                    },
+                                    "SequenceNumber": 2,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 135,
+                                    "SoundedDepth": 0.71,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T13:12:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.34
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 6.55,
+                                        "Velocity": 0.254,
+                                        "Discharge": 1.1557,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 6.8
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.4,
+                                        "WaterSurfaceToBottomOfIce": 0.4,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.855,
+                                                "RevolutionCount": 17,
+                                                "ObservationInterval": 41,
+                                                "Velocity": 0.288,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.254
+                                    },
+                                    "SequenceNumber": 3,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 130,
+                                    "SoundedDepth": 1.31,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T13:13:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.91
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 6.7,
+                                        "Velocity": 0.201,
+                                        "Discharge": 1.005,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 5.9
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.34,
+                                        "WaterSurfaceToBottomOfIce": 0.34,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.84,
+                                                "RevolutionCount": 14,
+                                                "ObservationInterval": 42.8,
+                                                "Velocity": 0.229,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.201
+                                    },
+                                    "SequenceNumber": 4,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 125,
+                                    "SoundedDepth": 1.34,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T13:20:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 1
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 6.7,
+                                        "Velocity": 0.18,
+                                        "Discharge": 0.936,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 5.5
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.3,
+                                        "WaterSurfaceToBottomOfIce": 0.3,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointTwoAndPointEight",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.508,
+                                                "RevolutionCount": 11,
+                                                "ObservationInterval": 40.4,
+                                                "Velocity": 0.191,
+                                                "IsVelocityEstimated": false
+                                            },
+                                            {
+                                                "Depth": 1.13,
+                                                "RevolutionCount": 10,
+                                                "ObservationInterval": 42,
+                                                "Velocity": 0.168,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.18
+                                    },
+                                    "SequenceNumber": 5,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 120,
+                                    "SoundedDepth": 1.34,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T13:23:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 1.04
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 6.6,
+                                        "Velocity": 0.23,
+                                        "Discharge": 1.081,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 6.3
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.38,
+                                        "WaterSurfaceToBottomOfIce": 0.38,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.85,
+                                                "RevolutionCount": 15,
+                                                "ObservationInterval": 40,
+                                                "Velocity": 0.261,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.23
+                                    },
+                                    "SequenceNumber": 6,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 115,
+                                    "SoundedDepth": 1.32,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T13:49:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.94
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 6.2,
+                                        "Velocity": 0.236,
+                                        "Discharge": 0.944,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 5.5
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.44,
+                                        "WaterSurfaceToBottomOfIce": 0.44,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.84,
+                                                "RevolutionCount": 16,
+                                                "ObservationInterval": 41.6,
+                                                "Velocity": 0.268,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.236
+                                    },
+                                    "SequenceNumber": 7,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 110,
+                                    "SoundedDepth": 1.24,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T13:59:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.8
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 6.2,
+                                        "Velocity": 0.233,
+                                        "Discharge": 1.0019,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 5.9
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.38,
+                                        "WaterSurfaceToBottomOfIce": 0.38,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.81,
+                                                "RevolutionCount": 17,
+                                                "ObservationInterval": 44.8,
+                                                "Velocity": 0.264,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.233
+                                    },
+                                    "SequenceNumber": 8,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 105,
+                                    "SoundedDepth": 1.24,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:00:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.86
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 6.8,
+                                        "Velocity": 0.238,
+                                        "Discharge": 1.0472,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 6.1
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.48,
+                                        "WaterSurfaceToBottomOfIce": 0.48,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.92,
+                                                "RevolutionCount": 16,
+                                                "ObservationInterval": 41.2,
+                                                "Velocity": 0.27,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.238
+                                    },
+                                    "SequenceNumber": 9,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 100,
+                                    "SoundedDepth": 1.36,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:02:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.88
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 7.25,
+                                        "Velocity": 0.238,
+                                        "Discharge": 1.1067,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 6.5
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.52,
+                                        "WaterSurfaceToBottomOfIce": 0.52,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.985,
+                                                "RevolutionCount": 16,
+                                                "ObservationInterval": 41.2,
+                                                "Velocity": 0.27,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.238
+                                    },
+                                    "SequenceNumber": 10,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 95,
+                                    "SoundedDepth": 1.45,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:03:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.93
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 7.7,
+                                        "Velocity": 0.246,
+                                        "Discharge": 1.2792,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 7.5
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.5,
+                                        "WaterSurfaceToBottomOfIce": 0.5,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointTwoAndPointEight",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.708,
+                                                "RevolutionCount": 15,
+                                                "ObservationInterval": 41.2,
+                                                "Velocity": 0.254,
+                                                "IsVelocityEstimated": false
+                                            },
+                                            {
+                                                "Depth": 1.33,
+                                                "RevolutionCount": 14,
+                                                "ObservationInterval": 41,
+                                                "Velocity": 0.238,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.246
+                                    },
+                                    "SequenceNumber": 11,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 90,
+                                    "SoundedDepth": 1.54,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:04:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 1.04
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 7.95,
+                                        "Velocity": 0.264,
+                                        "Discharge": 1.5444,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 9
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.42,
+                                        "WaterSurfaceToBottomOfIce": 0.42,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointTwoAndPointEight",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.654,
+                                                "RevolutionCount": 17,
+                                                "ObservationInterval": 40.4,
+                                                "Velocity": 0.292,
+                                                "IsVelocityEstimated": false
+                                            },
+                                            {
+                                                "Depth": 1.36,
+                                                "RevolutionCount": 14,
+                                                "ObservationInterval": 41.4,
+                                                "Velocity": 0.236,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.264
+                                    },
+                                    "SequenceNumber": 12,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 85,
+                                    "SoundedDepth": 1.59,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:05:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 1.17
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 7.5,
+                                        "Velocity": 0.231,
+                                        "Discharge": 1.2936,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 7.6
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.38,
+                                        "WaterSurfaceToBottomOfIce": 0.38,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointTwoAndPointEight",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.604,
+                                                "RevolutionCount": 16,
+                                                "ObservationInterval": 40.4,
+                                                "Velocity": 0.276,
+                                                "IsVelocityEstimated": false
+                                            },
+                                            {
+                                                "Depth": 1.28,
+                                                "RevolutionCount": 11,
+                                                "ObservationInterval": 41.4,
+                                                "Velocity": 0.187,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.231
+                                    },
+                                    "SequenceNumber": 13,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 80,
+                                    "SoundedDepth": 1.5,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:18:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 1.12
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 6.95,
+                                        "Velocity": 0.228,
+                                        "Discharge": 1.1742,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 6.9
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.36,
+                                        "WaterSurfaceToBottomOfIce": 0.36,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointTwoAndPointEight",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.566,
+                                                "RevolutionCount": 16,
+                                                "ObservationInterval": 43.2,
+                                                "Velocity": 0.258,
+                                                "IsVelocityEstimated": false
+                                            },
+                                            {
+                                                "Depth": 1.18,
+                                                "RevolutionCount": 13,
+                                                "ObservationInterval": 46.2,
+                                                "Velocity": 0.197,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.228
+                                    },
+                                    "SequenceNumber": 14,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 75,
+                                    "SoundedDepth": 1.39,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:49:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 1.03
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 6,
+                                        "Velocity": 0.224,
+                                        "Discharge": 0.9408,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 5.5
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.36,
+                                        "WaterSurfaceToBottomOfIce": 0.36,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.78,
+                                                "RevolutionCount": 15,
+                                                "ObservationInterval": 41,
+                                                "Velocity": 0.255,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.224
+                                    },
+                                    "SequenceNumber": 15,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 70,
+                                    "SoundedDepth": 1.2,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:50:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.84
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 5.6,
+                                        "Velocity": 0.178,
+                                        "Discharge": 0.6586,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 3.9
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.38,
+                                        "WaterSurfaceToBottomOfIce": 0.38,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.75,
+                                                "RevolutionCount": 12,
+                                                "ObservationInterval": 41.6,
+                                                "Velocity": 0.202,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.178
+                                    },
+                                    "SequenceNumber": 16,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 65,
+                                    "SoundedDepth": 1.12,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:51:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.74
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 5,
+                                        "Velocity": 0.18,
+                                        "Discharge": 0.576,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 3.4
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.36,
+                                        "WaterSurfaceToBottomOfIce": 0.36,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.68,
+                                                "RevolutionCount": 14,
+                                                "ObservationInterval": 48,
+                                                "Velocity": 0.204,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.18
+                                    },
+                                    "SequenceNumber": 17,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 60,
+                                    "SoundedDepth": 1,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:52:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.64
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 4.5,
+                                        "Velocity": 0.165,
+                                        "Discharge": 0.462,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 2.7
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.34,
+                                        "WaterSurfaceToBottomOfIce": 0.34,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.62,
+                                                "RevolutionCount": 11,
+                                                "ObservationInterval": 41.2,
+                                                "Velocity": 0.188,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.165
+                                    },
+                                    "SequenceNumber": 18,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 55,
+                                    "SoundedDepth": 0.9,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:52:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.56
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 4.3,
+                                        "Velocity": 0.143,
+                                        "Discharge": 0.3718,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 2.2
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.34,
+                                        "WaterSurfaceToBottomOfIce": 0.34,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.6,
+                                                "RevolutionCount": 10,
+                                                "ObservationInterval": 43.6,
+                                                "Velocity": 0.162,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.143
+                                    },
+                                    "SequenceNumber": 19,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 50,
+                                    "SoundedDepth": 0.86,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:53:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.52
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 4,
+                                        "Velocity": 0.101,
+                                        "Discharge": 0.202,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 1.2
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.4,
+                                        "WaterSurfaceToBottomOfIce": 0.4,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.6,
+                                                "RevolutionCount": 7,
+                                                "ObservationInterval": 43.6,
+                                                "Velocity": 0.115,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.101
+                                    },
+                                    "SequenceNumber": 20,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 45,
+                                    "SoundedDepth": 0.8,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:54:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.4
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 5,
+                                        "Area": 2.8,
+                                        "Velocity": 0.054,
+                                        "Discharge": 0.081,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 0.5
+                                    },
+                                    "MeasurementConditionData": {
+                                        "IceThickness": 0,
+                                        "WaterSurfaceToBottomOfSlush": 0.26,
+                                        "WaterSurfaceToBottomOfIce": 0.26,
+                                        "IceAssemblyType": "Ice_Rod",
+                                        "AboveFooting": 0,
+                                        "BelowFooting": 0,
+                                        "UnderIceCoefficient": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "6-060",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Price AA",
+                                            "MeterType": "PriceAa",
+                                            "Configuration": "22/09/1998",
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0.6812,
+                                                    "Intercept": 0.0058,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "OneAtPointFive",
+                                        "DeploymentMethod": "Ice",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0.41,
+                                                "RevolutionCount": 4,
+                                                "ObservationInterval": 49,
+                                                "Velocity": 0.061,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0.054
+                                    },
+                                    "SequenceNumber": 21,
+                                    "VerticalType": "MidRiver",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 40,
+                                    "SoundedDepth": 0.56,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:54:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0.3
+                                },
+                                {
+                                    "Segment": {
+                                        "Width": 2.5,
+                                        "Area": 0,
+                                        "Velocity": 0,
+                                        "Discharge": 0,
+                                        "IsDischargeEstimated": false,
+                                        "TotalDischargePortion": 0
+                                    },
+                                    "MeasurementConditionData": {
+                                        "SuspensionWeight": null,
+                                        "DistanceToMeter": null,
+                                        "DryLineAngle": 0,
+                                        "SurfaceCoefficient": null,
+                                        "DistanceToWaterSurface": null,
+                                        "DryLineCorrection": null,
+                                        "WetLineCorrection": null
+                                    },
+                                    "VelocityObservation": {
+                                        "MeterCalibration": {
+                                            "SerialNumber": "Unknown",
+                                            "Manufacturer": "Unknown",
+                                            "Model": "Unknown",
+                                            "MeterType": "Unspecified",
+                                            "Configuration": null,
+                                            "FirmwareVersion": null,
+                                            "SoftwareVersion": null,
+                                            "Equations": [
+                                                {
+                                                    "RangeStart": null,
+                                                    "RangeEnd": null,
+                                                    "Slope": 0,
+                                                    "Intercept": 0,
+                                                    "InterceptUnitId": "m/s"
+                                                }
+                                            ]
+                                        },
+                                        "VelocityObservationMethod": "Surface",
+                                        "DeploymentMethod": "Unspecified",
+                                        "Observations": [
+                                            {
+                                                "Depth": 0,
+                                                "RevolutionCount": 0,
+                                                "ObservationInterval": 0,
+                                                "Velocity": 0,
+                                                "IsVelocityEstimated": false
+                                            }
+                                        ],
+                                        "MeanVelocity": 0
+                                    },
+                                    "SequenceNumber": 22,
+                                    "VerticalType": "EndEdgeNoWaterAfter",
+                                    "FlowDirection": "Normal",
+                                    "TaglinePosition": 35,
+                                    "SoundedDepth": 0,
+                                    "IsSoundedDepthEstimated": false,
+                                    "MeasurementTime": "2019-03-25T14:55:00.0000000-08:00",
+                                    "ObliqueFlowCorrection": 0,
+                                    "Comments": null,
+                                    "EffectiveDepth": 0
+                                }
+                            ],
+                            "MeasurementStartTime": "2019-03-14T13:11:00.0000000-08:00",
+                            "MeasurementEndTime": "2019-03-14T14:55:00.0000000-08:00",
+                            "MeasurementPeriod": {
+                                "Start": "2019-03-14T13:11:00.0000000-08:00",
+                                "End": "2019-03-14T14:55:00.0000000-08:00"
+                            },
+                            "Party": null,
+                            "ChannelName": "Main",
+                            "Discharge": {
+                                "Value": 17.1,
+                                "UnitId": "m^3/s"
+                            },
+                            "Comments": "+++++++++\nMid-section - Current Meter - Price AA - 6-060",
+                            "DistanceUnitId": "m"
+                        }
+                    ]
+                }
+            ],
+            "ControlConditions": [
+                
+            ],
+            "CrossSectionSurveys": [
+                
+            ],
+            "LevelSurveys": [
+                
+            ],
+            "Readings": [
+                
+            ],
+            "Calibrations": [
+                
+            ],
+            "Inspections": [
+                
+            ],
+            "GageZeroFlowActivities": [
+                
+            ]
+        }
+    ]
+}

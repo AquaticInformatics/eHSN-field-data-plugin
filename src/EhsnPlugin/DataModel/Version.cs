@@ -22,13 +22,13 @@ namespace EhsnPlugin.DataModel
             if (!match.Success)
                 throw new ArgumentException($"'{version}' is not a valid eHSN version identifier.");
 
-           _versionComponents = match.Groups["components"].Value
+            _versionComponents = match.Groups["components"].Value
                 .Split('.')
                 .Select(int.Parse)
                 .ToArray();
 
-           _suffix = match.Groups["suffix"].Value;
-           _version = version;
+            _suffix = match.Groups["suffix"].Value;
+            _version = version;
         }
 
         private static readonly Regex VersionRegex = new Regex(@"^v?(?<components>(\d+)(\.\d+)*)(?<suffix>.*)$");

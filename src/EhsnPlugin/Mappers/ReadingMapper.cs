@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using EhsnPlugin.DataModel;
 using EhsnPlugin.Helpers;
 using EhsnPlugin.SystemCode;
 using FieldDataPluginFramework;
@@ -42,7 +41,7 @@ namespace EhsnPlugin.Mappers
 
         private void AddSensorReadings(List<Reading> readings)
         {
-            var sensorRefs = _eHsn.MeasResults?.SensorRefs ?? new EHSNMeasResultsSensorRef[0];
+            var sensorRefs = _eHsn.MeasResults?.SensorRefs ?? Array.Empty<EHSNMeasResultsSensorRef>();
 
             foreach (var sensor in sensorRefs)
             {
@@ -93,7 +92,7 @@ namespace EhsnPlugin.Mappers
             if (time != DateTimeOffset.MinValue)
                 return time;
 
-            var stageMeasRows = _eHsn.StageMeas?.StageMeasTable ?? new EHSNStageMeasStageMeasRow[0];
+            var stageMeasRows = _eHsn.StageMeas?.StageMeasTable ?? Array.Empty<EHSNStageMeasStageMeasRow>();
 
             var times = stageMeasRows
                 .Select(row => TimeHelper.ParseTimeOrMinValue(row.time, VisitDate, LocationInfo.UtcOffset))
@@ -107,7 +106,7 @@ namespace EhsnPlugin.Mappers
 
         private void AddGageHeightReadings(List<Reading> readings)
         {
-            var stageMeasRows = _eHsn.StageMeas?.StageMeasTable ?? new EHSNStageMeasStageMeasRow[0];
+            var stageMeasRows = _eHsn.StageMeas?.StageMeasTable ?? Array.Empty<EHSNStageMeasStageMeasRow>();
 
             foreach (var row in stageMeasRows)
             {
@@ -216,8 +215,8 @@ namespace EhsnPlugin.Mappers
 
             AddLoggerReading(readings, time, hg1, gaugeCorrection1, hg1Header, sensorResetCorrection, srcAction, wl1, wl2);
             AddLoggerReading(readings, time, hg2, gaugeCorrection2, hg2Header, sensorResetCorrection, srcAction, wl1, wl2);
-            AddWaterLevelReading(readings, time, wl1, gaugeCorrectionWL1, wl1Header, hg1, hg2, sensorResetCorrection, srcAction, readingType, surge);
-            AddWaterLevelReading(readings, time, wl2, gaugeCorrectionWL2, wl2Header, hg1, hg2, sensorResetCorrection, srcAction, readingType, surge);
+            AddWaterLevelReading(readings, time, wl1, gaugeCorrectionWL1, wl1Header, hg1, hg2, srcAction, readingType, surge);
+            AddWaterLevelReading(readings, time, wl2, gaugeCorrectionWL2, wl2Header, hg1, hg2, srcAction, readingType, surge);
         }
 
         private void AddWaterLevelReading(
@@ -228,16 +227,13 @@ namespace EhsnPlugin.Mappers
             string wlHeader,
             double? hg1,
             double? hg2,
-            double? sensorResetCorrection,
             string srcAction,
             string readingType,
             double? surge)
         {
             if (!wl.HasValue) return;
 
-
             var hgComments = GetHgComment(gaugeCorrection, hg1, hg2, surge);
-            
 
             var reading = AddReading(readings, time, Parameters.StageHg, Units.DistanceUnitId, wl.ToString());
 

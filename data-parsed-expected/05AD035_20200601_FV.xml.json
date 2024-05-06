@@ -1,0 +1,566 @@
+{
+    "FrameworkAssemblyQualifiedName": "FieldDataPluginFramework.IFieldDataPlugin, FieldDataPluginFramework, Version=2.14.0.0, Culture=neutral, PublicKeyToken=null",
+    "PluginAssemblyQualifiedTypeName": "EhsnPlugin.Plugin, EhsnPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "AppendedVisits": [
+        {
+            "LocationInfo": {
+                "LocationId": 0,
+                "LocationIdentifier": "05AD035",
+                "LocationName": "DummyNameFor-05AD035",
+                "UniqueId": "00000000-0000-0000-0000-000000000000",
+                "UtcOffset": "-PT8H"
+            },
+            "LocationId": 0,
+            "FieldVisitId": 0,
+            "StartDate": "2020-06-01T08:45:00.0000000-08:00",
+            "EndDate": "2020-06-01T09:35:00.0000000-08:00",
+            "Party": "O'Connor",
+            "FieldVisitIdentifier": "05AD035:06/01/2020 08:45:00 -08:00",
+            "FieldVisitDetails": {
+                "StartDate": "2020-06-01T08:45:00.0000000-08:00",
+                "EndDate": "2020-06-01T09:35:00.0000000-08:00",
+                "FieldVisitPeriod": {
+                    "Start": "2020-06-01T08:45:00.0000000-08:00",
+                    "End": "2020-06-01T09:35:00.0000000-08:00"
+                },
+                "Party": "O'Connor",
+                "Comments": "== Station Health Remarks:\nStation in good health.\nDesiccant colour looks good. Still very purple.\n==\nDownloaded Data: From 2020/05/01 To 2020/06/01\n== Stage Activity Summary Remarks:\nChannel clear. Grass on edges of channel. No weeds in gauge pool.\nUse 0.000m GC to ECG for 2020.\n==",
+                "Weather": "Cloud Cover: Partly Cloudy\nPrecipitation: No Precipitation\nWind Conditions: Light Wind\nWind Speed: 15.0",
+                "CollectionAgency": null,
+                "CompletedVisitActivities": null
+            },
+            "DischargeActivities": [
+                {
+                    "MeasurementStartTime": "2020-06-01T08:46:00.0000000-08:00",
+                    "MeasurementEndTime": "2020-06-01T09:03:00.0000000-08:00",
+                    "MeasurementPeriod": {
+                        "Start": "2020-06-01T08:46:00.0000000-08:00",
+                        "End": "2020-06-01T09:03:00.0000000-08:00"
+                    },
+                    "Party": "O'Connor",
+                    "MeasurementId": null,
+                    "MeanIndexVelocity": null,
+                    "Discharge": {
+                        "Value": 0.038,
+                        "UnitId": "m^3/s"
+                    },
+                    "Comments": "Good wade section 50m downstream of gauge in confined section.. Narrow width\nChannel clear. Grass on edges of channel. No weeds in gauge pool.\nUse 0.000m GC to ECG for 2020.\nMid-section",
+                    "ShowInRatingDevelopment": true,
+                    "ShowInDataCorrection": true,
+                    "PreventAutomaticPublishing": false,
+                    "AdjustmentType": null,
+                    "AdjustmentAmount": null,
+                    "ReasonForAdjustment": null,
+                    "ManuallyCalculatedMeanGageHeight": {
+                        "Value": 0.59,
+                        "UnitId": "m"
+                    },
+                    "GageHeightAdjustmentAmount": -0.002,
+                    "MeanGageHeightDifferenceDuringVisit": null,
+                    "MeanGageHeightDurationHours": null,
+                    "MeasurementGrade": null,
+                    "QualityAssuranceComments": "Good wade section 50m downstream of gauge in confined section.. Narrow width\nChannel clear. Grass on edges of channel. No weeds in gauge pool.\nUse 0.000m GC to ECG for 2020.\nMid-section",
+                    "GageHeightComments": "\nCorrected M.G.H. includes Sensor Reset Correction of -0.002 and Gage Correction of 0.000 applied to Weighted M.G.H of 0.590",
+                    "GageHeightReferencePointName": null,
+                    "ActiveUncertaintyType": "Quantitative",
+                    "QuantitativeUncertainty": 6.02,
+                    "QualitativeUncertainty": null,
+                    "MeasurementTime": null,
+                    "GageHeightMeasurements": [
+                        
+                    ],
+                    "ChannelMeasurements": [
+                        {
+                            "DischargeMethod": "MidSection",
+                            "StartPoint": "LeftEdgeOfWater",
+                            "VelocityObservationMethod": "Unknown",
+                            "MeterSuspension": "Unknown",
+                            "Width": {
+                                "Value": 1.5,
+                                "UnitId": "m"
+                            },
+                            "AreaUnitId": "m^2",
+                            "Area": {
+                                "Value": 0.335,
+                                "UnitId": "m^2"
+                            },
+                            "VelocityUnitId": "m/s",
+                            "DeploymentMethod": "Wading",
+                            "MeterCalibration": {
+                                "SerialNumber": "FT2H1802037",
+                                "Manufacturer": "SonTek",
+                                "Model": "FlowTracker",
+                                "MeterType": "Adv",
+                                "Configuration": "",
+                                "FirmwareVersion": "1.30",
+                                "SoftwareVersion": "1.7",
+                                "Equations": [
+                                    
+                                ]
+                            },
+                            "VelocityAverage": {
+                                "Value": 0.114,
+                                "UnitId": "m/s"
+                            },
+                            "NumberOfVerticals": null,
+                            "Verticals": [
+                                
+                            ],
+                            "MeasurementStartTime": "2020-06-01T08:46:00.0000000-08:00",
+                            "MeasurementEndTime": "2020-06-01T09:03:00.0000000-08:00",
+                            "MeasurementPeriod": {
+                                "Start": "2020-06-01T08:46:00.0000000-08:00",
+                                "End": "2020-06-01T09:03:00.0000000-08:00"
+                            },
+                            "Party": "O'Connor",
+                            "ChannelName": "Main",
+                            "Discharge": {
+                                "Value": 0.038,
+                                "UnitId": "m^3/s"
+                            },
+                            "Comments": "Good wade section 50m downstream of gauge in confined section.. Narrow width\n+++++++++\nMid-section - Wading - ADV - SonTek - FlowTracker - FT2H1802037 - Tagline - 50.0",
+                            "DistanceUnitId": "m"
+                        }
+                    ]
+                }
+            ],
+            "ControlConditions": [
+                {
+                    "Party": "O'Connor",
+                    "ControlCode": null,
+                    "ConditionType": {
+                        "IdOrDisplayName": "Clear"
+                    },
+                    "DistanceToGage": null,
+                    "ControlCleaned": "Unknown",
+                    "DateCleaned": null,
+                    "Comments": "Control clear. some grass on edges"
+                }
+            ],
+            "CrossSectionSurveys": [
+                
+            ],
+            "LevelSurveys": [
+                {
+                    "Party": "O'Connor",
+                    "Comments": "Use 0.000m GC to ECG for 2020.\nReset ECG tro 0.000m",
+                    "OriginReferencePointName": "*S.B.M. #1",
+                    "Method": null,
+                    "LevelSurveyMeasurements": [
+                        {
+                            "ReferencePointName": "*S.B.M. #1",
+                            "MeasurementTime": "2020-06-01T09:35:00.0000000-08:00",
+                            "MeasuredElevation": 30.48,
+                            "Comments": null
+                        },
+                        {
+                            "ReferencePointName": "S.B.M. #2",
+                            "MeasurementTime": "2020-06-01T09:35:00.0000000-08:00",
+                            "MeasuredElevation": 29.933,
+                            "Comments": null
+                        },
+                        {
+                            "ReferencePointName": "S.B.M. 93-1",
+                            "MeasurementTime": "2020-06-01T09:35:00.0000000-08:00",
+                            "MeasuredElevation": 29.867,
+                            "Comments": null
+                        }
+                    ],
+                    "SurveyPeriod": {
+                        "Start": "2020-06-01T09:35:00.0000000-08:00",
+                        "End": "2020-06-01T09:35:00.0000000-08:00"
+                    }
+                }
+            ],
+            "Readings": [
+                {
+                    "Value": 15,
+                    "AdjustmentAmount": null,
+                    "UnitId": "km/hr",
+                    "ParameterId": "US",
+                    "Method": "DefaultNone",
+                    "Measurement": {
+                        "Value": 15,
+                        "UnitId": "km/hr"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-06-01T08:54:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": null,
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 14,
+                    "AdjustmentAmount": null,
+                    "UnitId": "V",
+                    "ParameterId": "YBL",
+                    "Method": "DefaultNone",
+                    "Measurement": {
+                        "Value": 14,
+                        "UnitId": "V"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-06-01T08:54:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": null,
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 0.591,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGLOGGER",
+                    "Measurement": {
+                        "Value": 0.591,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-06-01T09:00:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": "WL Source: HG\r\nGC: 0.000\r\nSRC: -0.002\r\nFound (FD)",
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 0.589,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGDWL",
+                    "Measurement": {
+                        "Value": 0.589,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Routine",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-06-01T09:00:00.0000000-08:00",
+                    "Publish": true,
+                    "SubLocation": null,
+                    "Comments": "HG: 0.591\r\nFound (FD)",
+                    "ReferencePointName": "ECG",
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 0.591,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGLOGGER",
+                    "Measurement": {
+                        "Value": 0.591,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-06-01T09:00:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": "WL Source: HG2\r\nSRC: -0.002\r\nFound (FD)",
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 0.589,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGDWL",
+                    "Measurement": {
+                        "Value": 0.589,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Routine",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-06-01T09:00:00.0000000-08:00",
+                    "Publish": true,
+                    "SubLocation": null,
+                    "Comments": "HG2: 0.591\r\nFound (FD)",
+                    "ReferencePointName": "ECG",
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 0.589,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGLOGGER",
+                    "Measurement": {
+                        "Value": 0.589,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-06-01T09:05:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": "WL Source: HG\r\nGC: 0.000\r\nReset (RS)",
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 0.589,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGDWL",
+                    "Measurement": {
+                        "Value": 0.589,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Routine",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-06-01T09:05:00.0000000-08:00",
+                    "Publish": true,
+                    "SubLocation": null,
+                    "Comments": "HG: 0.589\r\nReset (RS)",
+                    "ReferencePointName": "ECG",
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 0.59,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGLOGGER",
+                    "Measurement": {
+                        "Value": 0.59,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-06-01T08:45:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": "WL Source: HG\r\nGC: 0.000",
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 0.59,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGLOGGER",
+                    "Measurement": {
+                        "Value": 0.59,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-06-01T08:50:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": "WL Source: HG\r\nGC: 0.000",
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 0.591,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGLOGGER",
+                    "Measurement": {
+                        "Value": 0.591,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-06-01T08:55:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": "WL Source: HG\r\nGC: 0.000",
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 0.589,
+                    "AdjustmentAmount": null,
+                    "UnitId": "m",
+                    "ParameterId": "HG",
+                    "Method": "HGLOGGER",
+                    "Measurement": {
+                        "Value": 0.589,
+                        "UnitId": "m"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-06-01T09:00:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": "WL Source: HG\r\nGC: 0.000",
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 13.4,
+                    "AdjustmentAmount": null,
+                    "UnitId": "degC",
+                    "ParameterId": "TW",
+                    "Method": "DefaultNone",
+                    "Measurement": {
+                        "Value": 13.4,
+                        "UnitId": "degC"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-06-01T08:54:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": null,
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                },
+                {
+                    "Value": 10,
+                    "AdjustmentAmount": null,
+                    "UnitId": "degC",
+                    "ParameterId": "TA",
+                    "Method": "DefaultNone",
+                    "Measurement": {
+                        "Value": 10,
+                        "UnitId": "degC"
+                    },
+                    "Uncertainty": null,
+                    "ReadingType": "Unknown",
+                    "MeasurementDevice": null,
+                    "DateTimeOffset": "2020-06-01T08:54:00.0000000-08:00",
+                    "Publish": false,
+                    "SubLocation": null,
+                    "Comments": null,
+                    "ReferencePointName": null,
+                    "UseLocationDatumAsReference": false,
+                    "ReadingQualifier": null,
+                    "ReadingQualifiers": [
+                        
+                    ],
+                    "GroundWaterMeasurementDetails": null,
+                    "SensorUniqueId": null,
+                    "Grade": null
+                }
+            ],
+            "Calibrations": [
+                
+            ],
+            "Inspections": [
+                
+            ],
+            "GageZeroFlowActivities": [
+                
+            ]
+        }
+    ]
+}

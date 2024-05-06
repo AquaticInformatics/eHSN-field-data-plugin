@@ -4,7 +4,7 @@ using EhsnPlugin.DataModel;
 
 namespace EhsnPlugin.Mappers
 {
-    public class MeanGageHeightSelectorMapper
+    public static class MeanGageHeightSelectorMapper
     {
         private static readonly Regex SelectedColumnRegex = new Regex(@"\(\s*(?<name>.+)\s*\)\s*$");
 

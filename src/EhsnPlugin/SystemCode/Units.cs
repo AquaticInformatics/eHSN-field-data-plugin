@@ -9,7 +9,6 @@ namespace EhsnPlugin.SystemCode
         public static string VelocityUnitId => "m/s";
         public static string DischargeUnitId => "m^3/s";
         public static string TemperatureUnitId => "degC";
-        public static string VoltageUnitId => "V";
 
         public static UnitSystem MetricUnitSystem => new UnitSystem
         {

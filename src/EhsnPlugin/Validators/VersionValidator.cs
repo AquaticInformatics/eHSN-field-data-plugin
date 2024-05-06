@@ -5,7 +5,6 @@ namespace EhsnPlugin.Validators
 {
     public class VersionValidator
     {
-        private Config Config { get; }
         private Version MinVersion { get; } = DefaultVersion;
         private Version MaxVersion { get; } = DefaultVersion;
 
@@ -13,14 +12,12 @@ namespace EhsnPlugin.Validators
 
         public VersionValidator(Config config)
         {
-            Config = config;
-
-            var minVersion = Config.MinVersion;
+            var minVersion = config.MinVersion;
 
             if (!string.IsNullOrWhiteSpace(minVersion))
                 MinVersion = Version.Create(minVersion.Trim());
 
-            var maxVersion = Config.MaxVersion;
+            var maxVersion = config.MaxVersion;
 
             if (!string.IsNullOrWhiteSpace(maxVersion))
                 MaxVersion = Version.Create(maxVersion.Trim());
