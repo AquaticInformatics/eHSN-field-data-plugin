@@ -14,7 +14,8 @@
     "Vegetation": "Vegetation",
     "Fill": "Fill",
     "Scour": "Scour",
-    "Ice": "Ice"
+    "Ice": "Ice",
+    "Beaver Affected":  "Beaver Affected"
   },
   "KnownTopEstimateMethods": {
     "Power": "POWR",
