@@ -143,6 +143,8 @@
                 <xs:element name="orificePurged" type="xs:string" />
                 <xs:element name="downloadedProgram" type="xs:string" />
                 <xs:element name="downloadedData" type="xs:string" />
+                <xs:element name="harnessAssessment" type="xs:string" />
+                <xs:element name="cablewayAssessment" type="xs:string" />
                 <xs:element name="dataPeriodStart" type="xs:string" />
                 <xs:element name="dataPeriodEnd" type="xs:string" />
                 <xs:element name="stationHealthRemark" type="xs:string" />
@@ -432,6 +434,31 @@
                 <xs:element name="siteNotes" type="xs:string" />
                 <xs:element name="planNotes" type="xs:string" />
               </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="InnovTech">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="dependencyType" type="xs:string" />
+                <xs:element name="monitoringType" type="xs:string" />
+                <xs:element name="InnovTechTable">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element maxOccurs="unbounded" name="InnovTechTableRow">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element name="label" type="xs:string" />
+                            <xs:element name="text" type="xs:string" />
+                          </xs:sequence>
+                          <xs:attribute name="row" type="xs:unsignedByte" use="required" />
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="notes" type="xs:string" />
+              </xs:sequence>
+              <xs:attribute name="empty" type="xs:string" use="required" />
             </xs:complexType>
           </xs:element>
           <xs:element name="MovingBoatMeas">

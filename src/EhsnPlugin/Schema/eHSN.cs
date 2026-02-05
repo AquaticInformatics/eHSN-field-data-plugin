@@ -43,6 +43,8 @@ public partial class EHSN {
     private EHSNLevelNotes levelNotesField;
     
     private EHSNFieldReview fieldReviewField;
+
+    private EHSNInnovTech innovTechField;
     
     private EHSNMovingBoatMeas movingBoatMeasField;
     
@@ -149,6 +151,16 @@ public partial class EHSN {
         }
         set {
             this.fieldReviewField = value;
+        }
+    }
+
+    /// <remarks/>
+    public EHSNInnovTech InnovTech {
+        get {
+            return this.innovTechField;
+        }
+        set {
+            this.innovTechField = value;
         }
     }
     
@@ -1136,6 +1148,10 @@ public partial class EHSNEnvCond {
     private string downloadedProgramField;
     
     private string downloadedDataField;
+
+    private string harnessAssessmentField;
+
+    private string cablewayAssessmentField;
     
     private string dataPeriodStartField;
     
@@ -1400,6 +1416,26 @@ public partial class EHSNEnvCond {
         }
         set {
             this.downloadedDataField = value;
+        }
+    }
+
+    /// <remarks/>
+    public string harnessAssessment {
+        get {
+            return this.harnessAssessmentField;
+        }
+        set {
+            this.harnessAssessmentField = value;
+        }
+    }
+
+    /// <remarks/>
+    public string cablewayAssessment {
+        get {
+            return this.cablewayAssessmentField;
+        }
+        set {
+            this.cablewayAssessmentField = value;
         }
     }
     
@@ -3154,6 +3190,123 @@ public partial class EHSNFieldReviewFieldReviewTableRow {
         }
         set {
             this.reviewedField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public string text {
+        get {
+            return this.textField;
+        }
+        set {
+            this.textField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public byte row {
+        get {
+            return this.rowField;
+        }
+        set {
+            this.rowField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.7.3081.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+public partial class EHSNInnovTech {
+        
+    private string dependencyTypeField;
+    
+    private string monitoringTypeField;
+    
+    private EHSNInnovTechTableRow[] innovTechTableField;
+    
+    private string notesField;
+
+    private string emptyField;
+    
+    /// <remarks/>
+    public string dependencyType {
+        get {
+            return this.dependencyTypeField;
+        }
+        set {
+            this.dependencyTypeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public string monitoringType {
+        get {
+            return this.monitoringTypeField;
+        }
+        set {
+            this.monitoringTypeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayItemAttribute("InnovTechTableRow", IsNullable=false)]
+    public EHSNInnovTechTableRow[] InnovTechTable {
+        get {
+            return this.innovTechTableField;
+        }
+        set {
+            this.innovTechTableField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public string notes {
+        get {
+            return this.notesField;
+        }
+        set {
+            this.notesField = value;
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string empty {
+        get {
+            return this.emptyField;
+        }
+        set {
+            this.emptyField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.7.3081.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+public partial class EHSNInnovTechTableRow {
+    
+    private string labelField;
+    
+    private string textField;
+    
+    private byte rowField;
+    
+    /// <remarks/>
+    public string label {
+        get {
+            return this.labelField;
+        }
+        set {
+            this.labelField = value;
         }
     }
     

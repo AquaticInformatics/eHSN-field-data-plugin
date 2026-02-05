@@ -266,7 +266,25 @@ namespace EhsnPlugin.Mappers
         }
 
         private OtherDischargeSection CreateOtherMeasurement(DischargeActivity dischargeActivity, double discharge)
-        {
+        {   
+            var innovTechResults = new List<string>();
+            var innovTechRows = _ehsn.InnovTech?.InnovTechTable ?? Array.Empty<EHSNInnovTechTableRow>();
+            foreach (var row in innovTechRows)
+            {
+                if (!string.IsNullOrEmpty(row.text))
+                {
+                    innovTechResults.Add(row.label);
+                    innovTechResults.Add(row.text);
+                    innovTechResults.Add("-----");
+                }
+            }
+            var innovTechComment = _ehsn.InnovTech?.notes ?? string.Empty;
+            if (!string.IsNullOrEmpty(innovTechComment))
+            {
+                innovTechResults.Add("Comment:");
+                innovTechResults.Add(innovTechComment);
+            }
+
             return new OtherDischargeSection(
                 dischargeActivity.MeasurementPeriod,
                 Config.DefaultChannelName,
@@ -283,7 +301,8 @@ namespace EhsnPlugin.Mappers
                     {
                     _ehsn.InstrumentDeployment?.GeneralInfo?.position,
                     _ehsn.InstrumentDeployment?.GeneralInfo?.gauge1
-                    }.Where(s => !string.IsNullOrWhiteSpace(s)))
+                    }.Where(s => !string.IsNullOrWhiteSpace(s))),
+                    "+++++++++", string.Join("\n", innovTechResults)
                 }.Where(s => !string.IsNullOrWhiteSpace(s)))
             };
         }

@@ -206,6 +206,12 @@ namespace EhsnPlugin.Mappers
             if (_eHsn.EnvCond?.downloadedData.ToBoolean() ?? false)
                 AddCommentLine(stringBuilder, "Downloaded Data", $"From {_eHsn.EnvCond?.dataPeriodStart} To {_eHsn.EnvCond?.dataPeriodEnd}");
 
+            if (_eHsn.EnvCond?.harnessAssessment.ToBoolean() ?? false)
+                AddCommentLine(stringBuilder, "Pre-Use Harness Assessment", string.Empty);
+
+            if (_eHsn.EnvCond?.cablewayAssessment.ToBoolean() ?? false)
+                AddCommentLine(stringBuilder, "Pre-Use Cableway Assessment", string.Empty);
+
             AddCommentLine(stringBuilder, "Stage Activity Summary Remarks", _eHsn.StageMeas?.stageRemark);
             AddCommentLine(stringBuilder, "Field Review Site Notes", _eHsn.FieldReview?.siteNotes);
             AddCommentLine(stringBuilder, "Field Review Plan Notes", _eHsn.FieldReview?.planNotes);
