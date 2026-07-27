@@ -82,8 +82,7 @@ namespace EhsnPlugin.Mappers
 
                 levelSurveyTime ??= GetLevelSurveyTime(eHsn);
 
-                var distinctRows = measuredRows
-                    .DistinctBy(r => new {r.station})
+                var distinctRows = MoreEnumerable.DistinctBy(measuredRows, r => new {r.station})
                     .ToList();
 
                 var skippedRows = measuredRows
