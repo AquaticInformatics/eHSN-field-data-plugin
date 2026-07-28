@@ -55,19 +55,22 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <PluginPackagerExe Condition="'$(TargetFramework)' == 'net472'">$(NuGetPackageRoot)\aquarius.fielddataframework\23.4.2\tools\PluginPackager.exe</PluginPackagerExe>
+    <!-- tools\ (net472) vs tools\net10.0\ (net10.0) — asymmetric layout in the NuGet package itself. -->
+    <AquariusToolsSubfolder Condition="'$(TargetFramework)' == 'net10.0'">net10.0\</AquariusToolsSubfolder>
     <!-- TODO: once Aquarius.FieldDataFramework ships a dual-targeted (net472+net10.0) NuGet package,
-         this net10.0 path should point at the real published tools\net10.0 folder instead of a manually-copied local one. -->
-    <PluginPackagerExe Condition="'$(TargetFramework)' == 'net10.0'">$(NuGetPackageRoot)\aquarius.fielddataframework\23.4.2\tools\net10.0\PluginPackager.exe</PluginPackagerExe>
-    <PluginTesterExe Condition="'$(TargetFramework)' == 'net472'">$(NuGetPackageRoot)\aquarius.fielddataframework\23.4.2\tools\PluginTester.exe</PluginTesterExe>
-    <PluginTesterExe Condition="'$(TargetFramework)' == 'net10.0'">$(NuGetPackageRoot)\aquarius.fielddataframework\23.4.2\tools\net10.0\PluginTester.exe</PluginTesterExe>
+         the net10.0 path should point at the real published tools\net10.0 folder instead of a manually-copied local one. -->
+    <PluginPackagerExe>$(NuGetPackageRoot)\aquarius.fielddataframework\23.4.2\tools\$(AquariusToolsSubfolder)PluginPackager.exe</PluginPackagerExe>
+    <PluginTesterExe>$(NuGetPackageRoot)\aquarius.fielddataframework\23.4.2\tools\$(AquariusToolsSubfolder)PluginTester.exe</PluginTesterExe>
     <PackagedPluginName Condition="'$(TargetFramework)' == 'net472'">$(AssemblyName).plugin</PackagedPluginName>
     <PackagedPluginName Condition="'$(TargetFramework)' == 'net10.0'">$(AssemblyName)-net10.plugin</PackagedPluginName>
   </PropertyGroup>
 
-  <Target Name="PackageAndTestPlugin" AfterTargets="Build" Condition="Exists('$(PluginPackagerExe)') And Exists('$(PluginTesterExe)')">
+  <!-- '$(TargetFramework)' != '' guards against the outer multi-targeting dispatch build running with an empty $(TargetPath). -->
+  <Target Name="PackageAndTestPlugin" AfterTargets="Build" Condition="'$(TargetFramework)' != '' And Exists('$(PluginPackagerExe)') And Exists('$(PluginTesterExe)')">
     <Exec Command="&quot;$(PluginPackagerExe)&quot; &quot;$(TargetPath)&quot; /OutputPath=&quot;$(ProjectDir)deploy\$(Configuration)\$(PackagedPluginName)&quot; /Description=&quot;Imports eHSN XML files into AQTS field visits&quot;" />
-    <Exec Command="&quot;$(PluginTesterExe)&quot; /Plugin=&quot;$(TargetPath)&quot; /Data=&quot;$(SolutionDir)..\data\*.xml&quot;" />
+    <!-- $(MSBuildProjectDirectory), not $(SolutionDir), so this also works building the .csproj directly
+         (e.g. `dotnet build src\EhsnPlugin\EhsnPlugin.csproj`) without a solution context. -->
+    <Exec Command="&quot;$(PluginTesterExe)&quot; /Plugin=&quot;$(TargetPath)&quot; /Data=&quot;$(MSBuildProjectDirectory)\..\..\data\*.xml&quot;" />
   </Target>
 </Project>
 
