@@ -8,25 +8,19 @@
     <PlatformTarget>x64</PlatformTarget>
     <LangVersion>latest</LangVersion>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <!-- NU1702: FieldDataPluginFramework.dll is a net472-only assembly referenced directly during migration — expected and acceptable -->
+    <!-- NU1702: NuGet resolves against the framework's stated lib\net10.0 (there isn't a
+         separate exact-match asset), which is expected here — the same net472 binary is
+         republished under lib\net10.0 since it loads fine in .NET 10. -->
     <NoWarn>$(NoWarn);NU1702</NoWarn>
-    <AquariusFieldDataFrameworkVersion>26.3.2</AquariusFieldDataFrameworkVersion>
+    <AquariusFieldDataFrameworkVersion>26.3.3</AquariusFieldDataFrameworkVersion>
   </PropertyGroup>
 
   <ItemGroup>
-	  <!-- 'Private' needed for net10 - FieldDataPluginFramework already loaded into the Default
-         AssemblyLoadContext, a second reference fails with an InvalidCastException. -->
-    <Reference Include="FieldDataPluginFramework" Condition="'$(TargetFramework)' == 'net10.0'">
-      <HintPath>$(NuGetPackageRoot)\aquarius.fielddataframework\$(AquariusFieldDataFrameworkVersion)\lib\net472\FieldDataPluginFramework.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
     <PackageReference Include="Aquarius.FieldDataFramework" Version="$(AquariusFieldDataFrameworkVersion)" Condition="'$(TargetFramework)' == 'net472'" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
-    <!-- Forces restore of the net10-only global-packages folder copy the HintPath above
-         depends on, without contributing compile/runtime assets for this TFM. -->
-    <PackageReference Include="Aquarius.FieldDataFramework" Version="$(AquariusFieldDataFrameworkVersion)" ExcludeAssets="all" GeneratePathProperty="true" />
+    <!-- ExcludeAssets="runtime" keeps this a compile-time-only reference for net10.0 — the
+         framework dll is already loaded into the Default AssemblyLoadContext by the host;
+         copying a second private copy to bin\ causes an InvalidCastException. -->
+    <PackageReference Include="Aquarius.FieldDataFramework" Version="$(AquariusFieldDataFrameworkVersion)" ExcludeAssets="runtime" Condition="'$(TargetFramework)' == 'net10.0'" />
   </ItemGroup>
 
   <ItemGroup>
@@ -62,12 +56,8 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <!-- tools\ (net472) vs tools\net10.0\ (net10.0) — asymmetric layout in the NuGet package itself. -->
-    <AquariusToolsSubfolder Condition="'$(TargetFramework)' == 'net10.0'">net10.0\</AquariusToolsSubfolder>
-    <!-- TODO: once Aquarius.FieldDataFramework ships a dual-targeted (net472+net10.0) NuGet package,
-         the net10.0 path should point at the real published tools\net10.0 folder instead of a manually-copied local one. -->
-    <PluginPackagerExe>$(NuGetPackageRoot)\aquarius.fielddataframework\$(AquariusFieldDataFrameworkVersion)\tools\$(AquariusToolsSubfolder)PluginPackager.exe</PluginPackagerExe>
-    <PluginTesterExe>$(NuGetPackageRoot)\aquarius.fielddataframework\$(AquariusFieldDataFrameworkVersion)\tools\$(AquariusToolsSubfolder)PluginTester.exe</PluginTesterExe>
+    <PluginPackagerExe>$(NuGetPackageRoot)\aquarius.fielddataframework\$(AquariusFieldDataFrameworkVersion)\tools\$(TargetFramework)\PluginPackager.exe</PluginPackagerExe>
+    <PluginTesterExe>$(NuGetPackageRoot)\aquarius.fielddataframework\$(AquariusFieldDataFrameworkVersion)\tools\$(TargetFramework)\PluginTester.exe</PluginTesterExe>
     <PackagedPluginName Condition="'$(TargetFramework)' == 'net472'">$(AssemblyName).plugin</PackagedPluginName>
     <PackagedPluginName Condition="'$(TargetFramework)' == 'net10.0'">$(AssemblyName)-net10.plugin</PackagedPluginName>
   </PropertyGroup>
