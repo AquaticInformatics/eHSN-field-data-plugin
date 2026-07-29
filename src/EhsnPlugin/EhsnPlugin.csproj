@@ -10,16 +10,23 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <!-- NU1702: FieldDataPluginFramework.dll is a net472-only assembly referenced directly during migration — expected and acceptable -->
     <NoWarn>$(NoWarn);NU1702</NoWarn>
+    <AquariusFieldDataFrameworkVersion>26.3.2</AquariusFieldDataFrameworkVersion>
   </PropertyGroup>
 
   <ItemGroup>
 	  <!-- 'Private' needed for net10 - FieldDataPluginFramework already loaded into the Default
          AssemblyLoadContext, a second reference fails with an InvalidCastException. -->
     <Reference Include="FieldDataPluginFramework" Condition="'$(TargetFramework)' == 'net10.0'">
-      <HintPath>$(NuGetPackageRoot)\aquarius.fielddataframework\23.4.2\lib\net472\FieldDataPluginFramework.dll</HintPath>
+      <HintPath>$(NuGetPackageRoot)\aquarius.fielddataframework\$(AquariusFieldDataFrameworkVersion)\lib\net472\FieldDataPluginFramework.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <PackageReference Include="Aquarius.FieldDataFramework" Version="23.4.2" Condition="'$(TargetFramework)' == 'net472'" />
+    <PackageReference Include="Aquarius.FieldDataFramework" Version="$(AquariusFieldDataFrameworkVersion)" Condition="'$(TargetFramework)' == 'net472'" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <!-- Forces restore of the net10-only global-packages folder copy the HintPath above
+         depends on, without contributing compile/runtime assets for this TFM. -->
+    <PackageReference Include="Aquarius.FieldDataFramework" Version="$(AquariusFieldDataFrameworkVersion)" ExcludeAssets="all" GeneratePathProperty="true" />
   </ItemGroup>
 
   <ItemGroup>
@@ -59,8 +66,8 @@
     <AquariusToolsSubfolder Condition="'$(TargetFramework)' == 'net10.0'">net10.0\</AquariusToolsSubfolder>
     <!-- TODO: once Aquarius.FieldDataFramework ships a dual-targeted (net472+net10.0) NuGet package,
          the net10.0 path should point at the real published tools\net10.0 folder instead of a manually-copied local one. -->
-    <PluginPackagerExe>$(NuGetPackageRoot)\aquarius.fielddataframework\23.4.2\tools\$(AquariusToolsSubfolder)PluginPackager.exe</PluginPackagerExe>
-    <PluginTesterExe>$(NuGetPackageRoot)\aquarius.fielddataframework\23.4.2\tools\$(AquariusToolsSubfolder)PluginTester.exe</PluginTesterExe>
+    <PluginPackagerExe>$(NuGetPackageRoot)\aquarius.fielddataframework\$(AquariusFieldDataFrameworkVersion)\tools\$(AquariusToolsSubfolder)PluginPackager.exe</PluginPackagerExe>
+    <PluginTesterExe>$(NuGetPackageRoot)\aquarius.fielddataframework\$(AquariusFieldDataFrameworkVersion)\tools\$(AquariusToolsSubfolder)PluginTester.exe</PluginTesterExe>
     <PackagedPluginName Condition="'$(TargetFramework)' == 'net472'">$(AssemblyName).plugin</PackagedPluginName>
     <PackagedPluginName Condition="'$(TargetFramework)' == 'net10.0'">$(AssemblyName)-net10.plugin</PackagedPluginName>
   </PropertyGroup>
