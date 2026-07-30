@@ -1,4 +1,4 @@
-image: Visual Studio 2019
+image: Visual Studio 2026
 
 pull_requests:
   do_not_increment_build_number: true
@@ -36,12 +36,15 @@ artifacts:
   - path: src\EhsnPlugin\deploy\Release\EhsnPlugin.plugin
     name: ThePlugin
 
+  - path: src\EhsnPlugin\deploy\Release\EhsnPlugin-net10.plugin
+    name: ThePlugin-net10
+
 deploy:
   - provider: GitHub
     tag: v$(APPVEYOR_BUILD_VERSION)
     release: eHSN plugin $(APPVEYOR_BUILD_VERSION)
     description: ''
-    artifact: ThePlugin
+    artifact: ThePlugin, ThePlugin-net10
     auth_token: $(GITHUB_AUTH_TOKEN)
     on:
       is_not_pr: true
